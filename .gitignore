@@ -57,8 +57,6 @@ sysinfo.txt
 !/[Aa]ssets/Gizmos/FMOD/*
 !/[Aa]ssets/Editor Default Resources/FMOD/*
 /[Aa]ssets/Plugins/FMOD/Cache/*
-/[Aa]ssets/StreamingAssets/**/*.bank
-/[Aa]ssets/StreamingAssets/**/*.bank.meta
 fmod_editor.log
 /FMOD/.cache
 /FMOD/.user

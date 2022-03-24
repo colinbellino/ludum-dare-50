@@ -24,6 +24,7 @@ namespace Game.Core
 		[SerializeField] private RectTransform _titleWrapper;
 		[SerializeField] public Button StartButton;
 		[SerializeField] public Button OptionsButton;
+		[SerializeField] public Button CreditsButton;
 		[SerializeField] public Button QuitButton;
 		[Header("Level Selection")]
 		[SerializeField] public GameObject _levelSelectionRoot;
@@ -73,7 +74,7 @@ namespace Game.Core
 		}
 		public async UniTask HideTitle(float duration = 0.5f)
 		{
-			await _titleWrapper.DOLocalMoveY(128, duration / _game.State.TimeScaleCurrent);
+			await _titleWrapper.DOLocalMoveY(156, duration / _game.State.TimeScaleCurrent);
 			_titleRoot.SetActive(false);
 		}
 		public void SelectTitleOptionsGameObject()

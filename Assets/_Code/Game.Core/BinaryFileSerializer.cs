@@ -13,14 +13,20 @@ namespace Game.Core
 			stream.Close();
 		}
 
-		public static T Deserialize<T>(string path)
+		public static bool Deserialize<T>(string path, ref T data)
 		{
-			var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None);
-			var formatter = new BinaryFormatter();
-			var state = (T)formatter.Deserialize(stream);
-			stream.Close();
-
-			return state;
+			try
+			{
+				var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None);
+				var formatter = new BinaryFormatter();
+				data = (T)formatter.Deserialize(stream);
+				stream.Close();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 	}
 }

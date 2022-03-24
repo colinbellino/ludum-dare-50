@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 namespace Game.Core
@@ -7,18 +6,13 @@ namespace Game.Core
 	public class Save
 	{
 		private string _playerSettingsPath = Application.persistentDataPath + "/Settings.bin";
+		private string _playerSettingsKey = "PlayerSettings";
 		private string _playerSaveDataPath = Application.persistentDataPath + "/Save0.bin";
+		private string _playerDataKey = "PlayerSave0";
 
 		public PlayerSettings LoadPlayerSettings()
 		{
-			if (File.Exists(_playerSettingsPath))
-			{
-				UnityEngine.Debug.Log("Loading player settings: " + _playerSettingsPath);
-				return BinaryFileSerializer.Deserialize<PlayerSettings>(_playerSettingsPath);
-			}
-
-			UnityEngine.Debug.Log("Loading player settings: DEFAULT");
-			return new PlayerSettings
+			var data = new PlayerSettings
 			{
 				GameVolume = 1,
 				SoundVolume = 1,
@@ -28,33 +22,71 @@ namespace Game.Core
 				ResolutionHeight = Screen.currentResolution.height,
 				ResolutionRefreshRate = Screen.currentResolution.refreshRate,
 			};
+
+			if (Application.platform == RuntimePlatform.WebGLPlayer)
+			{
+				UnityEngine.Debug.Log("Loading player settings: " + _playerSettingsKey);
+				if (PlayerPrefsSerializer.Deserialize(_playerSettingsKey, ref data) == false)
+					UnityEngine.Debug.LogWarning("Couldn't load player settings.");
+			}
+			else
+			{
+				UnityEngine.Debug.Log("Loading player settings: " + _playerSettingsPath);
+				if (BinaryFileSerializer.Deserialize(_playerSettingsPath, ref data) == false)
+					UnityEngine.Debug.LogWarning("Couldn't load player settings.");
+			}
+
+			return data;
 		}
 
 		public void SavePlayerSettings(PlayerSettings data)
 		{
-			BinaryFileSerializer.Serialize(data, _playerSettingsPath);
-			UnityEngine.Debug.Log("Saving player settings: " + _playerSettingsPath);
+			if (Application.platform == RuntimePlatform.WebGLPlayer)
+			{
+				PlayerPrefsSerializer.Serialize(data, _playerSettingsKey);
+				UnityEngine.Debug.Log("Saving player settings: " + _playerSettingsKey);
+			}
+			else
+			{
+				BinaryFileSerializer.Serialize(data, _playerSettingsPath);
+				UnityEngine.Debug.Log("Saving player settings: " + _playerSettingsPath);
+			}
 		}
 
 		public PlayerSaveData LoadPlayerSaveData()
 		{
-			if (File.Exists(_playerSaveDataPath))
-			{
-				UnityEngine.Debug.Log("Loading player data: " + _playerSaveDataPath);
-				return BinaryFileSerializer.Deserialize<PlayerSaveData>(_playerSaveDataPath);
-			}
-
-			UnityEngine.Debug.Log("Loading player data: DEFAULT");
-			return new PlayerSaveData
+			var data = new PlayerSaveData
 			{
 				ClearedLevels = new HashSet<int>(),
 			};
+
+			if (Application.platform == RuntimePlatform.WebGLPlayer)
+			{
+				UnityEngine.Debug.Log("Loading player data: " + _playerDataKey);
+				if (PlayerPrefsSerializer.Deserialize(_playerDataKey, ref data) == false)
+					UnityEngine.Debug.LogWarning("Couldn't load player data.");
+			}
+			else
+			{
+				if (BinaryFileSerializer.Deserialize(_playerSaveDataPath, ref data) == false)
+					UnityEngine.Debug.LogWarning("Couldn't load player data.");
+			}
+
+			return data;
 		}
 
 		public void SavePlayerSaveData(PlayerSaveData data)
 		{
-			BinaryFileSerializer.Serialize(data, _playerSaveDataPath);
-			UnityEngine.Debug.Log("Saving player data: " + _playerSaveDataPath);
+			if (Application.platform == RuntimePlatform.WebGLPlayer)
+			{
+				BinaryFileSerializer.Serialize(data, _playerSaveDataPath);
+				UnityEngine.Debug.Log("Saving player data: " + _playerSaveDataPath);
+			}
+			else
+			{
+				PlayerPrefsSerializer.Serialize(data, _playerDataKey);
+				UnityEngine.Debug.Log("Saving player data: " + _playerDataKey);
+			}
 		}
 	}
 }

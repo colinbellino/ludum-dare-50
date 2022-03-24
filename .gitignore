@@ -64,3 +64,6 @@ fmod_editor.log
 
 # Addressables
 addressables_content_state.bin
+Assets/Settings/AddressableAssetsData/Windows
+Assets/Settings/AddressableAssetsData/OSX
+Assets/Settings/AddressableAssetsData/Linux

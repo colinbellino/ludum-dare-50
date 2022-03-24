@@ -5,59 +5,57 @@ using static Game.Core.Utils;
 
 namespace Game.Core.StateMachines.Game
 {
-	public class GameInitState : BaseGameState
+	public class GameInitState : IState
 	{
-		public GameInitState(GameFSM fsm, GameSingleton game) : base(fsm, game) { }
+		public GameFSM FSM;
 
-		public override async UniTask Enter()
+		public async UniTask Enter()
 		{
-			await base.Enter();
-
-			_ = _ui.FadeIn(Color.black, 0);
+			_ = GameManager.Game.UI.FadeIn(Color.black, 0);
 
 			FMODUnity.RuntimeManager.LoadBank("SFX", loadSamples: true);
 
-			_state.GameBus = FMODUnity.RuntimeManager.GetBus("bus:/Game");
-			_state.MusicBus = FMODUnity.RuntimeManager.GetBus("bus:/Game/Music");
-			_state.SoundBus = FMODUnity.RuntimeManager.GetBus("bus:/Game/SFX");
-			_state.TitleMusic = FMODUnity.RuntimeManager.CreateInstance(_config.MusicTitle);
-			_state.LevelMusic = FMODUnity.RuntimeManager.CreateInstance(_config.MusicMain);
-			_state.PauseSnapshot = FMODUnity.RuntimeManager.CreateInstance(_config.SnapshotPause);
-			_state.TimeScaleCurrent = _state.TimeScaleDefault = 1f;
-			_state.Random = new Unity.Mathematics.Random();
-			_state.Random.InitState((uint)Random.Range(0, int.MaxValue));
-			_state.DebugLevels = new Level[0];
-			_state.AllLevels = _config.Levels;
+			GameManager.Game.State.GameBus = FMODUnity.RuntimeManager.GetBus("bus:/Game");
+			GameManager.Game.State.MusicBus = FMODUnity.RuntimeManager.GetBus("bus:/Game/Music");
+			GameManager.Game.State.SoundBus = FMODUnity.RuntimeManager.GetBus("bus:/Game/SFX");
+			GameManager.Game.State.TitleMusic = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.MusicTitle);
+			GameManager.Game.State.LevelMusic = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.MusicMain);
+			GameManager.Game.State.PauseSnapshot = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.SnapshotPause);
+			GameManager.Game.State.TimeScaleCurrent = GameManager.Game.State.TimeScaleDefault = 1f;
+			GameManager.Game.State.Random = new Unity.Mathematics.Random();
+			GameManager.Game.State.Random.InitState((uint)Random.Range(0, int.MaxValue));
+			GameManager.Game.State.DebugLevels = new Level[0];
+			GameManager.Game.State.AllLevels = GameManager.Game.Config.Levels;
 
 			while (LocalizationSettings.InitializationOperation.IsDone == false)
 				await UniTask.NextFrame();
 
-			_state.PlayerSettings = _game.Save.LoadPlayerSettings();
-			_state.PlayerSaveData = _game.Save.LoadPlayerSaveData();
-			SetPlayerSettings(_state.PlayerSettings);
+			GameManager.Game.State.PlayerSettings = GameManager.Game.Save.LoadPlayerSettings();
+			GameManager.Game.State.PlayerSaveData = GameManager.Game.Save.LoadPlayerSaveData();
+			SetPlayerSettings(GameManager.Game.State.PlayerSettings);
 
-			_controls.Global.Enable();
+			GameManager.Game.Controls.Global.Enable();
 
-			await _game.UI.Init(_game);
-			await _game.PauseUI.Init(_game);
-			await _game.OptionsUI.Init(_game);
+			await GameManager.Game.UI.Init(GameManager.Game);
+			await GameManager.Game.PauseUI.Init(GameManager.Game);
+			await GameManager.Game.OptionsUI.Init(GameManager.Game);
 
 			if (IsDevBuild())
 			{
-				if (_config.DebugLevels)
+				if (GameManager.Game.Config.DebugLevels)
 				{
-					_state.DebugLevels = Resources.LoadAll<Level>("Levels/Debug");
-					_state.AllLevels = new Level[_config.Levels.Length + _state.DebugLevels.Length];
-					_config.Levels.CopyTo(_state.AllLevels, 0);
-					_state.DebugLevels.CopyTo(_state.AllLevels, _config.Levels.Length);
+					GameManager.Game.State.DebugLevels = Resources.LoadAll<Level>("Levels/Debug");
+					GameManager.Game.State.AllLevels = new Level[GameManager.Game.Config.Levels.Length + GameManager.Game.State.DebugLevels.Length];
+					GameManager.Game.Config.Levels.CopyTo(GameManager.Game.State.AllLevels, 0);
+					GameManager.Game.State.DebugLevels.CopyTo(GameManager.Game.State.AllLevels, GameManager.Game.Config.Levels.Length);
 				}
 
-				_ui.ShowDebug();
+				GameManager.Game.UI.ShowDebug();
 
-				if (_config.LockFPS > 0)
+				if (GameManager.Game.Config.LockFPS > 0)
 				{
-					Debug.Log($"Locking FPS to {_config.LockFPS}");
-					Application.targetFrameRate = _config.LockFPS;
+					Debug.Log($"Locking FPS to {GameManager.Game.Config.LockFPS}");
+					Application.targetFrameRate = GameManager.Game.Config.LockFPS;
 					QualitySettings.vSyncCount = 1;
 				}
 				else
@@ -67,14 +65,20 @@ namespace Game.Core.StateMachines.Game
 				}
 			}
 
-			_fsm.Fire(GameFSM.Triggers.Done);
+			FSM.Fire(GameFSM.Triggers.Done);
 		}
+
+		public void Tick() { }
+
+		public void FixedTick() { }
+
+		public UniTask Exit() { return default; }
 
 		private void SetPlayerSettings(PlayerSettings playerSettings)
 		{
-			_game.State.GameBus.setVolume(playerSettings.GameVolume);
-			_game.State.MusicBus.setVolume(playerSettings.MusicVolume);
-			_game.State.SoundBus.setVolume(playerSettings.SoundVolume);
+			GameManager.Game.State.GameBus.setVolume(playerSettings.GameVolume);
+			GameManager.Game.State.MusicBus.setVolume(playerSettings.MusicVolume);
+			GameManager.Game.State.SoundBus.setVolume(playerSettings.SoundVolume);
 			Screen.SetResolution(playerSettings.ResolutionWidth, playerSettings.ResolutionHeight, playerSettings.FullScreen, playerSettings.ResolutionRefreshRate);
 			LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(playerSettings.LocaleCode);
 		}

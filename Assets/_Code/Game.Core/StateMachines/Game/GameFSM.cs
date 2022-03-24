@@ -23,13 +23,13 @@ namespace Game.Core.StateMachines.Game
 			_debug = debug;
 			_states = new Dictionary<States, IState>
 			{
-				{ States.Init, new GameInitState(this, game) },
-				{ States.Title, new GameTitleState(this, game) },
-				{ States.SelectLevel, new GameSelectLevelState(this, game) },
-				{ States.LoadLevel, new GameLoadLevelState(this, game) },
-				{ States.Gameplay, new GameGameplayState(this, game) },
-				{ States.Credits, new GameCreditsState(this, game) },
-				{ States.Quit, new GameQuitState(this, game) },
+				{ States.Init, new GameInitState { FSM = this } },
+				{ States.Title, new GameTitleState { FSM = this } },
+				{ States.SelectLevel, new GameSelectLevelState { FSM = this } },
+				{ States.LoadLevel, new GameLoadLevelState { FSM = this } },
+				{ States.Gameplay, new GameGameplayState { FSM = this } },
+				{ States.Credits, new GameCreditsState { FSM = this } },
+				{ States.Quit, new GameQuitState { FSM = this } },
 			};
 
 			_machine = new StateMachine<States, Triggers>(States.Init);

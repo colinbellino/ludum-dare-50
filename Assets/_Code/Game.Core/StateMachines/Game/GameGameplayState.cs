@@ -1,76 +1,67 @@
-﻿using System;
-using System.IO;
-using Cysharp.Threading.Tasks;
-using DG.Tweening;
+﻿using Cysharp.Threading.Tasks;
 using FMOD.Studio;
-using NesScripts.Controls.PathFind;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.Tilemaps;
 
 namespace Game.Core.StateMachines.Game
 {
-	public class GameGameplayState : BaseGameState
+	public class GameGameplayState : IState
 	{
-		public GameGameplayState(GameFSM fsm, GameSingleton game) : base(fsm, game) { }
+		public GameFSM FSM;
 
-		public override async UniTask Enter()
+		public UniTask Enter()
 		{
-			await base.Enter();
+			GameManager.Game.State.Running = true;
 
-			_state.Running = true;
+			GameManager.Game.Controls.Gameplay.Enable();
+			GameManager.Game.Controls.Gameplay.Move.performed += OnMovePerformed;
 
-			_controls.Gameplay.Enable();
-			_controls.Gameplay.Move.performed += OnMovePerformed;
+			GameManager.Game.UI.ShowGameplay();
+			_ = GameManager.Game.UI.FadeOut(2);
 
-			_ui.ShowGameplay();
-			_ = _ui.FadeOut(2);
-
-			_state.LevelMusic.setPitch(_state.TimeScaleCurrent);
-			_state.LevelMusic.getPlaybackState(out var state);
+			GameManager.Game.State.LevelMusic.setPitch(GameManager.Game.State.TimeScaleCurrent);
+			GameManager.Game.State.LevelMusic.getPlaybackState(out var state);
 			if (state == PLAYBACK_STATE.STOPPED || state == PLAYBACK_STATE.STOPPING)
-				_state.LevelMusic.start();
+				GameManager.Game.State.LevelMusic.start();
+
+			return default;
 		}
 
-		public override void Tick()
+		public void Tick()
 		{
-			base.Tick();
-
-			if (_state.Running)
+			if (GameManager.Game.State.Running)
 			{
-				if (_controls.Global.Pause.WasPerformedThisFrame())
+				if (GameManager.Game.Controls.Global.Pause.WasPerformedThisFrame())
 				{
-					if (_state.Paused)
+					if (GameManager.Game.State.Paused)
 					{
-						_state.TimeScaleCurrent = _state.TimeScaleDefault;
-						_state.Paused = false;
-						_game.PauseUI.Hide();
-						_state.PauseSnapshot.stop(STOP_MODE.ALLOWFADEOUT);
+						GameManager.Game.State.TimeScaleCurrent = GameManager.Game.State.TimeScaleDefault;
+						GameManager.Game.State.Paused = false;
+						GameManager.Game.PauseUI.Hide();
+						GameManager.Game.State.PauseSnapshot.stop(STOP_MODE.ALLOWFADEOUT);
 					}
 					else
 					{
-						_state.TimeScaleCurrent = 0f;
-						_state.Paused = true;
-						_ = _game.PauseUI.Show();
-						_state.PauseSnapshot.start();
+						GameManager.Game.State.TimeScaleCurrent = 0f;
+						GameManager.Game.State.Paused = true;
+						_ = GameManager.Game.PauseUI.Show();
+						GameManager.Game.State.PauseSnapshot.start();
 					}
 				}
 
-				if (_controls.Global.Cancel.WasPerformedThisFrame())
+				if (GameManager.Game.Controls.Global.Cancel.WasPerformedThisFrame())
 				{
-					if (_game.OptionsUI.IsOpened)
+					if (GameManager.Game.OptionsUI.IsOpened)
 					{
-						_game.OptionsUI.Hide();
-						_game.PauseUI.SelectOptionsGameObject();
-						_game.Save.SavePlayerSettings(_game.State.PlayerSettings);
+						GameManager.Game.OptionsUI.Hide();
+						GameManager.Game.PauseUI.SelectOptionsGameObject();
+						GameManager.Game.Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 					}
 				}
 
-				if (_controls.Gameplay.Reset.WasPerformedThisFrame())
+				if (GameManager.Game.Controls.Gameplay.Reset.WasPerformedThisFrame())
 				{
-					_fsm.Fire(GameFSM.Triggers.Retry);
+					FSM.Fire(GameFSM.Triggers.Retry);
 				}
 
 				if (Utils.IsDevBuild())
@@ -88,30 +79,30 @@ namespace Game.Core.StateMachines.Game
 			}
 		}
 
-		public override async UniTask Exit()
+		public void FixedTick() { }
+
+		public async UniTask Exit()
 		{
-			await base.Exit();
+			GameManager.Game.Controls.Gameplay.Disable();
+			GameManager.Game.Controls.Gameplay.Move.performed -= OnMovePerformed;
 
-			_controls.Gameplay.Disable();
-			_controls.Gameplay.Move.performed -= OnMovePerformed;
+			GameManager.Game.State.TimeScaleCurrent = GameManager.Game.State.TimeScaleDefault;
+			GameManager.Game.State.Running = false;
+			GameManager.Game.State.Paused = false;
+			GameManager.Game.State.PauseSnapshot.stop(STOP_MODE.ALLOWFADEOUT);
 
-			_state.TimeScaleCurrent = _state.TimeScaleDefault;
-			_state.Running = false;
-			_state.Paused = false;
-			_state.PauseSnapshot.stop(STOP_MODE.ALLOWFADEOUT);
+			await GameManager.Game.UI.FadeIn(Color.black);
+			await GameManager.Game.UI.HideLevelName(0);
+			GameManager.Game.UI.HideGameplay();
+			await GameManager.Game.PauseUI.Hide(0);
+			await GameManager.Game.OptionsUI.Hide(0);
 
-			await _ui.FadeIn(Color.black);
-			await _ui.HideLevelName(0);
-			_ui.HideGameplay();
-			await _game.PauseUI.Hide(0);
-			await _game.OptionsUI.Hide(0);
-
-			_state.Entities.Clear();
+			GameManager.Game.State.Entities.Clear();
 		}
 
 		private void OnMovePerformed(InputAction.CallbackContext context)
 		{
-			if (_state.Running == false || _state.Paused)
+			if (GameManager.Game.State.Running == false || GameManager.Game.State.Paused)
 				return;
 
 			//
@@ -120,25 +111,25 @@ namespace Game.Core.StateMachines.Game
 		private void Victory()
 		{
 			UnityEngine.Debug.Log("End of the game reached.");
-			_state.LevelMusic.stop(STOP_MODE.ALLOWFADEOUT);
-			_fsm.Fire(GameFSM.Triggers.Won);
+			GameManager.Game.State.LevelMusic.stop(STOP_MODE.ALLOWFADEOUT);
+			FSM.Fire(GameFSM.Triggers.Won);
 		}
 
 		private void NextLevel()
 		{
-			_game.State.PlayerSaveData.ClearedLevels.Add(_state.CurrentLevelIndex);
-			_game.Save.SavePlayerSaveData(_game.State.PlayerSaveData);
+			GameManager.Game.State.PlayerSaveData.ClearedLevels.Add(GameManager.Game.State.CurrentLevelIndex);
+			GameManager.Game.Save.SavePlayerSaveData(GameManager.Game.State.PlayerSaveData);
 
-			_state.CurrentLevelIndex += 1;
+			GameManager.Game.State.CurrentLevelIndex += 1;
 
-			if (_state.CurrentLevelIndex >= _config.Levels.Length)
+			if (GameManager.Game.State.CurrentLevelIndex >= GameManager.Game.Config.Levels.Length)
 			{
 				Victory();
 				return;
 			}
 
-			_state.Running = false;
-			_fsm.Fire(GameFSM.Triggers.NextLevel);
+			GameManager.Game.State.Running = false;
+			FSM.Fire(GameFSM.Triggers.NextLevel);
 		}
 	}
 }

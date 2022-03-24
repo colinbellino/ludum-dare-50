@@ -6,40 +6,38 @@ using UnityEngine.InputSystem;
 
 namespace Game.Core.StateMachines.Game
 {
-	public class GameTitleState : BaseGameState
+	public class GameTitleState : IState
 	{
+		public GameFSM FSM;
+
 		private CancellationTokenSource _cancellationSource;
 
-		public GameTitleState(GameFSM fsm, GameSingleton game) : base(fsm, game) { }
-
-		public override async UniTask Enter()
+		public async UniTask Enter()
 		{
-			await base.Enter();
-
 			_cancellationSource = new CancellationTokenSource();
 
-			_ui.StartButton.onClick.AddListener(StartGame);
-			_ui.OptionsButton.onClick.AddListener(ToggleOptions);
-			_ui.QuitButton.onClick.AddListener(Quit);
+			GameManager.Game.UI.StartButton.onClick.AddListener(StartGame);
+			GameManager.Game.UI.OptionsButton.onClick.AddListener(ToggleOptions);
+			GameManager.Game.UI.QuitButton.onClick.AddListener(Quit);
 
-			_state.TitleMusic.getPlaybackState(out var state);
+			GameManager.Game.State.TitleMusic.getPlaybackState(out var state);
 			if (state != PLAYBACK_STATE.PLAYING)
-				_state.TitleMusic.start();
+				GameManager.Game.State.TitleMusic.start();
 
 			// await UniTask.Delay(2000, cancellationToken: _cancellationSource.Token);
-			_ = _ui.FadeOut(2f);
+			_ = GameManager.Game.UI.FadeOut(2f);
 			// await UniTask.Delay(1200, cancellationToken: _cancellationSource.Token);
 
-			if (_state.PlayerSaveData.ClearedLevels.Count > 0)
-				Localization.SetTMPTextKey(_ui.StartButton.gameObject, "UI/Continue");
+			if (GameManager.Game.State.PlayerSaveData.ClearedLevels.Count > 0)
+				Localization.SetTMPTextKey(GameManager.Game.UI.StartButton.gameObject, "UI/Continue");
 			else
-				Localization.SetTMPTextKey(_ui.StartButton.gameObject, "UI/Start");
+				Localization.SetTMPTextKey(GameManager.Game.UI.StartButton.gameObject, "UI/Start");
 
-			await _ui.ShowTitle(_cancellationSource.Token);
+			await GameManager.Game.UI.ShowTitle(_cancellationSource.Token);
 
 			if (Utils.IsDevBuild())
 			{
-				_ui.SetDebugText(@"
+				GameManager.Game.UI.SetDebugText(@"
 - F1-F12: load levels
 - L: load last level
 - Tab: level selection
@@ -47,15 +45,15 @@ namespace Game.Core.StateMachines.Game
 			}
 		}
 
-		public override async void Tick()
+		public async void Tick()
 		{
-			if (_controls.Global.Cancel.WasPerformedThisFrame())
+			if (GameManager.Game.Controls.Global.Cancel.WasPerformedThisFrame())
 			{
-				if (_game.OptionsUI.IsOpened)
+				if (GameManager.Game.OptionsUI.IsOpened)
 				{
-					await _game.OptionsUI.Hide();
-					_game.UI.SelectTitleOptionsGameObject();
-					_game.Save.SavePlayerSettings(_game.State.PlayerSettings);
+					await GameManager.Game.OptionsUI.Hide();
+					GameManager.Game.UI.SelectTitleOptionsGameObject();
+					GameManager.Game.Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 				}
 				else
 					Quit();
@@ -76,71 +74,73 @@ namespace Game.Core.StateMachines.Game
 				if (Keyboard.current.f10Key.wasReleasedThisFrame) { LoadLevel(9); }
 				if (Keyboard.current.f11Key.wasReleasedThisFrame) { LoadLevel(10); }
 				if (Keyboard.current.f12Key.wasReleasedThisFrame) { LoadLevel(11); }
-				if (Keyboard.current.lKey.wasReleasedThisFrame) { LoadLevel(_config.Levels.Length - 1); }
+				if (Keyboard.current.lKey.wasReleasedThisFrame) { LoadLevel(GameManager.Game.Config.Levels.Length - 1); }
 
 				// if (Keyboard.current.kKey.wasReleasedThisFrame)
 				// {
 				// 	if (Keyboard.current.leftShiftKey.isPressed)
 				// 	{
-				// 		_state.TakeScreenshots = true;
+				// 		GameManager.Game.State.TakeScreenshots = true;
 				// 		UnityEngine.Debug.Log("Taking screenshots!");
 				// 	}
 
 				// 	UnityEngine.Debug.Log("Starting in replay mode.");
-				// 	_state.IsReplaying = true;
+				// 	GameManager.Game.State.IsReplaying = true;
 				// 	LoadLevel(0);
 				// }
 			}
 		}
 
-		public override UniTask Exit()
+		public void FixedTick() { }
+
+		public UniTask Exit()
 		{
 			_cancellationSource.Cancel();
 			_cancellationSource.Dispose();
 
-			_ui.StartButton.onClick.RemoveListener(StartGame);
-			_ui.OptionsButton.onClick.RemoveListener(ToggleOptions);
-			_ui.QuitButton.onClick.RemoveListener(Quit);
+			GameManager.Game.UI.StartButton.onClick.RemoveListener(StartGame);
+			GameManager.Game.UI.OptionsButton.onClick.RemoveListener(ToggleOptions);
+			GameManager.Game.UI.QuitButton.onClick.RemoveListener(Quit);
 
 			return default;
+		}
+
+		private void Quit()
+		{
+			FSM.Fire(GameFSM.Triggers.Quit);
 		}
 
 		private async void LoadLevel(int levelIndex)
 		{
 			Debug.Log($"Loading level {levelIndex}.");
-			_state.CurrentLevelIndex = levelIndex;
-			_state.TitleMusic.stop(STOP_MODE.ALLOWFADEOUT);
-			await _ui.FadeIn(Color.black, 0);
-			await _ui.HideTitle(0);
-			await _game.OptionsUI.Hide(0);
-			_fsm.Fire(GameFSM.Triggers.LevelSelected);
+			GameManager.Game.State.CurrentLevelIndex = levelIndex;
+			GameManager.Game.State.TitleMusic.stop(STOP_MODE.ALLOWFADEOUT);
+			await GameManager.Game.UI.FadeIn(Color.black, 0);
+			await GameManager.Game.UI.HideTitle(0);
+			await GameManager.Game.OptionsUI.Hide(0);
+			FSM.Fire(GameFSM.Triggers.LevelSelected);
 		}
 
 		private async void StartGame()
 		{
-			await _ui.HideTitle();
-			await _ui.FadeIn(Color.black);
+			await GameManager.Game.UI.HideTitle();
+			await GameManager.Game.UI.FadeIn(Color.black);
 
-			if (_state.PlayerSaveData.ClearedLevels.Count == 0)
+			if (GameManager.Game.State.PlayerSaveData.ClearedLevels.Count == 0)
 			{
-				_state.CurrentLevelIndex = 0;
-				_state.TitleMusic.stop(STOP_MODE.ALLOWFADEOUT);
-				_fsm.Fire(GameFSM.Triggers.LevelSelected);
+				GameManager.Game.State.CurrentLevelIndex = 0;
+				GameManager.Game.State.TitleMusic.stop(STOP_MODE.ALLOWFADEOUT);
+				FSM.Fire(GameFSM.Triggers.LevelSelected);
 
 				return;
 			}
 
-			_fsm.Fire(GameFSM.Triggers.LevelSelectionRequested);
+			FSM.Fire(GameFSM.Triggers.LevelSelectionRequested);
 		}
 
 		private void ToggleOptions()
 		{
-			_ = _game.OptionsUI.Show();
-		}
-
-		private void Quit()
-		{
-			_fsm.Fire(GameFSM.Triggers.Quit);
+			_ = GameManager.Game.OptionsUI.Show();
 		}
 	}
 }

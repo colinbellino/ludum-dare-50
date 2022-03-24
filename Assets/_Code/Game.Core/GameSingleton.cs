@@ -1,0 +1,18 @@
+﻿using Game.Core.StateMachines.Game;
+using Game.Inputs;
+
+namespace Game.Core
+{
+	public class GameSingleton
+	{
+		public GameConfig Config;
+		public GameUI UI;
+		public PauseUI PauseUI;
+		public OptionsUI OptionsUI;
+		public CameraRig CameraRig;
+		public GameControls Controls;
+		public GameState State;
+		public GameFSM GameFSM;
+		public Save Save;
+	}
+}

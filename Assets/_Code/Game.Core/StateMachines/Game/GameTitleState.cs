@@ -18,7 +18,8 @@ namespace Game.Core.StateMachines.Game
 
 			GameManager.Game.UI.StartButton.onClick.AddListener(StartGame);
 			GameManager.Game.UI.OptionsButton.onClick.AddListener(ToggleOptions);
-			GameManager.Game.UI.QuitButton.onClick.AddListener(Quit);
+			GameManager.Game.UI.CreditsButton.onClick.AddListener(StartCredits);
+			GameManager.Game.UI.QuitButton.onClick.AddListener(QuitGame);
 
 			GameManager.Game.State.TitleMusic.getPlaybackState(out var state);
 			if (state != PLAYBACK_STATE.PLAYING)
@@ -56,7 +57,7 @@ namespace Game.Core.StateMachines.Game
 					GameManager.Game.Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 				}
 				else
-					Quit();
+					QuitGame();
 			}
 
 			if (Utils.IsDevBuild())
@@ -100,14 +101,10 @@ namespace Game.Core.StateMachines.Game
 
 			GameManager.Game.UI.StartButton.onClick.RemoveListener(StartGame);
 			GameManager.Game.UI.OptionsButton.onClick.RemoveListener(ToggleOptions);
-			GameManager.Game.UI.QuitButton.onClick.RemoveListener(Quit);
+			GameManager.Game.UI.CreditsButton.onClick.RemoveListener(StartCredits);
+			GameManager.Game.UI.QuitButton.onClick.RemoveListener(QuitGame);
 
 			return default;
-		}
-
-		private void Quit()
-		{
-			FSM.Fire(GameFSM.Triggers.Quit);
 		}
 
 		private async void LoadLevel(int levelIndex)
@@ -141,6 +138,19 @@ namespace Game.Core.StateMachines.Game
 		private void ToggleOptions()
 		{
 			_ = GameManager.Game.OptionsUI.Show();
+		}
+
+		private async void StartCredits()
+		{
+			await GameManager.Game.UI.HideTitle();
+			await GameManager.Game.UI.FadeIn(Color.black);
+
+			FSM.Fire(GameFSM.Triggers.CreditsRequested);
+		}
+
+		private void QuitGame()
+		{
+			FSM.Fire(GameFSM.Triggers.Quit);
 		}
 	}
 }

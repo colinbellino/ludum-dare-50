@@ -703,9 +703,9 @@ MonoBehaviour:
   m_text: '<link="TODO">Scott Welfare <sprite index="1"></link>
 
     <link="TODO">Brandyn
-    Campbell <sprite index="0"></link>
+    Campbell <sprite index="2"></link>
 
-    <link="TODO">Kyle Welfare <sprite index="2"></link>
+    <link="TODO">Kyle Welfare <sprite index="0"></link>
 
     <link="https://twitter.com/colinbellino">Colin
     Bellino <sprite index="0"></link>'

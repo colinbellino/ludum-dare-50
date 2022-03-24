@@ -71,6 +71,10 @@ MonoBehaviour:
     m_Key: UI/Language
     m_Metadata:
       m_Items: []
+  - m_Id: 13795832351416320
+    m_Key: UI.Credits
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

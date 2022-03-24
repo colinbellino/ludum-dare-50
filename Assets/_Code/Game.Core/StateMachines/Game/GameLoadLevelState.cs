@@ -2,17 +2,24 @@ using Cysharp.Threading.Tasks;
 
 namespace Game.Core.StateMachines.Game
 {
-	public class GameLoadLevelState : BaseGameState
+	public class GameLoadLevelState : IState
 	{
-		public GameLoadLevelState(GameFSM fsm, GameSingleton game) : base(fsm, game) { }
+		public GameFSM FSM;
 
-		public override async UniTask Enter()
+		public async UniTask Enter()
 		{
-			await base.Enter();
-
 			await UniTask.NextFrame();
 
-			_fsm.Fire(GameFSM.Triggers.Done);
+			FSM.Fire(GameFSM.Triggers.Done);
 		}
+
+		public UniTask Exit()
+		{
+			return default;
+		}
+
+		public void FixedTick() { }
+
+		public void Tick() { }
 	}
 }

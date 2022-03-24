@@ -3,21 +3,29 @@ using UnityEditor;
 
 namespace Game.Core.StateMachines.Game
 {
-	public class GameQuitState : BaseGameState
+	public class GameQuitState : IState
 	{
-		public GameQuitState(GameFSM fsm, GameSingleton game) : base(fsm, game) { }
+		public GameFSM FSM;
 
-		public override async UniTask Enter()
+		public UniTask Enter()
 		{
-			await base.Enter();
-
+			// FIXME: What if this is a WebGL build?
 #if UNITY_EDITOR
 			EditorApplication.isPlaying = false;
 #else
 			UnityEngine.Application.Quit();
 #endif
 
-			// FIXME: What if this is a WebGL build?
+			return default;
+		}
+
+		public void Tick() { }
+
+		public void FixedTick() { }
+
+		public UniTask Exit()
+		{
+			return default;
 		}
 	}
 }

@@ -74,5 +74,9 @@ MonoBehaviour:
     m_Localized: Sprache
     m_Metadata:
       m_Items: []
+  - m_Id: 13795832351416320
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

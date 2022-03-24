@@ -4,35 +4,33 @@ using FMOD.Studio;
 
 namespace Game.Core.StateMachines.Game
 {
-	public class GameCreditsState : BaseGameState
+	public class GameCreditsState : IState
 	{
-		public GameCreditsState(GameFSM fsm, GameSingleton game) : base(fsm, game) { }
+		public GameFSM FSM;
 
-		public override async UniTask Enter()
+		public async UniTask Enter()
 		{
-			await base.Enter();
+			GameManager.Game.UI.SetDebugText("");
 
-			_ui.SetDebugText("");
-
-			await _ui.ShowCredits();
-			await _ui.FadeOut();
+			await GameManager.Game.UI.ShowCredits();
+			await GameManager.Game.UI.FadeOut();
 		}
 
-		public override void Tick()
+		public void Tick()
 		{
-			if (_controls.Global.Cancel.WasPerformedThisFrame() || _controls.Global.Confirm.WasPerformedThisFrame())
+			if (GameManager.Game.Controls.Global.Cancel.WasPerformedThisFrame() || GameManager.Game.Controls.Global.Confirm.WasPerformedThisFrame())
 			{
-				_fsm.Fire(GameFSM.Triggers.Done);
+				FSM.Fire(GameFSM.Triggers.Done);
 			}
 		}
 
-		public override async UniTask Exit()
-		{
-			await base.Exit();
+		public void FixedTick() { }
 
-			_state.LevelMusic.stop(STOP_MODE.ALLOWFADEOUT);
-			await _ui.FadeIn(Color.black);
-			await _ui.HideCredits();
+		public async UniTask Exit()
+		{
+			GameManager.Game.State.LevelMusic.stop(STOP_MODE.ALLOWFADEOUT);
+			await GameManager.Game.UI.FadeIn(Color.black);
+			await GameManager.Game.UI.HideCredits();
 		}
 	}
 }

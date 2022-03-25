@@ -65,8 +65,37 @@ ScriptedImporter:
     npotScale: 0
     generateCubemap: 0
     mipmapFadeDistanceEnd: 3
-  animationSettings: []
+  animationSettings:
+  - animationName: run
+    loopTime: 1
+    about: "Animation Type:\tForward\r\nAnimation:\tFrom: 0; To: 11"
+    sprites:
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    frameNumbers: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b000000
   texture: {instanceID: 0}
-  spriteImportData: []
+  spriteImportData:
+  - name: orbo_run
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 64
+      width: 32
+      height: 32
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: f0e83514d432a1d40a669394a5667124
   spriteRects: []
   selectedImporter: 0

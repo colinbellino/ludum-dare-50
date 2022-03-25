@@ -51,7 +51,75 @@ namespace PyxelEdit
 					ctx.AddObjectToAsset(filename, sprite, sprite.texture);
 				}
 
-				// TODO: use TextureGenerationOutput output = TextureGenerator.GenerateTexture(settings, new Unity.Collections.NativeArray<Color32>(atlas.GetPixels32(), Unity.Collections.Allocator.Temp));
+				// var textureInformation = new SourceTextureInformation()
+				// {
+				// 	containsAlpha = true,
+				// 	hdr = false,
+				// 	height = textureHeight,
+				// 	width = textureWidth
+				// };
+
+				// var platformSettings = new TextureImporterPlatformSettings()
+				// {
+				// 	overridden = false
+				// };
+				// TextureImporterSettings textureImporterSettings = new TextureImporterSettings()
+				// {
+				// 	seamlessCubemap = seamlessCubemap,
+				// 	mipmapBias = mipmapBias,
+				// 	wrapMode = wrapMode,
+				// 	wrapModeU = wrapModeU,
+				// 	wrapModeV = wrapModeV,
+				// 	wrapModeW = wrapModeW,
+				// 	alphaIsTransparency = alphaIsTransparency,
+				// 	spriteMode = spriteMode,
+				// 	spritePixelsPerUnit = spritePixelsPerUnit,
+				// 	spriteTessellationDetail = spriteTessellationDetail,
+				// 	spriteExtrude = spriteExtrude,
+				// 	spriteMeshType = spriteMeshType,
+				// 	spriteAlignment = spriteAlignment,
+				// 	spritePivot = spritePivot,
+				// 	spriteBorder = spriteBorder,
+				// 	spriteGenerateFallbackPhysicsShape = spriteGenerateFallbackPhysicsShape,
+				// 	aniso = aniso,
+				// 	filterMode = filterMode,
+				// 	cubemapConvolution = cubemapConvolution,
+				// 	textureType = textureType,
+				// 	textureShape = textureShape,
+				// 	mipmapFilter = mipmapFilter,
+				// 	mipmapEnabled = mipmapEnabled,
+				// 	sRGBTexture = sRGBTexture,
+				// 	fadeOut = fadeOut,
+				// 	borderMipmap = borderMipmap,
+				// 	mipMapsPreserveCoverage = mipMapsPreserveCoverage,
+				// 	mipmapFadeDistanceStart = mipmapFadeDistanceStart,
+				// 	alphaTestReferenceValue = alphaTestReferenceValue,
+				// 	convertToNormalMap = convertToNormalMap,
+				// 	heightmapScale = heightmapScale,
+				// 	normalMapFilter = normalMapFilter,
+				// 	alphaSource = alphaSource,
+				// 	singleChannelComponent = singleChannelComponent,
+				// 	readable = readable,
+				// 	streamingMipmaps = streamingMipmaps,
+				// 	streamingMipmapsPriority = streamingMipmapsPriority,
+				// 	npotScale = npotScale,
+				// 	generateCubemap = generateCubemap,
+				// 	mipmapFadeDistanceEnd = mipmapFadeDistanceEnd
+				// };
+				// var textureGenerationSettings = new TextureGenerationSettings()
+				// {
+				// 	assetPath = assetPath,
+				// 	spriteImportData = ConvertAseFileSpriteImportDataToUnity(SpriteImportData),
+				// 	textureImporterSettings = textureImporterSettings,
+				// 	enablePostProcessor = false,
+				// 	sourceTextureInformation = textureInformation,
+				// 	qualifyForSpritePacking = true,
+				// 	platformSettings = platformSettings,
+				// 	spritePackingTag = "aseprite",
+				// 	secondarySpriteTextures = new SecondarySpriteTexture[0]
+				// };
+				// var output = TextureGenerator.GenerateTexture(textureGenerationSettings, new Unity.Collections.NativeArray<Color32>(atlas.GetPixels32(), Unity.Collections.Allocator.Temp));
+
 				foreach (var filename in tiles)
 				{
 					var texture = new Texture2D(2, 2);

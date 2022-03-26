@@ -8,7 +8,510 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 80068e771e2e8ba48a9280cdde0e1627, type: 3}
-  _importSettings:
+  Texture: {fileID: -8347620042987652499, guid: 9ab35ca12a2b7b3488b8d9de6ab53f61, type: 3}
+  SpriteRects:
+  - name: treetops_tileset_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 48
+      width: 16
+      height: 16
+    spriteID: d26c2868a5ae41141ac3a417dcb9d720
+    internalID: 0
+  - name: treetops_tileset_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 48
+      width: 16
+      height: 16
+    spriteID: dc454ec96022a1e419e66e80cae251b7
+    internalID: 0
+  - name: treetops_tileset_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 48
+      width: 16
+      height: 16
+    spriteID: a92ba7bbb96c95a49a0aec7b22a8ba10
+    internalID: 0
+  - name: treetops_tileset_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 48
+      width: 16
+      height: 16
+    spriteID: 3b7f5aa266517a44db8e22b5ad97b52d
+    internalID: 0
+  - name: treetops_tileset_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 48
+      width: 16
+      height: 16
+    spriteID: 2311a9f005ac36846b8ab22237efe7a0
+    internalID: 0
+  - name: treetops_tileset_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 32
+      width: 16
+      height: 16
+    spriteID: 3e53b32c9aed1d049a188f4179d9a682
+    internalID: 0
+  - name: treetops_tileset_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 32
+      width: 16
+      height: 16
+    spriteID: 4ae087e8e2d5df2448913f0d497aa2a7
+    internalID: 0
+  - name: treetops_tileset_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 32
+      width: 16
+      height: 16
+    spriteID: 514ac1084072fef49a7ecfb18b3207f5
+    internalID: 0
+  - name: treetops_tileset_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 32
+      width: 16
+      height: 16
+    spriteID: 6aef0370d4b8bcd4eb564e24d2cc5b99
+    internalID: 0
+  - name: treetops_tileset_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 32
+      width: 16
+      height: 16
+    spriteID: aabffbe3f3f9d7e4dbde7cc13403bd3b
+    internalID: 0
+  - name: treetops_tileset_10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 16
+      width: 16
+      height: 16
+    spriteID: 0ddf56e80fad72c43b86cc7df1a97c7d
+    internalID: 0
+  - name: treetops_tileset_11
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 16
+      width: 16
+      height: 16
+    spriteID: e63e3d3d2f7bf6f4bb3287e8ebbf947c
+    internalID: 0
+  - name: treetops_tileset_12
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 16
+      width: 16
+      height: 16
+    spriteID: 45f6715799955c34797bcb413eb85fa1
+    internalID: 0
+  - name: treetops_tileset_13
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 16
+      width: 16
+      height: 16
+    spriteID: 65bc1e784fb728a4c8566e8067fc5214
+    internalID: 0
+  - name: treetops_tileset_14
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 16
+      width: 16
+      height: 16
+    spriteID: 4f2d74768b95fe040abdab114ce44ecd
+    internalID: 0
+  - name: treetops_tileset_15
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 16
+      height: 16
+    spriteID: 249e8f10145cd184687e0a75c2aea1d2
+    internalID: 0
+  - name: treetops_tileset_16
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 0
+      width: 16
+      height: 16
+    spriteID: aceea877561f1b746bc69d24da9c180f
+    internalID: 0
+  - name: treetops_tileset_17
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 0
+      width: 16
+      height: 16
+    spriteID: f2a08743ac379f44c9cf536212a6cd77
+    internalID: 0
+  - name: treetops_tileset_18
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 0
+      width: 16
+      height: 16
+    spriteID: 54c4269f0cf7d4743821f5e35e480152
+    internalID: 0
+  - name: treetops_tileset_19
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 0
+      width: 16
+      height: 16
+    spriteID: 111fcf08ec425d04991acf3560088a7f
+    internalID: 0
+  SpriteImportData:
+  - name: treetops_tileset_0
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 48
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: 0db30356a3589724883f17a4438d9125
+  - name: treetops_tileset_1
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 48
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: 88c527ff5170e7149bb1077aa54aaf01
+  - name: treetops_tileset_2
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 48
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: fab5cb8bb15d3404e8cb3c753a7229c4
+  - name: treetops_tileset_3
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 48
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: 837517566d672dd4b8068e273f92fa83
+  - name: treetops_tileset_4
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 48
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: 58443665ee5fd4044be106133f54a677
+  - name: treetops_tileset_5
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 32
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: a31248d8062073845a3decac4c6925b2
+  - name: treetops_tileset_6
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 32
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: 41e93aa2c885a214783bf4e52aba48de
+  - name: treetops_tileset_7
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 32
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: 3d9c425f8fec311428e8cf0edffdf676
+  - name: treetops_tileset_8
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 32
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: 926f6328956411349b31442999782127
+  - name: treetops_tileset_9
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 32
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: f3442864087619340be6be1a5ca16a86
+  - name: treetops_tileset_10
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 16
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: bb0d8dab0e6f4714f91331fcc427ed0c
+  - name: treetops_tileset_11
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 16
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: bd6c9fe5a602e5d4cbb1de54973e54a5
+  - name: treetops_tileset_12
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 16
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: 041b1ea79f07358469779a022a647b94
+  - name: treetops_tileset_13
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 16
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: 6e64d2d7360cd464e88af6d8cc6d15d7
+  - name: treetops_tileset_14
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 16
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: c2391a3b6a9498a48906530776702593
+  - name: treetops_tileset_15
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: cd8ebb1e7ebd6c44d99ddff1039149b7
+  - name: treetops_tileset_16
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 0
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: daf9901f92e56ca4483a33fe6eca0588
+  - name: treetops_tileset_17
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 0
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: 95809e53fd7cd874b983d7db7a0d53ef
+  - name: treetops_tileset_18
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 0
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: 6f5bd8fd0ac6f5447939291a38a1d063
+  - name: treetops_tileset_19
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 0
+      width: 16
+      height: 16
+    alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    tessellationDetail: 0
+    spriteID: c56d435c91b624f4cbdb606d05035390
+  ImportSettings:
     seamlessCubemap: 0
     mipmapBias: 0.5
     wrapMode: 1
@@ -57,7 +560,7 @@ ScriptedImporter:
       height: 64
       tileHeight: 16
       tileWidth: 16
-      currentLayerIndex: 0
+      currentLayerIndex: 1
       numLayers: 2
       layers:
       - name: Layer 1
@@ -143,7 +646,8 @@ ScriptedImporter:
     tileset:
       tileHeight: 16
       fixedWidth: 1
-      tilesWide: 8
+      tilesWide: 5
       fixedHeight: 0
       numTiles: 20
       tileWidth: 16
+  _serializedSpriteImportData: '[{"name":"treetops_tileset_0","rect":{"x":0.0,"y":48.0,"position":{"x":0.0,"y":48.0,"normalized":{"x":0.0,"y":1.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":48.0,"sqrMagnitude":2304.0},"center":{"x":8.0,"y":56.0,"normalized":{"x":0.141421363,"y":0.989949465,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":56.5685425,"sqrMagnitude":3200.0},"min":{"x":0.0,"y":48.0,"normalized":{"x":0.0,"y":1.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":48.0,"sqrMagnitude":2304.0},"max":{"x":16.0,"y":64.0,"normalized":{"x":0.242535636,"y":0.970142543,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":65.96969,"sqrMagnitude":4352.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":0.0,"yMin":48.0,"xMax":16.0,"yMax":64.0,"left":0.0,"right":16.0,"top":48.0,"bottom":64.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"5acba7cd301e8bc48a811883ed15d0d1"},{"name":"treetops_tileset_1","rect":{"x":16.0,"y":48.0,"position":{"x":16.0,"y":48.0,"normalized":{"x":0.316227764,"y":0.948683262,"normalized":{"x":0.3162278,"y":0.9486833,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":0.99999994,"sqrMagnitude":0.99999994},"magnitude":50.5964432,"sqrMagnitude":2560.0},"center":{"x":24.0,"y":56.0,"normalized":{"x":0.3939193,"y":0.919145048,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":60.9261856,"sqrMagnitude":3712.0},"min":{"x":16.0,"y":48.0,"normalized":{"x":0.316227764,"y":0.948683262,"normalized":{"x":0.3162278,"y":0.9486833,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":0.99999994,"sqrMagnitude":0.99999994},"magnitude":50.5964432,"sqrMagnitude":2560.0},"max":{"x":32.0,"y":64.0,"normalized":{"x":0.4472136,"y":0.8944272,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":71.55418,"sqrMagnitude":5120.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":16.0,"yMin":48.0,"xMax":32.0,"yMax":64.0,"left":16.0,"right":32.0,"top":48.0,"bottom":64.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"686564eabb1017c489001bbdfd8f5410"},{"name":"treetops_tileset_2","rect":{"x":32.0,"y":48.0,"position":{"x":32.0,"y":48.0,"normalized":{"x":0.5547002,"y":0.8320503,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":57.68882,"sqrMagnitude":3328.0},"center":{"x":40.0,"y":56.0,"normalized":{"x":0.5812382,"y":0.813733459,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":68.8186,"sqrMagnitude":4736.0},"min":{"x":32.0,"y":48.0,"normalized":{"x":0.5547002,"y":0.8320503,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":57.68882,"sqrMagnitude":3328.0},"max":{"x":48.0,"y":64.0,"normalized":{"x":0.6,"y":0.8,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":80.0,"sqrMagnitude":6400.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":32.0,"yMin":48.0,"xMax":48.0,"yMax":64.0,"left":32.0,"right":48.0,"top":48.0,"bottom":64.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"8dd13b7ffc9390d40b4f5f390a48b637"},{"name":"treetops_tileset_3","rect":{"x":48.0,"y":48.0,"position":{"x":48.0,"y":48.0,"normalized":{"x":0.7071068,"y":0.7071068,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":1.00000012,"sqrMagnitude":1.00000012},"magnitude":67.88225,"sqrMagnitude":4608.0},"center":{"x":56.0,"y":56.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":79.19596,"sqrMagnitude":6272.0},"min":{"x":48.0,"y":48.0,"normalized":{"x":0.7071068,"y":0.7071068,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":1.00000012,"sqrMagnitude":1.00000012},"magnitude":67.88225,"sqrMagnitude":4608.0},"max":{"x":64.0,"y":64.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":90.50967,"sqrMagnitude":8192.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":48.0,"yMin":48.0,"xMax":64.0,"yMax":64.0,"left":48.0,"right":64.0,"top":48.0,"bottom":64.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"20d1a36d321a2364495a4859bb0e8ff8"},{"name":"treetops_tileset_4","rect":{"x":64.0,"y":48.0,"position":{"x":64.0,"y":48.0,"normalized":{"x":0.8,"y":0.6,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":80.0,"sqrMagnitude":6400.0},"center":{"x":72.0,"y":56.0,"normalized":{"x":0.789352238,"y":0.6139406,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":91.214035,"sqrMagnitude":8320.0},"min":{"x":64.0,"y":48.0,"normalized":{"x":0.8,"y":0.6,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":80.0,"sqrMagnitude":6400.0},"max":{"x":80.0,"y":64.0,"normalized":{"x":0.780868769,"y":0.624695063,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":102.449989,"sqrMagnitude":10496.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":64.0,"yMin":48.0,"xMax":80.0,"yMax":64.0,"left":64.0,"right":80.0,"top":48.0,"bottom":64.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"f4eeb4e80af917d40a5c45964f7b3b2f"},{"name":"treetops_tileset_5","rect":{"x":0.0,"y":32.0,"position":{"x":0.0,"y":32.0,"normalized":{"x":0.0,"y":1.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":32.0,"sqrMagnitude":1024.0},"center":{"x":8.0,"y":40.0,"normalized":{"x":0.196116135,"y":0.9805807,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":40.7921562,"sqrMagnitude":1664.0},"min":{"x":0.0,"y":32.0,"normalized":{"x":0.0,"y":1.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":32.0,"sqrMagnitude":1024.0},"max":{"x":16.0,"y":48.0,"normalized":{"x":0.316227764,"y":0.948683262,"normalized":{"x":0.3162278,"y":0.9486833,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":0.99999994,"sqrMagnitude":0.99999994},"magnitude":50.5964432,"sqrMagnitude":2560.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":0.0,"yMin":32.0,"xMax":16.0,"yMax":48.0,"left":0.0,"right":16.0,"top":32.0,"bottom":48.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"2709b91840fa9ba43842a64eb84b34d1"},{"name":"treetops_tileset_6","rect":{"x":16.0,"y":32.0,"position":{"x":16.0,"y":32.0,"normalized":{"x":0.4472136,"y":0.8944272,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":35.77709,"sqrMagnitude":1280.0},"center":{"x":24.0,"y":40.0,"normalized":{"x":0.5144958,"y":0.857493,"normalized":{"x":0.51449573,"y":0.857492864,"normalized":{"x":0.5144958,"y":0.8574929,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":0.99999994,"sqrMagnitude":0.9999999},"magnitude":1.00000012,"sqrMagnitude":1.00000012},"magnitude":46.6476135,"sqrMagnitude":2176.0},"min":{"x":16.0,"y":32.0,"normalized":{"x":0.4472136,"y":0.8944272,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":35.77709,"sqrMagnitude":1280.0},"max":{"x":32.0,"y":48.0,"normalized":{"x":0.5547002,"y":0.8320503,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":57.68882,"sqrMagnitude":3328.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":16.0,"yMin":32.0,"xMax":32.0,"yMax":48.0,"left":16.0,"right":32.0,"top":32.0,"bottom":48.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"216afda6f7c4a6e48a15ef04dfe6a0a2"},{"name":"treetops_tileset_7","rect":{"x":32.0,"y":32.0,"position":{"x":32.0,"y":32.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":45.2548332,"sqrMagnitude":2048.0},"center":{"x":40.0,"y":40.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":56.5685425,"sqrMagnitude":3200.0},"min":{"x":32.0,"y":32.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":45.2548332,"sqrMagnitude":2048.0},"max":{"x":48.0,"y":48.0,"normalized":{"x":0.7071068,"y":0.7071068,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":1.00000012,"sqrMagnitude":1.00000012},"magnitude":67.88225,"sqrMagnitude":4608.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":32.0,"yMin":32.0,"xMax":48.0,"yMax":48.0,"left":32.0,"right":48.0,"top":32.0,"bottom":48.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"87ed3f208586fc54e9c3e822dbda122e"},{"name":"treetops_tileset_8","rect":{"x":48.0,"y":32.0,"position":{"x":48.0,"y":32.0,"normalized":{"x":0.8320503,"y":0.5547002,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":57.68882,"sqrMagnitude":3328.0},"center":{"x":56.0,"y":40.0,"normalized":{"x":0.813733459,"y":0.5812382,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":68.8186,"sqrMagnitude":4736.0},"min":{"x":48.0,"y":32.0,"normalized":{"x":0.8320503,"y":0.5547002,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":57.68882,"sqrMagnitude":3328.0},"max":{"x":64.0,"y":48.0,"normalized":{"x":0.8,"y":0.6,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":80.0,"sqrMagnitude":6400.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":48.0,"yMin":32.0,"xMax":64.0,"yMax":48.0,"left":48.0,"right":64.0,"top":32.0,"bottom":48.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"3aa891161377e3b42b4793d611cbc2dc"},{"name":"treetops_tileset_9","rect":{"x":64.0,"y":32.0,"position":{"x":64.0,"y":32.0,"normalized":{"x":0.8944272,"y":0.4472136,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":71.55418,"sqrMagnitude":5120.0},"center":{"x":72.0,"y":40.0,"normalized":{"x":0.87415725,"y":0.4856429,"normalized":{"x":0.8741573,"y":0.48564294,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":0.99999994,"sqrMagnitude":0.99999994},"magnitude":82.36504,"sqrMagnitude":6784.0},"min":{"x":64.0,"y":32.0,"normalized":{"x":0.8944272,"y":0.4472136,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":71.55418,"sqrMagnitude":5120.0},"max":{"x":80.0,"y":48.0,"normalized":{"x":0.857493,"y":0.5144958,"normalized":{"x":0.857492864,"y":0.51449573,"normalized":{"x":0.8574929,"y":0.5144958,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":0.99999994,"sqrMagnitude":0.9999999},"magnitude":1.00000012,"sqrMagnitude":1.00000012},"magnitude":93.29523,"sqrMagnitude":8704.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":64.0,"yMin":32.0,"xMax":80.0,"yMax":48.0,"left":64.0,"right":80.0,"top":32.0,"bottom":48.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"969f3dd960be392479a9892e63387725"},{"name":"treetops_tileset_10","rect":{"x":0.0,"y":16.0,"position":{"x":0.0,"y":16.0,"normalized":{"x":0.0,"y":1.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":16.0,"sqrMagnitude":256.0},"center":{"x":8.0,"y":24.0,"normalized":{"x":0.316227764,"y":0.948683262,"normalized":{"x":0.3162278,"y":0.9486833,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":0.99999994,"sqrMagnitude":0.99999994},"magnitude":25.2982216,"sqrMagnitude":640.0},"min":{"x":0.0,"y":16.0,"normalized":{"x":0.0,"y":1.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":16.0,"sqrMagnitude":256.0},"max":{"x":16.0,"y":32.0,"normalized":{"x":0.4472136,"y":0.8944272,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":35.77709,"sqrMagnitude":1280.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":0.0,"yMin":16.0,"xMax":16.0,"yMax":32.0,"left":0.0,"right":16.0,"top":16.0,"bottom":32.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"5cb8f047f7a246c4ab4d1d1a21de89a7"},{"name":"treetops_tileset_11","rect":{"x":16.0,"y":16.0,"position":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"center":{"x":24.0,"y":24.0,"normalized":{"x":0.7071068,"y":0.7071068,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":1.00000012,"sqrMagnitude":1.00000012},"magnitude":33.941124,"sqrMagnitude":1152.0},"min":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"max":{"x":32.0,"y":32.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":45.2548332,"sqrMagnitude":2048.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":16.0,"yMin":16.0,"xMax":32.0,"yMax":32.0,"left":16.0,"right":32.0,"top":16.0,"bottom":32.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"9e078fa5ac37ea64aa88f4c1d8ad1352"},{"name":"treetops_tileset_12","rect":{"x":32.0,"y":16.0,"position":{"x":32.0,"y":16.0,"normalized":{"x":0.8944272,"y":0.4472136,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":35.77709,"sqrMagnitude":1280.0},"center":{"x":40.0,"y":24.0,"normalized":{"x":0.857493,"y":0.5144958,"normalized":{"x":0.857492864,"y":0.51449573,"normalized":{"x":0.8574929,"y":0.5144958,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":0.99999994,"sqrMagnitude":0.9999999},"magnitude":1.00000012,"sqrMagnitude":1.00000012},"magnitude":46.6476135,"sqrMagnitude":2176.0},"min":{"x":32.0,"y":16.0,"normalized":{"x":0.8944272,"y":0.4472136,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":35.77709,"sqrMagnitude":1280.0},"max":{"x":48.0,"y":32.0,"normalized":{"x":0.8320503,"y":0.5547002,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":57.68882,"sqrMagnitude":3328.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":32.0,"yMin":16.0,"xMax":48.0,"yMax":32.0,"left":32.0,"right":48.0,"top":16.0,"bottom":32.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"5edf93f76d873534a9ac480f9bb9146b"},{"name":"treetops_tileset_13","rect":{"x":48.0,"y":16.0,"position":{"x":48.0,"y":16.0,"normalized":{"x":0.948683262,"y":0.316227764,"normalized":{"x":0.9486833,"y":0.3162278,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":0.99999994,"sqrMagnitude":0.99999994},"magnitude":50.5964432,"sqrMagnitude":2560.0},"center":{"x":56.0,"y":24.0,"normalized":{"x":0.919145048,"y":0.3939193,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":60.9261856,"sqrMagnitude":3712.0},"min":{"x":48.0,"y":16.0,"normalized":{"x":0.948683262,"y":0.316227764,"normalized":{"x":0.9486833,"y":0.3162278,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":0.99999994,"sqrMagnitude":0.99999994},"magnitude":50.5964432,"sqrMagnitude":2560.0},"max":{"x":64.0,"y":32.0,"normalized":{"x":0.8944272,"y":0.4472136,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":71.55418,"sqrMagnitude":5120.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":48.0,"yMin":16.0,"xMax":64.0,"yMax":32.0,"left":48.0,"right":64.0,"top":16.0,"bottom":32.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"80b5423050628204e8f3b997e28d1b76"},{"name":"treetops_tileset_14","rect":{"x":64.0,"y":16.0,"position":{"x":64.0,"y":16.0,"normalized":{"x":0.970142543,"y":0.242535636,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":65.96969,"sqrMagnitude":4352.0},"center":{"x":72.0,"y":24.0,"normalized":{"x":0.9486833,"y":0.316227764,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":75.89466,"sqrMagnitude":5760.0},"min":{"x":64.0,"y":16.0,"normalized":{"x":0.970142543,"y":0.242535636,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":65.96969,"sqrMagnitude":4352.0},"max":{"x":80.0,"y":32.0,"normalized":{"x":0.9284767,"y":0.371390671,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":86.1626358,"sqrMagnitude":7424.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":64.0,"yMin":16.0,"xMax":80.0,"yMax":32.0,"left":64.0,"right":80.0,"top":16.0,"bottom":32.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"c71cc56f193592844a5d2829f54550c5"},{"name":"treetops_tileset_15","rect":{"x":0.0,"y":0.0,"position":{"x":0.0,"y":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"center":{"x":8.0,"y":8.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":11.3137083,"sqrMagnitude":128.0},"min":{"x":0.0,"y":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"max":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":0.0,"yMin":0.0,"xMax":16.0,"yMax":16.0,"left":0.0,"right":16.0,"top":0.0,"bottom":16.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"70b64dc52ab4d1946893b820f4391686"},{"name":"treetops_tileset_16","rect":{"x":16.0,"y":0.0,"position":{"x":16.0,"y":0.0,"normalized":{"x":1.0,"y":0.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":16.0,"sqrMagnitude":256.0},"center":{"x":24.0,"y":8.0,"normalized":{"x":0.948683262,"y":0.316227764,"normalized":{"x":0.9486833,"y":0.3162278,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":0.99999994,"sqrMagnitude":0.99999994},"magnitude":25.2982216,"sqrMagnitude":640.0},"min":{"x":16.0,"y":0.0,"normalized":{"x":1.0,"y":0.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":16.0,"sqrMagnitude":256.0},"max":{"x":32.0,"y":16.0,"normalized":{"x":0.8944272,"y":0.4472136,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":35.77709,"sqrMagnitude":1280.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":16.0,"yMin":0.0,"xMax":32.0,"yMax":16.0,"left":16.0,"right":32.0,"top":0.0,"bottom":16.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"1957bca07f69d14449c1a6caeed0cbd6"},{"name":"treetops_tileset_17","rect":{"x":32.0,"y":0.0,"position":{"x":32.0,"y":0.0,"normalized":{"x":1.0,"y":0.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":32.0,"sqrMagnitude":1024.0},"center":{"x":40.0,"y":8.0,"normalized":{"x":0.9805807,"y":0.196116135,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":40.7921562,"sqrMagnitude":1664.0},"min":{"x":32.0,"y":0.0,"normalized":{"x":1.0,"y":0.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":32.0,"sqrMagnitude":1024.0},"max":{"x":48.0,"y":16.0,"normalized":{"x":0.948683262,"y":0.316227764,"normalized":{"x":0.9486833,"y":0.3162278,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":0.99999994,"sqrMagnitude":0.99999994},"magnitude":50.5964432,"sqrMagnitude":2560.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":32.0,"yMin":0.0,"xMax":48.0,"yMax":16.0,"left":32.0,"right":48.0,"top":0.0,"bottom":16.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"9bffb393615e7fd4faa0e7257b4b4094"},{"name":"treetops_tileset_18","rect":{"x":48.0,"y":0.0,"position":{"x":48.0,"y":0.0,"normalized":{"x":1.0,"y":0.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":48.0,"sqrMagnitude":2304.0},"center":{"x":56.0,"y":8.0,"normalized":{"x":0.989949465,"y":0.141421363,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":56.5685425,"sqrMagnitude":3200.0},"min":{"x":48.0,"y":0.0,"normalized":{"x":1.0,"y":0.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":48.0,"sqrMagnitude":2304.0},"max":{"x":64.0,"y":16.0,"normalized":{"x":0.970142543,"y":0.242535636,"magnitude":1.0,"sqrMagnitude":1.00000012},"magnitude":65.96969,"sqrMagnitude":4352.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":48.0,"yMin":0.0,"xMax":64.0,"yMax":16.0,"left":48.0,"right":64.0,"top":0.0,"bottom":16.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"70564622bb893d044b0c8f0c21d8089a"},{"name":"treetops_tileset_19","rect":{"x":64.0,"y":0.0,"position":{"x":64.0,"y":0.0,"normalized":{"x":1.0,"y":0.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":64.0,"sqrMagnitude":4096.0},"center":{"x":72.0,"y":8.0,"normalized":{"x":0.993883669,"y":0.110431522,"normalized":{"x":0.9938837,"y":0.11043153,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":0.99999994,"sqrMagnitude":0.9999999},"magnitude":72.4430847,"sqrMagnitude":5248.0},"min":{"x":64.0,"y":0.0,"normalized":{"x":1.0,"y":0.0,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":64.0,"sqrMagnitude":4096.0},"max":{"x":80.0,"y":16.0,"normalized":{"x":0.9805807,"y":0.196116135,"magnitude":1.0,"sqrMagnitude":1.0},"magnitude":81.58431,"sqrMagnitude":6656.0},"width":16.0,"height":16.0,"size":{"x":16.0,"y":16.0,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":22.6274166,"sqrMagnitude":512.0},"xMin":64.0,"yMin":0.0,"xMax":80.0,"yMax":16.0,"left":64.0,"right":80.0,"top":0.0,"bottom":16.0},"alignment":0,"pivot":{"x":0.5,"y":0.5,"normalized":{"x":0.707106769,"y":0.707106769,"magnitude":1.0,"sqrMagnitude":0.99999994},"magnitude":0.707106769,"sqrMagnitude":0.5},"border":{"x":0.0,"y":0.0,"z":0.0,"w":0.0,"magnitude":0.0,"sqrMagnitude":0.0},"outline":null,"tessellationDetail":0.0,"spriteID":"437f3077e8dbcfe47becca58f62efc14"}]'

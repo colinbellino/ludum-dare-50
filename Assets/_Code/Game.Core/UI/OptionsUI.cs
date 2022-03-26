@@ -96,19 +96,19 @@ namespace Game.Core
 		private void SetGameVolume(float value)
 		{
 			_game.State.PlayerSettings.GameVolume = value;
-			_game.State.GameBus.setVolume(value);
+			AudioHelpers.SetVolume(GameManager.Game.Config.GameBus, value);
 		}
 
 		private void SetSoundVolume(float value)
 		{
 			_game.State.PlayerSettings.SoundVolume = value;
-			_game.State.SoundBus.setVolume(value);
+			AudioHelpers.SetVolume(GameManager.Game.Config.SoundBus, value);
 		}
 
 		private void SetMusicVolume(float value)
 		{
 			_game.State.PlayerSettings.MusicVolume = value;
-			_game.State.MusicBus.setVolume(value);
+			AudioHelpers.SetVolume(GameManager.Game.Config.MusicBus, value);
 		}
 
 		private void ToggleFullscreen(bool value)

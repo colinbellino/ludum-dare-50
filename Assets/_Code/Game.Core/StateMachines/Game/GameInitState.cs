@@ -15,9 +15,6 @@ namespace Game.Core.StateMachines.Game
 
 			FMODUnity.RuntimeManager.LoadBank("SFX", loadSamples: true);
 
-			GameManager.Game.State.GameBus = FMODUnity.RuntimeManager.GetBus("bus:/Game");
-			GameManager.Game.State.MusicBus = FMODUnity.RuntimeManager.GetBus("bus:/Game/Music");
-			GameManager.Game.State.SoundBus = FMODUnity.RuntimeManager.GetBus("bus:/Game/SFX");
 			GameManager.Game.State.TitleMusic = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.MusicTitle);
 			GameManager.Game.State.LevelMusic = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.MusicMain);
 			GameManager.Game.State.PauseSnapshot = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.SnapshotPause);
@@ -76,9 +73,9 @@ namespace Game.Core.StateMachines.Game
 
 		private void SetPlayerSettings(PlayerSettings playerSettings)
 		{
-			GameManager.Game.State.GameBus.setVolume(playerSettings.GameVolume);
-			GameManager.Game.State.MusicBus.setVolume(playerSettings.MusicVolume);
-			GameManager.Game.State.SoundBus.setVolume(playerSettings.SoundVolume);
+			AudioHelpers.SetVolume(GameManager.Game.Config.GameBus, playerSettings.GameVolume);
+			AudioHelpers.SetVolume(GameManager.Game.Config.MusicBus, playerSettings.MusicVolume);
+			AudioHelpers.SetVolume(GameManager.Game.Config.SoundBus, playerSettings.SoundVolume);
 			LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(playerSettings.LocaleCode);
 			// Ignore resolution for WebGL since we always start in windowed mode with a fixed size.
 			if (IsWebGL() == false)

@@ -14,9 +14,6 @@ namespace Game.Core
 		public Level[] DebugLevels;
 		public Level[] AllLevels;
 
-		public Bus GameBus;
-		public Bus MusicBus;
-		public Bus SoundBus;
 		public EventInstance TitleMusic;
 		public EventInstance LevelMusic;
 		public EventInstance PauseSnapshot;

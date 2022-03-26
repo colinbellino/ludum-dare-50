@@ -40,13 +40,5 @@ namespace Game.Core
 		{
 			return Application.platform == RuntimePlatform.WebGLPlayer;
 		}
-
-		public static bool IsTileWalkable(Tile tile)
-		{
-			if (tile.colliderType == Tile.ColliderType.None)
-				return false;
-
-			return true;
-		}
 	}
 }

@@ -36,5 +36,25 @@ namespace Game.Core
 			Time.timeScale = Game.State.TimeScaleCurrent;
 			Game?.GameFSM.Tick();
 		}
+
+		private void OnApplicationFocus(bool hasFocus)
+		{
+			if (Utils.IsWebGL())
+				Silence(!hasFocus);
+		}
+
+		private void OnApplicationPause(bool isPaused)
+		{
+			if (Utils.IsWebGL())
+				Silence(isPaused);
+		}
+
+		private void Silence(bool silence)
+		{
+			if (silence)
+				AudioHelpers.SetVolume(Game.Config.GameBus, 0);
+			else
+				AudioHelpers.SetVolume(Game.Config.GameBus, Game.State.PlayerSettings.GameVolume);
+		}
 	}
 }

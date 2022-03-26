@@ -35,7 +35,7 @@ namespace Game.Core.StateMachines.Game
 
 			await GameManager.Game.UI.Init(GameManager.Game);
 			await GameManager.Game.PauseUI.Init(GameManager.Game);
-			await GameManager.Game.OptionsUI.Init(GameManager.Game);
+			await GameManager.Game.OptionsUI.Init();
 
 			if (IsDevBuild())
 			{

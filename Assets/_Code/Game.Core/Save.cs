@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 namespace Game.Core
 {
@@ -21,6 +22,7 @@ namespace Game.Core
 				ResolutionWidth = Screen.currentResolution.width,
 				ResolutionHeight = Screen.currentResolution.height,
 				ResolutionRefreshRate = Screen.currentResolution.refreshRate,
+				LocaleCode = LocalizationSettings.SelectedLocale.Identifier.Code,
 			};
 
 			if (Utils.IsWebGL())

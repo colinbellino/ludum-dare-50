@@ -23,7 +23,7 @@ namespace Game.Core
 				ResolutionRefreshRate = Screen.currentResolution.refreshRate,
 			};
 
-			if (Application.platform == RuntimePlatform.WebGLPlayer)
+			if (Utils.IsWebGL())
 			{
 				UnityEngine.Debug.Log("Loading player settings: " + _playerSettingsKey);
 				if (PlayerPrefsSerializer.Deserialize(_playerSettingsKey, ref data) == false)
@@ -41,7 +41,7 @@ namespace Game.Core
 
 		public void SavePlayerSettings(PlayerSettings data)
 		{
-			if (Application.platform == RuntimePlatform.WebGLPlayer)
+			if (Utils.IsWebGL())
 			{
 				PlayerPrefsSerializer.Serialize(data, _playerSettingsKey);
 				UnityEngine.Debug.Log("Saving player settings: " + _playerSettingsKey);
@@ -60,7 +60,7 @@ namespace Game.Core
 				ClearedLevels = new HashSet<int>(),
 			};
 
-			if (Application.platform == RuntimePlatform.WebGLPlayer)
+			if (Utils.IsWebGL())
 			{
 				UnityEngine.Debug.Log("Loading player data: " + _playerDataKey);
 				if (PlayerPrefsSerializer.Deserialize(_playerDataKey, ref data) == false)
@@ -77,7 +77,7 @@ namespace Game.Core
 
 		public void SavePlayerSaveData(PlayerSaveData data)
 		{
-			if (Application.platform == RuntimePlatform.WebGLPlayer)
+			if (Utils.IsWebGL())
 			{
 				BinaryFileSerializer.Serialize(data, _playerSaveDataPath);
 				UnityEngine.Debug.Log("Saving player data: " + _playerSaveDataPath);

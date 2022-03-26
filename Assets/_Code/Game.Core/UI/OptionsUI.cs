@@ -75,6 +75,10 @@ namespace Game.Core
 			_musicVolumeSlider.value = _game.State.PlayerSettings.MusicVolume;
 			_fullscreenToggle.isOn = _game.State.PlayerSettings.FullScreen;
 
+			// We have a button in the browser to do this in WebGL.
+			if (Utils.IsWebGL())
+				_fullscreenToggle.gameObject.SetActive(false);
+
 			EventSystem.current.SetSelectedGameObject(null);
 			await UniTask.NextFrame();
 			EventSystem.current.SetSelectedGameObject(_languagesDropdown.gameObject);

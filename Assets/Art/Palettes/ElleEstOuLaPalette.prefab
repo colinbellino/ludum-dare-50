@@ -1421,47 +1421,47 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 81
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: -3.1536189e-15, g: -3.1536189e-15, b: -3.1536189e-15, a: -3.1536189e-15}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1534,7 +1534,7 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &4013755790130314842
+--- !u!114 &1111569985847079050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

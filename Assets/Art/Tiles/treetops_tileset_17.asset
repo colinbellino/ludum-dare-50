@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: treetops_tileset_6
+  m_Name: treetops_tileset_17
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 3630833025641536912, guid: 9ab35ca12a2b7b3488b8d9de6ab53f61, type: 3}
+  m_Sprite: {fileID: -232076316851212403, guid: 9ab35ca12a2b7b3488b8d9de6ab53f61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

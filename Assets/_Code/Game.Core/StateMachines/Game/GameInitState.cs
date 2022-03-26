@@ -79,7 +79,11 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.State.GameBus.setVolume(playerSettings.GameVolume);
 			GameManager.Game.State.MusicBus.setVolume(playerSettings.MusicVolume);
 			GameManager.Game.State.SoundBus.setVolume(playerSettings.SoundVolume);
-			Screen.SetResolution(playerSettings.ResolutionWidth, playerSettings.ResolutionHeight, playerSettings.FullScreen, playerSettings.ResolutionRefreshRate);
+			var fullScreen = playerSettings.FullScreen;
+			// Ignore default fullscreen mode for WebGL since we always start in windowed mode.
+			if (IsWebGL())
+				fullScreen = false;
+			Screen.SetResolution(playerSettings.ResolutionWidth, playerSettings.ResolutionHeight, fullScreen, playerSettings.ResolutionRefreshRate);
 			LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(playerSettings.LocaleCode);
 		}
 	}

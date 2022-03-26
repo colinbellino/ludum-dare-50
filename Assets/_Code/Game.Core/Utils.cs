@@ -36,6 +36,11 @@ namespace Game.Core
 			return UniTask.Delay(System.TimeSpan.FromSeconds(length / timeScale));
 		}
 
+		public static bool IsWebGL()
+		{
+			return Application.platform == RuntimePlatform.WebGLPlayer;
+		}
+
 		public static bool IsTileWalkable(Tile tile)
 		{
 			if (tile.colliderType == Tile.ColliderType.None)

@@ -8,6 +8,47 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 80068e771e2e8ba48a9280cdde0e1627, type: 3}
+  _importSettings:
+    seamlessCubemap: 0
+    mipmapBias: 0.5
+    wrapMode: 1
+    wrapModeU: 0
+    wrapModeV: 0
+    wrapModeW: 0
+    alphaIsTransparency: 1
+    spriteMode: 1
+    spritePixelsPerUnit: 16
+    spriteTessellationDetail: 0
+    spriteExtrude: 1
+    spriteMeshType: 1
+    spriteAlignment: 0
+    spritePivot: {x: 0, y: 0}
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 1
+    aniso: 1
+    filterMode: 0
+    cubemapConvolution: 0
+    textureType: 8
+    textureShape: 1
+    mipmapFilter: 0
+    mipmapEnabled: 0
+    sRGBTexture: 1
+    fadeOut: 0
+    borderMipmap: 0
+    mipMapsPreserveCoverage: 0
+    mipmapFadeDistanceStart: 1
+    alphaTestReferenceValue: 1
+    convertToNormalMap: 0
+    heightmapScale: 0
+    normalMapFilter: 0
+    alphaSource: 1
+    singleChannelComponent: 0
+    readable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    npotScale: 0
+    generateCubemap: 0
+    mipmapFadeDistanceEnd: 3
   _data:
     version: 0.4.95
     name: treetops_tileset
@@ -16,19 +57,9 @@ ScriptedImporter:
       height: 64
       tileHeight: 16
       tileWidth: 16
-      currentLayerIndex: 2
-      numLayers: 3
+      currentLayerIndex: 0
+      numLayers: 2
       layers:
-      - name: Layer 2
-        blendMode: normal
-        muted: 0
-        hidden: 1
-        collapsed: 0
-        soloed: 0
-        alpha: 255
-        tileRefs: []
-        type: tile_layer
-        parentIndex: -1
       - name: Layer 1
         blendMode: normal
         muted: 0
@@ -103,7 +134,10 @@ ScriptedImporter:
           rot: 0
         - index: 18
           flipX: 0
-          rot: 1
+          rot: 0
+        - index: 19
+          flipX: 0
+          rot: 0
         type: tile_layer
         parentIndex: -1
     tileset:

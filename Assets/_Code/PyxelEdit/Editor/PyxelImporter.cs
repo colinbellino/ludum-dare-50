@@ -20,7 +20,6 @@ namespace PyxelEdit
 
 		public override void OnImportAsset(AssetImportContext ctx)
 		{
-			UnityEngine.Debug.Log("OnImportAsset");
 			var entries = new Dictionary<string, byte[]>();
 			var layers = new List<string>();
 			var tiles = new List<string>();
@@ -62,15 +61,21 @@ namespace PyxelEdit
 			{
 				var previewPixels = new Color32[0];
 
-				foreach (var filename in layers)
+				for (int layerIndex = 0; layerIndex < layers.Count; layerIndex++)
 				{
-					var texture = new Texture2D(2, 2);
+					var filename = layers[layerIndex];
 
+					var texture = new Texture2D(_data.canvas.tileWidth, _data.canvas.tileHeight);
 					texture.LoadImage(entries[filename]);
-					var sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(texture.width / 2, texture.height / 2), texture.width);
-					sprite.name = archiveName + "_" + filename;
+					texture.name = archiveName + "_layer_texture_" + layerIndex;
+					texture.hideFlags = HideFlags.HideInHierarchy;
 
-					ctx.AddObjectToAsset(filename, sprite, sprite.texture);
+					ctx.AddObjectToAsset(texture.name, texture, texture);
+
+					var sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(texture.width / 2, texture.height / 2), texture.width);
+					sprite.name = archiveName + "_layer_" + layerIndex;
+
+					ctx.AddObjectToAsset(sprite.name, sprite, sprite.texture);
 
 					var pixels = texture.GetPixels32();
 					if (previewPixels.Length == 0)
@@ -180,7 +185,7 @@ namespace PyxelEdit
 							{
 								alignment = (SpriteAlignment)textureImporterSettings.spriteAlignment,
 								border = textureImporterSettings.spriteBorder,
-								name = archiveName + "_tile_" + i,
+								name = archiveName + "_" + i,
 								pivot = new Vector2(0.5f, 0.5f),
 								rect = new Rect(0, 0, _data.canvas.tileWidth, _data.canvas.tileHeight),
 								spriteID = GUID.Generate().ToString(),

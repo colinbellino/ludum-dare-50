@@ -18,17 +18,17 @@ MonoBehaviour:
   m_GUID: bda07039a59014183a749d8326d5bfa5
   m_SerializeEntries:
   - m_GUID: 666e6b42872d74dc18879faeab38ada1
-    m_Address: French (fr)
+    m_Address: French
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
   - m_GUID: e19a4dd6ade9a45c0bf144ed3a44e5af
-    m_Address: English (en)
+    m_Address: English
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
   - m_GUID: 93c6a7eaa687e47118cfa9c865c57972
-    m_Address: German (de)
+    m_Address: German
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale

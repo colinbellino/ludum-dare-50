@@ -77,7 +77,10 @@ namespace Game.Core
 
 			// We have a button in the browser to do this in WebGL.
 			if (Utils.IsWebGL())
+			{
+				_resolutionsDropdown.gameObject.SetActive(false);
 				_fullscreenToggle.gameObject.SetActive(false);
+			}
 
 			EventSystem.current.SetSelectedGameObject(null);
 			await UniTask.NextFrame();

@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 namespace Game.Core.StateMachines.Game
 {
@@ -7,16 +8,19 @@ namespace Game.Core.StateMachines.Game
 	{
 		public GameFSM FSM;
 
-		public UniTask Enter()
+		public async UniTask Enter()
 		{
-			// FIXME: What if this is a WebGL build?
+			if (Utils.IsWebGL())
+			{
+				await SceneManager.LoadSceneAsync("WebGLQuit", LoadSceneMode.Single);
+				return;
+			}
+
 #if UNITY_EDITOR
 			EditorApplication.isPlaying = false;
 #else
 			UnityEngine.Application.Quit();
 #endif
-
-			return default;
 		}
 
 		public void Tick() { }

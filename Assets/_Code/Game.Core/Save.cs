@@ -24,6 +24,7 @@ namespace Game.Core
 				ResolutionRefreshRate = Screen.currentResolution.refreshRate,
 				LocaleCode = LocalizationSettings.SelectedLocale.Identifier.Code,
 			};
+			UnityEngine.Debug.Log("default locale: " + LocalizationSettings.SelectedLocale.Identifier.Code);
 
 			if (Utils.IsWebGL())
 			{

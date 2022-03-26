@@ -31,7 +31,7 @@ MonoBehaviour:
         - id: 2
         - id: 3
         - id: 4
-        m_ConnectedFile: /Users/colin/Dev/ludum-dare-49/Assets/StreamingAssets/AllText.csv
+        m_ConnectedFile: Assets/StreamingAssets/AllText.csv
     00000001:
       type: {class: KeyIdColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns, asm: Unity.Localization.Editor}
       data:

@@ -48,15 +48,9 @@ namespace Game.Core.StateMachines.Game
 
 		public async void Tick()
 		{
-			if (GameManager.Game.Controls.Global.Cancel.WasPerformedThisFrame())
+			if (GameManager.Game.Controls.Global.Cancel.WasReleasedThisFrame())
 			{
-				if (GameManager.Game.OptionsUI.IsOpened)
-				{
-					await GameManager.Game.OptionsUI.Hide();
-					GameManager.Game.UI.SelectTitleOptionsGameObject();
-					GameManager.Game.Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
-				}
-				else
+				if (GameManager.Game.OptionsUI.IsOpened == false)
 					QuitGame();
 			}
 

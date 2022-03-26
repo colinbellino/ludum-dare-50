@@ -1,3 +1,4 @@
+using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
@@ -18,15 +19,14 @@ namespace Game.Core
 		[SerializeField] private Toggle _fullscreenToggle;
 		[SerializeField] private TMP_Dropdown _resolutionsDropdown;
 		[SerializeField] private TMP_Dropdown _languagesDropdown;
+		[SerializeField] private Button _backButton;
 
-		private GameSingleton _game;
 		private List<Resolution> _resolutions;
 
 		public bool IsOpened => _optionsRoot.activeSelf;
 
-		public async UniTask Init(GameSingleton game)
+		public async UniTask Init()
 		{
-			_game = game;
 			{
 				_resolutions = Screen.resolutions.ToList();
 
@@ -63,17 +63,20 @@ namespace Game.Core
 				_languagesDropdown.template.gameObject.SetActive(false);
 				_languagesDropdown.onValueChanged.AddListener(OnLanguageChanged);
 			}
+			_backButton.onClick.AddListener(BackToTitle);
 			await Hide(0);
 		}
 
 		public async UniTask Show(float duration = 0.5f)
 		{
+			GameManager.Game.Controls.Global.Cancel.performed += CancelInputPerformed;
+
 			_optionsRoot.SetActive(true);
 
-			_gameVolumeSlider.value = _game.State.PlayerSettings.GameVolume;
-			_soundVolumeSlider.value = _game.State.PlayerSettings.SoundVolume;
-			_musicVolumeSlider.value = _game.State.PlayerSettings.MusicVolume;
-			_fullscreenToggle.isOn = _game.State.PlayerSettings.FullScreen;
+			_gameVolumeSlider.value = GameManager.Game.State.PlayerSettings.GameVolume;
+			_soundVolumeSlider.value = GameManager.Game.State.PlayerSettings.SoundVolume;
+			_musicVolumeSlider.value = GameManager.Game.State.PlayerSettings.MusicVolume;
+			_fullscreenToggle.isOn = GameManager.Game.State.PlayerSettings.FullScreen;
 
 			// We have a button in the browser to do this in WebGL.
 			if (Utils.IsWebGL())
@@ -89,47 +92,64 @@ namespace Game.Core
 
 		public UniTask Hide(float duration = 0.5f)
 		{
+			GameManager.Game.Controls.Global.Cancel.performed -= CancelInputPerformed;
+
 			_optionsRoot.SetActive(false);
 			return default;
 		}
 
+		private async void CancelInputPerformed(InputAction.CallbackContext obj)
+		{
+			// Quick hack so we trigger the cancel input again if we go back to the title in the same frame.
+			await UniTask.NextFrame();
+
+			BackToTitle();
+		}
+
 		private void SetGameVolume(float value)
 		{
-			_game.State.PlayerSettings.GameVolume = value;
+			GameManager.Game.State.PlayerSettings.GameVolume = value;
 			AudioHelpers.SetVolume(GameManager.Game.Config.GameBus, value);
 		}
 
 		private void SetSoundVolume(float value)
 		{
-			_game.State.PlayerSettings.SoundVolume = value;
+			GameManager.Game.State.PlayerSettings.SoundVolume = value;
 			AudioHelpers.SetVolume(GameManager.Game.Config.SoundBus, value);
 		}
 
 		private void SetMusicVolume(float value)
 		{
-			_game.State.PlayerSettings.MusicVolume = value;
+			GameManager.Game.State.PlayerSettings.MusicVolume = value;
 			AudioHelpers.SetVolume(GameManager.Game.Config.MusicBus, value);
 		}
 
 		private void ToggleFullscreen(bool value)
 		{
-			_game.State.PlayerSettings.FullScreen = value;
+			GameManager.Game.State.PlayerSettings.FullScreen = value;
 			Screen.fullScreen = value;
+		}
+
+		private async void BackToTitle()
+		{
+			await Hide();
+			GameManager.Game.UI.SelectTitleOptionsGameObject();
+			GameManager.Game.Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 		}
 
 		private void OnResolutionChanged(int index)
 		{
 			var resolution = _resolutions[index];
-			_game.State.PlayerSettings.ResolutionWidth = resolution.width;
-			_game.State.PlayerSettings.ResolutionHeight = resolution.height;
-			_game.State.PlayerSettings.ResolutionRefreshRate = resolution.refreshRate;
+			GameManager.Game.State.PlayerSettings.ResolutionWidth = resolution.width;
+			GameManager.Game.State.PlayerSettings.ResolutionHeight = resolution.height;
+			GameManager.Game.State.PlayerSettings.ResolutionRefreshRate = resolution.refreshRate;
 			Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, resolution.refreshRate);
 		}
 
 		private void OnLanguageChanged(int index)
 		{
 			var location = LocalizationSettings.AvailableLocales.Locales[index];
-			_game.State.PlayerSettings.LocaleCode = location.Identifier.Code;
+			GameManager.Game.State.PlayerSettings.LocaleCode = location.Identifier.Code;
 			LocalizationSettings.SelectedLocale = location;
 		}
 	}

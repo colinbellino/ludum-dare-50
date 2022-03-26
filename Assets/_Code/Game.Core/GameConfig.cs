@@ -18,6 +18,9 @@ namespace Game.Core
 		public TileToEntity TileToEntity;
 
 		[Header("AUDIO")]
+		public string GameBus = "bus:/Game";
+		public string MusicBus = "bus:/Game/Music";
+		public string SoundBus = "bus:/Game/SFX";
 		public EventReference SnapshotPause;
 		public EventReference SoundMenuConfirm;
 		public EventReference MusicTitle;

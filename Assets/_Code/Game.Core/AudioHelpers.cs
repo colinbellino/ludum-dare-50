@@ -7,6 +7,12 @@ namespace Game.Core
 {
 	public static class AudioHelpers
 	{
+		public static void SetVolume(string busPath, float volume)
+		{
+			var bus = FMODUnity.RuntimeManager.GetBus(busPath);
+			bus.setVolume(volume);
+		}
+
 		public static void PlayOneShotRandom(EventReference[] eventReferences, Vector3 position = new Vector3())
 		{
 			var eventReference = eventReferences[UnityEngine.Random.Range(0, eventReferences.Length)];

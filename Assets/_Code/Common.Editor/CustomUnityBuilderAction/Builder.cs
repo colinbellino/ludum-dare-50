@@ -8,10 +8,11 @@ using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Build;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.Build.Reporting;
+using UnityEngine;
 
 namespace CustomUnityBuilderAction
 {
-	static class Builder
+	public static class Builder
 	{
 		public static void BuildProject()
 		{
@@ -31,6 +32,9 @@ namespace CustomUnityBuilderAction
 					buildOptions |= buildOptionEnum;
 				}
 			}
+
+			var commit = Environment.GetEnvironmentVariable("GITHUB_SHA");
+			PlayerPrefs.SetString("Commit", commit);
 
 			// Define BuildPlayer Options
 			var buildPlayerOptions = new BuildPlayerOptions

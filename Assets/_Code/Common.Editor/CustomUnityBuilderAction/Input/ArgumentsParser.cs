@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
 
 namespace CustomUnityBuilderAction.Input
 {
@@ -17,24 +18,24 @@ namespace CustomUnityBuilderAction.Input
 			if (!validatedOptions.TryGetValue("projectPath", out var projectPath))
 			{
 				Console.WriteLine("Missing argument -projectPath");
-				EditorApplication.Exit(110);
+				Exit(110);
 			}
 
 			if (!validatedOptions.TryGetValue("buildTarget", out var buildTarget))
 			{
 				Console.WriteLine("Missing argument -buildTarget");
-				EditorApplication.Exit(120);
+				Exit(120);
 			}
 
-			if (!Enum.IsDefined(typeof(BuildTarget), buildTarget))
+			if (buildTarget == null || !Enum.IsDefined(typeof(BuildTarget), buildTarget))
 			{
-				EditorApplication.Exit(121);
+				Exit(121);
 			}
 
 			if (!validatedOptions.TryGetValue("customBuildPath", out var customBuildPath))
 			{
 				Console.WriteLine("Missing argument -customBuildPath");
-				EditorApplication.Exit(130);
+				Exit(130);
 			}
 
 			const string defaultCustomBuildName = "TestBuild";
@@ -50,6 +51,14 @@ namespace CustomUnityBuilderAction.Input
 			}
 
 			return validatedOptions;
+		}
+
+		private static void Exit(int code)
+		{
+			if (Application.isBatchMode)
+				EditorApplication.Exit(code);
+			// else
+			// 	EditorApplication.isPlaying = false;
 		}
 
 		static void ParseCommandLineArguments(out Dictionary<string, string> providedArguments)

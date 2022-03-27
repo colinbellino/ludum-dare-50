@@ -38,11 +38,10 @@ namespace Game.Core.StateMachines.Game
 
 			if (Utils.IsDevBuild())
 			{
-				GameManager.Game.UI.SetDebugText(@"
-- F1-F12: load levels
-- L: load last level
-- Tab: level selection
-");
+				GameManager.Game.UI.SetDebugText("");
+				GameManager.Game.UI.AddDebugLine("- F1-F12: Load levels");
+				GameManager.Game.UI.AddDebugLine("- L:      Load last level");
+				GameManager.Game.UI.AddDebugLine("- Tab:    Level selection");
 			}
 		}
 

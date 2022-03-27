@@ -302,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugRoot: {fileID: 1470820756}
   _debugText: {fileID: 1750842508}
+  _versionText: {fileID: 614201086}
   _gameplayRoot: {fileID: 759921887}
   _titleRoot: {fileID: 1639708449626889727}
   _titleWrapper: {fileID: 1665512540}
@@ -510,6 +511,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c7b7ec5b2bb0468890a476cbcbde0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &614201086 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7830868880471018632, guid: 218a6ab84769d443fb717a4dcbea610a, type: 3}
+  m_PrefabInstance: {fileID: 3076499960227166032}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &656360678 stripped
@@ -1761,30 +1773,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 309729273}
     m_Modifications:
-    - target: {fileID: 3076499958745811931, guid: 218a6ab84769d443fb717a4dcbea610a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3076499958745811931, guid: 218a6ab84769d443fb717a4dcbea610a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3076499958745811931, guid: 218a6ab84769d443fb717a4dcbea610a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 380
-      objectReference: {fileID: 0}
-    - target: {fileID: 3076499958745811931, guid: 218a6ab84769d443fb717a4dcbea610a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3076499958745811931, guid: 218a6ab84769d443fb717a4dcbea610a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3076499958745811931, guid: 218a6ab84769d443fb717a4dcbea610a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -110
-      objectReference: {fileID: 0}
     - target: {fileID: 3076499958996469444, guid: 218a6ab84769d443fb717a4dcbea610a, type: 3}
       propertyPath: m_Name
       value: Debug Canvas

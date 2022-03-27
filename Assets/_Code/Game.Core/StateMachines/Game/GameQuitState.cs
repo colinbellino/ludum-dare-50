@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,7 @@ namespace Game.Core.StateMachines.Game
 		{
 			if (Utils.IsWebGL())
 			{
+				AudioHelpers.StopEverything();
 				await SceneManager.LoadSceneAsync("WebGLQuit", LoadSceneMode.Single);
 				return;
 			}

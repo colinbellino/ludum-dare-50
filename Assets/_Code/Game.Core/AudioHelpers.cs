@@ -1,12 +1,15 @@
-using System;
 using FMODUnity;
 using UnityEngine;
-using Unity.Mathematics;
 
 namespace Game.Core
 {
 	public static class AudioHelpers
 	{
+		public static void StopEverything()
+		{
+			FMODUnity.RuntimeManager.PauseAllEvents(true);
+		}
+
 		public static void SetVolume(string busPath, float volume)
 		{
 			var bus = FMODUnity.RuntimeManager.GetBus(busPath);

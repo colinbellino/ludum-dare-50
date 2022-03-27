@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using CustomUnityBuilderAction.Input;
 using CustomUnityBuilderAction.Reporting;
@@ -33,8 +34,12 @@ namespace CustomUnityBuilderAction
 				}
 			}
 
-			var commit = Environment.GetEnvironmentVariable("GITHUB_SHA");
-			PlayerPrefs.SetString("Commit", commit);
+			{
+				var commit = Environment.GetEnvironmentVariable("GITHUB_SHA");
+				var stream = File.CreateText(Application.streamingAssetsPath + "/commit.txt");
+				stream.WriteLine(commit.Substring(0, 7));
+				stream.Close();
+			}
 
 			// Define BuildPlayer Options
 			var buildPlayerOptions = new BuildPlayerOptions

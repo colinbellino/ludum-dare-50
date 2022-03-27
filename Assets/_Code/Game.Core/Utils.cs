@@ -1,6 +1,6 @@
+using System.IO;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 namespace Game.Core
 {
@@ -39,6 +39,11 @@ namespace Game.Core
 		public static bool IsWebGL()
 		{
 			return Application.platform == RuntimePlatform.WebGLPlayer;
+		}
+
+		public static string ReadCommitFromFile()
+		{
+			return File.ReadAllText(Application.streamingAssetsPath + "/commit.txt");
 		}
 	}
 }

@@ -17,6 +17,7 @@ namespace Game.Core
 		[Header("Debug")]
 		[SerializeField] private GameObject _debugRoot;
 		[SerializeField] private TMP_Text _debugText;
+		[SerializeField] private TMP_Text _versionText;
 		[Header("Gameplay")]
 		[SerializeField] private GameObject _gameplayRoot;
 		[Header("Title")]
@@ -58,6 +59,10 @@ namespace Game.Core
 		public void AddDebugLine(string value)
 		{
 			_debugText.text += value + "\n";
+		}
+		public void SetVersion(string value)
+		{
+			_versionText.text = value;
 		}
 
 		public void ShowGameplay() { _gameplayRoot.SetActive(true); }

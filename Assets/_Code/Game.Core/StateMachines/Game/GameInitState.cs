@@ -11,10 +11,17 @@ namespace Game.Core.StateMachines.Game
 
 		public async UniTask Enter()
 		{
+			GameManager.Game.UI.SetDebugText("");
+
 			_ = GameManager.Game.UI.FadeIn(Color.black, 0);
 
 			FMODUnity.RuntimeManager.LoadBank("SFX", loadSamples: true);
 
+			GameManager.Game.State.Version = Application.version;
+			GameManager.Game.State.Commit = "sha1234";
+			var commit = PlayerPrefs.GetString("Commit");
+			if (string.IsNullOrEmpty(commit) == false)
+				GameManager.Game.State.Commit = PlayerPrefs.GetString("Commit");
 			GameManager.Game.State.TitleMusic = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.MusicTitle);
 			GameManager.Game.State.LevelMusic = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.MusicMain);
 			GameManager.Game.State.PauseSnapshot = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.SnapshotPause);
@@ -33,6 +40,7 @@ namespace Game.Core.StateMachines.Game
 
 			GameManager.Game.Controls.Global.Enable();
 
+			GameManager.Game.UI.SetVersion($"{GameManager.Game.State.Version} - {GameManager.Game.State.Commit}");
 			await GameManager.Game.UI.Init(GameManager.Game);
 			await GameManager.Game.PauseUI.Init(GameManager.Game);
 			await GameManager.Game.OptionsUI.Init();

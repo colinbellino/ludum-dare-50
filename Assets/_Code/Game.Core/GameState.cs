@@ -6,6 +6,9 @@ namespace Game.Core
 {
 	public class GameState
 	{
+		public string Version;
+		public string Commit;
+
 		public Unity.Mathematics.Random Random;
 		public bool Running;
 		public bool Paused;

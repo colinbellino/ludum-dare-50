@@ -45,6 +45,8 @@ namespace Game.Core.StateMachines.Game
 			await GameManager.Game.PauseUI.Init(GameManager.Game);
 			await GameManager.Game.OptionsUI.Init();
 
+			GameManager.Game.UI.ShowDebug();
+
 			if (IsDevBuild())
 			{
 				if (GameManager.Game.Config.DebugLevels)
@@ -54,8 +56,6 @@ namespace Game.Core.StateMachines.Game
 					GameManager.Game.Config.Levels.CopyTo(GameManager.Game.State.AllLevels, 0);
 					GameManager.Game.State.DebugLevels.CopyTo(GameManager.Game.State.AllLevels, GameManager.Game.Config.Levels.Length);
 				}
-
-				GameManager.Game.UI.ShowDebug();
 
 				if (GameManager.Game.Config.LockFPS > 0)
 				{

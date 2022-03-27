@@ -1,6 +1,7 @@
 using System.IO;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Game.Core
 {
@@ -41,9 +42,14 @@ namespace Game.Core
 			return Application.platform == RuntimePlatform.WebGLPlayer;
 		}
 
-		public static string ReadCommitFromFile()
+		public static async UniTask<string> ReadCommitFromFile()
 		{
-			return File.ReadAllText(Application.streamingAssetsPath + "/commit.txt");
+			var path = Application.streamingAssetsPath + "/commit.txt";
+
+			if (IsWebGL())
+				return (await UnityWebRequest.Get(path).SendWebRequest()).downloadHandler.text;
+
+			return File.ReadAllText(path);
 		}
 	}
 }

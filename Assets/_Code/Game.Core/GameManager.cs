@@ -14,6 +14,7 @@ namespace Game.Core
 		[SerializeField] private GameUI _gameUI;
 		[SerializeField] private PauseUI _pauseUI;
 		[SerializeField] private OptionsUI _optionsUI;
+		[SerializeField] private ControlsUI _controlsUI;
 
 		private async UniTask Start()
 		{
@@ -24,6 +25,7 @@ namespace Game.Core
 			Game.UI = _gameUI;
 			Game.PauseUI = _pauseUI;
 			Game.OptionsUI = _optionsUI;
+			Game.ControlsUI = _controlsUI;
 			Game.State = new GameState();
 			Game.GameFSM = new GameFSM(_config.DebugStateMachine, Game);
 			Game.Save = new Save();

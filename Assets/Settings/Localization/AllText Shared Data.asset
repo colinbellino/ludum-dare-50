@@ -79,6 +79,34 @@ MonoBehaviour:
     m_Key: UI/Back
     m_Metadata:
       m_Items: []
+  - m_Id: 15194164038721536
+    m_Key: UI/Inputs/LeftStick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15194618340564992
+    m_Key: UI/Inputs/DPad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15200668078825472
+    m_Key: UI/Inputs/ActionLeft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15200668078825473
+    m_Key: UI/Inputs/ActionDown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15200668078825474
+    m_Key: UI/Inputs/ActionRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15200668078825475
+    m_Key: UI/Inputs/ActionUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15200668078825476
+    m_Key: UI/Inputs/Start
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

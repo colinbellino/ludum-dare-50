@@ -22,3 +22,6 @@
 "UI/Inputs/ActionRight","ActionRight","ActionRight","ActionRight"
 "UI/Inputs/ActionUp","ActionUp","ActionUp","ActionUp"
 "UI/Inputs/Start","Pause","Pause","Pause"
+"UI/Inputs/Keyboard/E","Dig / Confirm","Creuser / Confirmer","Dig / Confirm"
+"UI/Inputs/Keyboard/Space","Jump / Cancel","Sauter / Annuler","Jump / Cancel"
+"UI/Inputs/Keyboard/ArrowDown","Move","Movement","Move"

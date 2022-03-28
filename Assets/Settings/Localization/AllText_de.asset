@@ -82,5 +82,33 @@ MonoBehaviour:
     m_Localized: "Zur\xFCck"
     m_Metadata:
       m_Items: []
+  - m_Id: 15194164038721536
+    m_Localized: Move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15194618340564992
+    m_Localized: Move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15200668078825472
+    m_Localized: Dig / Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15200668078825473
+    m_Localized: Jump / Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15200668078825474
+    m_Localized: ActionRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15200668078825475
+    m_Localized: ActionUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15200668078825476
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

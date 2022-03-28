@@ -47,6 +47,14 @@ namespace Game.Core.StateMachines.Game
 
 		public async void Tick()
 		{
+			if (Keyboard.current.tabKey.wasPressedThisFrame)
+			{
+				if (GameManager.Game.ControlsUI.IsOpened)
+					_ = GameManager.Game.ControlsUI.Hide();
+				else
+					_ = GameManager.Game.ControlsUI.Show();
+			}
+
 			if (GameManager.Game.Controls.Global.Cancel.WasReleasedThisFrame())
 			{
 				if (GameManager.Game.OptionsUI.IsOpened == false)

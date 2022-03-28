@@ -110,5 +110,17 @@ MonoBehaviour:
     m_Localized: Pause
     m_Metadata:
       m_Items: []
+  - m_Id: 15232485444018176
+    m_Localized: Dig / Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15232485448212480
+    m_Localized: Jump / Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15233073539964928
+    m_Localized: Move
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -107,6 +107,18 @@ MonoBehaviour:
     m_Key: UI/Inputs/Start
     m_Metadata:
       m_Items: []
+  - m_Id: 15232485444018176
+    m_Key: UI/Inputs/Keyboard/E
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15232485448212480
+    m_Key: UI/Inputs/Keyboard/Space
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15233073539964928
+    m_Key: UI/Inputs/Keyboard/ArrowDown
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

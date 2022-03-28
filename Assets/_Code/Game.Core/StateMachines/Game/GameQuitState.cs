@@ -11,9 +11,11 @@ namespace Game.Core.StateMachines.Game
 
 		public async UniTask Enter()
 		{
+			GameManager.Game.Controls.Disable();
+			AudioHelpers.StopEverything();
+
 			if (Utils.IsWebGL())
 			{
-				AudioHelpers.StopEverything();
 				await SceneManager.LoadSceneAsync("WebGLQuit", LoadSceneMode.Single);
 				return;
 			}

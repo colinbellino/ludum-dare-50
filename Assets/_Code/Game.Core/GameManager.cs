@@ -1,7 +1,14 @@
+using System;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using Game.Core.StateMachines.Game;
 using Game.Inputs;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.DualShock;
+using UnityEngine.InputSystem.Users;
+using UnityEngine.InputSystem.XInput;
 
 namespace Game.Core
 {
@@ -35,6 +42,21 @@ namespace Game.Core
 
 		private void Update()
 		{
+			var newInputType = -1;
+			if (Keyboard.current.anyKey.wasPressedThisFrame)
+				newInputType = 0;
+			else if (Gamepad.current.allControls.Any(x => x.IsActuated()))
+				if (Gamepad.current is XInputController)
+					newInputType = 1;
+				else if (Gamepad.current is DualShockGamepad)
+					newInputType = 2;
+
+			if (newInputType > -1 && newInputType != Game.State.CurrentInputType)
+			{
+				Game.State.CurrentInputType = newInputType;
+				Game.ControlsUI.SetInputType(Game.State.CurrentInputType);
+			}
+
 			Time.timeScale = Game.State.TimeScaleCurrent;
 			Game?.GameFSM.Tick();
 		}

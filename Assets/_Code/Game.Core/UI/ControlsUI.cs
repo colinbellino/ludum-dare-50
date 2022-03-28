@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System;
 
 namespace Game.Core
 {
@@ -10,8 +11,9 @@ namespace Game.Core
 	{
 		[SerializeField] private GameObject _root;
 		[SerializeField] private Button _closeButton;
-		[SerializeField] private GameObject _xbox;
-		[SerializeField] private GameObject _ps5;
+		[SerializeField] private GameObject _keyboardRoot;
+		[SerializeField] private GameObject _xboxRoot;
+		[SerializeField] private GameObject _ps5Root;
 
 		public bool IsOpened => _root.activeSelf;
 
@@ -25,11 +27,12 @@ namespace Game.Core
 			GameManager.Game.Controls.Global.Cancel.performed += CancelInputPerformed;
 			_closeButton.onClick.AddListener(CloseButtonClick);
 
+			SetInputType(0);
 			_root.SetActive(true);
 
 			EventSystem.current.SetSelectedGameObject(null);
 			await UniTask.NextFrame();
-			// EventSystem.current.SetSelectedGameObject(_languagesDropdown.gameObject);
+			EventSystem.current.SetSelectedGameObject(_closeButton.gameObject);
 		}
 
 		public UniTask Hide(float duration = 0.5f)
@@ -39,6 +42,34 @@ namespace Game.Core
 
 			_root.SetActive(false);
 			return default;
+		}
+
+		public void SetInputType(int inputType)
+		{
+			switch (inputType)
+			{
+				case 0:
+					{
+						_keyboardRoot.SetActive(true);
+						_xboxRoot.SetActive(false);
+						_ps5Root.SetActive(false);
+					}
+					break;
+				case 1:
+					{
+						_keyboardRoot.SetActive(false);
+						_xboxRoot.SetActive(true);
+						_ps5Root.SetActive(false);
+					}
+					break;
+				case 2:
+					{
+						_keyboardRoot.SetActive(false);
+						_xboxRoot.SetActive(false);
+						_ps5Root.SetActive(true);
+					}
+					break;
+			}
 		}
 
 		private async void CancelInputPerformed(InputAction.CallbackContext obj)

@@ -14,8 +14,8 @@ namespace Game.Core
 		public bool Paused;
 		public float TimeScaleCurrent;
 		public float TimeScaleDefault;
-		public Level[] DebugLevels;
-		public Level[] AllLevels;
+
+		public int CurrentInputType;
 
 		public EventInstance TitleMusic;
 		public EventInstance LevelMusic;
@@ -24,6 +24,8 @@ namespace Game.Core
 		public int CurrentLevelIndex;
 		public Level Level;
 		public List<Entity> Entities = new List<Entity>(30);
+		public Level[] DebugLevels;
+		public Level[] AllLevels;
 
 		public PlayerSettings PlayerSettings;
 		public PlayerSaveData PlayerSaveData;

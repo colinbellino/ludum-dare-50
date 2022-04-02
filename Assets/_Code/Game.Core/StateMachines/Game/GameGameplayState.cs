@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using FMOD.Studio;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -105,10 +106,15 @@ namespace Game.Core.StateMachines.Game
 			if (GameManager.Game.State.Running == false || GameManager.Game.State.Paused)
 				return;
 
-			//
+			var direction = context.ReadValue<Vector2>();
+			direction.y = -direction.y; // Reverse the Y axis because unity's is bottom > top and ours is top > bottom
 
-			var moveInput = context.ReadValue<Vector2>();
-			var nextRoom = LevelHelpers.GetRoomInDirection(moveInput, GameManager.Game.State.Level);
+			var nextRoom = LevelHelpers.GetRoomInDirection(direction, GameManager.Game.State.Level);
+			if (nextRoom != null)
+			{
+				LevelHelpers.TransitionToRoom(GameManager.Game.State.Level, nextRoom);
+				GameManager.Game.CameraRig.transform.DOMove(LevelHelpers.GetRoomCenter(GameManager.Game.State.Level.Current), 0.3f);
+			}
 		}
 
 		private void Victory()

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -10,11 +9,14 @@ namespace Game.Core.StateMachines.Game
 
 		public async UniTask Enter()
 		{
-			GameManager.Game.State.Level = LevelLoader.LoadLevel("Level1");
+			var level = LevelLoader.LoadLevel("Level1");
+			level.Start = LevelHelpers.GetStartRoom(level);
+			level.Current = level.Start;
 
-			var startRoom = GetStartRoom(GameManager.Game.State.Level);
-			var startPosition = new Vector3(startRoom.X * GameConfig.ROOM_SIZE.x, -startRoom.Y * GameConfig.ROOM_SIZE.y);
+			var startPosition = new Vector3(level.Start.X * GameConfig.ROOM_SIZE.x, -level.Start.Y * GameConfig.ROOM_SIZE.y);
 			GameManager.Game.CameraRig.transform.position = startPosition;
+
+			GameManager.Game.State.Level = level;
 
 			await UniTask.NextFrame();
 
@@ -29,32 +31,5 @@ namespace Game.Core.StateMachines.Game
 		public void FixedTick() { }
 
 		public void Tick() { }
-
-		private static Room GetStartRoom(Level level)
-		{
-			foreach (var room in level.Rooms)
-			{
-				if (room.Name == "2")
-					return room;
-			}
-
-			return null;
-		}
-	}
-}
-
-namespace Game.Core
-{
-	public struct Level
-	{
-		public List<Room> Rooms;
-	}
-
-	public class Room
-	{
-		public string Name;
-		public int X;
-		public int Y;
-		public GameObject Instance;
 	}
 }

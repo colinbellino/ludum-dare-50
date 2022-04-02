@@ -21,9 +21,10 @@ public class PlayerHealth : Game.Core.Health
       if (currentHP > 0) {
          timer += Time.deltaTime;
          if (timer >= healthLossCooldown) {
-            currentHP -= healthLossPerSecond;
             timer = 0f;
-            Debug.Log(currentHP);
+            currentHP -= healthLossPerSecond;
+         
+            Debug.Log("Current HP: " + currentHP);
          }
       }
    }

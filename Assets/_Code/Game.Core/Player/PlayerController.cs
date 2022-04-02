@@ -7,6 +7,8 @@ namespace Game.Core {
         private Rigidbody2D playerRB;
         private SpriteRenderer playerSR;
         private Animator playerAnimator;
+        private CapsuleCollider2D playerCollider;
+        private PlayerHealth playerHealth;
 
         [SerializeField] private float xMoveSpeed;
         [SerializeField] private float yMoveSpeed;
@@ -16,32 +18,46 @@ namespace Game.Core {
         [SerializeField] private float dashCooldown;
         [SerializeField] private float dashDuration;
 
-         private float dashCounter;
-        private Vector2 rawMovementInput;
+        private float dashCounter;
         private bool isDashing;
+        private Vector2 rawMovementInput;
+
+        private bool facingRight = true;
+        private float colliderOffsetY = -0.05737776f;
+        private float colliderOffsetXFacingRight = 0.05f;
+        private float colliderOffsetXFacingLeft = -0.08f;
+        
 
         void Awake()
         {
             playerRB = GetComponent<Rigidbody2D>();
             playerSR = GetComponent<SpriteRenderer>();
             playerAnimator = GetComponent<Animator>();
+            playerCollider = GetComponent<CapsuleCollider2D>();
+            playerHealth = GetComponent<PlayerHealth>();
         }
 
         void Update() {
-            if (!isDashing) {
-                rawMovementInput = GameManager.Game.Controls.Gameplay.Move.ReadValue<Vector2>();
-            }
-           
             GameManager.Game.Controls.Gameplay.Dash.performed += GetDashInput;
 
             if (isDashing) {
                 if (dashCooldown - dashCounter > dashDuration) {
                     isDashing = false;
                 }
+            } else {
+                rawMovementInput = GameManager.Game.Controls.Gameplay.Move.ReadValue<Vector2>();
             }
 
             if (dashCounter > 0) {
                 dashCounter -= Time.deltaTime;
+            }
+
+            if (facingRight) {
+                playerSR.flipX = false;
+                playerCollider.offset = new Vector2(colliderOffsetXFacingRight, colliderOffsetY);
+            } else {
+                playerSR.flipX = true;
+                playerCollider.offset = new Vector2(colliderOffsetXFacingLeft, colliderOffsetY);
             }
         }
 
@@ -63,9 +79,9 @@ namespace Game.Core {
                 }
 
                 if (playerRB.velocity.x < 0) {
-                    playerSR.flipX = true;
+                    facingRight = false;
                 } else {
-                    playerSR.flipX = false;
+                    facingRight = true;
                 }  
             } else {
                 playerRB.velocity = Vector2.zero;
@@ -76,6 +92,20 @@ namespace Game.Core {
             if (context.action.triggered && dashCounter <= 0) {
                 isDashing = true;
                 dashCounter = dashCooldown;
+            }
+        }
+
+        void OnCollisionEnter2D(Collision2D col) {
+            GameObject collidedWith = col.gameObject;
+
+            if (collidedWith.tag == "enemy") {
+                EnemyHealth enemyHealth = collidedWith.GetComponent<EnemyHealth>();
+
+                if (isDashing) {
+                    playerHealth.Heal(enemyHealth.GetDrainHealthToPlayer());
+                } else {
+                    playerHealth.DealDamage(enemyHealth.GetDamageToPlayer());
+                }
             }
         }
     }

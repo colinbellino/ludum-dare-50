@@ -8,6 +8,19 @@ namespace Game.Core
 {
 	public static class LevelHelpers
 	{
+		private static Vector3Int[] DIRECTIONS = new Vector3Int[] {
+			Vector3Int.up,
+			Vector3Int.right,
+			Vector3Int.down,
+			Vector3Int.left,
+		};
+		private static Vector3Int[] DOOR_POSITIONS = new Vector3Int[] {
+			new Vector3Int(7, 8, 0),
+			new Vector3Int(14, 4, 0),
+			new Vector3Int(7, 0, 0),
+			new Vector3Int(0, 4, 0),
+		};
+
 		public static Room GetStartRoom(Level level)
 		{
 			foreach (var room in level.Rooms)
@@ -130,13 +143,13 @@ namespace Game.Core
 					continue;
 				}
 
-				GameObject roomInstance = null;
+				RoomBehaviour roomInstance = null;
 				var entities = new List<Entity>();
 
 				var roomType = int.Parse(character.ToString());
 				if (roomType > 0)
 				{
-					var roomPrefab = Resources.Load<GameObject>("Rooms/Room" + character);
+					var roomPrefab = Resources.Load<RoomBehaviour>("Rooms/Room" + character);
 					roomInstance = GameObject.Instantiate(roomPrefab);
 					roomInstance.transform.position = new Vector3(x * GameConfig.ROOM_SIZE.x, -y * GameConfig.ROOM_SIZE.y);
 #if UNITY_EDITOR
@@ -171,6 +184,24 @@ namespace Game.Core
 				i += 1;
 			}
 
+			// Do a second loop once we have all the rooms to check for connections for doors.
+			foreach (var room in level.Rooms)
+			{
+				if (room.Instance == null)
+					continue;
+
+				for (int directionIndex = 0; directionIndex < DIRECTIONS.Length; directionIndex++)
+				{
+					var direction = DIRECTIONS[directionIndex];
+					direction.y = -direction.y;
+					var nextRoom = GetRoomAtPosition(room.X + direction.x, room.Y + direction.y, level);
+					if (nextRoom == null)
+					{
+						room.Instance.WallsTilemap.SetTile(DOOR_POSITIONS[directionIndex], GameManager.Game.Config.WallTiles[directionIndex]);
+					}
+				}
+			}
+
 			return level;
 		}
 	}
@@ -188,7 +219,7 @@ namespace Game.Core
 		public int Index;
 		public int X;
 		public int Y;
-		public GameObject Instance;
+		public RoomBehaviour Instance;
 		public List<Entity> Entities;
 
 		public override string ToString()

@@ -40,7 +40,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7340389038306149094, guid: 8af459f6a29efca4382f48d5d10eb1b7, type: 3}
       propertyPath: m_Name
-      value: Grid
+      value: Room Grid
       objectReference: {fileID: 0}
     - target: {fileID: 7340389038306149095, guid: 8af459f6a29efca4382f48d5d10eb1b7, type: 3}
       propertyPath: m_RootOrder

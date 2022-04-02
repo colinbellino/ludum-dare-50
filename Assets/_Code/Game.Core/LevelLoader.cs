@@ -44,7 +44,7 @@ namespace Game.Core
 					continue;
 				}
 
-				UnityEngine.Debug.Log($"[{x},{y}] {character}");
+				// UnityEngine.Debug.Log($"[{x},{y}] {character}");
 				var roomPrefab = Resources.Load<GameObject>("Rooms/Room" + character);
 				var roomInstance = GameObject.Instantiate(roomPrefab);
 				roomInstance.name = $"[{x},{y}] {character}";

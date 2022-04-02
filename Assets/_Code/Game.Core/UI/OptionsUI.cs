@@ -134,7 +134,7 @@ namespace Game.Core
 		{
 			await Hide();
 			GameManager.Game.UI.SelectTitleOptionsGameObject();
-			GameManager.Game.Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
+			Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 		}
 
 		private void OnResolutionChanged(int index)

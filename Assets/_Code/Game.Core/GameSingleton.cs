@@ -14,6 +14,5 @@ namespace Game.Core
 		public GameControls Controls;
 		public GameState State;
 		public GameFSM GameFSM;
-		public Save Save;
 	}
 }

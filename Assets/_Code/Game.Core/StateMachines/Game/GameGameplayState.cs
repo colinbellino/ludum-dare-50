@@ -55,7 +55,7 @@ namespace Game.Core.StateMachines.Game
 					{
 						GameManager.Game.OptionsUI.Hide();
 						GameManager.Game.PauseUI.SelectOptionsGameObject();
-						GameManager.Game.Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
+						Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 					}
 				}
 
@@ -106,6 +106,9 @@ namespace Game.Core.StateMachines.Game
 				return;
 
 			//
+
+			var moveInput = context.ReadValue<Vector2>();
+			var nextRoom = LevelHelpers.GetRoomInDirection(moveInput, GameManager.Game.State.Level);
 		}
 
 		private void Victory()
@@ -118,7 +121,7 @@ namespace Game.Core.StateMachines.Game
 		private void NextLevel()
 		{
 			GameManager.Game.State.PlayerSaveData.ClearedLevels.Add(GameManager.Game.State.CurrentLevelIndex);
-			GameManager.Game.Save.SavePlayerSaveData(GameManager.Game.State.PlayerSaveData);
+			Save.SavePlayerSaveData(GameManager.Game.State.PlayerSaveData);
 
 			GameManager.Game.State.CurrentLevelIndex += 1;
 

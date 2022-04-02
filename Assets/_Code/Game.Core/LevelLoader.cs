@@ -35,6 +35,7 @@ namespace Game.Core
 
 			var x = 0;
 			var y = 0;
+			var i = 0;
 			foreach (var character in levelData)
 			{
 				if (character == '\n')
@@ -54,11 +55,13 @@ namespace Game.Core
 				{
 					X = x,
 					Y = y,
+					Index = i,
 					Name = character.ToString(),
 					Instance = roomInstance,
 				});
 
 				x += 1;
+				i += 1;
 			}
 
 			return level;

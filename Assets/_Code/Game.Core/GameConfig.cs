@@ -14,6 +14,7 @@ namespace Game.Core
 		public int LockFPS = 60;
 
 		[Header("CONTENT")]
+		public PlayerController Player;
 		public Level[] Levels;
 		public TileToEntity TileToEntity;
 

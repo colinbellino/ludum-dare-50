@@ -23,10 +23,6 @@ namespace Game.Core {
         private Vector2 rawMovementInput;
 
         private bool facingRight = true;
-        private float colliderOffsetY = -0.05737776f;
-        private float colliderOffsetXFacingRight = 0.05f;
-        private float colliderOffsetXFacingLeft = -0.08f;
-        
 
         void Awake()
         {

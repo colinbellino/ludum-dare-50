@@ -103,12 +103,15 @@ namespace PyxelEdit
 			}
 
 			{
+				var rows = Mathf.Max(_data.tileset.numTiles / _data.tileset.tilesWide, 1);
+				var cols = Mathf.Min(_data.tileset.tilesWide, _data.tileset.numTiles);
+
 				var textureInformation = new SourceTextureInformation()
 				{
 					containsAlpha = true,
 					hdr = false,
-					height = _data.tileset.numTiles / _data.tileset.tilesWide * _data.tileset.tileHeight,
-					width = _data.tileset.tilesWide * _data.tileset.tileWidth,
+					width = cols * _data.tileset.tileWidth,
+					height = rows * _data.tileset.tileHeight,
 				};
 				var platformSettings = new TextureImporterPlatformSettings()
 				{
@@ -171,7 +174,7 @@ namespace PyxelEdit
 				}
 
 				var atlasBuilder = new SpriteAtlasBuilder(_data.tileset.tileWidth, _data.tileset.tileHeight, 0);
-				var atlas = atlasBuilder.GenerateAtlas(textures, _data.tileset.tilesWide, _data.tileset.numTiles / _data.tileset.tilesWide, out var importData, false);
+				var atlas = atlasBuilder.GenerateAtlas(textures, cols, rows, out var importData, false);
 
 				SpriteImportData = new PyxelSpriteImportData[importData.Length];
 				for (int i = 0; i < SpriteImportData.Length; i++)

@@ -63,6 +63,9 @@ namespace Game.Core
 
 			Time.timeScale = Game.State.TimeScaleCurrent;
 			Game?.GameFSM.Tick();
+
+			// Stick the UI to the camera
+			Game.UI.transform.position = Game.CameraRig.transform.position + Game.CameraRig.Camera.transform.localPosition;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

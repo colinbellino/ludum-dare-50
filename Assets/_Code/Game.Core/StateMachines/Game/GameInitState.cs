@@ -31,8 +31,8 @@ namespace Game.Core.StateMachines.Game
 			while (LocalizationSettings.InitializationOperation.IsDone == false)
 				await UniTask.NextFrame();
 
-			GameManager.Game.State.PlayerSettings = GameManager.Game.Save.LoadPlayerSettings();
-			GameManager.Game.State.PlayerSaveData = GameManager.Game.Save.LoadPlayerSaveData();
+			GameManager.Game.State.PlayerSettings = Save.LoadPlayerSettings();
+			GameManager.Game.State.PlayerSaveData = Save.LoadPlayerSaveData();
 			SetPlayerSettings(GameManager.Game.State.PlayerSettings);
 
 			GameManager.Game.Controls.Global.Enable();

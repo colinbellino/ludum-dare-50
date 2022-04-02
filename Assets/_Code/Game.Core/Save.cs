@@ -4,14 +4,14 @@ using UnityEngine.Localization.Settings;
 
 namespace Game.Core
 {
-	public class Save
+	public static class Save
 	{
-		private string _playerSettingsPath = Application.persistentDataPath + "/Settings.bin";
-		private string _playerSettingsKey = "PlayerSettings";
-		private string _playerSaveDataPath = Application.persistentDataPath + "/Save0.bin";
-		private string _playerDataKey = "PlayerSave0";
+		private static string _playerSettingsPath = Application.persistentDataPath + "/Settings.bin";
+		private static string _playerSettingsKey = "PlayerSettings";
+		private static string _playerSaveDataPath = Application.persistentDataPath + "/Save0.bin";
+		private static string _playerDataKey = "PlayerSave0";
 
-		public PlayerSettings LoadPlayerSettings()
+		public static PlayerSettings LoadPlayerSettings()
 		{
 			var data = new PlayerSettings
 			{
@@ -41,7 +41,7 @@ namespace Game.Core
 			return data;
 		}
 
-		public void SavePlayerSettings(PlayerSettings data)
+		public static void SavePlayerSettings(PlayerSettings data)
 		{
 			if (Utils.IsWebGL())
 			{
@@ -55,7 +55,7 @@ namespace Game.Core
 			}
 		}
 
-		public PlayerSaveData LoadPlayerSaveData()
+		public static PlayerSaveData LoadPlayerSaveData()
 		{
 			var data = new PlayerSaveData
 			{
@@ -77,7 +77,7 @@ namespace Game.Core
 			return data;
 		}
 
-		public void SavePlayerSaveData(PlayerSaveData data)
+		public static void SavePlayerSaveData(PlayerSaveData data)
 		{
 			if (Utils.IsWebGL())
 			{

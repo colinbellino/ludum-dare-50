@@ -12,10 +12,7 @@ namespace Game.Core
 
 		private void OnEnable()
 		{
-			if (Ready)
-			{
-				SpriteRenderer.color = Color.green;
-			}
+
 		}
 
 		private void OnDisable()
@@ -23,7 +20,6 @@ namespace Game.Core
 			if (Ready)
 			{
 				transform.localPosition = SpawnPosition;
-				SpriteRenderer.color = Color.red;
 			}
 		}
 	}

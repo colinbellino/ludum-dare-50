@@ -17,7 +17,7 @@ namespace Game.Core {
         [SerializeField] private float dashDuration;
 
          private float dashCounter;
-        private Vector2 RawMovementInput;
+        private Vector2 rawMovementInput;
         private bool isDashing;
 
         void Awake()
@@ -29,7 +29,7 @@ namespace Game.Core {
 
         void Update() {
             if (!isDashing) {
-                RawMovementInput = GameManager.Game.Controls.Gameplay.Move.ReadValue<Vector2>();
+                rawMovementInput = GameManager.Game.Controls.Gameplay.Move.ReadValue<Vector2>();
             }
            
             GameManager.Game.Controls.Gameplay.Dash.performed += GetDashInput;
@@ -48,9 +48,9 @@ namespace Game.Core {
         void FixedUpdate()
         {
             if (isDashing) {
-                playerRB.velocity = new Vector2(RawMovementInput.x * xDashSpeed, RawMovementInput.y * yDashSpeed);
+                playerRB.velocity = new Vector2(rawMovementInput.x * xDashSpeed, rawMovementInput.y * yDashSpeed);
             }  else {
-                handleMovement(RawMovementInput);  
+                handleMovement(rawMovementInput);  
             }     
         }
 

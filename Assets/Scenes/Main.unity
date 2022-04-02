@@ -353,22 +353,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4542784427072963798, guid: dd90378df9535114b878de1eed390362, type: 3}
-      propertyPath: xDashSpeed
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4542784427072963798, guid: dd90378df9535114b878de1eed390362, type: 3}
-      propertyPath: yDashSpeed
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4542784427072963798, guid: dd90378df9535114b878de1eed390362, type: 3}
-      propertyPath: dashCooldown
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4542784427072963798, guid: dd90378df9535114b878de1eed390362, type: 3}
-      propertyPath: dashDuration
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 7110341559196710137, guid: dd90378df9535114b878de1eed390362, type: 3}
       propertyPath: m_Name
       value: Player
@@ -746,6 +730,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1105023907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7110341559196710137, guid: dd90378df9535114b878de1eed390362, type: 3}
+  m_PrefabInstance: {fileID: 509342328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1105023908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105023907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93293e9bdfb54b64fb2dfffb892aa754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 1000
+  healthLossPerSecond: 50
+  healthLossCooldown: 3
 --- !u!114 &1106380748 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6491884614956627358, guid: 3c49a6280c19e46ff8a8124c73020ef0, type: 3}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.Core;
 
 public class MeleeEnemy : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class MeleeEnemy : MonoBehaviour
    private Rigidbody2D enemyRB;
    private Animator enemyAnimator;
    private EnemyHealth enemyHealth;
-   private PlayerHealth playerHealth;
+	private PlayerHealth playerHealth;
 
    [SerializeField] private float moveSpeed;
    private Vector2 directionToPlayer;
@@ -16,8 +17,11 @@ public class MeleeEnemy : MonoBehaviour
       enemyRB = FindObjectOfType<Rigidbody2D>();
       enemyAnimator = FindObjectOfType<Animator>();
       enemyHealth = FindObjectOfType<EnemyHealth>();
-      playerHealth = FindObjectOfType<PlayerHealth>();
    }
+
+	void OnEnable() {
+		playerHealth = GameManager.Game.State.Player.GetComponent<PlayerHealth>();
+	}
 
    void Update() {
       if (!enemyHealth.getDead() && !playerHealth.getDead()) {

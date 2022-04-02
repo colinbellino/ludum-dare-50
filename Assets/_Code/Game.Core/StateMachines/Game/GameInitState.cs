@@ -26,7 +26,7 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.State.Random = new Unity.Mathematics.Random();
 			GameManager.Game.State.Random.InitState((uint)Random.Range(0, int.MaxValue));
 			GameManager.Game.State.DebugLevels = new Level[0];
-			GameManager.Game.State.AllLevels = GameManager.Game.Config.Levels;
+			// GameManager.Game.State.AllLevels = GameManager.Game.Config.Levels;
 
 			while (LocalizationSettings.InitializationOperation.IsDone == false)
 				await UniTask.NextFrame();
@@ -47,13 +47,13 @@ namespace Game.Core.StateMachines.Game
 
 			if (IsDevBuild())
 			{
-				if (GameManager.Game.Config.DebugLevels)
-				{
-					GameManager.Game.State.DebugLevels = Resources.LoadAll<Level>("Levels/Debug");
-					GameManager.Game.State.AllLevels = new Level[GameManager.Game.Config.Levels.Length + GameManager.Game.State.DebugLevels.Length];
-					GameManager.Game.Config.Levels.CopyTo(GameManager.Game.State.AllLevels, 0);
-					GameManager.Game.State.DebugLevels.CopyTo(GameManager.Game.State.AllLevels, GameManager.Game.Config.Levels.Length);
-				}
+				// if (GameManager.Game.Config.DebugLevels)
+				// {
+				// 	GameManager.Game.State.DebugLevels = Resources.LoadAll<Level>("Levels/Debug");
+				// 	GameManager.Game.State.AllLevels = new Level[GameManager.Game.Config.Levels.Length + GameManager.Game.State.DebugLevels.Length];
+				// 	GameManager.Game.Config.Levels.CopyTo(GameManager.Game.State.AllLevels, 0);
+				// 	GameManager.Game.State.DebugLevels.CopyTo(GameManager.Game.State.AllLevels, GameManager.Game.Config.Levels.Length);
+				// }
 
 				if (GameManager.Game.Config.LockFPS > 0)
 				{

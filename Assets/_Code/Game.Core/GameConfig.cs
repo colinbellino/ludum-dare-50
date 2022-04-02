@@ -26,7 +26,7 @@ namespace Game.Core
 		public EventReference MusicTitle;
 		public EventReference MusicMain;
 
-		public static Vector2 ROOM_SIZE = new Vector2(16, 9);
+		public static Vector2 ROOM_SIZE = new Vector2(15, 9);
 	}
 
 	[Serializable]

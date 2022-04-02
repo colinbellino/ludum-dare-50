@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using Unity.Mathematics;
 
 namespace Game.Core
 {
@@ -21,23 +22,28 @@ namespace Game.Core
 		{
 			var x = 0;
 			var y = 0;
-			if (direction.x > 0)
+			if (math.round(direction.x) > 0)
 				x = 1;
-			if (direction.x < 0)
+			else if (math.round(direction.x) < 0)
 				x = -1;
-			if (direction.y > 0)
+			if (math.round(direction.y) > 0)
 				y = 1;
-			if (direction.y < 0)
+			else if (math.round(direction.y) < 0)
 				y = -1;
 
-			var positionX = level.Current.X + x;
-			var positionY = level.Current.Y + y;
+			var positionX = level.CurrentRoom.X + x;
+			var positionY = level.CurrentRoom.Y + y;
 			var room = GetRoomAtPosition(positionX, positionY, level);
 
 			return room;
 		}
 
 		public static Vector3 GetRoomCenter(Room room)
+		{
+			return new Vector3(room.X * GameConfig.ROOM_SIZE.x + GameConfig.ROOM_SIZE.x / 2, -room.Y * GameConfig.ROOM_SIZE.y + GameConfig.ROOM_SIZE.y / 2);
+		}
+
+		public static Vector3 GetRoomOrigin(Room room)
 		{
 			return new Vector3(room.X * GameConfig.ROOM_SIZE.x, -room.Y * GameConfig.ROOM_SIZE.y);
 		}
@@ -55,10 +61,10 @@ namespace Game.Core
 
 		public static void TransitionToRoom(Level level, Room roomToTransitionTo)
 		{
-			DeactivateRoom(level.Current);
+			DeactivateRoom(level.CurrentRoom);
 			ActivateRoom(roomToTransitionTo);
 
-			level.Current = roomToTransitionTo;
+			level.CurrentRoom = roomToTransitionTo;
 		}
 
 		public static void ActivateRoom(Room roomToActivate)
@@ -76,8 +82,8 @@ namespace Game.Core
 	public class Level
 	{
 		public List<Room> Rooms;
-		public Room Start;
-		public Room Current;
+		public Room StartRoom;
+		public Room CurrentRoom;
 	}
 
 	public class Room

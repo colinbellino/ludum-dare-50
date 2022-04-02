@@ -53,11 +53,13 @@ namespace Game.Core {
             }
 
             if (facingRight) {
-                playerSR.flipX = false;
-                playerCollider.offset = new Vector2(colliderOffsetXFacingRight, colliderOffsetY);
+                Vector3 localScaleTemp = transform.localScale;
+                localScaleTemp.x = 1;
+                transform.localScale = localScaleTemp;
             } else {
-                playerSR.flipX = true;
-                playerCollider.offset = new Vector2(colliderOffsetXFacingLeft, colliderOffsetY);
+                Vector3 localScaleTemp = transform.localScale;
+                localScaleTemp.x = -1;
+                transform.localScale = localScaleTemp;
             }
         }
 

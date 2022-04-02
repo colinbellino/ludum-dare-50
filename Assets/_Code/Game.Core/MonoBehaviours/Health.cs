@@ -33,5 +33,9 @@ namespace Game.Core {
         protected virtual void Death() {
             dead = true;
         }
+
+        public bool getDead() {
+            return dead;
+        }
     }
 }

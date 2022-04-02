@@ -70,12 +70,12 @@ namespace Game.Core
 		public static void ActivateRoom(Room roomToActivate)
 		{
 			// TODO: close door, spawn entities, etc
-			UnityEngine.Debug.Log("Activating room: " + roomToActivate);
+			// UnityEngine.Debug.Log("Activating room: " + roomToActivate);
 		}
 
 		public static void DeactivateRoom(Room roomToDeactivate)
 		{
-			UnityEngine.Debug.Log("Deactivating room: " + roomToDeactivate);
+			// UnityEngine.Debug.Log("Deactivating room: " + roomToDeactivate);
 		}
 	}
 

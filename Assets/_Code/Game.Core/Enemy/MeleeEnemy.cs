@@ -9,7 +9,7 @@ public class MeleeEnemy : MonoBehaviour
    private PlayerHealth playerHealth;
 
    [SerializeField] private float moveSpeed;
-   private Vector2 movement;
+   private Vector2 directionToPlayer;
 
    void Awake() {
       enemySR = FindObjectOfType<SpriteRenderer>();
@@ -23,7 +23,7 @@ public class MeleeEnemy : MonoBehaviour
       if (!enemyHealth.getDead() && !playerHealth.getDead()) {
          Vector3 direction = playerHealth.gameObject.transform.position - transform.position;
          direction.Normalize();
-         movement = direction;
+         directionToPlayer = direction;
 
          if (playerHealth.gameObject.transform.position.x < transform.position.x) {
             Vector3 localScaleTemp = transform.localScale;
@@ -39,7 +39,7 @@ public class MeleeEnemy : MonoBehaviour
 
    void FixedUpdate() {
       if (!enemyHealth.getDead() && !playerHealth.getDead()) {
-         attackPlayer(movement);
+         attackPlayer(directionToPlayer);
       }
    }
 

@@ -13,10 +13,10 @@ public class MeleeEnemy : MonoBehaviour
    private Vector2 directionToPlayer;
 
    void Awake() {
-      enemySR = FindObjectOfType<SpriteRenderer>();
-      enemyRB = FindObjectOfType<Rigidbody2D>();
-      enemyAnimator = FindObjectOfType<Animator>();
-      enemyHealth = FindObjectOfType<EnemyHealth>();
+      enemySR = GetComponentInChildren<SpriteRenderer>();
+      enemyRB = GetComponent<Rigidbody2D>();
+      enemyAnimator = GetComponent<Animator>();
+      enemyHealth = GetComponent<EnemyHealth>();
    }
 
 	void OnEnable() {
@@ -44,11 +44,12 @@ public class MeleeEnemy : MonoBehaviour
    void FixedUpdate() {
       if (!enemyHealth.getDead() && !playerHealth.getDead()) {
          attackPlayer(directionToPlayer);
-      }
+      } else {
+			enemyRB.velocity = Vector2.zero;
+		}
    }
 
-   public void attackPlayer(Vector2 playerDirection)
-    {
-        enemyRB.MovePosition((Vector2)transform.position + (playerDirection * moveSpeed * Time.deltaTime));
-    }
+   private void attackPlayer(Vector2 playerDirection) {
+		enemyRB.MovePosition((Vector2)transform.position + (playerDirection * moveSpeed * Time.deltaTime));
+	}
 }

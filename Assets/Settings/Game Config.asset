@@ -15,10 +15,13 @@ MonoBehaviour:
   DebugStateMachine: 0
   DebugLevels: 1
   LockFPS: 60
-  Levels: []
+  Player: {fileID: 4542784427072963798, guid: dd90378df9535114b878de1eed390362, type: 3}
   TileToEntity:
     m_keys: []
     m_values: []
+  GameBus: bus:/Game
+  MusicBus: bus:/Game/Music
+  SoundBus: bus:/Game/SFX
   SnapshotPause:
     Guid:
       Data1: -1278127128

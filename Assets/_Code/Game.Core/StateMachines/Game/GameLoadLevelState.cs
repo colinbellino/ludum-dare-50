@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
 namespace Game.Core.StateMachines.Game
 {
@@ -9,12 +8,11 @@ namespace Game.Core.StateMachines.Game
 
 		public async UniTask Enter()
 		{
-			var level = LevelLoader.LoadLevel("Level1");
-			level.Start = LevelHelpers.GetStartRoom(level);
-			level.Current = level.Start;
+			var level = LevelLoader.LoadLevel("Level0");
+			level.StartRoom = LevelHelpers.GetStartRoom(level);
+			level.CurrentRoom = level.StartRoom;
 
-			var startPosition = new Vector3(level.Start.X * GameConfig.ROOM_SIZE.x, -level.Start.Y * GameConfig.ROOM_SIZE.y);
-			GameManager.Game.CameraRig.transform.position = startPosition;
+			GameManager.Game.CameraRig.transform.position = LevelHelpers.GetRoomOrigin(level.CurrentRoom);
 
 			GameManager.Game.State.Level = level;
 

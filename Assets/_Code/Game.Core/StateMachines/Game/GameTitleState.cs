@@ -42,17 +42,23 @@ namespace Game.Core.StateMachines.Game
 				GameManager.Game.UI.AddDebugLine("- F1-F12: Load levels");
 				GameManager.Game.UI.AddDebugLine("- L:      Load last level");
 				GameManager.Game.UI.AddDebugLine("- Tab:    Level selection");
+
+				// TODO: Remove this
+				StartGame();
 			}
 		}
 
-		public async void Tick()
+		public void Tick()
 		{
-			if (Keyboard.current.tabKey.wasPressedThisFrame)
+			if (Utils.IsDevBuild())
 			{
-				if (GameManager.Game.ControlsUI.IsOpened)
-					_ = GameManager.Game.ControlsUI.Hide();
-				else
-					_ = GameManager.Game.ControlsUI.Show();
+				if (Keyboard.current.tabKey.wasPressedThisFrame)
+				{
+					if (GameManager.Game.ControlsUI.IsOpened)
+						_ = GameManager.Game.ControlsUI.Hide();
+					else
+						_ = GameManager.Game.ControlsUI.Show();
+				}
 			}
 
 			if (GameManager.Game.Controls.Global.Cancel.WasReleasedThisFrame())

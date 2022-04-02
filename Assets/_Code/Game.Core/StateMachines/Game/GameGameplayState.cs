@@ -1,5 +1,8 @@
 ﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using DG.Tweening.Plugins.Options;
 using FMOD.Studio;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,11 +16,15 @@ namespace Game.Core.StateMachines.Game
 		{
 			GameManager.Game.State.Running = true;
 
-			GameManager.Game.Controls.Gameplay.Enable();
-			GameManager.Game.Controls.Gameplay.Move.performed += OnMovePerformed;
-
 			GameManager.Game.UI.ShowGameplay();
 			_ = GameManager.Game.UI.FadeOut(2);
+
+			var player = GameObject.Instantiate(GameManager.Game.Config.Player);
+			player.transform.position = LevelHelpers.GetRoomCenter(GameManager.Game.State.Level.CurrentRoom);
+			GameManager.Game.State.Player = player;
+
+			GameManager.Game.Controls.Gameplay.Enable();
+			GameManager.Game.Controls.Gameplay.Move.performed += OnMovePerformed;
 
 			GameManager.Game.State.LevelMusic.setPitch(GameManager.Game.State.TimeScaleCurrent);
 			GameManager.Game.State.LevelMusic.getPlaybackState(out var state);
@@ -76,6 +83,24 @@ namespace Game.Core.StateMachines.Game
 						// Victory();
 					}
 				}
+
+				var player = GameManager.Game.State.Player;
+				var level = GameManager.Game.State.Level;
+				var roomCenter = LevelHelpers.GetRoomCenter(level.CurrentRoom);
+				var roomBounds = new Bounds(roomCenter, GameConfig.ROOM_SIZE);
+				if (roomBounds.Contains(player.transform.position) == false)
+				{
+					var direction = Utils.SnapTo(player.transform.position - roomCenter, 90f);
+					direction.y = -direction.y; // Reverse the Y axis because unity's is bottom > top and ours is top > bottom
+
+					var nextRoom = LevelHelpers.GetRoomInDirection(direction, GameManager.Game.State.Level);
+					if (nextRoom != null)
+					{
+						LevelHelpers.TransitionToRoom(GameManager.Game.State.Level, nextRoom);
+						var destination = LevelHelpers.GetRoomOrigin(GameManager.Game.State.Level.CurrentRoom);
+						GameManager.Game.CameraRig.transform.DOMove(destination, 0.3f);
+					}
+				}
 			}
 		}
 
@@ -96,19 +121,12 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.UI.HideGameplay();
 			await GameManager.Game.PauseUI.Hide(0);
 			await GameManager.Game.OptionsUI.Hide(0);
-
-			GameManager.Game.State.Entities.Clear();
 		}
 
 		private void OnMovePerformed(InputAction.CallbackContext context)
 		{
 			if (GameManager.Game.State.Running == false || GameManager.Game.State.Paused)
 				return;
-
-			//
-
-			var moveInput = context.ReadValue<Vector2>();
-			var nextRoom = LevelHelpers.GetRoomInDirection(moveInput, GameManager.Game.State.Level);
 		}
 
 		private void Victory()

@@ -45,11 +45,16 @@ namespace Game.Core
 					continue;
 				}
 
-				// UnityEngine.Debug.Log($"[{x},{y}] {character}");
-				var roomPrefab = Resources.Load<GameObject>("Rooms/Room" + character);
-				var roomInstance = GameObject.Instantiate(roomPrefab);
-				roomInstance.name = $"[{x},{y}] {character}";
-				roomInstance.transform.position = new Vector3(x * GameConfig.ROOM_SIZE.x, -y * GameConfig.ROOM_SIZE.y);
+				GameObject roomInstance = null;
+				var roomType = int.Parse(character.ToString());
+
+				if (roomType > 0)
+				{
+					var roomPrefab = Resources.Load<GameObject>("Rooms/Room" + character);
+					roomInstance = GameObject.Instantiate(roomPrefab);
+					roomInstance.name = $"[{x},{y}] {character}";
+					roomInstance.transform.position = new Vector3(x * GameConfig.ROOM_SIZE.x, -y * GameConfig.ROOM_SIZE.y);
+				}
 
 				level.Rooms.Add(new Room
 				{

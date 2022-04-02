@@ -70,7 +70,7 @@ namespace PyxelEdit
 
 					var texture = new Texture2D(_data.tileset.tileWidth, _data.tileset.tileHeight);
 					texture.LoadImage(entries[filename]);
-					texture.name = archiveName + "_layer_texture_" + layerIndex;
+					texture.name = archiveName + "_layer_" + layerIndex + "_texture_preview";
 					texture.hideFlags = HideFlags.HideInHierarchy;
 
 					ctx.AddObjectToAsset(texture.name, texture, texture);
@@ -102,6 +102,35 @@ namespace PyxelEdit
 				}
 			}
 
+			// Generate tiles per layer
+			{
+				for (int layerIndex = 0; layerIndex < layers.Count; layerIndex++)
+				{
+					var filename = layers[layerIndex];
+					var tileIndex = 0;
+
+					var texture = new Texture2D(_data.tileset.tileWidth, _data.tileset.tileHeight);
+					texture.LoadImage(entries[filename]);
+					texture.name = archiveName + "_layer_" + layerIndex + "_texture";
+					texture.hideFlags = HideFlags.HideInHierarchy;
+					ctx.AddObjectToAsset(texture.name, texture, texture);
+
+					for (int x = 0; x < _data.canvas.width; x += _data.canvas.tileWidth)
+					{
+						for (int y = 0; y < _data.canvas.height; y += _data.canvas.tileHeight)
+						{
+							var sprite = Sprite.Create(texture, new Rect(x, y, _data.canvas.tileWidth, _data.canvas.tileHeight), new Vector2(_data.canvas.tileWidth / 2, _data.canvas.tileHeight / 2), _data.canvas.tileWidth);
+							sprite.name = archiveName + "_layer_" + layerIndex + "_" + tileIndex;
+
+							ctx.AddObjectToAsset(sprite.name, sprite, sprite.texture);
+
+							tileIndex += 1;
+						}
+					}
+				}
+			}
+
+			// Generate tileset
 			{
 				var rows = Mathf.Max(_data.tileset.numTiles / _data.tileset.tilesWide, 1);
 				var cols = Mathf.Min(_data.tileset.tilesWide, _data.tileset.numTiles);

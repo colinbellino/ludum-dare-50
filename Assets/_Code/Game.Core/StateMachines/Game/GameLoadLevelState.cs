@@ -8,11 +8,11 @@ namespace Game.Core.StateMachines.Game
 
 		public async UniTask Enter()
 		{
-			var level = LevelLoader.LoadLevel("Level1");
-			level.Start = LevelHelpers.GetStartRoom(level);
-			level.Current = level.Start;
+			var level = LevelLoader.LoadLevel("Level0");
+			level.StartRoom = LevelHelpers.GetStartRoom(level);
+			level.CurrentRoom = level.StartRoom;
 
-			GameManager.Game.CameraRig.transform.position = LevelHelpers.GetRoomCenter(level.Current);
+			GameManager.Game.CameraRig.transform.position = LevelHelpers.GetRoomOrigin(level.CurrentRoom);
 
 			GameManager.Game.State.Level = level;
 

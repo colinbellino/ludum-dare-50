@@ -23,7 +23,7 @@ namespace Game.Core
 
 		public int CurrentLevelIndex;
 		public Level Level;
-		public List<Entity> Entities = new List<Entity>(30);
+		public PlayerController Player;
 		public Level[] DebugLevels;
 		public Level[] AllLevels;
 

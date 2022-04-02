@@ -3,17 +3,17 @@ using Game.Core;
 
 public class MeleeEnemy : MonoBehaviour
 {
-   private SpriteRenderer enemySR;
+   [SerializeField] private SpriteRenderer enemyBodySR;
    private Rigidbody2D enemyRB;
    private Animator enemyAnimator;
    private EnemyHealth enemyHealth;
 	private PlayerHealth playerHealth;
+	[SerializeField] private Transform pitchforkTransform;
 
    [SerializeField] private float moveSpeed;
    private Vector2 directionToPlayer;
 
    void Awake() {
-      enemySR = GetComponentInChildren<SpriteRenderer>();
       enemyRB = GetComponent<Rigidbody2D>();
       enemyAnimator = GetComponent<Animator>();
       enemyHealth = GetComponent<EnemyHealth>();
@@ -30,13 +30,9 @@ public class MeleeEnemy : MonoBehaviour
          directionToPlayer = direction;
 
          if (playerHealth.gameObject.transform.position.x < transform.position.x) {
-            Vector3 localScaleTemp = transform.localScale;
-            localScaleTemp.x = -1;
-            transform.localScale = localScaleTemp;
+            enemyBodySR.flipX = false;
          }  else {
-            Vector3 localScaleTemp = transform.localScale;
-            localScaleTemp.x = 1;
-            transform.localScale = localScaleTemp;
+            enemyBodySR.flipX = true;
          }
       }
    }
@@ -44,6 +40,9 @@ public class MeleeEnemy : MonoBehaviour
    void FixedUpdate() {
       if (!enemyHealth.getDead() && !playerHealth.getDead()) {
          attackPlayer(directionToPlayer);
+
+ 			float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+			pitchforkTransform.localRotation = Quaternion.Euler(0, 0, angle-180);
       } else {
 			enemyRB.velocity = Vector2.zero;
 		}

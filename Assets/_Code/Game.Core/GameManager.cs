@@ -32,7 +32,6 @@ namespace Game.Core
 			Game.ControlsUI = _controlsUI;
 			Game.State = new GameState();
 			Game.GameFSM = new GameFSM(_config.DebugStateMachine, Game);
-			Game.Save = new Save();
 
 			await Game.GameFSM.Start();
 		}

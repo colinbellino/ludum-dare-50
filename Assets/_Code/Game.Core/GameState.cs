@@ -29,6 +29,7 @@ namespace Game.Core
 
 		public PlayerSettings PlayerSettings;
 		public PlayerSaveData PlayerSaveData;
+
 	}
 
 	[Serializable]

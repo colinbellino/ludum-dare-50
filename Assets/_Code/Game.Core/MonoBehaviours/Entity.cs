@@ -1,5 +1,3 @@
-using System;
-using FMODUnity;
 using UnityEngine;
 
 namespace Game.Core
@@ -8,15 +6,25 @@ namespace Game.Core
 	{
 		[SerializeField] public Animator Animator;
 		[SerializeField] public SpriteRenderer SpriteRenderer;
-		[SerializeField] public AudioSource AudioSource;
 
-		[Header("Audio")]
-		[SerializeField] public EventReference[] SoundWalk;
+		public Vector3 SpawnPosition;
+		public bool Ready;
 
-		[HideInInspector] public bool Dead;
-		[HideInInspector] public ClipLength AnimationClipLength;
+		private void OnEnable()
+		{
+			if (Ready)
+			{
+				SpriteRenderer.color = Color.green;
+			}
+		}
+
+		private void OnDisable()
+		{
+			if (Ready)
+			{
+				transform.localPosition = SpawnPosition;
+				SpriteRenderer.color = Color.red;
+			}
+		}
 	}
-
-	[Serializable]
-	public class ClipLength : SerializableDictionary<string, float> { }
 }

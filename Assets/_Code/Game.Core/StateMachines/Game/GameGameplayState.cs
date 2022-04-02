@@ -1,8 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using DG.Tweening.Plugins.Options;
 using FMOD.Studio;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +20,8 @@ namespace Game.Core.StateMachines.Game
 			var player = GameObject.Instantiate(GameManager.Game.Config.Player);
 			player.transform.position = LevelHelpers.GetRoomCenter(GameManager.Game.State.Level.CurrentRoom);
 			GameManager.Game.State.Player = player;
+
+			LevelHelpers.ActivateRoom(GameManager.Game.State.Level.CurrentRoom);
 
 			GameManager.Game.Controls.Gameplay.Enable();
 			GameManager.Game.Controls.Gameplay.Move.performed += OnMovePerformed;

@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using Unity.Mathematics;
+using System.IO;
 
 namespace Game.Core
 {
@@ -71,11 +72,106 @@ namespace Game.Core
 		{
 			// TODO: close door, spawn entities, etc
 			// UnityEngine.Debug.Log("Activating room: " + roomToActivate);
+			foreach (var entity in roomToActivate.Entities)
+			{
+				entity.gameObject.SetActive(true);
+			}
+
+#if UNITY_EDITOR
+			roomToActivate.Instance.name += " CURRENT";
+#endif
 		}
 
 		public static void DeactivateRoom(Room roomToDeactivate)
 		{
 			// UnityEngine.Debug.Log("Deactivating room: " + roomToDeactivate);
+			foreach (var entity in roomToDeactivate.Entities)
+			{
+				entity.gameObject.SetActive(false);
+			}
+
+#if UNITY_EDITOR
+			roomToDeactivate.Instance.name = roomToDeactivate.Instance.name.Replace(" CURRENT", "");
+#endif
+		}
+
+		public static string LoadLevelDataFromFile(string path)
+		{
+			try
+			{
+				UnityEngine.Debug.Log("Loading level: " + path);
+				return File.ReadAllText(path);
+			}
+			catch (Exception e)
+			{
+				UnityEngine.Debug.LogError(e.Message);
+				return "";
+			}
+		}
+
+		public static Level InstantiateLevel(string levelData)
+		{
+			levelData = levelData.Trim();
+
+			var level = new Level
+			{
+				Rooms = new List<Room>(),
+			};
+
+			var x = 0;
+			var y = 0;
+			var i = 0;
+			foreach (var character in levelData)
+			{
+				if (character == '\n')
+				{
+					x = 0;
+					y += 1;
+					continue;
+				}
+
+				GameObject roomInstance = null;
+				var entities = new List<Entity>();
+
+				var roomType = int.Parse(character.ToString());
+				if (roomType > 0)
+				{
+					var roomPrefab = Resources.Load<GameObject>("Rooms/Room" + character);
+					roomInstance = GameObject.Instantiate(roomPrefab);
+					roomInstance.transform.position = new Vector3(x * GameConfig.ROOM_SIZE.x, -y * GameConfig.ROOM_SIZE.y);
+#if UNITY_EDITOR
+					roomInstance.name = $"[{x},{y}] {character}";
+#endif
+
+					foreach (Transform child in roomInstance.transform)
+					{
+						var entity = child.gameObject.GetComponent<Entity>();
+						if (entity == null)
+							continue;
+
+						entity.SpawnPosition = entity.transform.localPosition;
+						entity.Ready = true;
+						entity.gameObject.SetActive(false);
+						entities.Add(entity);
+					}
+				}
+
+				var room = new Room
+				{
+					X = x,
+					Y = y,
+					Index = i,
+					Name = character.ToString(),
+					Instance = roomInstance,
+					Entities = entities,
+				};
+				level.Rooms.Add(room);
+
+				x += 1;
+				i += 1;
+			}
+
+			return level;
 		}
 	}
 
@@ -93,6 +189,7 @@ namespace Game.Core
 		public int X;
 		public int Y;
 		public GameObject Instance;
+		public List<Entity> Entities;
 
 		public override string ToString()
 		{

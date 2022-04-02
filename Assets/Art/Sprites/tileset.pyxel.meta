@@ -1,0 +1,248 @@
+fileFormatVersion: 2
+guid: 6f51ae57f951fa746b097ebb854ea9d3
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 80068e771e2e8ba48a9280cdde0e1627, type: 3}
+  Texture: {instanceID: 0}
+  SpriteRects: []
+  SpriteImportData: []
+  ImportSettings:
+    seamlessCubemap: 0
+    mipmapBias: 0.5
+    wrapMode: 1
+    wrapModeU: 0
+    wrapModeV: 0
+    wrapModeW: 0
+    alphaIsTransparency: 1
+    spriteMode: 1
+    spritePixelsPerUnit: 32
+    spriteTessellationDetail: 0
+    spriteExtrude: 1
+    spriteMeshType: 1
+    spriteAlignment: 0
+    spritePivot: {x: 0, y: 0}
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 1
+    aniso: 1
+    filterMode: 0
+    cubemapConvolution: 0
+    textureType: 8
+    textureShape: 1
+    mipmapFilter: 0
+    mipmapEnabled: 0
+    sRGBTexture: 1
+    fadeOut: 0
+    borderMipmap: 0
+    mipMapsPreserveCoverage: 0
+    mipmapFadeDistanceStart: 1
+    alphaTestReferenceValue: 1
+    convertToNormalMap: 0
+    heightmapScale: 0
+    normalMapFilter: 0
+    alphaSource: 1
+    singleChannelComponent: 0
+    readable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    npotScale: 0
+    generateCubemap: 0
+    mipmapFadeDistanceEnd: 3
+  _data:
+    version: 0.4.95
+    name: tileset
+    canvas:
+      width: 352
+      height: 160
+      tileHeight: 32
+      tileWidth: 32
+      currentLayerIndex: 0
+      numLayers: 1
+      layers:
+      - name: Layer 1
+        blendMode: normal
+        muted: 0
+        hidden: 0
+        collapsed: 0
+        soloed: 0
+        alpha: 255
+        tileRefs:
+        - index: 0
+          flipX: 0
+          rot: 0
+        - index: 1
+          flipX: 0
+          rot: 0
+        - index: 2
+          flipX: 0
+          rot: 0
+        - index: 3
+          flipX: 0
+          rot: 0
+        - index: 4
+          flipX: 0
+          rot: 0
+        - index: 5
+          flipX: 0
+          rot: 0
+        - index: 6
+          flipX: 0
+          rot: 0
+        - index: 7
+          flipX: 0
+          rot: 0
+        - index: 8
+          flipX: 0
+          rot: 0
+        - index: 9
+          flipX: 0
+          rot: 0
+        - index: 10
+          flipX: 0
+          rot: 0
+        - index: 11
+          flipX: 0
+          rot: 0
+        - index: 12
+          flipX: 0
+          rot: 0
+        - index: 13
+          flipX: 0
+          rot: 0
+        - index: 14
+          flipX: 0
+          rot: 0
+        - index: 15
+          flipX: 0
+          rot: 0
+        - index: 16
+          flipX: 0
+          rot: 0
+        - index: 17
+          flipX: 0
+          rot: 0
+        - index: 18
+          flipX: 0
+          rot: 0
+        - index: 19
+          flipX: 0
+          rot: 0
+        - index: 20
+          flipX: 0
+          rot: 0
+        - index: 21
+          flipX: 0
+          rot: 0
+        - index: 22
+          flipX: 0
+          rot: 0
+        - index: 23
+          flipX: 0
+          rot: 0
+        - index: 24
+          flipX: 0
+          rot: 0
+        - index: 25
+          flipX: 0
+          rot: 0
+        - index: 26
+          flipX: 0
+          rot: 0
+        - index: 27
+          flipX: 0
+          rot: 0
+        - index: 28
+          flipX: 0
+          rot: 0
+        - index: 29
+          flipX: 0
+          rot: 0
+        - index: 30
+          flipX: 0
+          rot: 0
+        - index: 31
+          flipX: 0
+          rot: 0
+        - index: 32
+          flipX: 0
+          rot: 0
+        - index: 33
+          flipX: 0
+          rot: 0
+        - index: 34
+          flipX: 0
+          rot: 0
+        - index: 35
+          flipX: 0
+          rot: 0
+        - index: 36
+          flipX: 0
+          rot: 0
+        - index: 37
+          flipX: 0
+          rot: 0
+        - index: 38
+          flipX: 0
+          rot: 0
+        - index: 39
+          flipX: 0
+          rot: 0
+        - index: 40
+          flipX: 0
+          rot: 0
+        - index: 41
+          flipX: 0
+          rot: 0
+        - index: 42
+          flipX: 0
+          rot: 0
+        - index: 43
+          flipX: 0
+          rot: 0
+        - index: 44
+          flipX: 0
+          rot: 0
+        - index: 45
+          flipX: 0
+          rot: 0
+        - index: 46
+          flipX: 0
+          rot: 0
+        - index: 47
+          flipX: 0
+          rot: 0
+        - index: 48
+          flipX: 0
+          rot: 0
+        - index: 49
+          flipX: 0
+          rot: 0
+        - index: 50
+          flipX: 0
+          rot: 0
+        - index: 51
+          flipX: 0
+          rot: 0
+        - index: 52
+          flipX: 0
+          rot: 0
+        - index: 53
+          flipX: 0
+          rot: 0
+        - index: 54
+          flipX: 0
+          rot: 0
+        type: tile_layer
+        parentIndex: -1
+    tileset:
+      tileHeight: 32
+      fixedWidth: 1
+      tilesWide: 11
+      fixedHeight: 0
+      numTiles: 55
+      tileWidth: 32
+  _serializedSpriteImportData: 

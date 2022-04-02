@@ -1,111 +1,150 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Game.Core {
-    public class PlayerController : MonoBehaviour
-    {
-        private Rigidbody2D playerRB;
-        private SpriteRenderer playerSR;
-        private Animator playerAnimator;
-        private CapsuleCollider2D playerCollider;
-        private PlayerHealth playerHealth;
+namespace Game.Core
+{
+	public class PlayerController : MonoBehaviour
+	{
+		private Rigidbody2D playerRB;
+		private SpriteRenderer playerSR;
+		private Animator playerAnimator;
+		private CapsuleCollider2D playerCollider;
+		private PlayerHealth playerHealth;
 
-        [SerializeField] private float xMoveSpeed;
-        [SerializeField] private float yMoveSpeed;
-        [SerializeField] private float diagonalXMoveSpeed;
-        [SerializeField] private float xDashSpeed;
-        [SerializeField] private float yDashSpeed;
-        [SerializeField] private float dashCooldown;
-        [SerializeField] private float dashDuration;
+		[SerializeField] private float xMoveSpeed;
+		[SerializeField] private float yMoveSpeed;
+		[SerializeField] private float diagonalXMoveSpeed;
+		[SerializeField] private float xDashSpeed;
+		[SerializeField] private float yDashSpeed;
+		[SerializeField] private float dashCooldown;
+		[SerializeField] private float dashDuration;
 
-        private float dashCounter;
-        private bool isDashing;
-        private Vector2 rawMovementInput;
+		private float dashCounter;
+		private bool isDashing;
+		private Vector2 rawMovementInput;
 
-        private bool facingRight = true;
+		private bool facingRight = true;
 
-        void Awake()
-        {
-            playerRB = GetComponent<Rigidbody2D>();
-            playerSR = GetComponent<SpriteRenderer>();
-            playerAnimator = GetComponent<Animator>();
-            playerCollider = GetComponent<CapsuleCollider2D>();
-            playerHealth = GetComponent<PlayerHealth>();
-        }
+		void Awake()
+		{
+			playerRB = GetComponent<Rigidbody2D>();
+			playerSR = GetComponentInChildren<SpriteRenderer>();
+			playerAnimator = GetComponent<Animator>();
+			playerCollider = GetComponent<CapsuleCollider2D>();
+			playerHealth = GetComponent<PlayerHealth>();
+		}
 
-        void Update() {
-            GameManager.Game.Controls.Gameplay.Dash.performed += GetDashInput;
+		void OnEnable()
+		{
+			GameManager.Game.Controls.Gameplay.Dash.performed += GetDashInput;
+		}
 
-            if (isDashing) {
-                if (dashCooldown - dashCounter > dashDuration) {
-                    isDashing = false;
-                }
-            } else {
-                rawMovementInput = GameManager.Game.Controls.Gameplay.Move.ReadValue<Vector2>();
-            }
+		void OnDisable()
+		{
+			GameManager.Game.Controls.Gameplay.Dash.performed -= GetDashInput;
+		}
 
-            if (dashCounter > 0) {
-                dashCounter -= Time.deltaTime;
-            }
+		void Update()
+		{
+			if (isDashing)
+			{
+				if (dashCooldown - dashCounter > dashDuration)
+				{
+					isDashing = false;
+				}
+			}
+			else
+			{
+				rawMovementInput = GameManager.Game.Controls.Gameplay.Move.ReadValue<Vector2>();
+			}
 
-            if (facingRight) {
-                Vector3 localScaleTemp = transform.localScale;
-                localScaleTemp.x = 1;
-                transform.localScale = localScaleTemp;
-            } else {
-                Vector3 localScaleTemp = transform.localScale;
-                localScaleTemp.x = -1;
-                transform.localScale = localScaleTemp;
-            }
-        }
+			if (dashCounter > 0)
+			{
+				dashCounter -= Time.deltaTime;
+			}
 
-        void FixedUpdate()
-        {
-            if (isDashing) {
-                playerRB.velocity = new Vector2(rawMovementInput.x * xDashSpeed, rawMovementInput.y * yDashSpeed);
-            }  else {
-                handleMovement(rawMovementInput);  
-            }     
-        }
+			playerSR.flipX = !facingRight;
+			if (facingRight)
+			{
+				// Vector3 localScaleTemp = transform.localScale;
+				// localScaleTemp.x = 1;
+				// transform.localScale = localScaleTemp;
+			}
+			else
+			{
+				// Vector3 localScaleTemp = transform.localScale;
+				// localScaleTemp.x = -1;
+				// transform.localScale = localScaleTemp;
+			}
+		}
 
-        private void handleMovement(Vector2 RawMovementInput) {
-            if (RawMovementInput != Vector2.zero) {
-                if (RawMovementInput.y == 0) {
-                    playerRB.velocity = new Vector2(RawMovementInput.x * xMoveSpeed, 0);
-                } else {
-                    playerRB.velocity = new Vector2(RawMovementInput.x * diagonalXMoveSpeed, RawMovementInput.y * yMoveSpeed);
-                }
+		void FixedUpdate()
+		{
+			if (isDashing)
+			{
+				playerRB.velocity = new Vector2(rawMovementInput.x * xDashSpeed, rawMovementInput.y * yDashSpeed);
+			}
+			else
+			{
+				handleMovement(rawMovementInput);
+			}
+		}
 
-                if (playerRB.velocity.x < 0) {
-                    facingRight = false;
-                } else {
-                    facingRight = true;
-                }  
-            } else {
-                playerRB.velocity = Vector2.zero;
-            }
-        }
+		private void handleMovement(Vector2 RawMovementInput)
+		{
+			if (RawMovementInput != Vector2.zero)
+			{
+				if (RawMovementInput.y == 0)
+				{
+					playerRB.velocity = new Vector2(RawMovementInput.x * xMoveSpeed, 0);
+				}
+				else
+				{
+					playerRB.velocity = new Vector2(RawMovementInput.x * diagonalXMoveSpeed, RawMovementInput.y * yMoveSpeed);
+				}
 
-        private void GetDashInput(InputAction.CallbackContext context) {
-            if (context.action.triggered && dashCounter <= 0) {
-                isDashing = true;
-                dashCounter = dashCooldown;
-            }
-        }
+				if (playerRB.velocity.x < 0)
+				{
+					facingRight = false;
+				}
+				else
+				{
+					facingRight = true;
+				}
+			}
+			else
+			{
+				playerRB.velocity = Vector2.zero;
+			}
+		}
 
-        void OnCollisionEnter2D(Collision2D col) {
-            GameObject collidedWith = col.gameObject;
+		private void GetDashInput(InputAction.CallbackContext context)
+		{
+			if (context.action.triggered && dashCounter <= 0)
+			{
+				isDashing = true;
+				dashCounter = dashCooldown;
+			}
+		}
 
-            if (collidedWith.tag == "enemy") {
-                EnemyHealth enemyHealth = collidedWith.GetComponent<EnemyHealth>();
+		void OnCollisionEnter2D(Collision2D col)
+		{
+			GameObject collidedWith = col.gameObject;
 
-                if (isDashing) {
-                    playerHealth.Heal(enemyHealth.GetDrainHealthToPlayer());
-                } else {
-                    playerHealth.DealDamage(enemyHealth.GetDamageToPlayer());
-                }
-            }
-        }
-    }
+			if (collidedWith.tag == "enemy")
+			{
+				EnemyHealth enemyHealth = collidedWith.GetComponent<EnemyHealth>();
+
+				if (isDashing)
+				{
+					playerHealth.Heal(enemyHealth.GetDrainHealthToPlayer());
+				}
+				else
+				{
+					playerHealth.DealDamage(enemyHealth.GetDamageToPlayer());
+				}
+			}
+		}
+	}
 }
 

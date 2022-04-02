@@ -353,6 +353,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4542784427072963798, guid: dd90378df9535114b878de1eed390362, type: 3}
+      propertyPath: xDashSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542784427072963798, guid: dd90378df9535114b878de1eed390362, type: 3}
+      propertyPath: yDashSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542784427072963798, guid: dd90378df9535114b878de1eed390362, type: 3}
+      propertyPath: dashCooldown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542784427072963798, guid: dd90378df9535114b878de1eed390362, type: 3}
+      propertyPath: dashDuration
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7110341559196710137, guid: dd90378df9535114b878de1eed390362, type: 3}
       propertyPath: m_Name
       value: Player

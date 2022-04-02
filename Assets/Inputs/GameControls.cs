@@ -17,12 +17,12 @@ using UnityEngine.InputSystem.Utilities;
 
 namespace Game.Inputs
 {
-	public partial class @GameControls : IInputActionCollection2, IDisposable
-	{
-		public InputActionAsset asset { get; }
-		public @GameControls()
-		{
-			asset = InputActionAsset.FromJson(@"{
+    public partial class @GameControls : IInputActionCollection2, IDisposable
+    {
+        public InputActionAsset asset { get; }
+        public @GameControls()
+        {
+            asset = InputActionAsset.FromJson(@"{
     ""name"": ""GameControls"",
     ""maps"": [
         {
@@ -155,6 +155,15 @@ namespace Game.Inputs
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a73dbb8-9b71-4449-ab78-f4a92eccb0f9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -334,186 +343,207 @@ namespace Game.Inputs
                     ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""669b59c9-cec1-4a81-ae7e-137e1ff95076"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-			// Global
-			m_Global = asset.FindActionMap("Global", throwIfNotFound: true);
-			m_Global_Pause = m_Global.FindAction("Pause", throwIfNotFound: true);
-			m_Global_Cancel = m_Global.FindAction("Cancel", throwIfNotFound: true);
-			m_Global_Confirm = m_Global.FindAction("Confirm", throwIfNotFound: true);
-			// Gameplay
-			m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-			m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
-			m_Gameplay_Confirm = m_Gameplay.FindAction("Confirm", throwIfNotFound: true);
-			m_Gameplay_Reset = m_Gameplay.FindAction("Reset", throwIfNotFound: true);
-		}
+            // Global
+            m_Global = asset.FindActionMap("Global", throwIfNotFound: true);
+            m_Global_Pause = m_Global.FindAction("Pause", throwIfNotFound: true);
+            m_Global_Cancel = m_Global.FindAction("Cancel", throwIfNotFound: true);
+            m_Global_Confirm = m_Global.FindAction("Confirm", throwIfNotFound: true);
+            // Gameplay
+            m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
+            m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
+            m_Gameplay_Confirm = m_Gameplay.FindAction("Confirm", throwIfNotFound: true);
+            m_Gameplay_Reset = m_Gameplay.FindAction("Reset", throwIfNotFound: true);
+            m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
+        }
 
-		public void Dispose()
-		{
-			UnityEngine.Object.Destroy(asset);
-		}
+        public void Dispose()
+        {
+            UnityEngine.Object.Destroy(asset);
+        }
 
-		public InputBinding? bindingMask
-		{
-			get => asset.bindingMask;
-			set => asset.bindingMask = value;
-		}
+        public InputBinding? bindingMask
+        {
+            get => asset.bindingMask;
+            set => asset.bindingMask = value;
+        }
 
-		public ReadOnlyArray<InputDevice>? devices
-		{
-			get => asset.devices;
-			set => asset.devices = value;
-		}
+        public ReadOnlyArray<InputDevice>? devices
+        {
+            get => asset.devices;
+            set => asset.devices = value;
+        }
 
-		public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
+        public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
 
-		public bool Contains(InputAction action)
-		{
-			return asset.Contains(action);
-		}
+        public bool Contains(InputAction action)
+        {
+            return asset.Contains(action);
+        }
 
-		public IEnumerator<InputAction> GetEnumerator()
-		{
-			return asset.GetEnumerator();
-		}
+        public IEnumerator<InputAction> GetEnumerator()
+        {
+            return asset.GetEnumerator();
+        }
 
-		IEnumerator IEnumerable.GetEnumerator()
-		{
-			return GetEnumerator();
-		}
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
 
-		public void Enable()
-		{
-			asset.Enable();
-		}
+        public void Enable()
+        {
+            asset.Enable();
+        }
 
-		public void Disable()
-		{
-			asset.Disable();
-		}
-		public IEnumerable<InputBinding> bindings => asset.bindings;
+        public void Disable()
+        {
+            asset.Disable();
+        }
+        public IEnumerable<InputBinding> bindings => asset.bindings;
 
-		public InputAction FindAction(string actionNameOrId, bool throwIfNotFound = false)
-		{
-			return asset.FindAction(actionNameOrId, throwIfNotFound);
-		}
-		public int FindBinding(InputBinding bindingMask, out InputAction action)
-		{
-			return asset.FindBinding(bindingMask, out action);
-		}
+        public InputAction FindAction(string actionNameOrId, bool throwIfNotFound = false)
+        {
+            return asset.FindAction(actionNameOrId, throwIfNotFound);
+        }
+        public int FindBinding(InputBinding bindingMask, out InputAction action)
+        {
+            return asset.FindBinding(bindingMask, out action);
+        }
 
-		// Global
-		private readonly InputActionMap m_Global;
-		private IGlobalActions m_GlobalActionsCallbackInterface;
-		private readonly InputAction m_Global_Pause;
-		private readonly InputAction m_Global_Cancel;
-		private readonly InputAction m_Global_Confirm;
-		public struct GlobalActions
-		{
-			private @GameControls m_Wrapper;
-			public GlobalActions(@GameControls wrapper) { m_Wrapper = wrapper; }
-			public InputAction @Pause => m_Wrapper.m_Global_Pause;
-			public InputAction @Cancel => m_Wrapper.m_Global_Cancel;
-			public InputAction @Confirm => m_Wrapper.m_Global_Confirm;
-			public InputActionMap Get() { return m_Wrapper.m_Global; }
-			public void Enable() { Get().Enable(); }
-			public void Disable() { Get().Disable(); }
-			public bool enabled => Get().enabled;
-			public static implicit operator InputActionMap(GlobalActions set) { return set.Get(); }
-			public void SetCallbacks(IGlobalActions instance)
-			{
-				if (m_Wrapper.m_GlobalActionsCallbackInterface != null)
-				{
-					@Pause.started -= m_Wrapper.m_GlobalActionsCallbackInterface.OnPause;
-					@Pause.performed -= m_Wrapper.m_GlobalActionsCallbackInterface.OnPause;
-					@Pause.canceled -= m_Wrapper.m_GlobalActionsCallbackInterface.OnPause;
-					@Cancel.started -= m_Wrapper.m_GlobalActionsCallbackInterface.OnCancel;
-					@Cancel.performed -= m_Wrapper.m_GlobalActionsCallbackInterface.OnCancel;
-					@Cancel.canceled -= m_Wrapper.m_GlobalActionsCallbackInterface.OnCancel;
-					@Confirm.started -= m_Wrapper.m_GlobalActionsCallbackInterface.OnConfirm;
-					@Confirm.performed -= m_Wrapper.m_GlobalActionsCallbackInterface.OnConfirm;
-					@Confirm.canceled -= m_Wrapper.m_GlobalActionsCallbackInterface.OnConfirm;
-				}
-				m_Wrapper.m_GlobalActionsCallbackInterface = instance;
-				if (instance != null)
-				{
-					@Pause.started += instance.OnPause;
-					@Pause.performed += instance.OnPause;
-					@Pause.canceled += instance.OnPause;
-					@Cancel.started += instance.OnCancel;
-					@Cancel.performed += instance.OnCancel;
-					@Cancel.canceled += instance.OnCancel;
-					@Confirm.started += instance.OnConfirm;
-					@Confirm.performed += instance.OnConfirm;
-					@Confirm.canceled += instance.OnConfirm;
-				}
-			}
-		}
-		public GlobalActions @Global => new GlobalActions(this);
+        // Global
+        private readonly InputActionMap m_Global;
+        private IGlobalActions m_GlobalActionsCallbackInterface;
+        private readonly InputAction m_Global_Pause;
+        private readonly InputAction m_Global_Cancel;
+        private readonly InputAction m_Global_Confirm;
+        public struct GlobalActions
+        {
+            private @GameControls m_Wrapper;
+            public GlobalActions(@GameControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Pause => m_Wrapper.m_Global_Pause;
+            public InputAction @Cancel => m_Wrapper.m_Global_Cancel;
+            public InputAction @Confirm => m_Wrapper.m_Global_Confirm;
+            public InputActionMap Get() { return m_Wrapper.m_Global; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(GlobalActions set) { return set.Get(); }
+            public void SetCallbacks(IGlobalActions instance)
+            {
+                if (m_Wrapper.m_GlobalActionsCallbackInterface != null)
+                {
+                    @Pause.started -= m_Wrapper.m_GlobalActionsCallbackInterface.OnPause;
+                    @Pause.performed -= m_Wrapper.m_GlobalActionsCallbackInterface.OnPause;
+                    @Pause.canceled -= m_Wrapper.m_GlobalActionsCallbackInterface.OnPause;
+                    @Cancel.started -= m_Wrapper.m_GlobalActionsCallbackInterface.OnCancel;
+                    @Cancel.performed -= m_Wrapper.m_GlobalActionsCallbackInterface.OnCancel;
+                    @Cancel.canceled -= m_Wrapper.m_GlobalActionsCallbackInterface.OnCancel;
+                    @Confirm.started -= m_Wrapper.m_GlobalActionsCallbackInterface.OnConfirm;
+                    @Confirm.performed -= m_Wrapper.m_GlobalActionsCallbackInterface.OnConfirm;
+                    @Confirm.canceled -= m_Wrapper.m_GlobalActionsCallbackInterface.OnConfirm;
+                }
+                m_Wrapper.m_GlobalActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Pause.started += instance.OnPause;
+                    @Pause.performed += instance.OnPause;
+                    @Pause.canceled += instance.OnPause;
+                    @Cancel.started += instance.OnCancel;
+                    @Cancel.performed += instance.OnCancel;
+                    @Cancel.canceled += instance.OnCancel;
+                    @Confirm.started += instance.OnConfirm;
+                    @Confirm.performed += instance.OnConfirm;
+                    @Confirm.canceled += instance.OnConfirm;
+                }
+            }
+        }
+        public GlobalActions @Global => new GlobalActions(this);
 
-		// Gameplay
-		private readonly InputActionMap m_Gameplay;
-		private IGameplayActions m_GameplayActionsCallbackInterface;
-		private readonly InputAction m_Gameplay_Move;
-		private readonly InputAction m_Gameplay_Confirm;
-		private readonly InputAction m_Gameplay_Reset;
-		public struct GameplayActions
-		{
-			private @GameControls m_Wrapper;
-			public GameplayActions(@GameControls wrapper) { m_Wrapper = wrapper; }
-			public InputAction @Move => m_Wrapper.m_Gameplay_Move;
-			public InputAction @Confirm => m_Wrapper.m_Gameplay_Confirm;
-			public InputAction @Reset => m_Wrapper.m_Gameplay_Reset;
-			public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
-			public void Enable() { Get().Enable(); }
-			public void Disable() { Get().Disable(); }
-			public bool enabled => Get().enabled;
-			public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
-			public void SetCallbacks(IGameplayActions instance)
-			{
-				if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
-				{
-					@Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-					@Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-					@Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-					@Confirm.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConfirm;
-					@Confirm.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConfirm;
-					@Confirm.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConfirm;
-					@Reset.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
-					@Reset.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
-					@Reset.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
-				}
-				m_Wrapper.m_GameplayActionsCallbackInterface = instance;
-				if (instance != null)
-				{
-					@Move.started += instance.OnMove;
-					@Move.performed += instance.OnMove;
-					@Move.canceled += instance.OnMove;
-					@Confirm.started += instance.OnConfirm;
-					@Confirm.performed += instance.OnConfirm;
-					@Confirm.canceled += instance.OnConfirm;
-					@Reset.started += instance.OnReset;
-					@Reset.performed += instance.OnReset;
-					@Reset.canceled += instance.OnReset;
-				}
-			}
-		}
-		public GameplayActions @Gameplay => new GameplayActions(this);
-		public interface IGlobalActions
-		{
-			void OnPause(InputAction.CallbackContext context);
-			void OnCancel(InputAction.CallbackContext context);
-			void OnConfirm(InputAction.CallbackContext context);
-		}
-		public interface IGameplayActions
-		{
-			void OnMove(InputAction.CallbackContext context);
-			void OnConfirm(InputAction.CallbackContext context);
-			void OnReset(InputAction.CallbackContext context);
-		}
-	}
+        // Gameplay
+        private readonly InputActionMap m_Gameplay;
+        private IGameplayActions m_GameplayActionsCallbackInterface;
+        private readonly InputAction m_Gameplay_Move;
+        private readonly InputAction m_Gameplay_Confirm;
+        private readonly InputAction m_Gameplay_Reset;
+        private readonly InputAction m_Gameplay_Dash;
+        public struct GameplayActions
+        {
+            private @GameControls m_Wrapper;
+            public GameplayActions(@GameControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Move => m_Wrapper.m_Gameplay_Move;
+            public InputAction @Confirm => m_Wrapper.m_Gameplay_Confirm;
+            public InputAction @Reset => m_Wrapper.m_Gameplay_Reset;
+            public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
+            public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
+            public void SetCallbacks(IGameplayActions instance)
+            {
+                if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
+                {
+                    @Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                    @Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                    @Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                    @Confirm.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConfirm;
+                    @Confirm.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConfirm;
+                    @Confirm.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConfirm;
+                    @Reset.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
+                    @Reset.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
+                    @Reset.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
+                    @Dash.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
+                    @Dash.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
+                    @Dash.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
+                }
+                m_Wrapper.m_GameplayActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Move.started += instance.OnMove;
+                    @Move.performed += instance.OnMove;
+                    @Move.canceled += instance.OnMove;
+                    @Confirm.started += instance.OnConfirm;
+                    @Confirm.performed += instance.OnConfirm;
+                    @Confirm.canceled += instance.OnConfirm;
+                    @Reset.started += instance.OnReset;
+                    @Reset.performed += instance.OnReset;
+                    @Reset.canceled += instance.OnReset;
+                    @Dash.started += instance.OnDash;
+                    @Dash.performed += instance.OnDash;
+                    @Dash.canceled += instance.OnDash;
+                }
+            }
+        }
+        public GameplayActions @Gameplay => new GameplayActions(this);
+        public interface IGlobalActions
+        {
+            void OnPause(InputAction.CallbackContext context);
+            void OnCancel(InputAction.CallbackContext context);
+            void OnConfirm(InputAction.CallbackContext context);
+        }
+        public interface IGameplayActions
+        {
+            void OnMove(InputAction.CallbackContext context);
+            void OnConfirm(InputAction.CallbackContext context);
+            void OnReset(InputAction.CallbackContext context);
+            void OnDash(InputAction.CallbackContext context);
+        }
+    }
 }

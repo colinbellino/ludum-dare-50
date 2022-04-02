@@ -25,7 +25,7 @@ namespace Game.Core
 		public static Level LoadLevel(string levelName)
 		{
 			var levelData = "";
-			LevelLoader.LoadLevelFile("${Application.streamingAssetsPath}/_Levels/{levelName}.txt", ref levelData);
+			LoadLevelFile($"{Application.streamingAssetsPath}/_Levels/{levelName}.txt", ref levelData);
 			levelData = levelData.Trim();
 
 			var level = new Level

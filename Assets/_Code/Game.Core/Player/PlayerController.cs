@@ -47,11 +47,11 @@ namespace Game.Core {
 
         void FixedUpdate()
         {
-            handleMovement(RawMovementInput);   
-
             if (isDashing) {
                 playerRB.velocity = new Vector2(RawMovementInput.x * xDashSpeed, RawMovementInput.y * yDashSpeed);
-            }       
+            }  else {
+                handleMovement(RawMovementInput);  
+            }     
         }
 
         private void handleMovement(Vector2 RawMovementInput) {

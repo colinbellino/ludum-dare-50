@@ -10,7 +10,7 @@ namespace Game.Core.StateMachines.Game
 
 		public async UniTask Enter()
 		{
-			GameManager.Game.State.Level = LevelLoader.LoadLevel("Level0");
+			GameManager.Game.State.Level = LevelLoader.LoadLevel("Level1");
 
 			var startRoom = GetStartRoom(GameManager.Game.State.Level);
 			var startPosition = new Vector3(startRoom.X * GameConfig.ROOM_SIZE.x, -startRoom.Y * GameConfig.ROOM_SIZE.y);

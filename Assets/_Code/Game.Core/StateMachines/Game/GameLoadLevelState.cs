@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace Game.Core.StateMachines.Game
 {
@@ -8,6 +10,8 @@ namespace Game.Core.StateMachines.Game
 
 		public async UniTask Enter()
 		{
+			GameManager.Game.State.Level = LevelLoader.LoadLevel("Level0");
+
 			await UniTask.NextFrame();
 
 			FSM.Fire(GameFSM.Triggers.Done);
@@ -21,5 +25,21 @@ namespace Game.Core.StateMachines.Game
 		public void FixedTick() { }
 
 		public void Tick() { }
+	}
+}
+
+namespace Game.Core
+{
+	public struct Level
+	{
+		public List<Room> Rooms;
+	}
+
+	public struct Room
+	{
+		public string Name;
+		public int X;
+		public int Y;
+		public GameObject Instance;
 	}
 }

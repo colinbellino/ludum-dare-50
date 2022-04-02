@@ -39,24 +39,26 @@ namespace Game.Core
 
 		private void Update()
 		{
-			var newInputType = -1;
-			if (Gamepad.current != null && Gamepad.current.allControls.Any(x => x.IsActuated()))
+			// Detect last input type (keyboard, gamepad)
 			{
-				if (Gamepad.current is XInputController)
-					newInputType = 1;
-				else if (Gamepad.current is DualShockGamepad)
-					newInputType = 2;
-			}
-			else if (Keyboard.current != null && Keyboard.current.allControls.Any(x => x.IsPressed()))
-			{
-				newInputType = 0;
-			}
+				var newInputType = -1;
+				if (Gamepad.current != null && Gamepad.current.allControls.Any(x => x.IsActuated()))
+				{
+					if (Gamepad.current is XInputController)
+						newInputType = 1;
+					else if (Gamepad.current is DualShockGamepad)
+						newInputType = 2;
+				}
+				else if (Keyboard.current != null && Keyboard.current.allControls.Any(x => x.IsPressed()))
+				{
+					newInputType = 0;
+				}
 
-			if (newInputType > -1 && newInputType != Game.State.CurrentInputType)
-			{
-				UnityEngine.Debug.Log("input changed: " + newInputType);
-				Game.State.CurrentInputType = newInputType;
-				Game.ControlsUI.SetInputType(Game.State.CurrentInputType);
+				if (newInputType > -1 && newInputType != Game.State.CurrentInputType)
+				{
+					Game.State.CurrentInputType = newInputType;
+					Game.ControlsUI.SetInputType(Game.State.CurrentInputType);
+				}
 			}
 
 			Time.timeScale = Game.State.TimeScaleCurrent;

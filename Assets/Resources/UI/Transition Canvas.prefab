@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 8397866548748854194}
   - component: {fileID: 8397866548748854199}
   - component: {fileID: 8397866548748854192}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Transition Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8397866548748854194
 RectTransform:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 8397866549079649716}
   - component: {fileID: 8397866549079649738}
   - component: {fileID: 8397866549079649739}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fade to Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7050129638846038990, guid: 5f4b387cd2189724e94fd2184aa1048b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

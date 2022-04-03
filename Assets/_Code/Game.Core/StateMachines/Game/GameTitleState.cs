@@ -10,12 +10,8 @@ namespace Game.Core.StateMachines.Game
 	{
 		public GameFSM FSM;
 
-		private CancellationTokenSource _cancellationSource;
-
 		public async UniTask Enter()
 		{
-			_cancellationSource = new CancellationTokenSource();
-
 			GameManager.Game.UI.StartButton.onClick.AddListener(StartGame);
 			GameManager.Game.UI.OptionsButton.onClick.AddListener(ToggleOptions);
 			GameManager.Game.UI.CreditsButton.onClick.AddListener(StartCredits);
@@ -25,23 +21,23 @@ namespace Game.Core.StateMachines.Game
 			if (state != PLAYBACK_STATE.PLAYING)
 				GameManager.Game.State.TitleMusic.start();
 
-			// await UniTask.Delay(2000, cancellationToken: _cancellationSource.Token);
-			_ = GameManager.Game.UI.FadeOut(2f);
-			// await UniTask.Delay(1200, cancellationToken: _cancellationSource.Token);
+			_ = GameManager.Game.UI.FadeIn(Color.clear);
 
 			if (GameManager.Game.State.PlayerSaveData.ClearedLevels.Count > 0)
 				Localization.SetTMPTextKey(GameManager.Game.UI.StartButton.gameObject, "UI/Continue");
 			else
 				Localization.SetTMPTextKey(GameManager.Game.UI.StartButton.gameObject, "UI/Start");
 
-			await GameManager.Game.UI.ShowTitle(_cancellationSource.Token);
+			await GameManager.Game.UI.ShowTitle();
 
 			if (Utils.IsDevBuild())
 			{
 				GameManager.Game.UI.SetDebugText("");
 
 				// TODO: Remove this
-				StartGame();
+				// UnityEngine.Debug.Log("Skipping player save");
+				// GameManager.Game.State.PlayerSaveData.ClearedLevels = new System.Collections.Generic.HashSet<int>();
+				// StartGame();
 			}
 		}
 
@@ -100,9 +96,6 @@ namespace Game.Core.StateMachines.Game
 
 		public UniTask Exit()
 		{
-			_cancellationSource.Cancel();
-			_cancellationSource.Dispose();
-
 			GameManager.Game.UI.StartButton.onClick.RemoveListener(StartGame);
 			GameManager.Game.UI.OptionsButton.onClick.RemoveListener(ToggleOptions);
 			GameManager.Game.UI.CreditsButton.onClick.RemoveListener(StartCredits);

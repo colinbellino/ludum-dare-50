@@ -25,8 +25,6 @@ public class PlayerHealth : Game.Core.Health
 			{
 				timer = 0f;
 				setCurrentHP(currentHP - healthLossPerSecond);
-
-				Debug.Log("Current HP: " + currentHP);
 			}
 		}
 	}

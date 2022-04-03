@@ -23,20 +23,6 @@ namespace Game.Core
 #pragma warning restore 162
 		}
 
-		public static UniTask WaitForCurrentAnimation(Entity entity, float timeScale)
-		{
-			var infos = entity.Animator.GetCurrentAnimatorClipInfo(0);
-			if (infos.Length == 0)
-				return default;
-
-			var clipName = entity.Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-			if (entity.AnimationClipLength.ContainsKey(clipName) == false)
-				return default;
-
-			var length = entity.AnimationClipLength[clipName];
-			return UniTask.Delay(System.TimeSpan.FromSeconds(length / timeScale));
-		}
-
 		public static bool IsWebGL()
 		{
 			return Application.platform == RuntimePlatform.WebGLPlayer;

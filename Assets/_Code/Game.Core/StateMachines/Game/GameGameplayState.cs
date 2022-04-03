@@ -130,7 +130,7 @@ namespace Game.Core.StateMachines.Game
 					}
 					if (allEnemiesAreDead)
 					{
-						Victory();
+						NextLevel();
 						return;
 					}
 				}

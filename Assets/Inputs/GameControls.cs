@@ -462,7 +462,35 @@ namespace Game.Inputs
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Mouse & Keyboard"",
+            ""bindingGroup"": ""Mouse & Keyboard"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
             // Global
             m_Global = asset.FindActionMap("Global", throwIfNotFound: true);
@@ -663,6 +691,24 @@ namespace Game.Inputs
             }
         }
         public GameplayActions @Gameplay => new GameplayActions(this);
+        private int m_MouseKeyboardSchemeIndex = -1;
+        public InputControlScheme MouseKeyboardScheme
+        {
+            get
+            {
+                if (m_MouseKeyboardSchemeIndex == -1) m_MouseKeyboardSchemeIndex = asset.FindControlSchemeIndex("Mouse & Keyboard");
+                return asset.controlSchemes[m_MouseKeyboardSchemeIndex];
+            }
+        }
+        private int m_GamepadSchemeIndex = -1;
+        public InputControlScheme GamepadScheme
+        {
+            get
+            {
+                if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+                return asset.controlSchemes[m_GamepadSchemeIndex];
+            }
+        }
         public interface IGlobalActions
         {
             void OnPause(InputAction.CallbackContext context);

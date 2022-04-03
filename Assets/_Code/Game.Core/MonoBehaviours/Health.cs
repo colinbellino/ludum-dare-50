@@ -16,6 +16,9 @@ namespace Game.Core
 		[SerializeField] private float knockBackDuration;
 		private Vector2 knockbackDirection;
 
+		[SerializeField] private float invicibilityDuration;
+		private float invincibilityCounter;
+
 		public Action<int, int> CurrentHPChanged;
 
 		protected virtual void Awake()
@@ -35,6 +38,10 @@ namespace Game.Core
 			if (knockbackCounter > 0) {
 				knockbackCounter -= Time.deltaTime;
 			}
+
+			if (invincibilityCounter > 0) {
+				invincibilityCounter -= Time.deltaTime;
+			}
 		}
 
 		void FixedUpdate() {
@@ -46,11 +53,15 @@ namespace Game.Core
 
 		public void DealDamage(int damageDone, Vector3 damageSourceDirection)
 		{
-			setCurrentHP(currentHP - damageDone);
+			if (invincibilityCounter <= 0) {
+				setCurrentHP(currentHP - damageDone);
 
-			if (currentHP > 1) {
-				knockbackDirection = (transform.position - damageSourceDirection).normalized;
-				knockbackCounter = knockBackDuration;
+				if (currentHP > 1) {
+					knockbackDirection = (transform.position - damageSourceDirection).normalized;
+					knockbackCounter = knockBackDuration;
+
+					invincibilityCounter = invicibilityDuration;
+				}
 			}
 		}
 

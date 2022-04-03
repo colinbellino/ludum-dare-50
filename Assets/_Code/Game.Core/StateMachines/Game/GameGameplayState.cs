@@ -80,6 +80,7 @@ namespace Game.Core.StateMachines.Game
 				if (GameManager.Game.Controls.Gameplay.Reset.WasPerformedThisFrame())
 				{
 					FSM.Fire(GameFSM.Triggers.Retry);
+					return;
 				}
 
 				if (Utils.IsDevBuild())
@@ -93,6 +94,7 @@ namespace Game.Core.StateMachines.Game
 					if (Keyboard.current.f2Key.wasReleasedThisFrame)
 					{
 						// Kill all enemies! Mohahaha
+						UnityEngine.Debug.Log("Killing all enemies.");
 						foreach (var room in level.Rooms)
 						{
 							foreach (var entity in room.Entities)
@@ -142,6 +144,13 @@ namespace Game.Core.StateMachines.Game
 						NextLevel();
 						return;
 					}
+				}
+
+				if (player.Health.currentHP <= 0)
+				{
+					UnityEngine.Debug.Log("The player died, restarting the level.");
+					FSM.Fire(GameFSM.Triggers.Retry);
+					return;
 				}
 			}
 		}

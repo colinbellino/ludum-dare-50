@@ -8,6 +8,7 @@ public class EnemyProjectile: MonoBehaviour {
 	void Awake() {
 		enemyProjectileSR = GetComponentInChildren<SpriteRenderer>();
 		enemyProjectileSR.transform.rotation = Quaternion.identity;
+		transform.right *= -1;
 	}
 
 	void Update() {
@@ -18,7 +19,7 @@ public class EnemyProjectile: MonoBehaviour {
 		GameObject collidedWith = col.gameObject;
 
 		switch (collidedWith.tag) {
-			case "player": {
+			case "Player": {
 				collidedWith.GetComponent<PlayerHealth>().DealDamage(projectileDamage, transform.position);
 				Destroy(gameObject);
 				break;

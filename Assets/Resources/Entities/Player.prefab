@@ -444,8 +444,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entitiesCollider: {fileID: 8212916750469526113}
   Health: {fileID: 0}
-  xMoveSpeed: 5
-  yMoveSpeed: 5
+  xMoveSpeed: 3
+  yMoveSpeed: 3
   diagonalXMoveSpeed: 4
   xDashSpeed: 10
   yDashSpeed: 10

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4611539270196084795}
   - component: {fileID: 584082355261615764}
   - component: {fileID: -2961006299021118530}
+  - component: {fileID: 4655249882821521425}
   m_Layer: 0
   m_Name: BatProjectile
   m_TagString: Untagged
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99363f403bd55a94d836c8aa22635168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 1
+  lifeTime: 10
 --- !u!114 &-2961006299021118530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +82,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 10
+--- !u!70 &4655249882821521425
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840528245466001249}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.040365517}
+  m_Size: {x: 0.52152836, y: 0.52152836}
+  m_Direction: 0
 --- !u!1 &7072578482829224964
 GameObject:
   m_ObjectHideFlags: 0

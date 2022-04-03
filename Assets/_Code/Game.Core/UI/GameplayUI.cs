@@ -1,9 +1,9 @@
 using System;
 using Cysharp.Threading.Tasks;
-using FMOD.Studio;
+using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace Game.Core
 {
@@ -11,15 +11,21 @@ namespace Game.Core
 	{
 		[SerializeField] private GameObject _root;
 		[SerializeField] private TMPro.TMP_Text _healthText;
-		[SerializeField] private RectTransform _healthFill;
+		[SerializeField] private RectTransform _healthCurrentFill;
+		[SerializeField] private RectTransform _healthTempFill;
 
-		private float _fillSize;
+		private float _currentHealthDefaultWidth;
+		private float _tempHealthDefaultWidth;
+		private float _previousCurrentHealth;
+		private float _tempHealth;
+		private TweenerCore<float, float, FloatOptions> _tempHealthTween;
 
 		public bool IsOpened => _root.activeSelf;
 
 		public async UniTask Init()
 		{
-			_fillSize = _healthFill.sizeDelta.x;
+			_currentHealthDefaultWidth = _healthCurrentFill.sizeDelta.x;
+			_tempHealthDefaultWidth = _healthTempFill.sizeDelta.x;
 			await Hide();
 		}
 
@@ -43,9 +49,28 @@ namespace Game.Core
 
 		public void SetHealth(int current, int max)
 		{
-			_healthText.text = $"Health: {current}/{max}";
-			var percentage = (float)current / max * _fillSize;
-			_healthFill.sizeDelta = new Vector2(percentage, _healthFill.sizeDelta.y);
+			// _healthText.text = $"Health: {current}/{max}";
+
+			var currentPercentage = (float)current / max;
+
+			if (current < _previousCurrentHealth)
+			{
+				var loss = _previousCurrentHealth - current;
+				var tempPercentage = (current + loss) / max;
+				_healthTempFill.sizeDelta = new Vector2(tempPercentage * _tempHealthDefaultWidth, _healthTempFill.sizeDelta.y);
+
+				_tempHealth = current + loss;
+
+				_tempHealthTween = DOTween.To(() => _tempHealth, x => _tempHealth = x, current, 1f)
+					.OnUpdate(() =>
+					{
+						_healthTempFill.sizeDelta = new Vector2(_tempHealth / max * _tempHealthDefaultWidth, _healthTempFill.sizeDelta.y);
+					});
+			}
+
+			_healthCurrentFill.sizeDelta = new Vector2(currentPercentage * _currentHealthDefaultWidth, _healthCurrentFill.sizeDelta.y);
+
+			_previousCurrentHealth = current;
 		}
 	}
 }

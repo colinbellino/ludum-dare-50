@@ -21,8 +21,10 @@ public class EnemyHealth : Game.Core.Health
 		setCurrentHP(currentHP - damageDone);
 
 		if (currentHP > 0) {
-			knockbackDirection = (transform.position - damageSourceDirection).normalized;
-			knockbackCounter = knockBackDuration;
+			if (damageSourceDirection.magnitude > 0) {
+				knockbackDirection = (transform.position - damageSourceDirection).normalized;
+				knockbackCounter = knockBackDuration;
+			}
 		}
 	}
 

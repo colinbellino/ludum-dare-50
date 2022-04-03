@@ -106,6 +106,12 @@ namespace Game.Core.StateMachines.Game
 						}
 						return;
 					}
+
+					if (Keyboard.current.f4Key.wasReleasedThisFrame)
+					{
+						UnityEngine.Debug.Log("Stop hitting yourself.");
+						player.Health.DealDamage(200, Vector3.zero);
+					}
 				}
 
 				var roomCenter = LevelHelpers.GetRoomCenter(level.CurrentRoom);

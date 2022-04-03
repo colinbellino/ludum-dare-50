@@ -8,7 +8,7 @@ namespace Game.Core
 		private Rigidbody2D playerRB;
 		private SpriteRenderer playerSR;
 		private Animator playerAnimator;
-		[SerializeField] private CapsuleCollider2D playerCollider;
+		[SerializeField] private CapsuleCollider2D entitiesCollider;
 		public PlayerHealth Health;
 
 		[SerializeField] private float xMoveSpeed;
@@ -53,7 +53,7 @@ namespace Game.Core
 		{
 			if (isDashing)
 			{
-				playerCollider.enabled = false;
+				entitiesCollider.enabled = false;
 				if (dashCooldown - dashCounter > dashDuration)
 				{
 					isDashing = false;
@@ -61,7 +61,7 @@ namespace Game.Core
 			}
 			else
 			{
-				playerCollider.enabled = true;
+				entitiesCollider.enabled = true;
 				rawMovementInput = GameManager.Game.Controls.Gameplay.Move.ReadValue<Vector2>();
 			}
 
@@ -134,7 +134,7 @@ namespace Game.Core
 			currentAnimState = newState;
 		}
 
-		void OnCollisionEnter2D(Collision2D col)
+		void OnTriggerEnter2D(Collider2D col)
 		{
 			GameObject collidedWith = col.gameObject;
 

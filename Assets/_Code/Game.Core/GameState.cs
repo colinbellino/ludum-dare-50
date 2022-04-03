@@ -15,7 +15,7 @@ namespace Game.Core
 		public float TimeScaleCurrent;
 		public float TimeScaleDefault;
 
-		public int CurrentInputType;
+		public InputTypes CurrentInputType;
 
 		public EventInstance TitleMusic;
 		public EventInstance LevelMusic;
@@ -29,8 +29,9 @@ namespace Game.Core
 
 		public PlayerSettings PlayerSettings;
 		public PlayerSaveData PlayerSaveData;
-
 	}
+
+	public enum InputTypes { Keyboard, XInputController, DualShockGamepad }
 
 	[Serializable]
 	public struct PlayerSettings

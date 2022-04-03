@@ -35,7 +35,6 @@ namespace Game.Core
 		}
 		public void setCurrentHP(int value)
 		{
-			UnityEngine.Debug.Log("setCurrentHP: " + value);
 			this.currentHP = value;
 			CurrentHPChanged?.Invoke(currentHP, maxHP);
 		}

@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class BatProjectile: MonoBehaviour {
 	[SerializeField] private float projectileSpeed;
+	private SpriteRenderer batSR;
+
+	void Awake() {
+		batSR = GetComponentInChildren<SpriteRenderer>();
+		batSR.transform.rotation = Quaternion.identity;
+	}
 
 	void Update() {
 		transform.Translate(transform.position * projectileSpeed * Time.deltaTime);

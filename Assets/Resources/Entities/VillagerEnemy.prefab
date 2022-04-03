@@ -336,6 +336,7 @@ MonoBehaviour:
   maxHP: 3
   drainHealthToPlayer: 200
   damageToPlayer: 100
+  pitchforkSprite: {fileID: 2608157427705317634}
 --- !u!114 &1667791225098431779
 MonoBehaviour:
   m_ObjectHideFlags: 0

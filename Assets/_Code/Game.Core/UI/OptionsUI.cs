@@ -110,30 +110,27 @@ namespace Game.Core
 		{
 			GameManager.Game.State.PlayerSettings.GameVolume = value;
 			AudioHelpers.SetVolume(GameManager.Game.Config.GameBus, value);
+			Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 		}
 
 		private void SetSoundVolume(float value)
 		{
 			GameManager.Game.State.PlayerSettings.SoundVolume = value;
 			AudioHelpers.SetVolume(GameManager.Game.Config.SoundBus, value);
+			Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 		}
 
 		private void SetMusicVolume(float value)
 		{
 			GameManager.Game.State.PlayerSettings.MusicVolume = value;
 			AudioHelpers.SetVolume(GameManager.Game.Config.MusicBus, value);
+			Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 		}
 
 		private void ToggleFullscreen(bool value)
 		{
 			GameManager.Game.State.PlayerSettings.FullScreen = value;
 			Screen.fullScreen = value;
-		}
-
-		private async void BackToTitle()
-		{
-			await Hide();
-			GameManager.Game.UI.SelectTitleOptionsGameObject();
 			Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 		}
 
@@ -144,6 +141,7 @@ namespace Game.Core
 			GameManager.Game.State.PlayerSettings.ResolutionHeight = resolution.height;
 			GameManager.Game.State.PlayerSettings.ResolutionRefreshRate = resolution.refreshRate;
 			Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, resolution.refreshRate);
+			Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 		}
 
 		private void OnLanguageChanged(int index)
@@ -151,6 +149,13 @@ namespace Game.Core
 			var location = LocalizationSettings.AvailableLocales.Locales[index];
 			GameManager.Game.State.PlayerSettings.LocaleCode = location.Identifier.Code;
 			LocalizationSettings.SelectedLocale = location;
+			Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
+		}
+
+		private async void BackToTitle()
+		{
+			await Hide();
+			GameManager.Game.UI.SelectTitleOptionsGameObject();
 		}
 	}
 }

@@ -165,6 +165,15 @@ namespace Game.Inputs
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""d3bb8f1f-cb94-4e2a-8eab-4b24033d93a0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -354,6 +363,17 @@ namespace Game.Inputs
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""559e63c6-0608-44f5-a598-1f18d9896a0c"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -371,6 +391,7 @@ namespace Game.Inputs
             m_Gameplay_Confirm = m_Gameplay.FindAction("Confirm", throwIfNotFound: true);
             m_Gameplay_Reset = m_Gameplay.FindAction("Reset", throwIfNotFound: true);
             m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
+            m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -483,6 +504,7 @@ namespace Game.Inputs
         private readonly InputAction m_Gameplay_Confirm;
         private readonly InputAction m_Gameplay_Reset;
         private readonly InputAction m_Gameplay_Dash;
+        private readonly InputAction m_Gameplay_Shoot;
         public struct GameplayActions
         {
             private @GameControls m_Wrapper;
@@ -491,6 +513,7 @@ namespace Game.Inputs
             public InputAction @Confirm => m_Wrapper.m_Gameplay_Confirm;
             public InputAction @Reset => m_Wrapper.m_Gameplay_Reset;
             public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
+            public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -512,6 +535,9 @@ namespace Game.Inputs
                     @Dash.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
                     @Dash.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
                     @Dash.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
+                    @Shoot.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
+                    @Shoot.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
+                    @Shoot.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
                 }
                 m_Wrapper.m_GameplayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -528,6 +554,9 @@ namespace Game.Inputs
                     @Dash.started += instance.OnDash;
                     @Dash.performed += instance.OnDash;
                     @Dash.canceled += instance.OnDash;
+                    @Shoot.started += instance.OnShoot;
+                    @Shoot.performed += instance.OnShoot;
+                    @Shoot.canceled += instance.OnShoot;
                 }
             }
         }
@@ -544,6 +573,7 @@ namespace Game.Inputs
             void OnConfirm(InputAction.CallbackContext context);
             void OnReset(InputAction.CallbackContext context);
             void OnDash(InputAction.CallbackContext context);
+            void OnShoot(InputAction.CallbackContext context);
         }
     }
 }

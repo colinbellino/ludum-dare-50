@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 1765729788102286703}
   - component: {fileID: 1667791225098431779}
   - component: {fileID: 1956124690460884481}
+  - component: {fileID: 6996708168366771096}
   m_Layer: 0
   m_Name: VillagerEnemy
   m_TagString: Untagged
@@ -347,6 +348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ddec31fb908d140a06e45ce12f90ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBodySR: {fileID: 4589615320990034340}
+  pitchforkTransform: {fileID: 2460687971267832254}
   moveSpeed: 3
 --- !u!114 &1956124690460884481
 MonoBehaviour:
@@ -364,6 +367,22 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 4589615320990034340}
   SpawnPosition: {x: 0, y: 0, z: 0}
   Ready: 0
+--- !u!70 &6996708168366771096
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627275923284182371}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.32, y: 0.85}
+  m_Direction: 0
 --- !u!1 &5993354966422508966
 GameObject:
   m_ObjectHideFlags: 0

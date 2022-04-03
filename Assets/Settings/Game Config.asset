@@ -19,6 +19,11 @@ MonoBehaviour:
   TileToEntity:
     m_keys: []
     m_values: []
+  WallTiles:
+  - {fileID: 11400000, guid: d9a27a41ccf04324ab580fc76b19c18b, type: 2}
+  - {fileID: 11400000, guid: 62d213db094bd014b94174fb171eb842, type: 2}
+  - {fileID: 11400000, guid: 0ed92e02648657044a447e8c56a149cd, type: 2}
+  - {fileID: 11400000, guid: 6364f11c49f9bd947bf998920763378d, type: 2}
   GameBus: bus:/Game
   MusicBus: bus:/Game/Music
   SoundBus: bus:/Game/SFX

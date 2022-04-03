@@ -8,11 +8,21 @@ namespace Game.Core
 {
 	public static class LevelHelpers
 	{
+		private static Vector3Int[] DIRECTIONS = new Vector3Int[] {
+			Vector3Int.up,
+			Vector3Int.right,
+			Vector3Int.down,
+			Vector3Int.left,
+		};
+
+		private static char RoomTypeEmpty = '.';
+		private static char RoomTypeSpawn = 'S';
+
 		public static Room GetStartRoom(Level level)
 		{
 			foreach (var room in level.Rooms)
 			{
-				if (room.Name == "2")
+				if (room.Type == RoomTypeSpawn)
 					return room;
 			}
 
@@ -121,26 +131,25 @@ namespace Game.Core
 			var x = 0;
 			var y = 0;
 			var i = 0;
-			foreach (var character in levelData)
+			foreach (var roomType in levelData)
 			{
-				if (character == '\n')
+				if (roomType == '\n')
 				{
 					x = 0;
 					y += 1;
 					continue;
 				}
 
-				GameObject roomInstance = null;
+				RoomBehaviour roomInstance = null;
 				var entities = new List<Entity>();
 
-				var roomType = int.Parse(character.ToString());
-				if (roomType > 0)
+				if (roomType != RoomTypeEmpty)
 				{
-					var roomPrefab = Resources.Load<GameObject>("Rooms/Room" + character);
+					var roomPrefab = Resources.Load<RoomBehaviour>("Rooms/Room " + roomType);
 					roomInstance = GameObject.Instantiate(roomPrefab);
 					roomInstance.transform.position = new Vector3(x * GameConfig.ROOM_SIZE.x, -y * GameConfig.ROOM_SIZE.y);
 #if UNITY_EDITOR
-					roomInstance.name = $"[{x},{y}] {character}";
+					roomInstance.name = $"[{x},{y}] {roomType}";
 #endif
 
 					foreach (Transform child in roomInstance.transform)
@@ -161,7 +170,7 @@ namespace Game.Core
 					X = x,
 					Y = y,
 					Index = i,
-					Name = character.ToString(),
+					Type = roomType,
 					Instance = roomInstance,
 					Entities = entities,
 				};
@@ -169,6 +178,24 @@ namespace Game.Core
 
 				x += 1;
 				i += 1;
+			}
+
+			// Do a second loop once we have all the rooms to check for connections for doors.
+			foreach (var room in level.Rooms)
+			{
+				if (room.Instance == null)
+					continue;
+
+				for (int directionIndex = 0; directionIndex < DIRECTIONS.Length; directionIndex++)
+				{
+					var direction = DIRECTIONS[directionIndex];
+					direction.y = -direction.y;
+					var nextRoom = GetRoomAtPosition(room.X + direction.x, room.Y + direction.y, level);
+					if (nextRoom == null)
+					{
+						room.Instance.WallsTilemap.SetTile(room.Instance.DoorPositions[directionIndex], GameManager.Game.Config.WallTiles[directionIndex]);
+					}
+				}
 			}
 
 			return level;
@@ -184,16 +211,16 @@ namespace Game.Core
 
 	public class Room
 	{
-		public string Name;
+		public char Type;
 		public int Index;
 		public int X;
 		public int Y;
-		public GameObject Instance;
+		public RoomBehaviour Instance;
 		public List<Entity> Entities;
 
 		public override string ToString()
 		{
-			return $"Room [{X},{Y}]: {Name}";
+			return $"Room [{X},{Y}]: {Type}";
 		}
 	}
 }

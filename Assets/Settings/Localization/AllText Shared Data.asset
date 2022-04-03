@@ -119,6 +119,10 @@ MonoBehaviour:
     m_Key: UI/Inputs/Keyboard/ArrowDown
     m_Metadata:
       m_Items: []
+  - m_Id: 17383895330021376
+    m_Key: UI/Continu
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

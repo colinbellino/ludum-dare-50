@@ -18,8 +18,9 @@ public class BatProjectile: MonoBehaviour {
 
 		switch (collidedWith.tag) {
 			case "enemy": {
-				if (!collidedWith.GetComponent<EnemyHealth>().getDead()) {
-					collidedWith.GetComponent<EnemyHealth>().DealDamage(1, transform.position);
+				EnemyHealth enemyHealth = collidedWith.GetComponent<EnemyHealth>();
+				if (!enemyHealth.getDead()) {
+					enemyHealth.DealDamage(1, transform.position);
 					Destroy(gameObject);
 				}
 				break;

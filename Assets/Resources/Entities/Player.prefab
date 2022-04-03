@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   batProjectile: {fileID: 4840528245466001249, guid: 1575a081b54aebf4cafdeab50ac319ed, type: 3}
-  shootCooldown: 1
+  shootCooldown: 0.2
 --- !u!1 &4002528974698007365
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +409,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e8d22a21f88161144ac10ed9b6d5c168, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -444,12 +444,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entitiesCollider: {fileID: 8212916750469526113}
   Health: {fileID: 0}
-  xMoveSpeed: 5
-  yMoveSpeed: 5
-  diagonalXMoveSpeed: 4
-  xDashSpeed: 10
-  yDashSpeed: 10
-  dashCooldown: 2
+  xMoveSpeed: 3
+  yMoveSpeed: 3
+  diagonalXMoveSpeed: 3.5
+  xDashSpeed: 8
+  yDashSpeed: 8
+  dashCooldown: 1.5
   dashDuration: 0.3
 --- !u!114 &1105023908
 MonoBehaviour:
@@ -467,6 +467,6 @@ MonoBehaviour:
   entitySR: {fileID: 5379409492510644434}
   knockbackForce: 0.1
   knockBackDuration: 0.2
-  healthLossPerSecond: 50
-  healthLossCooldown: 3
-  invicibilityDuration: 0.4
+  healthLossPerSecond: 20
+  healthLossCooldown: 1
+  invicibilityDuration: 0.5

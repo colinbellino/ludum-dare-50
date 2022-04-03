@@ -43,25 +43,25 @@ namespace Game.Core
 			return default;
 		}
 
-		public void SetInputType(int inputType)
+		public void SetInputType(InputTypes inputType)
 		{
 			switch (inputType)
 			{
-				case 0:
+				case InputTypes.Keyboard:
 					{
 						_keyboardRoot.SetActive(true);
 						_xboxRoot.SetActive(false);
 						_ps5Root.SetActive(false);
 					}
 					break;
-				case 1:
+				case InputTypes.XInputController:
 					{
 						_keyboardRoot.SetActive(false);
 						_xboxRoot.SetActive(true);
 						_ps5Root.SetActive(false);
 					}
 					break;
-				case 2:
+				case InputTypes.DualShockGamepad:
 					{
 						_keyboardRoot.SetActive(false);
 						_xboxRoot.SetActive(false);

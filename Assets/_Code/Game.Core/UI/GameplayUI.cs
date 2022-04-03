@@ -13,6 +13,7 @@ namespace Game.Core
 		[SerializeField] private TMPro.TMP_Text _healthText;
 		[SerializeField] private RectTransform _healthCurrentFill;
 		[SerializeField] private RectTransform _healthTempFill;
+		[SerializeField] private RectTransform _dashIcon;
 
 		private float _currentHealthDefaultWidth;
 		private float _tempHealthDefaultWidth;
@@ -71,6 +72,11 @@ namespace Game.Core
 			_healthCurrentFill.sizeDelta = new Vector2(currentPercentage * _currentHealthDefaultWidth, _healthCurrentFill.sizeDelta.y);
 
 			_previousCurrentHealth = current;
+		}
+
+		public void SetDash(bool value)
+		{
+			_dashIcon.gameObject.SetActive(value);
 		}
 	}
 }

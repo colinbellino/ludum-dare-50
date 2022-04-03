@@ -4,16 +4,16 @@ using Game.Core;
 
 public class PlayerProjectile : MonoBehaviour
 {
+	[SerializeField] private GameObject batProjectile;
+	[SerializeField] private float shootCooldown;
+
 	private PlayerHealth playerHealth;
 	private SpriteRenderer handSR;
-
-	[SerializeField] private GameObject batProjectile;
+	private float shootCounter;
 	private Vector2 mousePosition;
 	private Vector3 worldMousePosition;
 	private Vector3 aimDirection;
-
-	[SerializeField] private float shootCooldown;
-	private float shootCounter;
+	private Vector2 aimInput;
 
 	void Awake() {
 		playerHealth = GetComponentInParent<PlayerHealth>();
@@ -41,10 +41,11 @@ public class PlayerProjectile : MonoBehaviour
 			handSR.flipY = false;
 		}
 
-		if (GameManager.Game.Controls.Global.MousePosition.WasPerformedThisFrame()) {
+		if (GameManager.Game.State.CurrentInputType == InputTypes.Keyboard) {
 			aimDirection = worldMousePosition - transform.position;
-		} else if(GameManager.Game.Controls.Gameplay.Aim.WasPerformedThisFrame()) {
-			aimDirection = GameManager.Game.Controls.Gameplay.Aim.ReadValue<Vector2>();
+		} else {
+			aimInput = GameManager.Game.Controls.Gameplay.Aim.ReadValue<Vector2>();
+			aimDirection = aimInput;
 		}
 
 		float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;

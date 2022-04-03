@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: 079a990bc11e5924882c937128cb3a01
+guid: e19055d7cb42caa42bf5f5b716c4853b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5911495795997189016
-    second: bat_idle0
+      213: 9181177839040327026
+    second: priest_projectile0
   - first:
-      213: -7601935877305512922
-    second: bat_idle1
+      213: -2726684316549620529
+    second: priest_projectile1
   - first:
-      213: 2331962484774033854
-    second: bat_idle2
+      213: 8488244801973812299
+    second: priest_projectile2
   - first:
-      213: 2304373583572992538
-    second: bat_idle3
+      213: -74073729272948495
+    second: priest_projectile3
+  - first:
+      213: 7467463842718746969
+    second: priest_projectile4
+  - first:
+      213: -2048905590460522946
+    second: priest_projectile5
+  - first:
+      213: 7261506987981506993
+    second: priest_projectile6
+  - first:
+      213: 8104804446719815386
+    second: priest_projectile7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bat_idle0
+      name: priest_projectile0
       rect:
         serializedVersion: 2
         x: 1
-        y: 35
-        width: 32
-        height: 32
+        y: 29
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86c5f5cd4e526fda0800000000000000
-      internalID: -5911495795997189016
+      spriteID: 27defa3c9981a6f70800000000000000
+      internalID: 9181177839040327026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bat_idle1
+      name: priest_projectile1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 35
-        width: 32
-        height: 32
+        x: 15
+        y: 29
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +150,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62c48eba89f708690800000000000000
-      internalID: -7601935877305512922
+      spriteID: fcc5e698f0fd82ad0800000000000000
+      internalID: -2726684316549620529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bat_idle2
+      name: priest_projectile2
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 29
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c743cbcad4cc570800000000000000
+      internalID: 8488244801973812299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest_projectile3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 15
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f85f7fe556d8fef0800000000000000
+      internalID: -74073729272948495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest_projectile4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9590356fcc2c1a760800000000000000
+      internalID: 7467463842718746969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest_projectile5
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 15
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ed9469833d093e0800000000000000
+      internalID: -2048905590460522946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest_projectile6
       rect:
         serializedVersion: 2
         x: 1
         y: 1
-        width: 32
-        height: 32
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb95e7e468bcc5020800000000000000
-      internalID: 2331962484774033854
+      spriteID: 1b987a8e12e06c460800000000000000
+      internalID: 7261506987981506993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bat_idle3
+      name: priest_projectile7
       rect:
         serializedVersion: 2
-        x: 35
+        x: 15
         y: 1
-        width: 32
-        height: 32
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1289aea097caff10800000000000000
-      internalID: 2304373583572992538
+      spriteID: adeadb404bc0a7070800000000000000
+      internalID: 8104804446719815386
       vertices: []
       indices: 
       edges: []

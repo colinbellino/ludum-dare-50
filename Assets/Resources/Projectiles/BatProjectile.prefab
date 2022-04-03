@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2622016700c76542aa0ff015ca61a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 0.4
+  projectileSpeed: 10
 --- !u!1 &7072578482829224964
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: cc2fcec8a8d6e41349597fdbd5650d88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

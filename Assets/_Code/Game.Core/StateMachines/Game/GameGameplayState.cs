@@ -33,6 +33,14 @@ namespace Game.Core.StateMachines.Game
 			if (state == PLAYBACK_STATE.STOPPED || state == PLAYBACK_STATE.STOPPING)
 				GameManager.Game.State.LevelMusic.start();
 
+			if (Utils.IsDevBuild())
+			{
+				GameManager.Game.UI.SetDebugText("");
+				GameManager.Game.UI.AddDebugLine("F1: Load next level");
+				GameManager.Game.UI.AddDebugLine("F2: Kill all enemies");
+				GameManager.Game.UI.AddDebugLine("R:  Restart level");
+			}
+
 			return default;
 		}
 

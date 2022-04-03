@@ -142,7 +142,7 @@ namespace Game.Core
 				}
 				else
 				{
-					Health.DealDamage(enemyHealth.GetDamageToPlayer());
+					Health.DealDamage(enemyHealth.GetDamageToPlayer(), collidedWith.transform.position);
 				}
 			}
 		}

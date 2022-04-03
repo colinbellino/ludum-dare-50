@@ -4,12 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bird
-  - Rope
-  - Killbox
-  - Rope Spawn
-  - Bird Spot
-  - Rope Tip
+  - enemy
   layers:
   - Default
   - TransparentFX

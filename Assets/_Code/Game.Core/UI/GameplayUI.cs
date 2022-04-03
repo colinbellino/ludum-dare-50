@@ -11,11 +11,15 @@ namespace Game.Core
 	{
 		[SerializeField] private GameObject _root;
 		[SerializeField] private TMPro.TMP_Text _healthText;
+		[SerializeField] private RectTransform _healthFill;
+
+		private float _fillSize;
 
 		public bool IsOpened => _root.activeSelf;
 
 		public async UniTask Init()
 		{
+			_fillSize = _healthFill.sizeDelta.x;
 			await Hide();
 		}
 
@@ -40,6 +44,8 @@ namespace Game.Core
 		public void SetHealth(int current, int max)
 		{
 			_healthText.text = $"Health: {current}/{max}";
+			var percentage = (float)current / max * _fillSize;
+			_healthFill.sizeDelta = new Vector2(percentage, _healthFill.sizeDelta.y);
 		}
 	}
 }

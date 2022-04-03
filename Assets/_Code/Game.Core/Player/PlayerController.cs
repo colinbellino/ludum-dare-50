@@ -25,12 +25,18 @@ namespace Game.Core
 
 		private bool facingRight = true;
 
+		private string currentAnimState;
+		private string animIdle = "vampire_animations_Idle";
+		private string animDash = "vampire_animations_Dash";
+		private string animWalk = "vampire_animations_Walk";
+
 		void Awake()
 		{
 			playerRB = GetComponent<Rigidbody2D>();
 			playerSR = GetComponentInChildren<SpriteRenderer>();
-			playerAnimator = GetComponent<Animator>();
+			playerAnimator = GetComponentInChildren<Animator>();
 			Health = GetComponent<PlayerHealth>();
+			ChangeAnimationState(animIdle);
 		}
 
 		void OnEnable()
@@ -65,24 +71,13 @@ namespace Game.Core
 			}
 
 			playerSR.flipX = !facingRight;
-			if (facingRight)
-			{
-				// Vector3 localScaleTemp = transform.localScale;
-				// localScaleTemp.x = 1;
-				// transform.localScale = localScaleTemp;
-			}
-			else
-			{
-				// Vector3 localScaleTemp = transform.localScale;
-				// localScaleTemp.x = -1;
-				// transform.localScale = localScaleTemp;
-			}
 		}
 
 		void FixedUpdate()
 		{
 			if (isDashing)
 			{
+				ChangeAnimationState(animDash);
 				playerRB.velocity = new Vector2(rawMovementInput.x * xDashSpeed, rawMovementInput.y * yDashSpeed);
 			}
 			else if(Health.getKnockbackCounter() <= 0)
@@ -95,6 +90,8 @@ namespace Game.Core
 		{
 			if (RawMovementInput != Vector2.zero)
 			{
+				ChangeAnimationState(animWalk);
+
 				if (RawMovementInput.y == 0)
 				{
 					playerRB.velocity = new Vector2(RawMovementInput.x * xMoveSpeed, 0);
@@ -115,6 +112,7 @@ namespace Game.Core
 			}
 			else
 			{
+				ChangeAnimationState(animIdle);
 				playerRB.velocity = Vector2.zero;
 			}
 		}
@@ -126,6 +124,14 @@ namespace Game.Core
 				isDashing = true;
 				dashCounter = dashCooldown;
 			}
+		}
+
+		void ChangeAnimationState(string newState) {
+			if (currentAnimState == newState) return;
+
+			playerAnimator.Play(newState);
+
+			currentAnimState = newState;
 		}
 
 		void OnCollisionEnter2D(Collision2D col)

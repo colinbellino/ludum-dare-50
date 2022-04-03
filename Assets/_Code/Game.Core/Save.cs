@@ -81,13 +81,13 @@ namespace Game.Core
 		{
 			if (Utils.IsWebGL())
 			{
-				BinaryFileSerializer.Serialize(data, _playerSaveDataPath);
-				UnityEngine.Debug.Log("Saving player data: " + _playerSaveDataPath);
+				PlayerPrefsSerializer.Serialize(data, _playerDataKey);
+				UnityEngine.Debug.Log("Saving player data: " + _playerDataKey);
 			}
 			else
 			{
-				PlayerPrefsSerializer.Serialize(data, _playerDataKey);
-				UnityEngine.Debug.Log("Saving player data: " + _playerDataKey);
+				BinaryFileSerializer.Serialize(data, _playerSaveDataPath);
+				UnityEngine.Debug.Log("Saving player data: " + _playerSaveDataPath);
 			}
 		}
 	}

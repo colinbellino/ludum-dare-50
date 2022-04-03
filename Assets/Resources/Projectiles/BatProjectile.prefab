@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2622016700c76542aa0ff015ca61a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 0.5
+  projectileSpeed: 0.4
 --- !u!1 &7072578482829224964
 GameObject:
   m_ObjectHideFlags: 0

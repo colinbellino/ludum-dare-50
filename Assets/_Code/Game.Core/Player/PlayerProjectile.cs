@@ -51,7 +51,7 @@ public class PlayerProjectile : MonoBehaviour
 	private void GetShootInput(InputAction.CallbackContext context) {
 		if (context.action.triggered && shootCounter <= 0 && !playerHealth.getDead())
 			{
-				GameObject projectile = Instantiate(batProjectile, transform.position, Quaternion.identity);
+				GameObject projectile = Instantiate(batProjectile, transform.position, transform.rotation);
 				shootCounter = shootCooldown;
 			}
 	}

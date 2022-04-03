@@ -10,7 +10,7 @@ public class BatProjectile: MonoBehaviour {
 	}
 
 	void Update() {
-		transform.Translate(transform.position * projectileSpeed * Time.deltaTime);
+		transform.position += transform.right * projectileSpeed * Time.deltaTime;
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {

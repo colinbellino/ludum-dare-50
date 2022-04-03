@@ -138,15 +138,20 @@ namespace Game.Core
 		{
 			GameObject collidedWith = col.gameObject;
 
-			if (collidedWith.tag == "enemy")
+			if (collidedWith.tag == "enemy" || collidedWith.tag == "enemyWeapon")
 			{
-				EnemyHealth enemyHealth = collidedWith.GetComponent<EnemyHealth>();
+				EnemyHealth enemyHealth;
+				if (collidedWith.tag == "enemy") {
+					enemyHealth = collidedWith.GetComponent<EnemyHealth>();
+				} else {
+					enemyHealth = collidedWith.GetComponentInParent<EnemyHealth>();
+				}
 
 				if (enemyHealth.getDead()) {
 					if (isDashing) {
-					Health.Heal(enemyHealth.GetDrainHealthToPlayer());
-				}
-				} else {
+						Health.Heal(enemyHealth.GetDrainHealthToPlayer());
+					}
+				} else if (!isDashing) {
 						Health.DealDamage(enemyHealth.GetDamageToPlayer(), collidedWith.transform.position);
 				}
 			}

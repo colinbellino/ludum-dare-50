@@ -427,8 +427,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
-  m_Size: {x: 0.75, y: 0.86}
+  m_Offset: {x: 0.000000029802322, y: -0.15}
+  m_Size: {x: 0.5696699, y: 0.74524444}
   m_Direction: 0
 --- !u!114 &4542784427072963798
 MonoBehaviour:
@@ -447,10 +447,10 @@ MonoBehaviour:
   xMoveSpeed: 5
   yMoveSpeed: 5
   diagonalXMoveSpeed: 4
-  xDashSpeed: 2
-  yDashSpeed: 2
-  dashCooldown: 3
-  dashDuration: 0.15
+  xDashSpeed: 10
+  yDashSpeed: 10
+  dashCooldown: 2
+  dashDuration: 0.3
 --- !u!114 &1105023908
 MonoBehaviour:
   m_ObjectHideFlags: 0

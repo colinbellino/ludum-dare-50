@@ -5,6 +5,7 @@ public class RangedEnemy : MonoBehaviour {
 	private EnemyHealth enemyHealth;
 	private PlayerHealth playerHealth;
 	[SerializeField] private Transform crossTransform;
+	private SpriteRenderer crossSR;
 	[SerializeField] private SpriteRenderer enemyBodySR;
    private Rigidbody2D enemyRB;
    private Animator enemyAnimator;
@@ -21,6 +22,7 @@ public class RangedEnemy : MonoBehaviour {
 		enemyAnimator = GetComponentInChildren<Animator>();
 		enemyHealth = GetComponent<EnemyHealth>();
 		enemyEntity = GetComponent<Entity>();
+		crossSR = crossTransform.gameObject.GetComponentInChildren<SpriteRenderer>();
 	}
 
 	void OnEnable()
@@ -33,10 +35,14 @@ public class RangedEnemy : MonoBehaviour {
 
    void Update() {
       if (!enemyHealth.getDead() && !playerHealth.getDead()) {
+			crossTransform.right = (playerHealth.gameObject.transform.position - transform.position).normalized * -1;
+
          if (playerHealth.gameObject.transform.position.x < transform.position.x) {
             enemyBodySR.flipX = false;
+				crossSR.flipY = false;
          }  else {
             enemyBodySR.flipX = true;
+				crossSR.flipY = true;
          }
 
 			if (shootCounter > 0) {
@@ -48,16 +54,16 @@ public class RangedEnemy : MonoBehaviour {
    void FixedUpdate() {
       if (!enemyHealth.getDead() && !playerHealth.getDead()) {
 			if (shootCounter <= 0) {
-				attackPlayer(directionToPlayer);
+				attackPlayer();
 			}
 
- 			float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
-			crossTransform.localRotation = Quaternion.Euler(0, 0, angle-180);
+ 			// float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+			// crossTransform.localRotation = Quaternion.Euler(0, 0, angle);
       }
 	}
 
-	private void attackPlayer(Vector2 playerDirection) {
-		GameObject projectile = Instantiate(enemyProjectile, transform.position, transform.rotation);
+	private void attackPlayer() {
+		GameObject projectile = Instantiate(enemyProjectile, crossTransform.position, crossTransform.rotation);
 		shootCounter = shootCooldown;
 	}
 }

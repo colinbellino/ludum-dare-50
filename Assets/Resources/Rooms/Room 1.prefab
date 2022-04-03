@@ -1370,11 +1370,11 @@ PrefabInstance:
     - target: {fileID: 6465466914267940357, guid: 8af459f6a29efca4382f48d5d10eb1b7, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[0].m_Data
       value: 
-      objectReference: {fileID: -6205172343615221245, guid: 6f51ae57f951fa746b097ebb854ea9d3, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 6465466914267940357, guid: 8af459f6a29efca4382f48d5d10eb1b7, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[1].m_Data
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -6205172343615221245, guid: 6f51ae57f951fa746b097ebb854ea9d3, type: 3}
     - target: {fileID: 6465466914267940357, guid: 8af459f6a29efca4382f48d5d10eb1b7, type: 3}
       propertyPath: m_TileColorArray.Array.data[0].m_Data.a
       value: 1
@@ -1429,11 +1429,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465466914267940357, guid: 8af459f6a29efca4382f48d5d10eb1b7, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6465466914267940357, guid: 8af459f6a29efca4382f48d5d10eb1b7, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6465466914267940357, guid: 8af459f6a29efca4382f48d5d10eb1b7, type: 3}
       propertyPath: m_Tiles.Array.data[0].second.m_AllTileFlags
@@ -1445,7 +1445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465466914267940357, guid: 8af459f6a29efca4382f48d5d10eb1b7, type: 3}
       propertyPath: m_Tiles.Array.data[0].second.m_TileSpriteIndex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6465466914267940357, guid: 8af459f6a29efca4382f48d5d10eb1b7, type: 3}
       propertyPath: m_Tiles.Array.data[0].second.m_TileObjectToInstantiateIndex
@@ -1796,7 +1796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7313435172261122699, guid: 0fc1a252ccac91f44ab3fb286aeea807, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 7313435172261122699, guid: 0fc1a252ccac91f44ab3fb286aeea807, type: 3}
       propertyPath: m_LocalPosition.z

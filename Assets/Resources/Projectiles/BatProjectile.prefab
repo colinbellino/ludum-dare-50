@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99363f403bd55a94d836c8aa22635168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 10
+  lifeTime: 2
 --- !u!114 &-2961006299021118530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2622016700c76542aa0ff015ca61a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 10
+  projectileSpeed: 8
 --- !u!70 &4655249882821521425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2745663822100755489}
   - component: {fileID: 5889620745901087556}
-  - component: {fileID: 4507338764194434453}
+  - component: {fileID: 6467037888449924206}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -178,10 +178,10 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4507338764194434453
+--- !u!95 &6467037888449924206
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0

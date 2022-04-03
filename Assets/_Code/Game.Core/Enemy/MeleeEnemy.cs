@@ -40,6 +40,10 @@ public class MeleeEnemy : MonoBehaviour
             enemyBodySR.flipX = true;
          }
       }
+
+		if (enemyHealth.getDead()) {
+			enemyRB.mass = float.MaxValue;
+		}
    }
 
    void FixedUpdate() {

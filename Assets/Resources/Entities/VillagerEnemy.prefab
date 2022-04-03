@@ -312,11 +312,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 9999
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e8d22a21f88161144ac10ed9b6d5c168, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBodySR: {fileID: 4589615320990034340}
   pitchforkTransform: {fileID: 2460687971267832254}
-  moveSpeed: 3
+  moveSpeed: 1.5
 --- !u!114 &1956124690460884481
 MonoBehaviour:
   m_ObjectHideFlags: 0

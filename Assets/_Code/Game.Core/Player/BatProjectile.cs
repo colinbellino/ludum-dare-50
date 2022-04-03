@@ -19,11 +19,11 @@ public class BatProjectile: MonoBehaviour {
 		switch (collidedWith.tag) {
 			case "enemy": {
 				collidedWith.GetComponent<EnemyHealth>().DealDamage(1);
-				Destroy(this);
+				Destroy(gameObject);
 				break;
 			}
 			case "wall": {
-				Destroy(this);
+				Destroy(gameObject);
 				break;
 			}
 		}

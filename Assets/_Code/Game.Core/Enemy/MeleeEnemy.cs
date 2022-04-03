@@ -32,9 +32,7 @@ public class MeleeEnemy : MonoBehaviour
 
    void Update() {
       if (!enemyHealth.getDead() && !playerHealth.getDead()) {
-         Vector3 direction = playerHealth.gameObject.transform.position - transform.position;
-         direction.Normalize();
-         directionToPlayer = direction;
+         directionToPlayer = (playerHealth.gameObject.transform.position - transform.position).normalized;
 
          if (playerHealth.gameObject.transform.position.x < transform.position.x) {
             enemyBodySR.flipX = false;

@@ -85,7 +85,7 @@ namespace Game.Core
 			{
 				playerRB.velocity = new Vector2(rawMovementInput.x * xDashSpeed, rawMovementInput.y * yDashSpeed);
 			}
-			else
+			else if(Health.knockbackCounter <= 0)
 			{
 				handleMovement(rawMovementInput);
 			}

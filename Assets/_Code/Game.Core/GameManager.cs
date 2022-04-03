@@ -86,5 +86,10 @@ namespace Game.Core
 			else
 				AudioHelpers.SetVolume(Game.Config.GameBus, Game.State.PlayerSettings.GameVolume);
 		}
+
+		public static bool PlayerAlive() {
+			return Game.State.Player.gameObject.activeInHierarchy
+				&& !Game.State.Player.GetComponent<PlayerHealth>().getDead();
+		}
 	}
 }

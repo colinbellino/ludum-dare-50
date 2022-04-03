@@ -14,18 +14,15 @@ namespace Game.Core
 			Vector3Int.down,
 			Vector3Int.left,
 		};
-		private static Vector3Int[] DOOR_POSITIONS = new Vector3Int[] {
-			new Vector3Int(7, 8, 0),
-			new Vector3Int(14, 4, 0),
-			new Vector3Int(7, 0, 0),
-			new Vector3Int(0, 4, 0),
-		};
+
+		private static char RoomTypeEmpty = '.';
+		private static char RoomTypeSpawn = 'S';
 
 		public static Room GetStartRoom(Level level)
 		{
 			foreach (var room in level.Rooms)
 			{
-				if (room.Name == "2")
+				if (room.Type == RoomTypeSpawn)
 					return room;
 			}
 
@@ -134,9 +131,9 @@ namespace Game.Core
 			var x = 0;
 			var y = 0;
 			var i = 0;
-			foreach (var character in levelData)
+			foreach (var roomType in levelData)
 			{
-				if (character == '\n')
+				if (roomType == '\n')
 				{
 					x = 0;
 					y += 1;
@@ -146,14 +143,13 @@ namespace Game.Core
 				RoomBehaviour roomInstance = null;
 				var entities = new List<Entity>();
 
-				var roomType = int.Parse(character.ToString());
-				if (roomType > 0)
+				if (roomType != RoomTypeEmpty)
 				{
-					var roomPrefab = Resources.Load<RoomBehaviour>("Rooms/Room" + character);
+					var roomPrefab = Resources.Load<RoomBehaviour>("Rooms/Room " + roomType);
 					roomInstance = GameObject.Instantiate(roomPrefab);
 					roomInstance.transform.position = new Vector3(x * GameConfig.ROOM_SIZE.x, -y * GameConfig.ROOM_SIZE.y);
 #if UNITY_EDITOR
-					roomInstance.name = $"[{x},{y}] {character}";
+					roomInstance.name = $"[{x},{y}] {roomType}";
 #endif
 
 					foreach (Transform child in roomInstance.transform)
@@ -174,7 +170,7 @@ namespace Game.Core
 					X = x,
 					Y = y,
 					Index = i,
-					Name = character.ToString(),
+					Type = roomType,
 					Instance = roomInstance,
 					Entities = entities,
 				};
@@ -197,7 +193,7 @@ namespace Game.Core
 					var nextRoom = GetRoomAtPosition(room.X + direction.x, room.Y + direction.y, level);
 					if (nextRoom == null)
 					{
-						room.Instance.WallsTilemap.SetTile(DOOR_POSITIONS[directionIndex], GameManager.Game.Config.WallTiles[directionIndex]);
+						room.Instance.WallsTilemap.SetTile(room.Instance.DoorPositions[directionIndex], GameManager.Game.Config.WallTiles[directionIndex]);
 					}
 				}
 			}
@@ -215,7 +211,7 @@ namespace Game.Core
 
 	public class Room
 	{
-		public string Name;
+		public char Type;
 		public int Index;
 		public int X;
 		public int Y;
@@ -224,7 +220,7 @@ namespace Game.Core
 
 		public override string ToString()
 		{
-			return $"Room [{X},{Y}]: {Name}";
+			return $"Room [{X},{Y}]: {Type}";
 		}
 	}
 }

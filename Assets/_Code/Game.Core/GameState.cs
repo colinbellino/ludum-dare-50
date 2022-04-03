@@ -24,8 +24,8 @@ namespace Game.Core
 		public int CurrentLevelIndex;
 		public Level Level;
 		public PlayerController Player;
-		public Level[] DebugLevels;
-		public Level[] AllLevels;
+		public string[] DebugLevels;
+		public string[] AllLevels;
 
 		public PlayerSettings PlayerSettings;
 		public PlayerSaveData PlayerSaveData;

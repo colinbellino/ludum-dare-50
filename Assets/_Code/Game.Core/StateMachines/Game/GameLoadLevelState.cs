@@ -9,8 +9,8 @@ namespace Game.Core.StateMachines.Game
 
 		public async UniTask Enter()
 		{
-			var levelName = "Level0";
-			var levelData = LevelHelpers.LoadLevelDataFromFile($"{Application.streamingAssetsPath}/_Levels/{levelName}.txt");
+			var levelName = GameManager.Game.State.AllLevels[GameManager.Game.State.CurrentLevelIndex];
+			var levelData = LevelHelpers.LoadLevelDataFromFile($"{Application.streamingAssetsPath}/Levels~/{levelName}.txt");
 			var level = LevelHelpers.InstantiateLevel(levelData);
 			level.StartRoom = LevelHelpers.GetStartRoom(level);
 			level.CurrentRoom = level.StartRoom;

@@ -25,8 +25,8 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.State.TimeScaleCurrent = GameManager.Game.State.TimeScaleDefault = 1f;
 			GameManager.Game.State.Random = new Unity.Mathematics.Random();
 			GameManager.Game.State.Random.InitState((uint)Random.Range(0, int.MaxValue));
-			GameManager.Game.State.DebugLevels = new Level[0];
-			GameManager.Game.State.AllLevels = new Level[0];
+			GameManager.Game.State.DebugLevels = new string[0];
+			GameManager.Game.State.AllLevels = GameManager.Game.Config.Levels;
 
 			while (LocalizationSettings.InitializationOperation.IsDone == false)
 				await UniTask.NextFrame();

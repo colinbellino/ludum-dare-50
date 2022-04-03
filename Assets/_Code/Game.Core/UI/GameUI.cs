@@ -112,6 +112,7 @@ namespace Game.Core
 					{
 						var level = GameManager.Game.State.AllLevels[levelIndex];
 						button.Button.interactable = true;
+						button.Text.text = "Level " + levelIndex;
 						// button.Text.text = string.IsNullOrEmpty(level.Title) ? level.name : level.Title;
 						// button.Thumbnail.texture = level.Screenshot;
 						button.Thumbnail.gameObject.SetActive(true);

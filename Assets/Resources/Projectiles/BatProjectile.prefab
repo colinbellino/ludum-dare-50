@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99363f403bd55a94d836c8aa22635168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 10
+  lifeTime: 2
 --- !u!114 &-2961006299021118530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2622016700c76542aa0ff015ca61a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 10
+  projectileSpeed: 8
 --- !u!70 &4655249882821521425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -7,6 +7,14 @@ public class EnemyHealth : Game.Core.Health
 	[SerializeField] private SpriteRenderer weaponSprite;
 	private int drainHealthToPlayer = 0;
 
+	void OnEnable() {
+		if (dead) {
+			entityAnimator.SetBool("isDead", true);
+		} else {
+			entityAnimator.SetBool("isDead", false);
+		}
+	}
+
    protected override void Update() {
       base.Update();
    }

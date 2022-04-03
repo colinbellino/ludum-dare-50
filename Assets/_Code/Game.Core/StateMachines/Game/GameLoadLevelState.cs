@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace Game.Core.StateMachines.Game
 {
@@ -8,7 +9,9 @@ namespace Game.Core.StateMachines.Game
 
 		public async UniTask Enter()
 		{
-			var level = LevelLoader.LoadLevel("Level0");
+			var levelName = "Level0";
+			var levelData = LevelHelpers.LoadLevelDataFromFile($"{Application.streamingAssetsPath}/_Levels/{levelName}.txt");
+			var level = LevelHelpers.InstantiateLevel(levelData);
 			level.StartRoom = LevelHelpers.GetStartRoom(level);
 			level.CurrentRoom = level.StartRoom;
 

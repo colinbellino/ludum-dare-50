@@ -9,18 +9,25 @@ public class MeleeEnemy : MonoBehaviour
    private EnemyHealth enemyHealth;
 	private PlayerHealth playerHealth;
 	[SerializeField] private Transform pitchforkTransform;
+	private Entity enemyEntity;
 
-   [SerializeField] private float moveSpeed;
-   private Vector2 directionToPlayer;
+	[SerializeField] private float moveSpeed;
+	private Vector2 directionToPlayer;
 
-   void Awake() {
-      enemyRB = GetComponent<Rigidbody2D>();
-      enemyAnimator = GetComponent<Animator>();
-      enemyHealth = GetComponent<EnemyHealth>();
-   }
+	void Awake()
+	{
+		enemyRB = GetComponent<Rigidbody2D>();
+		enemyAnimator = GetComponent<Animator>();
+		enemyHealth = GetComponent<EnemyHealth>();
+		enemyEntity = GetComponent<Entity>();
+	}
 
-	void OnEnable() {
-		playerHealth = GameManager.Game.State.Player.GetComponent<PlayerHealth>();
+	void OnEnable()
+	{
+		if (enemyEntity.Ready)
+		{
+			playerHealth = GameManager.Game.State.Player.GetComponent<PlayerHealth>();
+		}
 	}
 
    void Update() {
@@ -46,9 +53,10 @@ public class MeleeEnemy : MonoBehaviour
       } else {
 			enemyRB.velocity = Vector2.zero;
 		}
-   }
+	}
 
-   private void attackPlayer(Vector2 playerDirection) {
+	private void attackPlayer(Vector2 playerDirection)
+	{
 		enemyRB.MovePosition((Vector2)transform.position + (playerDirection * moveSpeed * Time.deltaTime));
 	}
 }

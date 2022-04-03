@@ -8,12 +8,14 @@ namespace Game.Core
 		[SerializeField] protected int maxHP;
 		public int currentHP { get; private set; }
 		protected bool dead;
+		protected Animator animator;
 
 		public Action<int, int> CurrentHPChanged;
 
-		protected void Awake()
+		protected virtual void Awake()
 		{
 			currentHP = maxHP;
+			animator = GetComponentInChildren<Animator>();
 		}
 
 		protected virtual void Update()

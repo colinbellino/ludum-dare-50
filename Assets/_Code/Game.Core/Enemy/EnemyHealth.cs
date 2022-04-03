@@ -4,16 +4,16 @@ public class EnemyHealth : Game.Core.Health
 {
    [SerializeField] private int drainHealthToPlayer;
    [SerializeField] private int damageToPlayer;
+	[SerializeField] private SpriteRenderer pitchforkSprite;
 
    protected override void Update() {
       base.Update();
    }
-   
+
    protected override void Death() {
       base.Death();
 
-      // play stun animation
-      // stop movement and attack
+		enterStunState();
    }
 
    public int GetDrainHealthToPlayer() {
@@ -22,5 +22,10 @@ public class EnemyHealth : Game.Core.Health
    public int GetDamageToPlayer() {
       return damageToPlayer;
    }
+
+	private void enterStunState() {
+		animator.SetBool("isDead", true);
+		pitchforkSprite.gameObject.SetActive(false);
+	}
 }
 

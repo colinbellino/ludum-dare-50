@@ -18,8 +18,6 @@ namespace Game.Core
 		[SerializeField] private GameObject _debugRoot;
 		[SerializeField] private TMP_Text _debugText;
 		[SerializeField] private TMP_Text _versionText;
-		[Header("Gameplay")]
-		[SerializeField] private GameObject _gameplayRoot;
 		[Header("Title")]
 		[SerializeField] private GameObject _titleRoot;
 		[SerializeField] private RectTransform _titleWrapper;
@@ -41,7 +39,6 @@ namespace Game.Core
 		public async UniTask Init()
 		{
 			HideDebug();
-			HideGameplay();
 			await HideCredits(0);
 			await HideTitle(0);
 			await HideLevelSelection(0);
@@ -61,9 +58,6 @@ namespace Game.Core
 		{
 			_versionText.text = value;
 		}
-
-		public void ShowGameplay() { _gameplayRoot.SetActive(true); }
-		public void HideGameplay() { _gameplayRoot.SetActive(false); }
 
 		public async UniTask ShowTitle(CancellationToken cancellationToken, float duration = 0.5f)
 		{

@@ -10,6 +10,7 @@ namespace Game.Core
 		public PauseUI PauseUI;
 		public OptionsUI OptionsUI;
 		public ControlsUI ControlsUI;
+		public GameplayUI GameplayUI;
 		public CameraRig CameraRig;
 		public GameControls Controls;
 		public GameState State;

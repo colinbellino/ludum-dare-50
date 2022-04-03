@@ -42,6 +42,7 @@ namespace Game.Core.StateMachines.Game
 			await GameManager.Game.PauseUI.Init();
 			await GameManager.Game.OptionsUI.Init();
 			await GameManager.Game.ControlsUI.Init();
+			await GameManager.Game.GameplayUI.Init();
 
 			GameManager.Game.UI.ShowDebug();
 

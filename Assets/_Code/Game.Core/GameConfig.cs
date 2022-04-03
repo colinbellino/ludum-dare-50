@@ -17,6 +17,7 @@ namespace Game.Core
 		public PlayerController Player;
 		public Level[] Levels;
 		public TileToEntity TileToEntity;
+		public Tile[] WallTiles;
 
 		[Header("AUDIO")]
 		public string GameBus = "bus:/Game";

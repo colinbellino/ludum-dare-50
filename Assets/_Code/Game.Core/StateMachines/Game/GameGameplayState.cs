@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using FMOD.Studio;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.State.Running = true;
 
 			GameManager.Game.UI.ShowGameplay();
+			GameManager.Game.PauseUI.BackClicked += ResumeGame;
 			_ = GameManager.Game.UI.FadeOut(2);
 
 			var player = GameObject.Instantiate(GameManager.Game.Config.Player);
@@ -42,10 +44,7 @@ namespace Game.Core.StateMachines.Game
 				{
 					if (GameManager.Game.State.Paused)
 					{
-						GameManager.Game.State.TimeScaleCurrent = GameManager.Game.State.TimeScaleDefault;
-						GameManager.Game.State.Paused = false;
-						GameManager.Game.PauseUI.Hide();
-						GameManager.Game.State.PauseSnapshot.stop(STOP_MODE.ALLOWFADEOUT);
+						ResumeGame();
 					}
 					else
 					{
@@ -111,11 +110,20 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.Controls.Gameplay.Disable();
 			GameManager.Game.Controls.Gameplay.Move.performed -= OnMovePerformed;
 
+			GameObject.Destroy(GameManager.Game.State.Player.gameObject);
+			GameManager.Game.State.Player = null;
+
+			foreach (var room in GameManager.Game.State.Level.Rooms)
+				if (room.Instance != null)
+					GameObject.Destroy(room.Instance.gameObject);
+			GameManager.Game.State.Level = null;
+
 			GameManager.Game.State.TimeScaleCurrent = GameManager.Game.State.TimeScaleDefault;
 			GameManager.Game.State.Running = false;
 			GameManager.Game.State.Paused = false;
 			GameManager.Game.State.PauseSnapshot.stop(STOP_MODE.ALLOWFADEOUT);
 
+			GameManager.Game.PauseUI.BackClicked -= ResumeGame;
 			await GameManager.Game.UI.FadeIn(Color.black);
 			await GameManager.Game.UI.HideLevelName(0);
 			GameManager.Game.UI.HideGameplay();
@@ -151,6 +159,14 @@ namespace Game.Core.StateMachines.Game
 
 			GameManager.Game.State.Running = false;
 			FSM.Fire(GameFSM.Triggers.NextLevel);
+		}
+
+		private void ResumeGame()
+		{
+			GameManager.Game.State.TimeScaleCurrent = GameManager.Game.State.TimeScaleDefault;
+			GameManager.Game.State.Paused = false;
+			GameManager.Game.PauseUI.Hide();
+			GameManager.Game.State.PauseSnapshot.stop(STOP_MODE.ALLOWFADEOUT);
 		}
 	}
 }

@@ -1,4 +1,6 @@
+using System;
 using Cysharp.Threading.Tasks;
+using FMOD.Studio;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,18 +12,17 @@ namespace Game.Core
 		[SerializeField] private GameObject _pauseRoot;
 		[SerializeField] private Button _levelSelectButton;
 		[SerializeField] private Button _optionsButton;
+		[SerializeField] private Button _backButton;
 		[SerializeField] private Button _quitButton;
 
-		private GameSingleton _game;
-
 		public bool IsOpened => _pauseRoot.activeSelf;
+		public Action BackClicked;
 
-		public async UniTask Init(GameSingleton game)
+		public async UniTask Init()
 		{
-			_game = game;
-
 			_levelSelectButton.onClick.AddListener(OpenLevelSelect);
 			_optionsButton.onClick.AddListener(OpenOptions);
+			_backButton.onClick.AddListener(BackToGame);
 			_quitButton.onClick.AddListener(QuitGame);
 
 			await Hide();
@@ -47,10 +48,19 @@ namespace Game.Core
 			EventSystem.current.SetSelectedGameObject(_optionsButton.gameObject);
 		}
 
-		private void OpenLevelSelect() => _game.GameFSM.Fire(StateMachines.Game.GameFSM.Triggers.LevelSelectionRequested);
+		private void OpenLevelSelect() => GameManager.Game.GameFSM.Fire(StateMachines.Game.GameFSM.Triggers.LevelSelectionRequested);
 
-		private void OpenOptions() => _ = _game.OptionsUI.Show();
+		private void OpenOptions() => _ = GameManager.Game.OptionsUI.Show();
 
-		private void QuitGame() => _game.GameFSM.Fire(StateMachines.Game.GameFSM.Triggers.Quit);
+		private void QuitGame()
+		{
+			GameManager.Game.State.LevelMusic.stop(STOP_MODE.ALLOWFADEOUT);
+			GameManager.Game.GameFSM.Fire(StateMachines.Game.GameFSM.Triggers.Quit);
+		}
+
+		private void BackToGame()
+		{
+			BackClicked?.Invoke();
+		}
 	}
 }

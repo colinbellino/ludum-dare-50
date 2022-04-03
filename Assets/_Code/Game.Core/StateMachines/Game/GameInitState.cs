@@ -26,7 +26,7 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.State.Random = new Unity.Mathematics.Random();
 			GameManager.Game.State.Random.InitState((uint)Random.Range(0, int.MaxValue));
 			GameManager.Game.State.DebugLevels = new Level[0];
-			// GameManager.Game.State.AllLevels = GameManager.Game.Config.Levels;
+			GameManager.Game.State.AllLevels = new Level[0];
 
 			while (LocalizationSettings.InitializationOperation.IsDone == false)
 				await UniTask.NextFrame();
@@ -38,8 +38,8 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.Controls.Global.Enable();
 
 			GameManager.Game.UI.SetVersion($"{GameManager.Game.State.Version} - {GameManager.Game.State.Commit}");
-			await GameManager.Game.UI.Init(GameManager.Game);
-			await GameManager.Game.PauseUI.Init(GameManager.Game);
+			await GameManager.Game.UI.Init();
+			await GameManager.Game.PauseUI.Init();
 			await GameManager.Game.OptionsUI.Init();
 			await GameManager.Game.ControlsUI.Init();
 

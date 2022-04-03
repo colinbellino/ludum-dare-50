@@ -7,15 +7,12 @@ namespace Game.Core
 		[SerializeField] public Animator Animator;
 		[SerializeField] public SpriteRenderer SpriteRenderer;
 
-		public Vector3 SpawnPosition;
-		public bool Ready;
+		[HideInInspector] public Vector3 SpawnPosition;
+		[HideInInspector] public bool Ready;
 
 		private void OnEnable()
 		{
-			if (Ready)
-			{
-				SpriteRenderer.color = Color.green;
-			}
+
 		}
 
 		private void OnDisable()
@@ -23,7 +20,6 @@ namespace Game.Core
 			if (Ready)
 			{
 				transform.localPosition = SpawnPosition;
-				SpriteRenderer.color = Color.red;
 			}
 		}
 	}

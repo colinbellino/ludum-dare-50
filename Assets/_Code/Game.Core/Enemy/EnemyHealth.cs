@@ -24,7 +24,7 @@ public class EnemyHealth : Game.Core.Health
    }
 
 	private void enterStunState() {
-		animator.SetBool("isDead", true);
+		entityAnimator.SetBool("isDead", true);
 		pitchforkSprite.gameObject.SetActive(false);
 	}
 }

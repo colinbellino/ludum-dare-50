@@ -8,14 +8,21 @@ namespace Game.Core
 		[SerializeField] protected int maxHP;
 		public int currentHP { get; private set; }
 		protected bool dead;
-		protected Animator animator;
+		protected Animator entityAnimator;
+		private Rigidbody2D entityRB;
+
+		public float knockbackCounter {get; private set;}
+		[SerializeField] private float knockbackForce;
+		[SerializeField] private float knockBackDuration;
+		private Vector2 knockbackDirection;
 
 		public Action<int, int> CurrentHPChanged;
 
 		protected virtual void Awake()
 		{
 			currentHP = maxHP;
-			animator = GetComponentInChildren<Animator>();
+			entityAnimator = GetComponentInChildren<Animator>();
+			entityRB = GetComponent<Rigidbody2D>();
 		}
 
 		protected virtual void Update()
@@ -24,11 +31,27 @@ namespace Game.Core
 			{
 				Death();
 			}
+
+			if (knockbackCounter > 0) {
+				knockbackCounter -= Time.deltaTime;
+			}
 		}
 
-		public void DealDamage(int damageDone)
+		void FixedUpdate() {
+			if (knockbackCounter > 0) {
+				// entityRB.velocity = new Vector2(knockbackDirection.x * knockbackForce, knockbackDirection.y * knockbackForce);
+				transform.Translate(knockbackDirection * knockbackForce);
+			}
+		}
+
+		public void DealDamage(int damageDone, Vector3 damageSourceDirection)
 		{
 			setCurrentHP(currentHP - damageDone);
+
+			if (currentHP > 1) {
+				knockbackDirection = (transform.position - damageSourceDirection).normalized;
+				knockbackCounter = knockBackDuration;
+			}
 		}
 
 		public int getMaxHP()

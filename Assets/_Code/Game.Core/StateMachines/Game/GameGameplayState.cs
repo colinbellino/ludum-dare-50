@@ -101,7 +101,7 @@ namespace Game.Core.StateMachines.Game
 							{
 								var health = entity.GetComponent<Health>();
 								if (health != null)
-									health.DealDamage(health.getMaxHP());
+									health.DealDamage(health.getMaxHP(), new Vector2(0, 0));
 							}
 						}
 						return;

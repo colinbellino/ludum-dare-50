@@ -155,14 +155,6 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.Controls.Gameplay.Disable();
 			GameManager.Game.Controls.Gameplay.Move.performed -= OnMovePerformed;
 
-			GameObject.Destroy(GameManager.Game.State.Player.gameObject);
-			GameManager.Game.State.Player = null;
-
-			foreach (var room in GameManager.Game.State.Level.Rooms)
-				if (room.Instance != null)
-					GameObject.Destroy(room.Instance.gameObject);
-			GameManager.Game.State.Level = null;
-
 			GameManager.Game.State.TimeScaleCurrent = GameManager.Game.State.TimeScaleDefault;
 			GameManager.Game.State.Running = false;
 			GameManager.Game.State.Paused = false;
@@ -174,7 +166,14 @@ namespace Game.Core.StateMachines.Game
 			await GameManager.Game.GameplayUI.Hide(0);
 			await GameManager.Game.PauseUI.Hide(0);
 			await GameManager.Game.OptionsUI.Hide(0);
-			GameManager.Game.State.Player.Health.CurrentHPChanged -= GameManager.Game.GameplayUI.SetHealth;
+
+			GameObject.Destroy(GameManager.Game.State.Player.gameObject);
+			GameManager.Game.State.Player = null;
+
+			foreach (var room in GameManager.Game.State.Level.Rooms)
+				if (room.Instance != null)
+					GameObject.Destroy(room.Instance.gameObject);
+			GameManager.Game.State.Level = null;
 		}
 
 		private void OnMovePerformed(InputAction.CallbackContext context)

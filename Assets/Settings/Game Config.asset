@@ -47,15 +47,15 @@ MonoBehaviour:
     Path: event:/SFX/click
   MusicTitle:
     Guid:
-      Data1: -1500064322
-      Data2: 1300351786
-      Data3: -1249204849
-      Data4: -800708373
+      Data1: 1350428604
+      Data2: 1148786644
+      Data3: 1916435360
+      Data4: -1669992800
     Path: event:/Music/Title Theme
   MusicMain:
     Guid:
-      Data1: -1517234305
-      Data2: 1229981569
-      Data3: -1107816526
-      Data4: 21704811
+      Data1: 2051896848
+      Data2: 1090068367
+      Data3: -1193336646
+      Data4: 1375667818
     Path: event:/Music/Main Theme

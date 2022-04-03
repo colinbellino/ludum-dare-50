@@ -3,21 +3,19 @@ using UnityEngine;
 
 namespace Game.Core
 {
-	public class Health : MonoBehaviour
+	public abstract class Health : MonoBehaviour
 	{
 		[SerializeField] protected int maxHP;
 		public int currentHP { get; private set; }
 		protected bool dead;
 		protected Animator entityAnimator;
 		private Rigidbody2D entityRB;
+		[SerializeField] protected SpriteRenderer entitySR;
 
-		public float knockbackCounter {get; private set;}
-		[SerializeField] private float knockbackForce;
-		[SerializeField] private float knockBackDuration;
-		private Vector2 knockbackDirection;
-
-		[SerializeField] private float invicibilityDuration;
-		private float invincibilityCounter;
+		protected float knockbackCounter;
+		[SerializeField] protected float knockbackForce;
+		[SerializeField] protected float knockBackDuration;
+		protected Vector2 knockbackDirection;
 
 		public Action<int, int> CurrentHPChanged;
 
@@ -38,10 +36,6 @@ namespace Game.Core
 			if (knockbackCounter > 0) {
 				knockbackCounter -= Time.deltaTime;
 			}
-
-			if (invincibilityCounter > 0) {
-				invincibilityCounter -= Time.deltaTime;
-			}
 		}
 
 		void FixedUpdate() {
@@ -51,19 +45,7 @@ namespace Game.Core
 			}
 		}
 
-		public void DealDamage(int damageDone, Vector3 damageSourceDirection)
-		{
-			if (invincibilityCounter <= 0) {
-				setCurrentHP(currentHP - damageDone);
-
-				if (currentHP > 1) {
-					knockbackDirection = (transform.position - damageSourceDirection).normalized;
-					knockbackCounter = knockBackDuration;
-
-					invincibilityCounter = invicibilityDuration;
-				}
-			}
-		}
+		public abstract void DealDamage(int damageDone, Vector3 damageSourceDirection);
 
 		public int getMaxHP()
 		{
@@ -73,6 +55,10 @@ namespace Game.Core
 		{
 			this.currentHP = value;
 			CurrentHPChanged?.Invoke(currentHP, maxHP);
+		}
+
+		public float getKnockbackCounter() {
+			return this.knockbackCounter;
 		}
 
 		protected virtual void Death()

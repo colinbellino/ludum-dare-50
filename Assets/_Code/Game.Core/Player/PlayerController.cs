@@ -85,7 +85,7 @@ namespace Game.Core
 			{
 				playerRB.velocity = new Vector2(rawMovementInput.x * xDashSpeed, rawMovementInput.y * yDashSpeed);
 			}
-			else if(Health.knockbackCounter <= 0)
+			else if(Health.getKnockbackCounter() <= 0)
 			{
 				handleMovement(rawMovementInput);
 			}
@@ -121,7 +121,7 @@ namespace Game.Core
 
 		private void GetDashInput(InputAction.CallbackContext context)
 		{
-			if (context.action.triggered && dashCounter <= 0)
+			if (context.action.triggered && dashCounter <= 0 && Health.getKnockbackCounter() <= 0)
 			{
 				isDashing = true;
 				dashCounter = dashCooldown;

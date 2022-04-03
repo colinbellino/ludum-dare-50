@@ -334,9 +334,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 3
+  entitySR: {fileID: 4589615320990034340}
   knockbackForce: 0.2
   knockBackDuration: 0.08
-  drainHealthToPlayer: 200
+  drainHealthToPlayerAmt: 0
   damageToPlayer: 100
   pitchforkSprite: {fileID: 2608157427705317634}
 --- !u!114 &1667791225098431779

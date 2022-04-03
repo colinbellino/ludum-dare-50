@@ -17,6 +17,15 @@ public class EnemyHealth : Game.Core.Health
 		enterStunState();
    }
 
+	public override void DealDamage(int damageDone, Vector3 damageSourceDirection) {
+		setCurrentHP(currentHP - damageDone);
+
+		if (currentHP > 0) {
+			knockbackDirection = (transform.position - damageSourceDirection).normalized;
+			knockbackCounter = knockBackDuration;
+		}
+	}
+
    public int GetDrainHealthToPlayer() {
       return drainHealthToPlayer;
    }

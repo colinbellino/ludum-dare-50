@@ -142,15 +142,12 @@ namespace Game.Core
 			{
 				EnemyHealth enemyHealth = collidedWith.GetComponent<EnemyHealth>();
 
-				if (isDashing)
-				{
+				if (enemyHealth.getDead()) {
+					if (isDashing) {
 					Health.Heal(enemyHealth.GetDrainHealthToPlayer());
 				}
-				else
-				{
-					if(!enemyHealth.getDead()) {
+				} else {
 						Health.DealDamage(enemyHealth.GetDamageToPlayer(), collidedWith.transform.position);
-					}
 				}
 			}
 		}

@@ -447,8 +447,8 @@ MonoBehaviour:
   xMoveSpeed: 5
   yMoveSpeed: 5
   diagonalXMoveSpeed: 4
-  xDashSpeed: 13
-  yDashSpeed: 13
+  xDashSpeed: 2
+  yDashSpeed: 2
   dashCooldown: 3
   dashDuration: 0.15
 --- !u!114 &1105023908

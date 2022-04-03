@@ -26,7 +26,7 @@ namespace Game.Core
 
 		public void DealDamage(int damageDone)
 		{
-			currentHP -= damageDone;
+			setCurrentHP(currentHP - damageDone);
 		}
 
 		public int getMaxHP()
@@ -35,6 +35,7 @@ namespace Game.Core
 		}
 		public void setCurrentHP(int value)
 		{
+			UnityEngine.Debug.Log("setCurrentHP: " + value);
 			this.currentHP = value;
 			CurrentHPChanged?.Invoke(currentHP, maxHP);
 		}

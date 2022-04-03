@@ -30,6 +30,8 @@ namespace Game.Core
 		private string animDash = "vampire_animations_Dash";
 		private string animWalk = "vampire_animations_Walk";
 
+		public bool CanDash => dashCounter <= 0;
+
 		void Awake()
 		{
 			playerRB = GetComponent<Rigidbody2D>();
@@ -80,7 +82,7 @@ namespace Game.Core
 				ChangeAnimationState(animDash);
 				playerRB.velocity = new Vector2(rawMovementInput.x * xDashSpeed, rawMovementInput.y * yDashSpeed);
 			}
-			else if(Health.getKnockbackCounter() <= 0)
+			else if (Health.getKnockbackCounter() <= 0)
 			{
 				handleMovement(rawMovementInput);
 			}
@@ -126,7 +128,8 @@ namespace Game.Core
 			}
 		}
 
-		void ChangeAnimationState(string newState) {
+		void ChangeAnimationState(string newState)
+		{
 			if (currentAnimState == newState) return;
 
 			playerAnimator.Play(newState);
@@ -141,18 +144,25 @@ namespace Game.Core
 			if (collidedWith.tag == "enemy" || collidedWith.tag == "enemyWeapon")
 			{
 				EnemyHealth enemyHealth;
-				if (collidedWith.tag == "enemy") {
+				if (collidedWith.tag == "enemy")
+				{
 					enemyHealth = collidedWith.GetComponent<EnemyHealth>();
-				} else {
+				}
+				else
+				{
 					enemyHealth = collidedWith.GetComponentInParent<EnemyHealth>();
 				}
 
-				if (enemyHealth.getDead()) {
-					if (isDashing) {
+				if (enemyHealth.getDead())
+				{
+					if (isDashing)
+					{
 						Health.Heal(enemyHealth.GetDrainHealthToPlayer());
 					}
-				} else if (!isDashing) {
-						Health.DealDamage(enemyHealth.GetDamageToPlayer(), collidedWith.transform.position);
+				}
+				else if (!isDashing)
+				{
+					Health.DealDamage(enemyHealth.GetDamageToPlayer(), collidedWith.transform.position);
 				}
 			}
 		}

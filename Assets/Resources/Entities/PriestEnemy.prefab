@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c410b879ab8cf645b0154afb8acaf30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crossTransform: {fileID: 4814435559826039536}
+  crossTransform: {fileID: 4544131490231852004}
   enemyBodySR: {fileID: 5464361165581572769}
   enemyProjectile: {fileID: 5940033198356247276, guid: 14009f51237d5b34ebc6148ca8ea8ea3, type: 3}
   shootCooldown: 1
@@ -277,7 +277,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4814435559826039536}
   - component: {fileID: 6638068646888742924}
-  - component: {fileID: 7425681009748211490}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -350,22 +349,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &7425681009748211490
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8131169955783766125}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.375, y: 0.4375}
-  m_Direction: 0
 --- !u!1 &8806382518791872004
 GameObject:
   m_ObjectHideFlags: 0

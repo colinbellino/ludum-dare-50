@@ -368,7 +368,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 1000
+  entitySR: {fileID: 5379409492510644434}
   knockbackForce: 0.1
   knockBackDuration: 0.2
   healthLossPerSecond: 50
   healthLossCooldown: 3
+  invicibilityDuration: 0.4

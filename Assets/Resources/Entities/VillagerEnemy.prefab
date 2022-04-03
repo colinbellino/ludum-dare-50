@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8021875552151964935}
   - component: {fileID: 4589615320990034340}
   - component: {fileID: 2966598590157825588}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2460687971267832254}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pitchfork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6449838654855109501}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpriteParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 820537455378277884}
   - component: {fileID: 2608157427705317634}
   - component: {fileID: 2377966703867149478}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 1667791225098431779}
   - component: {fileID: 1956124690460884481}
   - component: {fileID: 6996708168366771096}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: VillagerEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 9999
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -337,7 +337,7 @@ MonoBehaviour:
   entitySR: {fileID: 4589615320990034340}
   knockbackForce: 0.2
   knockBackDuration: 0.08
-  drainHealthToPlayerAmt: 0
+  drainHealthToPlayerAmt: 100
   damageToPlayer: 100
   weaponSprite: {fileID: 2608157427705317634}
 --- !u!114 &1667791225098431779
@@ -396,7 +396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 390351334518321201}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

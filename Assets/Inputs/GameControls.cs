@@ -92,7 +92,7 @@ namespace Game.Inputs
                 {
                     ""name"": """",
                     ""id"": ""d40badd4-b709-4cd7-8d48-eacbfe027691"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

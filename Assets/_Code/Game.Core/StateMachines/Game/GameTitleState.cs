@@ -35,9 +35,9 @@ namespace Game.Core.StateMachines.Game
 				GameManager.Game.UI.SetDebugText("");
 
 				// TODO: Remove this
-				// UnityEngine.Debug.Log("Skipping player save");
-				// GameManager.Game.State.PlayerSaveData.ClearedLevels = new System.Collections.Generic.HashSet<int>();
-				// StartGame();
+				UnityEngine.Debug.Log("Skipping player save");
+				GameManager.Game.State.PlayerSaveData.ClearedLevels = new System.Collections.Generic.HashSet<int>();
+				StartGame();
 			}
 		}
 

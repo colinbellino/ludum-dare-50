@@ -55,6 +55,15 @@ namespace Game.Inputs
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mouse Position"",
+                    ""type"": ""Value"",
+                    ""id"": ""c43280ef-21e7-4ac2-a488-8dca1afb7875"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -123,6 +132,17 @@ namespace Game.Inputs
                     ""action"": ""Confirm"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""332909c3-2a30-48e2-86d5-0711bf32a7b9"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse Position"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -174,6 +194,15 @@ namespace Game.Inputs
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""3a10f776-1640-4749-a247-68a15ab2a1f2"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -366,12 +395,67 @@ namespace Game.Inputs
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c4f2d351-a107-4347-bad7-e1e47a39b569"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""559e63c6-0608-44f5-a598-1f18d9896a0c"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ccce692d-6c75-4d2b-9c6f-21415c9cfad5"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e538a76a-6e53-4315-97dc-3f22c2565a4e"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca8011cf-0e63-45bf-a719-9d321fc1d57d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f1b6183-d06f-44d0-b732-8c703211a6e1"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -385,6 +469,7 @@ namespace Game.Inputs
             m_Global_Pause = m_Global.FindAction("Pause", throwIfNotFound: true);
             m_Global_Cancel = m_Global.FindAction("Cancel", throwIfNotFound: true);
             m_Global_Confirm = m_Global.FindAction("Confirm", throwIfNotFound: true);
+            m_Global_MousePosition = m_Global.FindAction("Mouse Position", throwIfNotFound: true);
             // Gameplay
             m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
             m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
@@ -392,6 +477,7 @@ namespace Game.Inputs
             m_Gameplay_Reset = m_Gameplay.FindAction("Reset", throwIfNotFound: true);
             m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
             m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
+            m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -454,6 +540,7 @@ namespace Game.Inputs
         private readonly InputAction m_Global_Pause;
         private readonly InputAction m_Global_Cancel;
         private readonly InputAction m_Global_Confirm;
+        private readonly InputAction m_Global_MousePosition;
         public struct GlobalActions
         {
             private @GameControls m_Wrapper;
@@ -461,6 +548,7 @@ namespace Game.Inputs
             public InputAction @Pause => m_Wrapper.m_Global_Pause;
             public InputAction @Cancel => m_Wrapper.m_Global_Cancel;
             public InputAction @Confirm => m_Wrapper.m_Global_Confirm;
+            public InputAction @MousePosition => m_Wrapper.m_Global_MousePosition;
             public InputActionMap Get() { return m_Wrapper.m_Global; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -479,6 +567,9 @@ namespace Game.Inputs
                     @Confirm.started -= m_Wrapper.m_GlobalActionsCallbackInterface.OnConfirm;
                     @Confirm.performed -= m_Wrapper.m_GlobalActionsCallbackInterface.OnConfirm;
                     @Confirm.canceled -= m_Wrapper.m_GlobalActionsCallbackInterface.OnConfirm;
+                    @MousePosition.started -= m_Wrapper.m_GlobalActionsCallbackInterface.OnMousePosition;
+                    @MousePosition.performed -= m_Wrapper.m_GlobalActionsCallbackInterface.OnMousePosition;
+                    @MousePosition.canceled -= m_Wrapper.m_GlobalActionsCallbackInterface.OnMousePosition;
                 }
                 m_Wrapper.m_GlobalActionsCallbackInterface = instance;
                 if (instance != null)
@@ -492,6 +583,9 @@ namespace Game.Inputs
                     @Confirm.started += instance.OnConfirm;
                     @Confirm.performed += instance.OnConfirm;
                     @Confirm.canceled += instance.OnConfirm;
+                    @MousePosition.started += instance.OnMousePosition;
+                    @MousePosition.performed += instance.OnMousePosition;
+                    @MousePosition.canceled += instance.OnMousePosition;
                 }
             }
         }
@@ -505,6 +599,7 @@ namespace Game.Inputs
         private readonly InputAction m_Gameplay_Reset;
         private readonly InputAction m_Gameplay_Dash;
         private readonly InputAction m_Gameplay_Shoot;
+        private readonly InputAction m_Gameplay_Aim;
         public struct GameplayActions
         {
             private @GameControls m_Wrapper;
@@ -514,6 +609,7 @@ namespace Game.Inputs
             public InputAction @Reset => m_Wrapper.m_Gameplay_Reset;
             public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
             public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
+            public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -538,6 +634,9 @@ namespace Game.Inputs
                     @Shoot.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
                     @Shoot.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
                     @Shoot.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
+                    @Aim.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                    @Aim.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                    @Aim.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
                 }
                 m_Wrapper.m_GameplayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -557,6 +656,9 @@ namespace Game.Inputs
                     @Shoot.started += instance.OnShoot;
                     @Shoot.performed += instance.OnShoot;
                     @Shoot.canceled += instance.OnShoot;
+                    @Aim.started += instance.OnAim;
+                    @Aim.performed += instance.OnAim;
+                    @Aim.canceled += instance.OnAim;
                 }
             }
         }
@@ -566,6 +668,7 @@ namespace Game.Inputs
             void OnPause(InputAction.CallbackContext context);
             void OnCancel(InputAction.CallbackContext context);
             void OnConfirm(InputAction.CallbackContext context);
+            void OnMousePosition(InputAction.CallbackContext context);
         }
         public interface IGameplayActions
         {
@@ -574,6 +677,7 @@ namespace Game.Inputs
             void OnReset(InputAction.CallbackContext context);
             void OnDash(InputAction.CallbackContext context);
             void OnShoot(InputAction.CallbackContext context);
+            void OnAim(InputAction.CallbackContext context);
         }
     }
 }

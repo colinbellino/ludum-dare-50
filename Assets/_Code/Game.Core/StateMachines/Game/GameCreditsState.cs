@@ -13,7 +13,7 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.UI.SetDebugText("");
 
 			await GameManager.Game.UI.ShowCredits();
-			await GameManager.Game.UI.FadeOut();
+			await GameManager.Game.UI.FadeIn(Color.clear);
 		}
 
 		public void Tick()

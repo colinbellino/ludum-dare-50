@@ -18,7 +18,7 @@ namespace Game.Core.StateMachines.Game
 				button.Button.onClick.AddListener(() => LoadLevel(levelIndex));
 			}
 
-			await GameManager.Game.UI.FadeOut();
+			await GameManager.Game.UI.FadeIn(Color.clear);
 		}
 
 		public void Tick()

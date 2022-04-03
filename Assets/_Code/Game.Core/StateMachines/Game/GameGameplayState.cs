@@ -11,7 +11,7 @@ namespace Game.Core.StateMachines.Game
 	{
 		public GameFSM FSM;
 
-		public UniTask Enter()
+		public async UniTask Enter()
 		{
 			GameManager.Game.State.Running = true;
 
@@ -24,7 +24,7 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.State.Player.Health.CurrentHPChanged += GameManager.Game.GameplayUI.SetHealth;
 
 			GameManager.Game.PauseUI.BackClicked += ResumeGame;
-			_ = GameManager.Game.UI.FadeOut(2);
+			_ = GameManager.Game.UI.FadeIn(Color.clear);
 
 			LevelHelpers.ActivateRoom(GameManager.Game.State.Level.CurrentRoom);
 
@@ -43,8 +43,6 @@ namespace Game.Core.StateMachines.Game
 				GameManager.Game.UI.AddDebugLine("F2: Kill all enemies");
 				GameManager.Game.UI.AddDebugLine("R:  Restart level");
 			}
-
-			return default;
 		}
 
 		public void Tick()

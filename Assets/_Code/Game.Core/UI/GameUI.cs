@@ -59,14 +59,14 @@ namespace Game.Core
 			_versionText.text = value;
 		}
 
-		public async UniTask ShowTitle(CancellationToken cancellationToken, float duration = 0.5f)
+		public async UniTask ShowTitle(float duration = 0.5f)
 		{
 			EventSystem.current.SetSelectedGameObject(null);
 			await UniTask.NextFrame();
 			EventSystem.current.SetSelectedGameObject(StartButton.gameObject);
 
 			_titleRoot.SetActive(true);
-			await _titleWrapper.DOLocalMoveY(0, duration / GameManager.Game.State.TimeScaleCurrent).WithCancellation(cancellationToken);
+			await _titleWrapper.DOLocalMoveY(0, duration / GameManager.Game.State.TimeScaleCurrent);
 		}
 		public async UniTask HideTitle(float duration = 0.5f)
 		{
@@ -162,21 +162,11 @@ namespace Game.Core
 			_fadeRoot.SetActive(true);
 			if (_fadeTweener != null)
 			{
-				_fadeTweener.Rewind(false);
+				_fadeToBlackImage.color = _fadeTweener.endValue;
+				_fadeTweener.Kill(false);
 			}
 			_fadeTweener = _fadeToBlackImage.DOColor(color, duration / GameManager.Game.State.TimeScaleCurrent);
 			await _fadeTweener;
-		}
-
-		public async UniTask FadeOut(float duration = 1f)
-		{
-			if (_fadeTweener != null)
-			{
-				_fadeTweener.Rewind(false);
-			}
-			_fadeTweener = _fadeToBlackImage.DOColor(Color.clear, duration / GameManager.Game.State.TimeScaleCurrent);
-			await _fadeTweener;
-			_fadeRoot.SetActive(false);
 		}
 
 		private async UniTask FadeInPanel(Image panel, TMP_Text text, float duration)

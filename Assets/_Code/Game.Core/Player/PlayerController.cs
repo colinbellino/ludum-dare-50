@@ -8,7 +8,7 @@ namespace Game.Core
 		private Rigidbody2D playerRB;
 		private SpriteRenderer playerSR;
 		private Animator playerAnimator;
-		private CapsuleCollider2D playerCollider;
+		[SerializeField] private CapsuleCollider2D playerCollider;
 		public PlayerHealth Health;
 
 		[SerializeField] private float xMoveSpeed;
@@ -30,7 +30,6 @@ namespace Game.Core
 			playerRB = GetComponent<Rigidbody2D>();
 			playerSR = GetComponentInChildren<SpriteRenderer>();
 			playerAnimator = GetComponent<Animator>();
-			playerCollider = GetComponent<CapsuleCollider2D>();
 			Health = GetComponent<PlayerHealth>();
 		}
 
@@ -48,6 +47,7 @@ namespace Game.Core
 		{
 			if (isDashing)
 			{
+				playerCollider.enabled = false;
 				if (dashCooldown - dashCounter > dashDuration)
 				{
 					isDashing = false;
@@ -55,6 +55,7 @@ namespace Game.Core
 			}
 			else
 			{
+				playerCollider.enabled = true;
 				rawMovementInput = GameManager.Game.Controls.Gameplay.Move.ReadValue<Vector2>();
 			}
 

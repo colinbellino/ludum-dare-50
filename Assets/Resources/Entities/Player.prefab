@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   batProjectile: {fileID: 4840528245466001249, guid: 1575a081b54aebf4cafdeab50ac319ed, type: 3}
-  projectileSpeed: 1
   shootCooldown: 1
 --- !u!1 &4530306662789842676
 GameObject:
@@ -347,6 +346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bc246b852a36b44be2fbfcfe8ac18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCollider: {fileID: 4287870558649064825}
+  Health: {fileID: 0}
   xMoveSpeed: 5
   yMoveSpeed: 5
   diagonalXMoveSpeed: 4

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{b2ab6f5c-b64e-4f3e-8eac-7365cc197e63}">
 		<property name="name">
-			<value>Low Health</value>
+			<value>Player Low Health</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -59,7 +59,7 @@
 			<destination>{144653be-d7eb-4f45-943a-2657e1c3e7f6}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{af9d027a-3a1f-49a8-a9ef-4cbe20673632}</destination>
+			<destination>{d320eb98-3d4a-4cd9-a001-fdb4e071c58e}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{8250ee66-11a7-4f3b-931c-c34aec30ddfc}" />

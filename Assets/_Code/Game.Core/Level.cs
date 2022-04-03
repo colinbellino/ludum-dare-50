@@ -105,20 +105,6 @@ namespace Game.Core
 #endif
 		}
 
-		public static string LoadLevelDataFromFile(string path)
-		{
-			try
-			{
-				UnityEngine.Debug.Log("Loading level: " + path);
-				return File.ReadAllText(path);
-			}
-			catch (Exception e)
-			{
-				UnityEngine.Debug.LogError(e.Message);
-				return "";
-			}
-		}
-
 		public static Level InstantiateLevel(string levelData)
 		{
 			levelData = levelData.Trim();

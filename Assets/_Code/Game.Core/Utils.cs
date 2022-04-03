@@ -28,9 +28,9 @@ namespace Game.Core
 			return Application.platform == RuntimePlatform.WebGLPlayer;
 		}
 
-		public static async UniTask<string> ReadCommitFromFile()
+		public static async UniTask<string> ReadStreamingAsset(string filename)
 		{
-			var path = Application.streamingAssetsPath + "/commit.txt";
+			var path = Application.streamingAssetsPath + filename;
 
 			if (IsWebGL())
 				return (await UnityWebRequest.Get(path).SendWebRequest()).downloadHandler.text;

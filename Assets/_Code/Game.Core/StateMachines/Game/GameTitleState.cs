@@ -127,7 +127,7 @@ namespace Game.Core.StateMachines.Game
 			await GameManager.Game.UI.HideTitle();
 			await GameManager.Game.UI.FadeIn(Color.black);
 
-			if (GameManager.Game.State.PlayerSaveData.ClearedLevels.Count == 0)
+			// if (GameManager.Game.State.PlayerSaveData.ClearedLevels.Count == 0)
 			{
 				GameManager.Game.State.CurrentLevelIndex = 0;
 				GameManager.Game.State.TitleMusic.stop(STOP_MODE.ALLOWFADEOUT);

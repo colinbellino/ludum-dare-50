@@ -38,6 +38,9 @@ namespace Game.Core.StateMachines.Game
 
 		public void Tick()
 		{
+			var player = GameManager.Game.State.Player;
+			var level = GameManager.Game.State.Level;
+
 			if (GameManager.Game.State.Running)
 			{
 				if (GameManager.Game.Controls.Global.Pause.WasPerformedThisFrame())
@@ -75,16 +78,25 @@ namespace Game.Core.StateMachines.Game
 					if (Keyboard.current.f1Key.wasReleasedThisFrame)
 					{
 						NextLevel();
+						return;
 					}
 
 					if (Keyboard.current.f2Key.wasReleasedThisFrame)
 					{
-						// Victory();
+						// Kill all enemies! Mohahaha
+						foreach (var room in level.Rooms)
+						{
+							foreach (var entity in room.Entities)
+							{
+								var health = entity.GetComponent<Health>();
+								if (health != null)
+									health.DealDamage(health.getMaxHP());
+							}
+						}
+						return;
 					}
 				}
 
-				var player = GameManager.Game.State.Player;
-				var level = GameManager.Game.State.Level;
 				var roomCenter = LevelHelpers.GetRoomCenter(level.CurrentRoom);
 				var roomBounds = new Bounds(roomCenter, GameConfig.ROOM_SIZE);
 				if (roomBounds.Contains(player.transform.position) == false)
@@ -98,6 +110,28 @@ namespace Game.Core.StateMachines.Game
 						LevelHelpers.TransitionToRoom(GameManager.Game.State.Level, nextRoom);
 						var destination = LevelHelpers.GetRoomOrigin(GameManager.Game.State.Level.CurrentRoom);
 						GameManager.Game.CameraRig.transform.DOMove(destination, 0.3f);
+					}
+				}
+
+				if (level.CurrentRoom == level.StartRoom)
+				{
+					var allEnemiesAreDead = true;
+					foreach (var room in level.Rooms)
+					{
+						foreach (var entity in room.Entities)
+						{
+							var health = entity.GetComponent<Health>();
+							if (health != null && health.getCurrentHP() > 0)
+							{
+								allEnemiesAreDead = false;
+								break;
+							}
+						}
+					}
+					if (allEnemiesAreDead)
+					{
+						Victory();
+						return;
 					}
 				}
 			}

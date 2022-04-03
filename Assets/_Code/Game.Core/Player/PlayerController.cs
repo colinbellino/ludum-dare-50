@@ -148,7 +148,9 @@ namespace Game.Core
 				}
 				else
 				{
-					Health.DealDamage(enemyHealth.GetDamageToPlayer(), collidedWith.transform.position);
+					if(!enemyHealth.getDead()) {
+						Health.DealDamage(enemyHealth.GetDamageToPlayer(), collidedWith.transform.position);
+					}
 				}
 			}
 		}

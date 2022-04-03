@@ -15,13 +15,16 @@ namespace Game.Core.StateMachines.Game
 		{
 			GameManager.Game.State.Running = true;
 
-			GameManager.Game.UI.ShowGameplay();
-			GameManager.Game.PauseUI.BackClicked += ResumeGame;
-			_ = GameManager.Game.UI.FadeOut(2);
-
 			var player = GameObject.Instantiate(GameManager.Game.Config.Player);
 			player.transform.position = LevelHelpers.GetRoomCenter(GameManager.Game.State.Level.CurrentRoom);
 			GameManager.Game.State.Player = player;
+
+			GameManager.Game.GameplayUI.SetHealth(GameManager.Game.State.Player.Health.currentHP, GameManager.Game.State.Player.Health.getMaxHP());
+			_ = GameManager.Game.GameplayUI.Show();
+			GameManager.Game.State.Player.Health.CurrentHPChanged += GameManager.Game.GameplayUI.SetHealth;
+
+			GameManager.Game.PauseUI.BackClicked += ResumeGame;
+			_ = GameManager.Game.UI.FadeOut(2);
 
 			LevelHelpers.ActivateRoom(GameManager.Game.State.Level.CurrentRoom);
 
@@ -129,7 +132,7 @@ namespace Game.Core.StateMachines.Game
 						foreach (var entity in room.Entities)
 						{
 							var health = entity.GetComponent<Health>();
-							if (health != null && health.getCurrentHP() > 0)
+							if (health != null && health.currentHP > 0)
 							{
 								allEnemiesAreDead = false;
 								break;
@@ -168,9 +171,10 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.PauseUI.BackClicked -= ResumeGame;
 			await GameManager.Game.UI.FadeIn(Color.black);
 			await GameManager.Game.UI.HideLevelName(0);
-			GameManager.Game.UI.HideGameplay();
+			await GameManager.Game.GameplayUI.Hide(0);
 			await GameManager.Game.PauseUI.Hide(0);
 			await GameManager.Game.OptionsUI.Hide(0);
+			GameManager.Game.State.Player.Health.CurrentHPChanged -= GameManager.Game.GameplayUI.SetHealth;
 		}
 
 		private void OnMovePerformed(InputAction.CallbackContext context)

@@ -72,6 +72,7 @@ namespace PyxelEdit
 					texture.LoadImage(entries[filename]);
 					texture.name = archiveName + "_layer_" + layerIndex + "_texture_preview";
 					texture.hideFlags = HideFlags.HideInHierarchy;
+					texture.filterMode = ImportSettings.filterMode;
 
 					ctx.AddObjectToAsset(texture.name, texture, texture);
 
@@ -95,6 +96,7 @@ namespace PyxelEdit
 					var filename = "Preview";
 					var texture = new Texture2D(_data.canvas.width, _data.canvas.height);
 					texture.name = filename;
+					texture.filterMode = ImportSettings.filterMode;
 					texture.SetPixels32(previewPixels);
 
 					ctx.AddObjectToAsset(filename, texture, texture);
@@ -113,6 +115,7 @@ namespace PyxelEdit
 					texture.LoadImage(entries[filename]);
 					texture.name = archiveName + "_layer_" + layerIndex + "_texture";
 					texture.hideFlags = HideFlags.HideInHierarchy;
+					texture.filterMode = ImportSettings.filterMode;
 					ctx.AddObjectToAsset(texture.name, texture, texture);
 
 					for (int x = 0; x < _data.canvas.width; x += _data.canvas.tileWidth)

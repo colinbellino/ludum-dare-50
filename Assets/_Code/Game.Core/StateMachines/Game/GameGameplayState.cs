@@ -152,6 +152,8 @@ namespace Game.Core.StateMachines.Game
 					}
 				}
 
+				GameManager.Game.GameplayUI.SetDash(player.CanDash);
+
 				if (player.Health.currentHP <= 0)
 				{
 					UnityEngine.Debug.Log("The player died, restarting the level.");

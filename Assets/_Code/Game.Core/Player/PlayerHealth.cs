@@ -45,8 +45,10 @@ public class PlayerHealth : Game.Core.Health
 			setCurrentHP(currentHP - damageDone);
 
 			if (currentHP > 0) {
-				knockbackDirection = (transform.position - damageSourceDirection).normalized;
-				knockbackCounter = knockBackDuration;
+				if (damageSourceDirection.magnitude > 0) {
+					knockbackDirection = (transform.position - damageSourceDirection).normalized;
+					knockbackCounter = knockBackDuration;
+				}
 
 				invincibilityCounter = invicibilityDuration;
 				entitySR.color = new Color(entitySR.color.r, entitySR.color.g, entitySR.color.b, 0.5f);

@@ -144,7 +144,7 @@ TextureImporter:
       spriteID: e82cfcd7c9c48dfa0800000000000000
       internalID: -5775782287093284210
       vertices: []
-      indices:
+      indices: 
       edges: []
       weights: []
     - serializedVersion: 2
@@ -165,7 +165,7 @@ TextureImporter:
       spriteID: fffd737d761436fd0800000000000000
       internalID: -2349962666309066753
       vertices: []
-      indices:
+      indices: 
       edges: []
       weights: []
     - serializedVersion: 2
@@ -186,7 +186,7 @@ TextureImporter:
       spriteID: 89f1a2ba2fb0ac310800000000000000
       internalID: 1425965368897839000
       vertices: []
-      indices:
+      indices: 
       edges: []
       weights: []
     - serializedVersion: 2
@@ -207,7 +207,7 @@ TextureImporter:
       spriteID: c12a4343b303bb450800000000000000
       internalID: 6105526750667907612
       vertices: []
-      indices:
+      indices: 
       edges: []
       weights: []
     - serializedVersion: 2
@@ -228,7 +228,7 @@ TextureImporter:
       spriteID: 1143cc3c5d03ffc90800000000000000
       internalID: -7133929590060469231
       vertices: []
-      indices:
+      indices: 
       edges: []
       weights: []
     - serializedVersion: 2
@@ -249,7 +249,7 @@ TextureImporter:
       spriteID: e1cbb2a7fe0575760800000000000000
       internalID: 7446509498357496862
       vertices: []
-      indices:
+      indices: 
       edges: []
       weights: []
     - serializedVersion: 2
@@ -270,7 +270,7 @@ TextureImporter:
       spriteID: 659f2d5db4d7e4530800000000000000
       internalID: 3841145296857004374
       vertices: []
-      indices:
+      indices: 
       edges: []
       weights: []
     - serializedVersion: 2
@@ -291,22 +291,22 @@ TextureImporter:
       spriteID: 083005c5923440300800000000000000
       internalID: 217372526942094208
       vertices: []
-      indices:
+      indices: 
       edges: []
       weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID:
+    spriteID: 
     internalID: 0
     vertices: []
-    indices:
+    indices: 
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag:
+  spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
-  userData:
-  assetBundleName:
-  assetBundleVariant:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

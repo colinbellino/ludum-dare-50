@@ -31,6 +31,8 @@ public class RangedEnemy : MonoBehaviour {
 		{
 			playerHealth = GameManager.Game.State.Player.GetComponent<PlayerHealth>();
 		}
+
+		shootCounter = shootCooldown;
 	}
 
    void Update() {

@@ -42,7 +42,11 @@ public class PlayerHealth : Game.Core.Health
 
 	public override void DealDamage(int damageDone, Vector3 damageSourceDirection) {
 		if (invincibilityCounter <= 0) {
-			setCurrentHP(currentHP - damageDone);
+			if (currentHP - damageDone < 0) {
+				setCurrentHP(0);
+			} else {
+				setCurrentHP(currentHP - damageDone);
+			}
 
 			if (currentHP > 0) {
 				if (damageSourceDirection.magnitude > 0) {
@@ -58,7 +62,11 @@ public class PlayerHealth : Game.Core.Health
 
 	public void Heal(int healAmount)
 	{
-		setCurrentHP(currentHP + healAmount);
+		if (currentHP + healAmount > maxHP) {
+			setCurrentHP(maxHP);
+		} else {
+			setCurrentHP(currentHP + healAmount);
+		}
 	}
 }
 

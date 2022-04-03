@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6958656458569512770}
   - component: {fileID: 576502166389199057}
   - component: {fileID: 5448244702554264242}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PriestEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}

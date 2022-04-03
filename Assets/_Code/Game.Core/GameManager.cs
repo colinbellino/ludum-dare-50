@@ -55,9 +55,9 @@ namespace Game.Core
 					newInputType = 0;
 				}
 
-				if (newInputType > -1 && newInputType != Game.State.CurrentInputType)
+				if (newInputType > -1 && (InputTypes)newInputType != Game.State.CurrentInputType)
 				{
-					Game.State.CurrentInputType = newInputType;
+					Game.State.CurrentInputType = (InputTypes)newInputType;
 					Game.ControlsUI.SetInputType(Game.State.CurrentInputType);
 				}
 			}
@@ -92,7 +92,8 @@ namespace Game.Core
 				AudioHelpers.SetVolume(Game.Config.GameBus, Game.State.PlayerSettings.GameVolume);
 		}
 
-		public static bool PlayerAlive() {
+		public static bool PlayerAlive()
+		{
 			return Game.State.Player.gameObject.activeInHierarchy
 				&& !Game.State.Player.GetComponent<PlayerHealth>().getDead();
 		}

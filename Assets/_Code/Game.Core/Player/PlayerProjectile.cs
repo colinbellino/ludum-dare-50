@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem
+using UnityEngine.InputSystem;
 using Game.Core;
 
 public class PlayerProjectile : MonoBehaviour

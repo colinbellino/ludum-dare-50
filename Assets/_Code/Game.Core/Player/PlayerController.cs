@@ -9,7 +9,7 @@ namespace Game.Core
 		private SpriteRenderer playerSR;
 		private Animator playerAnimator;
 		private CapsuleCollider2D playerCollider;
-		private PlayerHealth playerHealth;
+		public PlayerHealth Health;
 
 		[SerializeField] private float xMoveSpeed;
 		[SerializeField] private float yMoveSpeed;
@@ -31,7 +31,7 @@ namespace Game.Core
 			playerSR = GetComponentInChildren<SpriteRenderer>();
 			playerAnimator = GetComponent<Animator>();
 			playerCollider = GetComponent<CapsuleCollider2D>();
-			playerHealth = GetComponent<PlayerHealth>();
+			Health = GetComponent<PlayerHealth>();
 		}
 
 		void OnEnable()
@@ -137,11 +137,11 @@ namespace Game.Core
 
 				if (isDashing)
 				{
-					playerHealth.Heal(enemyHealth.GetDrainHealthToPlayer());
+					Health.Heal(enemyHealth.GetDrainHealthToPlayer());
 				}
 				else
 				{
-					playerHealth.DealDamage(enemyHealth.GetDamageToPlayer());
+					Health.DealDamage(enemyHealth.GetDamageToPlayer());
 				}
 			}
 		}

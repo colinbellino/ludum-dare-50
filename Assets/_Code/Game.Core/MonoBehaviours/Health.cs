@@ -1,41 +1,53 @@
+using System;
 using UnityEngine;
 
-namespace Game.Core {
-    public class Health : MonoBehaviour
-    {
-        [SerializeField] protected int maxHP;
-        protected int currentHP;
-        protected bool dead;
-        
-        protected void Awake()
-        {
-            currentHP = maxHP;
-        }
+namespace Game.Core
+{
+	public class Health : MonoBehaviour
+	{
+		[SerializeField] protected int maxHP;
+		public int currentHP { get; private set; }
+		protected bool dead;
 
-        protected virtual void Update()
-        {
-            if (currentHP <= 0 && !dead) {
-                Death();
-            }   
-        }
+		public Action<int, int> CurrentHPChanged;
 
-        public void DealDamage(int damageDone) {
-            currentHP -= damageDone;
-        }
+		protected void Awake()
+		{
+			currentHP = maxHP;
+		}
 
-        public int getMaxHP() {
-            return this.maxHP;
-        }
-        public int getCurrentHP() {
-            return this.currentHP;
-        }
+		protected virtual void Update()
+		{
+			if (currentHP <= 0 && !dead)
+			{
+				Death();
+			}
+		}
 
-        protected virtual void Death() {
-            dead = true;
-        }
+		public void DealDamage(int damageDone)
+		{
+			currentHP -= damageDone;
+		}
 
-        public bool getDead() {
-            return dead;
-        }
-    }
+		public int getMaxHP()
+		{
+			return this.maxHP;
+		}
+		public void setCurrentHP(int value)
+		{
+			UnityEngine.Debug.Log(name + " set HP: " + value);
+			this.currentHP = value;
+			CurrentHPChanged?.Invoke(currentHP, maxHP);
+		}
+
+		protected virtual void Death()
+		{
+			dead = true;
+		}
+
+		public bool getDead()
+		{
+			return dead;
+		}
+	}
 }

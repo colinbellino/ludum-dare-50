@@ -15,7 +15,7 @@ namespace Game.Core
 
 		[Header("CONTENT")]
 		public PlayerController Player;
-		public Level[] Levels = new Level[0];
+		public string[] Levels = new string[0];
 		public TileToEntity TileToEntity;
 		public Tile[] WallTiles;
 

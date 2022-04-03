@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBodySR: {fileID: 4589615320990034340}
   pitchforkTransform: {fileID: 2460687971267832254}
-  moveSpeed: 3
+  moveSpeed: 2
 --- !u!114 &1956124690460884481
 MonoBehaviour:
   m_ObjectHideFlags: 0

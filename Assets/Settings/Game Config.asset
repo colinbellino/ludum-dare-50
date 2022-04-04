@@ -61,7 +61,7 @@ MonoBehaviour:
       Data3: -1193336646
       Data4: 1375667818
     Path: event:/Music/Main Theme
-  Footsteps:
+  PlayerFootsteps:
     Guid:
       Data1: 1421367390
       Data2: 1142939085
@@ -145,3 +145,10 @@ MonoBehaviour:
       Data3: -270943837
       Data4: 39362592
     Path: event:/SFX/Environment/Stage Clear
+  PlayerHeal:
+    Guid:
+      Data1: -1479297571
+      Data2: 1187198100
+      Data3: 2116642460
+      Data4: 1582691520
+    Path: event:/SFX/Player/Player Health Gain

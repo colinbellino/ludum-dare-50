@@ -1,5 +1,4 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using FMOD.Studio;
 using UnityEngine;
@@ -123,6 +122,20 @@ namespace Game.Core.StateMachines.Game
 					}
 				}
 
+				var allEnemiesAreDead = true;
+				foreach (var room in level.Rooms)
+				{
+					foreach (var entity in room.Entities)
+					{
+						var health = entity.GetComponent<Health>();
+						if (health != null && health.currentHP > 0)
+						{
+							allEnemiesAreDead = false;
+							break;
+						}
+					}
+				}
+
 				var roomCenter = LevelHelpers.GetRoomCenter(level.CurrentRoom);
 				var roomBounds = new Bounds(roomCenter, GameConfig.ROOM_SIZE);
 				if (roomBounds.Contains(player.transform.position) == false)
@@ -134,33 +147,16 @@ namespace Game.Core.StateMachines.Game
 					if (nextRoom != null)
 					{
 						LevelHelpers.TransitionToRoom(level, nextRoom);
-						GameManager.Game.GameplayUI.SetMiniMap(level);
+						GameManager.Game.GameplayUI.SetMiniMap(level, allEnemiesAreDead);
 						var destination = LevelHelpers.GetRoomOrigin(level.CurrentRoom);
 						GameManager.Game.CameraRig.transform.DOMove(destination, 0.3f);
 					}
 				}
 
-				if (level.CurrentRoom == level.StartRoom)
+				if (level.CurrentRoom == level.StartRoom && allEnemiesAreDead)
 				{
-					var allEnemiesAreDead = true;
-					foreach (var room in level.Rooms)
-					{
-						foreach (var entity in room.Entities)
-						{
-							var health = entity.GetComponent<Health>();
-							if (health != null && health.currentHP > 0)
-							{
-								allEnemiesAreDead = false;
-								break;
-							}
-						}
-					}
-					if (allEnemiesAreDead)
-					{
-						AudioHelpers.PlayOneShot(GameManager.Game.Config.StageClear);
-						NextLevel();
-						return;
-					}
+					NextLevel();
+					return;
 				}
 
 				GameManager.Game.GameplayUI.SetDash(player.CanDash);
@@ -221,6 +217,8 @@ namespace Game.Core.StateMachines.Game
 			Save.SavePlayerSaveData(GameManager.Game.State.PlayerSaveData);
 
 			GameManager.Game.State.CurrentLevelIndex += 1;
+
+			AudioHelpers.PlayOneShot(GameManager.Game.Config.StageClear);
 
 			if (GameManager.Game.State.CurrentLevelIndex >= GameManager.Game.Config.Levels.Length)
 			{

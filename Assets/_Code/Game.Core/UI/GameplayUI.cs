@@ -86,7 +86,7 @@ namespace Game.Core
 			_dashIcon.gameObject.SetActive(value);
 		}
 
-		public void SetMiniMap(Level level)
+		public void SetMiniMap(Level level, bool mustReturnToStart = false)
 		{
 			_mapGridLayoutGroup.constraintCount = level.Width;
 
@@ -95,7 +95,6 @@ namespace Game.Core
 				var roomRect = _mapRooms[roomIndex];
 
 				roomRect.Find("Background").GetComponent<Image>().color = Color.black;
-				roomRect.Find("Color").GetComponent<Image>().color = Color.clear;
 				roomRect.Find("Icon").GetComponent<Image>().color = Color.clear;
 
 				if (roomIndex >= level.Rooms.Count)
@@ -109,6 +108,7 @@ namespace Game.Core
 				if (room.Instance == null)
 				{
 					roomRect.Find("Background").GetComponent<Image>().color = Color.clear;
+					roomRect.Find("Color").GetComponent<Image>().color = Color.clear;
 				}
 				else
 				{
@@ -121,6 +121,8 @@ namespace Game.Core
 					if (room == level.StartRoom)
 					{
 						roomRect.Find("Icon").GetComponent<Image>().color = _mapColorStart;
+						if (mustReturnToStart)
+							roomRect.Find("Color").GetComponent<Image>().DOColor(Color.white, 1f).SetLoops(-1, LoopType.Yoyo);
 					}
 					if (room == level.CurrentRoom)
 					{

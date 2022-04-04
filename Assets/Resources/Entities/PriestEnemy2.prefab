@@ -69,16 +69,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5464361165581572769, guid: cb5c51c899c368648a70a6de24662880, type: 3}
       propertyPath: m_Color.b
-      value: 0.32941177
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5464361165581572769, guid: cb5c51c899c368648a70a6de24662880, type: 3}
       propertyPath: m_Color.g
-      value: 0.32941177
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5464361165581572769, guid: cb5c51c899c368648a70a6de24662880, type: 3}
       propertyPath: m_Color.r
-      value: 0.6784314
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5464361165581572769, guid: cb5c51c899c368648a70a6de24662880, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e142de3cd266b644db0450e17580ba6b, type: 2}
     - target: {fileID: 6958656458569512770, guid: cb5c51c899c368648a70a6de24662880, type: 3}
       propertyPath: shootCooldown
       value: 2
@@ -86,6 +90,6 @@ PrefabInstance:
     - target: {fileID: 6958656458569512770, guid: cb5c51c899c368648a70a6de24662880, type: 3}
       propertyPath: enemyProjectile
       value: 
-      objectReference: {fileID: 5940033198356247276, guid: 69db20865959d044b80cb14b5b5f2786, type: 3}
+      objectReference: {fileID: 7123420796603826860, guid: 69db20865959d044b80cb14b5b5f2786, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb5c51c899c368648a70a6de24662880, type: 3}

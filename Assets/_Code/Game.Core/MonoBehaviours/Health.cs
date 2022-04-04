@@ -6,7 +6,7 @@ namespace Game.Core
 	public abstract class Health : MonoBehaviour
 	{
 		[SerializeField] protected int maxHP;
-		public int currentHP { get; private set; }
+		public int currentHP { get; protected set; }
 		protected bool dead;
 		protected Animator entityAnimator;
 		private Rigidbody2D entityRB;

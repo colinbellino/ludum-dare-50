@@ -35,7 +35,7 @@ namespace Game.Core
 		private string animDeath = "vampire_animations_Death";
 		private bool _deathAnimDone;
 
-		public bool CanDash => dashCounter <= 0;
+		public float DashProgress => 1 - (dashCounter / dashCooldown);
 		public bool IsFullyDead => _deathAnimDone;
 
 		void Awake()
@@ -83,6 +83,10 @@ namespace Game.Core
 			if (dashCounter > 0)
 			{
 				dashCounter -= Time.deltaTime;
+			}
+			else
+			{
+				dashCounter = 0;
 			}
 
 			playerSR.flipX = !facingRight;

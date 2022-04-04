@@ -11,6 +11,8 @@ public class EnemyHealth : Game.Core.Health
 	[SerializeField] private Material onHitFlashMaterial;
 	[SerializeField] private GameObject stunEffectPrefab;
 
+	private bool drained;
+
 	void OnEnable() {
 		if (dead) {
 			entityAnimator.SetBool("isDead", true);
@@ -58,6 +60,13 @@ public class EnemyHealth : Game.Core.Health
 		weaponSprite.gameObject.SetActive(false);
 		damageToPlayer = 0;
 		drainHealthToPlayer = drainHealthToPlayerAmt;
+	}
+
+	public bool getDrained() {
+		return drained;
+	}
+	public void setDrained(bool drained) {
+		this.drained = drained;
 	}
 }
 

@@ -177,9 +177,10 @@ namespace Game.Core
 
 				if (enemyHealth.getDead())
 				{
-					if (isDashing)
+					if (isDashing && !enemyHealth.getDrained())
 					{
 						Health.Heal(enemyHealth.GetDrainHealthToPlayer());
+						enemyHealth.setDrained(true);
 					}
 				}
 				else if (!isDashing)

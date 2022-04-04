@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Core;
+using DG.Tweening;
 
 public class MeleeEnemy : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MeleeEnemy : MonoBehaviour
    private EnemyHealth enemyHealth;
 	private PlayerHealth playerHealth;
 	[SerializeField] private Transform pitchforkTransform;
+	[SerializeField] private SpriteRenderer pitchforkSpriteRenderer;
 	private Entity enemyEntity;
 
 	[SerializeField] private float moveSpeed;
@@ -28,6 +30,8 @@ public class MeleeEnemy : MonoBehaviour
 		{
 			playerHealth = GameManager.Game.State.Player.GetComponent<PlayerHealth>();
 		}
+
+		pitchforkSpriteRenderer.transform.DOLocalMoveX(pitchforkSpriteRenderer.transform.localPosition.x -0.1f, 0.2f).SetLoops(-1, LoopType.Yoyo);
 	}
 
    void Update() {

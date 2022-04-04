@@ -72,6 +72,7 @@ namespace Game.Core
 
 		public static void TransitionToRoom(Level level, Room roomToTransitionTo)
 		{
+			level.CurrentRoom.Explored = true;
 			DeactivateRoom(level.CurrentRoom);
 			ActivateRoom(roomToTransitionTo);
 
@@ -117,10 +118,12 @@ namespace Game.Core
 			var x = 0;
 			var y = 0;
 			var i = 0;
+			var width = 0;
 			foreach (var roomType in levelData)
 			{
 				if (roomType == '\n')
 				{
+					width = x;
 					x = 0;
 					y += 1;
 					continue;
@@ -166,6 +169,9 @@ namespace Game.Core
 				i += 1;
 			}
 
+			level.Width = width;
+			level.Height = y + 1;
+
 			// Do a second loop once we have all the rooms to check for connections for doors.
 			foreach (var room in level.Rooms)
 			{
@@ -190,6 +196,8 @@ namespace Game.Core
 
 	public class Level
 	{
+		public int Width;
+		public int Height;
 		public List<Room> Rooms;
 		public Room StartRoom;
 		public Room CurrentRoom;
@@ -201,6 +209,7 @@ namespace Game.Core
 		public int Index;
 		public int X;
 		public int Y;
+		public bool Explored;
 		public RoomBehaviour Instance;
 		public List<Entity> Entities;
 

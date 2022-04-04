@@ -11,8 +11,6 @@ namespace Game.Core.StateMachines.Game
 		{
 			await GameManager.Game.UI.ShowEnding(0);
 			await GameManager.Game.UI.FadeIn(Color.clear);
-
-			FSM.Fire(GameFSM.Triggers.Done);
 		}
 
 		public void Tick()

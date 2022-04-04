@@ -178,6 +178,9 @@ namespace Game.Core.StateMachines.Game
 
 		public async UniTask Exit()
 		{
+			if (Utils.IsDevBuild())
+				GameManager.Game.UI.SetDebugText("");
+
 			GameManager.Game.Controls.Gameplay.Disable();
 			GameManager.Game.Controls.Gameplay.Move.performed -= OnMovePerformed;
 

@@ -58,7 +58,7 @@ namespace Game.Core.StateMachines.Game
 				.Permit(Triggers.Done, States.Gameplay);
 
 			_machine.Configure(States.Gameplay)
-				.Permit(Triggers.Won, States.Credits)
+				.Permit(Triggers.Won, States.Ending)
 				.Permit(Triggers.Quit, States.Quit)
 				.Permit(Triggers.NextLevel, States.LoadLevel)
 				.Permit(Triggers.LevelSelectionRequested, States.SelectLevel)

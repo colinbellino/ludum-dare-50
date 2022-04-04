@@ -13,6 +13,7 @@ public class PlayerHealth : Game.Core.Health
 
 	[SerializeField] float heartbeatSfxDuration;
 	[SerializeField] private Material onHitFlashMaterial;
+	[SerializeField] private GameObject healEffect;
 
 	protected override void Awake() {
 		base.Awake();
@@ -77,6 +78,7 @@ public class PlayerHealth : Game.Core.Health
 	public void Heal(int healAmount)
 	{
 		_ = Utils.Shake(0.1f, 100);
+		GameObject.Instantiate(healEffect, transform.position, Quaternion.identity, transform);
 		if (currentHP + healAmount > maxHP) {
 			setCurrentHP(maxHP);
 		} else {

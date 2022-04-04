@@ -147,6 +147,7 @@ namespace Game.Core.StateMachines.Game
 					}
 					if (allEnemiesAreDead)
 					{
+						AudioHelpers.PlayOneShot(GameManager.Game.Config.StageClear);
 						NextLevel();
 						return;
 					}

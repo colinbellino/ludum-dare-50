@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.Core;
 
 public class EnemyHealth : Game.Core.Health
 {
@@ -11,7 +12,6 @@ public class EnemyHealth : Game.Core.Health
 		if (dead) {
 			entityAnimator.SetBool("isDead", true);
 		} else {
-			entityAnimator.SetBool("isDead", false);
 			currentHP = maxHP;
 		}
 	}
@@ -23,6 +23,7 @@ public class EnemyHealth : Game.Core.Health
    protected override void Death() {
       base.Death();
 
+		AudioHelpers.PlayOneShot(GameManager.Game.Config.EnemyStun);
 		enterStunState();
    }
 
@@ -30,6 +31,8 @@ public class EnemyHealth : Game.Core.Health
 		setCurrentHP(currentHP - damageDone);
 
 		if (currentHP > 0) {
+			AudioHelpers.PlayOneShot(GameManager.Game.Config.EnemyDamage);
+
 			if (damageSourceDirection.magnitude > 0) {
 				knockbackDirection = (transform.position - damageSourceDirection).normalized;
 				knockbackCounter = knockBackDuration;

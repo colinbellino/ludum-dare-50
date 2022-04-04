@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.Core;
 
 public class PlayerHealth : Game.Core.Health
 {
@@ -9,12 +10,18 @@ public class PlayerHealth : Game.Core.Health
 	[SerializeField] private float invicibilityDuration;
 	private float invincibilityCounter;
 
+	[SerializeField] float heartbeatSfxDuration;
+
+	protected override void Awake() {
+		base.Awake();
+
+		InvokeRepeating("CallHeartbeat", 0, heartbeatSfxDuration);
+	}
+
 	protected override void Death()
 	{
 		base.Death();
-
-		// change game state
-		// play death animation
+		AudioHelpers.PlayOneShot(GameManager.Game.Config.PlayerDeath);
 	}
 
 	protected override void Update()
@@ -49,6 +56,8 @@ public class PlayerHealth : Game.Core.Health
 			}
 
 			if (currentHP > 0) {
+				AudioHelpers.PlayOneShot(GameManager.Game.Config.PlayerDamage);
+
 				if (damageSourceDirection.magnitude > 0) {
 					knockbackDirection = (transform.position - damageSourceDirection).normalized;
 					knockbackCounter = knockBackDuration;
@@ -66,6 +75,12 @@ public class PlayerHealth : Game.Core.Health
 			setCurrentHP(maxHP);
 		} else {
 			setCurrentHP(currentHP + healAmount);
+		}
+	}
+
+	private void CallHeartbeat() {
+		if ((float)currentHP / (float)maxHP < 0.3) {
+			AudioHelpers.PlayOneShot(GameManager.Game.Config.HeartBeat, transform.position);
 		}
 	}
 }

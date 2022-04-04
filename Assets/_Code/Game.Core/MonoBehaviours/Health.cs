@@ -40,7 +40,6 @@ namespace Game.Core
 
 		void FixedUpdate() {
 			if (knockbackCounter > 0) {
-				// entityRB.velocity = new Vector2(knockbackDirection.x * knockbackForce, knockbackDirection.y * knockbackForce);
 				transform.Translate(knockbackDirection * knockbackForce);
 			}
 		}

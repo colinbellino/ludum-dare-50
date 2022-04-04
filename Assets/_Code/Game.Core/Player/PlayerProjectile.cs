@@ -59,6 +59,7 @@ public class PlayerProjectile : MonoBehaviour
 		if (shootCounter <= 0 && !playerHealth.getDead())
 		{
 			GameObject projectile = Instantiate(batProjectile, transform.position, transform.rotation);
+			AudioHelpers.PlayOneShot(GameManager.Game.Config.PlayerAttack);
 			shootCounter = shootCooldown;
 		}
 	}

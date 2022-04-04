@@ -65,6 +65,7 @@ public class RangedEnemy : MonoBehaviour {
 	}
 
 	private void attackPlayer() {
+		AudioHelpers.PlayOneShot(GameManager.Game.Config.PriestEnemyAttack, transform.position);
 		GameObject projectile = Instantiate(enemyProjectile, crossTransform.position, crossTransform.rotation);
 		shootCounter = shootCooldown;
 	}

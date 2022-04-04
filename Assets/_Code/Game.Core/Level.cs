@@ -123,7 +123,6 @@ namespace Game.Core
 			{
 				if (roomType == '\n')
 				{
-					width = x;
 					x = 0;
 					y += 1;
 					continue;
@@ -167,6 +166,7 @@ namespace Game.Core
 
 				x += 1;
 				i += 1;
+				width = x;
 			}
 
 			level.Width = width;

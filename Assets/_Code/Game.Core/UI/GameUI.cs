@@ -30,6 +30,10 @@ namespace Game.Core
 		[SerializeField] public LevelButton[] LevelButtons;
 		[Header("Credits")]
 		[SerializeField] public GameObject _creditsRoot;
+		[Header("Intro")]
+		[SerializeField] public GameObject _introRoot;
+		[Header("Ending")]
+		[SerializeField] public GameObject _endingRoot;
 		[Header("Transitions")]
 		[SerializeField] private GameObject _fadeRoot;
 		[SerializeField] private Image _fadeToBlackImage;
@@ -66,11 +70,11 @@ namespace Game.Core
 			EventSystem.current.SetSelectedGameObject(StartButton.gameObject);
 
 			_titleRoot.SetActive(true);
-			await _titleWrapper.DOLocalMoveY(0, duration / GameManager.Game.State.TimeScaleCurrent);
+			// await _titleWrapper.DOLocalMoveY(0, duration / GameManager.Game.State.TimeScaleCurrent);
 		}
 		public async UniTask HideTitle(float duration = 0.5f)
 		{
-			await _titleWrapper.DOLocalMoveY(156, duration / GameManager.Game.State.TimeScaleCurrent);
+			// await _titleWrapper.DOLocalMoveY(156, duration / GameManager.Game.State.TimeScaleCurrent);
 			_titleRoot.SetActive(false);
 		}
 		public void SelectTitleOptionsGameObject()
@@ -154,6 +158,28 @@ namespace Game.Core
 		public UniTask HideCredits(float duration = 0.5f)
 		{
 			_creditsRoot.SetActive(false);
+			return default;
+		}
+
+		public UniTask ShowIntro(float duration = 0.5f)
+		{
+			_introRoot.SetActive(true);
+			return default;
+		}
+		public UniTask HideIntro(float duration = 0.5f)
+		{
+			_introRoot.SetActive(false);
+			return default;
+		}
+
+		public UniTask ShowEnding(float duration = 0.5f)
+		{
+			_endingRoot.SetActive(true);
+			return default;
+		}
+		public UniTask HideEnding(float duration = 0.5f)
+		{
+			_endingRoot.SetActive(false);
 			return default;
 		}
 

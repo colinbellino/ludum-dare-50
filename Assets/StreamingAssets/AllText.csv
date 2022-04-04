@@ -1,27 +1,29 @@
-﻿Key,English(en),French(fr),German(de)
-"UI/Quit","Quit","Quitter","Beenden"
-"UI/Options","Options","Options","Optionen"
-"UI/Start","Start","Commencer","Start"
-"UI/Continue","Continue","Continuer","Laden"
-"UI/MainVolume","Main volume","Volume principal","Hauptvolume"
-"UI/SoundVolume","Sound volume","Volume sonore","Effekt Volume"
-"UI/MusicVolume","Music volume","Volume musique","Musik Volume"
-"UI/Fullscreen","Fullscreen","Plein écran","Vollbild"
-"UI/Resolution","Resolution","Résolution","Auflösung"
-"UI/Pause","Pause","Pause","Pause"
-"UI/LevelSelection","Level selection","Sélection niveau","Levelauswahl"
-"UI/CreatedBy","A game by","Créé par","ein Spiel von:"
-"UI/ThanksForPlaying","Thanks for playing!","Merci d'avoir joué!","Danke fürs Spielen!"
-"UI/Language","Language","Langue","Sprache"
-"UI/Credits","Credits","Crédits","Credits"
-"UI/Back","Back","Retour","Zurück"
-"UI/Inputs/LeftStick","Move","Movement","Move"
-"UI/Inputs/DPad","Move","Movement","Move"
-"UI/Inputs/ActionLeft","Dig / Confirm","Creuser / Confirmer","Dig / Confirm"
-"UI/Inputs/ActionDown","Jump / Cancel","Sauter / Annuler","Jump / Cancel"
-"UI/Inputs/ActionRight","ActionRight","ActionRight","ActionRight"
-"UI/Inputs/ActionUp","ActionUp","ActionUp","ActionUp"
-"UI/Inputs/Start","Pause","Pause","Pause"
-"UI/Inputs/Keyboard/E","Dig / Confirm","Creuser / Confirmer","Dig / Confirm"
-"UI/Inputs/Keyboard/Space","Jump / Cancel","Sauter / Annuler","Jump / Cancel"
-"UI/Inputs/Keyboard/ArrowDown","Move","Movement","Move"
+﻿Key,Id,English(en),French(fr)
+"UI/Quit",18029022411055104,"Quit","Quitter",
+"UI/Options",18029022411055105,"Options","Options",
+"UI/Start",18029022411055106,"Start","Commencer",
+"UI/Continue",18029022411055107,"Continue","Continuer",
+"UI/MainVolume",18029022411055108,"Main volume","Volume principal",
+"UI/SoundVolume",18029022411055109,"Sound volume","Volume sonore",
+"UI/MusicVolume",18029022411055110,"Music volume","Volume musique",
+"UI/Fullscreen",18029022411055111,"Fullscreen","Plein écran",
+"UI/Resolution",18029022411055112,"Resolution","Résolution",
+"UI/Pause",18029022411055113,"Pause","Pause",
+"UI/LevelSelection",18029022411055114,"Level selection","Sélection niveau",
+"UI/CreatedBy",18029022411055115,"A game by","Créé par",
+"UI/ThanksForPlaying",18029022411055116,"Thanks for playing!","Merci d'avoir joué!",
+"UI/Language",18029022411055117,"Language","Langue",
+"UI/Credits",18029022411055118,"Credits","Crédits",
+"UI/Back",18029022411055119,"Back","Retour",
+"UI/Intro",18029022411055120,"Hello there, this is the introduction to the game. It should explain the lore and some of what is going on.\n\nIf you are reading this text, this means we didn't replace the placeholder, sorry!","Hello there, this is the introduction to the game. It should explain the lore and some of what is going on.\n\nIf you are reading this text, this means we didn't replace the placeholder, sorry!",
+"UI/Ending",18029022411055121,"Congratulations you reached the end of the game!\n\nUnfortunately we didn't have enough time to replace this text with the final one so all you are getting is this rubbish ending...","Congratulations you reached the end of the game!\n\nUnfortunately we didn't have enough time to replace this text with the final one so all you are getting is this rubbish ending...",
+"UI/Inputs/LeftStick",18029022411055122,"Move","Movement",
+"UI/Inputs/DPad",18029022411055123,"Move","Movement",
+"UI/Inputs/ActionLeft",18029022411055124,"Dig / Confirm","Creuser / Confirmer",
+"UI/Inputs/ActionDown",18029022411055125,"Jump / Cancel","Sauter / Annuler",
+"UI/Inputs/ActionRight",18029022411055126,"ActionRight","ActionRight",
+"UI/Inputs/ActionUp",18029022411055127,"ActionUp","ActionUp",
+"UI/Inputs/Start",18029022411055128,"Pause","Pause",
+"UI/Inputs/Keyboard/E",18029022411055129,"Dig / Confirm","Creuser / Confirmer",
+"UI/Inputs/Keyboard/Space",18029022411055130,"Jump / Cancel","Sauter / Annuler",
+"UI/Inputs/Keyboard/ArrowDown",18029022411055131,"Move","Movement",

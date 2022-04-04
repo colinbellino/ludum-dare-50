@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SharedTableData: {fileID: 11400000, guid: b290e49b81a464c3dac81c3936fc860c, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: d683b309f4d914fc89754de97a662ffa, type: 2}
   - {fileID: 11400000, guid: 0e4ca9a48257445f682c220315b80b73, type: 2}
-  - {fileID: 11400000, guid: 2454a60fc80bd4a04a265652f0183f57, type: 2}
+  - {fileID: 11400000, guid: d683b309f4d914fc89754de97a662ffa, type: 2}
   m_Extensions:
   - id: 0
   m_Group: String Table
@@ -35,7 +34,7 @@ MonoBehaviour:
     00000001:
       type: {class: KeyIdColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns, asm: Unity.Localization.Editor}
       data:
-        m_IncludeId: 0
+        m_IncludeId: 1
         m_IncludeSharedComments: 0
         m_KeyFieldName: Key
         m_IdFieldName: Id

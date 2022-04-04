@@ -56,7 +56,7 @@ Material:
     - _EnableExternalAlpha: 0
     m_Colors:
     - OriginalColor1: {r: 0.267, g: 0.553, b: 0.639, a: 1}
-    - OriginalColor2: {r: 0.231, g: 0.4, b: 0.51, a: 1}
+    - OriginalColor2: {r: 0.227451, g: 0.40000004, b: 0.50980395, a: 1}
     - OriginalColor3: {r: 0.196, g: 0.239, b: 0.38, a: 1}
     - OriginalColor4: {r: 0.498, g: 0.333, b: 0.333, a: 1}
     - OriginalColor5: {r: 0.329, g: 0.18, b: 0.22, a: 1}

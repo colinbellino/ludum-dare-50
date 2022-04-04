@@ -4,6 +4,7 @@ using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.Core
 {
@@ -14,6 +15,12 @@ namespace Game.Core
 		[SerializeField] private RectTransform _healthCurrentFill;
 		[SerializeField] private RectTransform _healthTempFill;
 		[SerializeField] private RectTransform _dashIcon;
+		[SerializeField] private RectTransform[] _mapRooms;
+		[SerializeField] private GridLayoutGroup _mapGridLayoutGroup;
+		[SerializeField] private Color _mapColorDefault = Color.white;
+		[SerializeField] private Color _mapColorExplored = Color.white;
+		[SerializeField] private Color _mapColorStart = Color.white;
+		[SerializeField] private Color _mapColorCurrent = Color.white;
 
 		private float _currentHealthDefaultWidth;
 		private float _tempHealthDefaultWidth;
@@ -77,6 +84,50 @@ namespace Game.Core
 		public void SetDash(bool value)
 		{
 			_dashIcon.gameObject.SetActive(value);
+		}
+
+		public void SetMiniMap(Level level)
+		{
+			_mapGridLayoutGroup.constraintCount = level.Width;
+
+			for (int roomIndex = 0; roomIndex < _mapRooms.Length; roomIndex++)
+			{
+				var roomRect = _mapRooms[roomIndex];
+
+				roomRect.Find("Background").GetComponent<Image>().color = Color.black;
+				roomRect.Find("Color").GetComponent<Image>().color = Color.clear;
+				roomRect.Find("Icon").GetComponent<Image>().color = Color.clear;
+
+				if (roomIndex >= level.Rooms.Count)
+				{
+					roomRect.gameObject.SetActive(false);
+					continue;
+				}
+
+				roomRect.gameObject.SetActive(true);
+				var room = level.Rooms[roomIndex];
+				if (room.Instance == null)
+				{
+					roomRect.Find("Background").GetComponent<Image>().color = Color.clear;
+				}
+				else
+				{
+					roomRect.Find("Color").GetComponent<Image>().color = _mapColorDefault;
+
+					if (room.Explored)
+					{
+						roomRect.Find("Color").GetComponent<Image>().color = _mapColorExplored;
+					}
+					if (room == level.StartRoom)
+					{
+						roomRect.Find("Icon").GetComponent<Image>().color = _mapColorStart;
+					}
+					if (room == level.CurrentRoom)
+					{
+						roomRect.Find("Color").GetComponent<Image>().color = _mapColorCurrent;
+					}
+				}
+			}
 		}
 	}
 }

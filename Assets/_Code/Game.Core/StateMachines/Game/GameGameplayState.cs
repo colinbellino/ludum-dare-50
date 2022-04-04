@@ -18,8 +18,10 @@ namespace Game.Core.StateMachines.Game
 			var player = GameObject.Instantiate(GameManager.Game.Config.Player);
 			player.transform.position = LevelHelpers.GetRoomCenter(GameManager.Game.State.Level.CurrentRoom);
 			GameManager.Game.State.Player = player;
+			GameManager.Game.State.Level.CurrentRoom.Explored = true;
 
 			GameManager.Game.GameplayUI.SetHealth(GameManager.Game.State.Player.Health.currentHP, GameManager.Game.State.Player.Health.getMaxHP());
+			GameManager.Game.GameplayUI.SetMiniMap(GameManager.Game.State.Level);
 			_ = GameManager.Game.GameplayUI.Show();
 			GameManager.Game.State.Player.Health.CurrentHPChanged += GameManager.Game.GameplayUI.SetHealth;
 
@@ -39,9 +41,11 @@ namespace Game.Core.StateMachines.Game
 			if (Utils.IsDevBuild())
 			{
 				GameManager.Game.UI.SetDebugText("");
-				GameManager.Game.UI.AddDebugLine("F1: Load next level");
-				GameManager.Game.UI.AddDebugLine("F2: Kill all enemies");
-				GameManager.Game.UI.AddDebugLine("R:  Restart level");
+				GameManager.Game.UI.AddDebugLine("F1:  Load next level");
+				GameManager.Game.UI.AddDebugLine("F2:  Kill all enemies");
+				GameManager.Game.UI.AddDebugLine("F4:  Damage player");
+				GameManager.Game.UI.AddDebugLine("F5:  Heal player");
+				GameManager.Game.UI.AddDebugLine("R:   Restart level");
 			}
 		}
 
@@ -112,6 +116,11 @@ namespace Game.Core.StateMachines.Game
 						UnityEngine.Debug.Log("Stop hitting yourself.");
 						player.Health.DealDamage(200, Vector3.zero);
 					}
+					if (Keyboard.current.f5Key.wasReleasedThisFrame)
+					{
+						UnityEngine.Debug.Log("Thanks for the fish.");
+						player.Health.Heal(player.Health.getMaxHP());
+					}
 				}
 
 				var roomCenter = LevelHelpers.GetRoomCenter(level.CurrentRoom);
@@ -121,11 +130,12 @@ namespace Game.Core.StateMachines.Game
 					var direction = Utils.SnapTo(player.transform.position - roomCenter, 90f);
 					direction.y = -direction.y; // Reverse the Y axis because unity's is bottom > top and ours is top > bottom
 
-					var nextRoom = LevelHelpers.GetRoomInDirection(direction, GameManager.Game.State.Level);
+					var nextRoom = LevelHelpers.GetRoomInDirection(direction, level);
 					if (nextRoom != null)
 					{
-						LevelHelpers.TransitionToRoom(GameManager.Game.State.Level, nextRoom);
-						var destination = LevelHelpers.GetRoomOrigin(GameManager.Game.State.Level.CurrentRoom);
+						LevelHelpers.TransitionToRoom(level, nextRoom);
+						GameManager.Game.GameplayUI.SetMiniMap(level);
+						var destination = LevelHelpers.GetRoomOrigin(level.CurrentRoom);
 						GameManager.Game.CameraRig.transform.DOMove(destination, 0.3f);
 					}
 				}

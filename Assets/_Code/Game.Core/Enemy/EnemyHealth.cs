@@ -9,6 +9,7 @@ public class EnemyHealth : Game.Core.Health
 	private int drainHealthToPlayer = 0;
 
 	[SerializeField] private Material onHitFlashMaterial;
+	[SerializeField] private GameObject stunEffectPrefab;
 
 	void OnEnable() {
 		if (dead) {
@@ -50,6 +51,9 @@ public class EnemyHealth : Game.Core.Health
    }
 
 	private void enterStunState() {
+		var effect = GameObject.Instantiate(stunEffectPrefab, transform);
+		effect.transform.localPosition = new Vector3(0f, 0.1f);
+
 		entityAnimator.SetBool("isDead", true);
 		weaponSprite.gameObject.SetActive(false);
 		damageToPlayer = 0;

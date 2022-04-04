@@ -65,9 +65,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18029022411055120
-    m_Localized: Hello there, this is the introduction to the game. It should explain
-      the lore and some of what is going on.\n\nIf you are reading this text, this
-      means we didn't replace the placeholder, sorry!
+    m_Localized: "\u201CCan\u2019t a lad just get a couple centuries of sleep around
+      here ?! I, Larry the sleepy vampire, was having sweet dreams of hemorrhages
+      and hemoglobin when I got rudely awoken by yet another angry mob storming MY
+      manor!\u201D\\n\\nHe pops out of his coffin to take care of the intruders when
+      he suddenly realizes he hasn\u2019t feasted in years!\\n\\n\u201CI'm famished.\u201D
+      he thought to himself. \u201CBetter roam the manor and banish these invaders
+      at once... or I'll surely die from hunger! Ah-Ah-Ah\u201D"
     m_Metadata:
       m_Items: []
   - m_Id: 18029022411055119

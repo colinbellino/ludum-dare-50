@@ -65,9 +65,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18029022411055120
-    m_Localized: Hello there, this is the introduction to the game. It should explain
-      the lore and some of what is going on.\n\nIf you are reading this text, this
-      means we didn't replace the placeholder, sorry!
+    m_Localized: "\u201CIl n'est plus possible de dormir quelques si\xE8cles tranquillement
+      par ici?! Moi, Larry le vampire endormi, \xE9tait en train de faire de beaux
+      r\xEAves d'h\xE9morragie et d'h\xE9moglobine quand j'ai \xE9t\xE9 tr\xE8s rudement
+      reveill\xE9 par une foule en col\xE8re qui a encore assailli MON manoir!\u201D\\n\\nIl
+      sauta hors de son cercueil pour s'occuper de ses intrus et se rendit compte
+      qu'il n'avait pas festoy\xE9 depuis des ann\xE9es!\\n\\n\u201CJe suis affam\xE9.\u201D
+      pensa-t-il. \u201CIl vaudrait mieux que je parcours le manoir pour bannir ces
+      envahisseurs imm\xE9diatement... sinon je risquerais bien de mourir de faim!
+      Ah-Ah-Ah\u201D"
     m_Metadata:
       m_Items: []
   - m_Id: 18029022411055119

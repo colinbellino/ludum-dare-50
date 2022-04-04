@@ -35,6 +35,10 @@ namespace Game.Core
 
 			if (knockbackCounter > 0) {
 				knockbackCounter -= Time.deltaTime;
+
+				if (knockbackCounter <= 0) {
+					entitySR.color = new Color(1, 1, 1, 1);
+				}
 			}
 		}
 

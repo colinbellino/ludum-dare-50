@@ -83,7 +83,7 @@ MonoBehaviour:
   maxHP: 3
   entitySR: {fileID: 5464361165581572769}
   knockbackForce: 0
-  knockBackDuration: 0
+  knockBackDuration: 0.08
   drainHealthToPlayerAmt: 100
   damageToPlayer: 20
   weaponSprite: {fileID: 6638068646888742924}

@@ -36,6 +36,7 @@ public class EnemyHealth : Game.Core.Health
 			if (damageSourceDirection.magnitude > 0) {
 				knockbackDirection = (transform.position - damageSourceDirection).normalized;
 				knockbackCounter = knockBackDuration;
+				entitySR.color = new Color(1, 0, 0, 1);
 			}
 		}
 	}

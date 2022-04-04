@@ -28,6 +28,10 @@ public class EnemyProjectile: MonoBehaviour {
 				Destroy(gameObject);
 				break;
 			}
+			case "props": {
+				Destroy(gameObject);
+				break;
+			}
 			default: break;
 		}
 	}

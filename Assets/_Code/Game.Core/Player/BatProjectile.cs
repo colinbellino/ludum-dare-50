@@ -29,6 +29,10 @@ public class BatProjectile: MonoBehaviour {
 				Destroy(gameObject);
 				break;
 			}
+			case "props": {
+				Destroy(gameObject);
+				break;
+			}
 			default: break;
 		}
 	}

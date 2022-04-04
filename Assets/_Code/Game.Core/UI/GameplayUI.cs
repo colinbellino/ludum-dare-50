@@ -85,8 +85,6 @@ namespace Game.Core
 
 		public void SetDash(float value)
 		{
-			UnityEngine.Debug.Log("dash progress: " + value);
-			// _dashIcon.gameObject.SetActive(value);
 			_dashCurrentFill.sizeDelta = new Vector2(value * _currentDashDefaultWidth, _dashCurrentFill.sizeDelta.y);
 		}
 

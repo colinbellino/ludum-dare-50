@@ -189,6 +189,7 @@ namespace Game.Core
 					{
 						Health.Heal(enemyHealth.GetDrainHealthToPlayer());
 						enemyHealth.setDrained(true);
+						enemyHealth.stunEffectObject.SetActive(false);
 					}
 				}
 				else if (!isDashing)

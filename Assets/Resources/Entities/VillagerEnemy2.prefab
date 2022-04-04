@@ -17,16 +17,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4589615320990034340, guid: 0fc1a252ccac91f44ab3fb286aeea807, type: 3}
       propertyPath: m_Color.b
-      value: 0.108869076
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4589615320990034340, guid: 0fc1a252ccac91f44ab3fb286aeea807, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4589615320990034340, guid: 0fc1a252ccac91f44ab3fb286aeea807, type: 3}
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4589615320990034340, guid: 0fc1a252ccac91f44ab3fb286aeea807, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd5ac0ac14ddc40bfbbe0ab196f16a31, type: 2}
     - target: {fileID: 4627275923284182371, guid: 0fc1a252ccac91f44ab3fb286aeea807, type: 3}
       propertyPath: m_Name
       value: VillagerEnemy2

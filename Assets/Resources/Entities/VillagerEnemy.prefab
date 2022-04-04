@@ -342,6 +342,7 @@ MonoBehaviour:
   damageToPlayer: 100
   weaponSprite: {fileID: 2608157427705317634}
   onHitFlashMaterial: {fileID: 2100000, guid: 12073adac0496834ba50b9be9a08ed95, type: 2}
+  stunEffectPrefab: {fileID: 4893225457759940121, guid: 4e951f123a1255c40b04d649880ebf0d, type: 3}
 --- !u!114 &1667791225098431779
 MonoBehaviour:
   m_ObjectHideFlags: 0

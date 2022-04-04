@@ -1,6 +1,8 @@
 using System.IO;
+using Cinemachine;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Networking;
 
 namespace Game.Core
@@ -52,6 +54,21 @@ namespace Game.Core
 			Vector3 axis = Vector3.Cross(Vector3.up, v3);
 			Quaternion q = Quaternion.AngleAxis(deltaAngle, axis);
 			return q * v3;
+		}
+
+		public static async UniTask Shake(float gain, int duration)
+		{
+			if (GameManager.Game.State.PlayerSettings.Screenshake == false)
+				return;
+
+			var perlin = GameManager.Game.CameraRig.VirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+			perlin.m_AmplitudeGain = gain;
+			Gamepad.current?.SetMotorSpeeds(gain / 8f, gain / 4f);
+
+			await UniTask.Delay(duration);
+
+			perlin.m_AmplitudeGain = 0f;
+			Gamepad.current?.SetMotorSpeeds(0f, 0f);
 		}
 	}
 }

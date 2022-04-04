@@ -40,7 +40,7 @@ namespace Game.Core
 		public EventReference PriestEnemyAttack;
 		public EventReference StageClear;
 
-		public static Vector2 ROOM_SIZE = new Vector2(15, 9);
+		public static Vector3 ROOM_SIZE = new Vector2(15, 9);
 	}
 
 	[Serializable]

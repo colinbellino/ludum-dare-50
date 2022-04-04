@@ -60,6 +60,7 @@ public class PlayerHealth : Game.Core.Health
 
 			if (currentHP > 0) {
 				AudioHelpers.PlayOneShot(GameManager.Game.Config.PlayerDamage);
+				_ = Utils.Shake(0.3f, 100);
 
 				if (damageSourceDirection.magnitude > 0) {
 					knockbackDirection = (transform.position - damageSourceDirection).normalized;
@@ -75,6 +76,7 @@ public class PlayerHealth : Game.Core.Health
 
 	public void Heal(int healAmount)
 	{
+		_ = Utils.Shake(0.1f, 100);
 		if (currentHP + healAmount > maxHP) {
 			setCurrentHP(maxHP);
 		} else {

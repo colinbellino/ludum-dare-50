@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 1667791225098431779}
   - component: {fileID: 1956124690460884481}
   - component: {fileID: 6996708168366771096}
+  - component: {fileID: 2328713440049116463}
   m_Layer: 7
   m_Name: VillagerEnemy
   m_TagString: enemy
@@ -387,6 +388,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.32, y: 0.85}
   m_Direction: 0
+--- !u!114 &2328713440049116463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627275923284182371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41841a87bf13b7a428997a7803fc8164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footStepSpeed: 0.3
 --- !u!1 &5993354966422508966
 GameObject:
   m_ObjectHideFlags: 0

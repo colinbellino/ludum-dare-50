@@ -59,3 +59,87 @@ MonoBehaviour:
       Data3: -1193336646
       Data4: 1375667818
     Path: event:/Music/Main Theme
+  Footsteps:
+    Guid:
+      Data1: 1421367390
+      Data2: 1142939085
+      Data3: -901597781
+      Data4: 31402962
+    Path: event:/SFX/Player/Player Movement
+  HeartBeat:
+    Guid:
+      Data1: -1297387684
+      Data2: 1329509966
+      Data3: 1702079630
+      Data4: 1669208524
+    Path: event:/SFX/Player/Player Low Health
+  PlayerDash:
+    Guid:
+      Data1: -1246452105
+      Data2: 1284115058
+      Data3: -1959450715
+      Data4: 1398948337
+    Path: event:/SFX/Player/Player Dash
+  PlayerDeath:
+    Guid:
+      Data1: 425681542
+      Data2: 1117437511
+      Data3: -1250454369
+      Data4: -247654771
+    Path: event:/SFX/Player/Player Death
+  PlayerYawn:
+    Guid:
+      Data1: -118822218
+      Data2: 1252259657
+      Data3: 722035099
+      Data4: 259141507
+    Path: event:/SFX/Player/Player Yawn
+  PlayerAttack:
+    Guid:
+      Data1: -674239383
+      Data2: 1285512116
+      Data3: 1485084055
+      Data4: -1064609715
+    Path: event:/SFX/Player/Player Attack
+  PlayerDamage:
+    Guid:
+      Data1: -801876357
+      Data2: 1109870907
+      Data3: 1581039270
+      Data4: 223385149
+    Path: event:/SFX/Player/Player Damage
+  EnemyStun:
+    Guid:
+      Data1: 1728821048
+      Data2: 1331622113
+      Data3: -1999188083
+      Data4: 2053241519
+    Path: event:/SFX/Enemy/Enemy Sleep
+  EnemyDamage:
+    Guid:
+      Data1: 2129045326
+      Data2: 1209862686
+      Data3: 1213124019
+      Data4: 1206671876
+    Path: event:/SFX/Enemy/Enemy Damage
+  VillagerEnemyMovement:
+    Guid:
+      Data1: 726095598
+      Data2: 1094700580
+      Data3: 172996012
+      Data4: -129699123
+    Path: event:/SFX/Enemy/Enemy A Movement
+  PriestEnemyAttack:
+    Guid:
+      Data1: -949202224
+      Data2: 1111143742
+      Data3: -235735623
+      Data4: -1593171771
+    Path: event:/SFX/Enemy/Enemy B Attack
+  StageClear:
+    Guid:
+      Data1: -33565887
+      Data2: 1114023518
+      Data3: -270943837
+      Data4: 39362592
+    Path: event:/SFX/Environment/Stage Clear

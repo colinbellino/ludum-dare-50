@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 4287870558649064825}
   - component: {fileID: 4542784427072963798}
   - component: {fileID: 1105023908}
+  - component: {fileID: 3949033744907378487}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -469,4 +470,18 @@ MonoBehaviour:
   knockBackDuration: 0.2
   healthLossPerSecond: 20
   healthLossCooldown: 1
-  invicibilityDuration: 0.5
+  invicibilityDuration: 0.8
+  heartbeatSfxDuration: 3.7
+--- !u!114 &3949033744907378487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110341559196710137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c54b0568d7d4b48afb49a195cb5fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footStepSpeed: 0.4

@@ -125,6 +125,7 @@ namespace Game.Core
 			{
 				isDashing = true;
 				dashCounter = dashCooldown;
+				AudioHelpers.PlayOneShot(GameManager.Game.Config.PlayerDash, transform.position);
 			}
 		}
 
@@ -165,6 +166,30 @@ namespace Game.Core
 					Health.DealDamage(enemyHealth.GetDamageToPlayer(), collidedWith.transform.position);
 				}
 			}
+		}
+
+		void OnTriggerStay2D(Collider2D col) {
+			GameObject collidedWith = col.gameObject;
+
+			if (collidedWith.tag == "enemy" || collidedWith.tag == "enemyWeapon") {
+				EnemyHealth enemyHealth;
+				if (collidedWith.tag == "enemy")
+				{
+					enemyHealth = collidedWith.GetComponent<EnemyHealth>();
+				}
+				else
+				{
+					enemyHealth = collidedWith.GetComponentInParent<EnemyHealth>();
+				}
+
+				if (!isDashing && !enemyHealth.getDead()) {
+					Health.DealDamage(enemyHealth.GetDamageToPlayer(), collidedWith.transform.position);
+				}
+			}
+		}
+
+		public bool getIsDashing() {
+			return isDashing;
 		}
 	}
 }

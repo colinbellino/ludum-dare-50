@@ -341,6 +341,7 @@ MonoBehaviour:
   drainHealthToPlayerAmt: 100
   damageToPlayer: 60
   weaponSprite: {fileID: 2608157427705317634}
+  onHitFlashMaterial: {fileID: 2100000, guid: 12073adac0496834ba50b9be9a08ed95, type: 2}
 --- !u!114 &1667791225098431779
 MonoBehaviour:
   m_ObjectHideFlags: 0

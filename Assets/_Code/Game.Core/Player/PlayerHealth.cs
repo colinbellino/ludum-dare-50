@@ -9,12 +9,15 @@ public class PlayerHealth : Game.Core.Health
 
 	[SerializeField] private float invicibilityDuration;
 	private float invincibilityCounter;
+	private float redColorValue;
 
 	[SerializeField] float heartbeatSfxDuration;
+	[SerializeField] private Material onHitFlashMaterial;
 
 	protected override void Awake() {
 		base.Awake();
 
+		redColorValue = entitySR.color.r;
 		InvokeRepeating("CallHeartbeat", 0, heartbeatSfxDuration);
 	}
 
@@ -42,7 +45,7 @@ public class PlayerHealth : Game.Core.Health
 			invincibilityCounter -= Time.deltaTime;
 
 			if (invincibilityCounter <= 0) {
-				entitySR.color = new Color(entitySR.color.r, entitySR.color.g, entitySR.color.b, 1);
+
 			}
 		}
 	}
@@ -61,10 +64,11 @@ public class PlayerHealth : Game.Core.Health
 				if (damageSourceDirection.magnitude > 0) {
 					knockbackDirection = (transform.position - damageSourceDirection).normalized;
 					knockbackCounter = knockBackDuration;
+
+					entitySR.material = onHitFlashMaterial;
 				}
 
 				invincibilityCounter = invicibilityDuration;
-				entitySR.color = new Color(entitySR.color.r, entitySR.color.g, entitySR.color.b, 0.5f);
 			}
 		}
 	}

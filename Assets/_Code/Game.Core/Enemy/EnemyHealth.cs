@@ -31,10 +31,9 @@ public class EnemyHealth : Game.Core.Health
 
 	public override void DealDamage(int damageDone, Vector3 damageSourceDirection) {
 		setCurrentHP(currentHP - damageDone);
+		AudioHelpers.PlayOneShot(GameManager.Game.Config.EnemyDamage);
 
 		if (currentHP > 0) {
-			AudioHelpers.PlayOneShot(GameManager.Game.Config.EnemyDamage);
-
 			if (damageSourceDirection.magnitude > 0) {
 				knockbackDirection = (transform.position - damageSourceDirection).normalized;
 				knockbackCounter = knockBackDuration;

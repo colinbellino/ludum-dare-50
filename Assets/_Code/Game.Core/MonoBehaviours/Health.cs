@@ -17,6 +17,8 @@ namespace Game.Core
 		[SerializeField] protected float knockBackDuration;
 		protected Vector2 knockbackDirection;
 
+		private Material defaultMaterial;
+
 		public Action<int, int> CurrentHPChanged;
 
 		protected virtual void Awake()
@@ -24,6 +26,7 @@ namespace Game.Core
 			currentHP = maxHP;
 			entityAnimator = GetComponentInChildren<Animator>();
 			entityRB = GetComponent<Rigidbody2D>();
+			defaultMaterial = entitySR.material;
 		}
 
 		protected virtual void Update()
@@ -32,7 +35,7 @@ namespace Game.Core
 				knockbackCounter -= Time.deltaTime;
 
 				if (knockbackCounter <= 0) {
-					entitySR.color = new Color(1, 1, 1, 1);
+					entitySR.material = defaultMaterial;
 				}
 			}
 		}

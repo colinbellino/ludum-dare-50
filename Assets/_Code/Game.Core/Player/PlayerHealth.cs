@@ -12,6 +12,7 @@ public class PlayerHealth : Game.Core.Health
 	private float redColorValue;
 
 	[SerializeField] float heartbeatSfxDuration;
+	[SerializeField] private Material onHitFlashMaterial;
 
 	protected override void Awake() {
 		base.Awake();
@@ -63,7 +64,8 @@ public class PlayerHealth : Game.Core.Health
 				if (damageSourceDirection.magnitude > 0) {
 					knockbackDirection = (transform.position - damageSourceDirection).normalized;
 					knockbackCounter = knockBackDuration;
-					entitySR.color = new Color(1, 0, 0, 1);
+
+					entitySR.material = onHitFlashMaterial;
 				}
 
 				invincibilityCounter = invicibilityDuration;

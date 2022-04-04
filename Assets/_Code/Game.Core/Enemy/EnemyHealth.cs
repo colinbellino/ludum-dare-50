@@ -8,6 +8,8 @@ public class EnemyHealth : Game.Core.Health
 	[SerializeField] private SpriteRenderer weaponSprite;
 	private int drainHealthToPlayer = 0;
 
+	[SerializeField] private Material onHitFlashMaterial;
+
 	void OnEnable() {
 		if (dead) {
 			entityAnimator.SetBool("isDead", true);
@@ -36,7 +38,7 @@ public class EnemyHealth : Game.Core.Health
 			if (damageSourceDirection.magnitude > 0) {
 				knockbackDirection = (transform.position - damageSourceDirection).normalized;
 				knockbackCounter = knockBackDuration;
-				entitySR.color = new Color(1, 0, 0, 1);
+				entitySR.material = onHitFlashMaterial;
 			}
 		}
 	}

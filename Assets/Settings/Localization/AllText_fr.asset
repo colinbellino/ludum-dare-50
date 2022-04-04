@@ -18,108 +18,120 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 182295977984
-    m_Localized: Quitter
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182308560896
-    m_Localized: Options
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182308560897
-    m_Localized: Commencer
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182308560898
-    m_Localized: Continuer
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182308560899
-    m_Localized: Volume principal
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182308560900
-    m_Localized: Volume sonore
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182308560901
-    m_Localized: Volume musique
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182308560902
-    m_Localized: "Plein \xE9cran"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182308560903
-    m_Localized: "R\xE9solution"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182312755200
-    m_Localized: Pause
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182312755201
-    m_Localized: "S\xE9lection niveau"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182312755202
-    m_Localized: "Cr\xE9\xE9 par"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182312755203
-    m_Localized: "Merci d'avoir jou\xE9!"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 182312755204
-    m_Localized: Langue
-    m_Metadata:
-      m_Items: []
-  - m_Id: 13795832351416320
-    m_Localized: "Cr\xE9dits"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 14828666055122944
-    m_Localized: Retour
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15194164038721536
+  - m_Id: 18029022411055131
     m_Localized: Movement
     m_Metadata:
       m_Items: []
-  - m_Id: 15194618340564992
-    m_Localized: Movement
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15200668078825472
-    m_Localized: Creuser / Confirmer
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15200668078825473
+  - m_Id: 18029022411055130
     m_Localized: Sauter / Annuler
     m_Metadata:
       m_Items: []
-  - m_Id: 15200668078825474
-    m_Localized: ActionRight
+  - m_Id: 18029022411055129
+    m_Localized: Creuser / Confirmer
     m_Metadata:
       m_Items: []
-  - m_Id: 15200668078825475
+  - m_Id: 18029022411055128
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055127
     m_Localized: ActionUp
     m_Metadata:
       m_Items: []
-  - m_Id: 15200668078825476
-    m_Localized: Pause
+  - m_Id: 18029022411055126
+    m_Localized: ActionRight
     m_Metadata:
       m_Items: []
-  - m_Id: 15232485444018176
-    m_Localized: Creuser / Confirmer
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15232485448212480
+  - m_Id: 18029022411055125
     m_Localized: Sauter / Annuler
     m_Metadata:
       m_Items: []
-  - m_Id: 15233073539964928
+  - m_Id: 18029022411055124
+    m_Localized: Creuser / Confirmer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055123
     m_Localized: Movement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055122
+    m_Localized: Movement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055121
+    m_Localized: Congratulations you reached the end of the game!\n\nUnfortunately
+      we didn't have enough time to replace this text with the final one so all you
+      are getting is this rubbish ending...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055120
+    m_Localized: Hello there, this is the introduction to the game. It should explain
+      the lore and some of what is going on.\n\nIf you are reading this text, this
+      means we didn't replace the placeholder, sorry!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055119
+    m_Localized: Retour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055118
+    m_Localized: "Cr\xE9dits"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055117
+    m_Localized: Langue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055116
+    m_Localized: "Merci d'avoir jou\xE9!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055115
+    m_Localized: "Cr\xE9\xE9 par"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055114
+    m_Localized: "S\xE9lection niveau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055113
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055112
+    m_Localized: "R\xE9solution"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055111
+    m_Localized: "Plein \xE9cran"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055110
+    m_Localized: Volume musique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055109
+    m_Localized: Volume sonore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055108
+    m_Localized: Volume principal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055107
+    m_Localized: Continuer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055106
+    m_Localized: Commencer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055105
+    m_Localized: Options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18029022411055104
+    m_Localized: Quitter
     m_Metadata:
       m_Items: []
   references:

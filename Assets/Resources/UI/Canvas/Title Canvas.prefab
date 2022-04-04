@@ -295,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574256695883982305, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
-      value:
+      value: 
       objectReference: {fileID: 8518005193049658918}
     - target: {fileID: 6574256695883982305, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Navigation.m_WrapAround
@@ -303,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574256695883982305, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
-      value:
+      value: 
       objectReference: {fileID: 6725228423291252137}
     - target: {fileID: 6574256695883982306, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Pivot.x
@@ -458,7 +458,7 @@ MonoBehaviour:
           m_TableReference:
             m_TableCollectionName: GUID:b290e49b81a464c3dac81c3936fc860c
           m_TableEntryReference:
-            m_KeyId: 182308560896
+            m_KeyId: 18029022411055105
             m_Key: 
           m_FallbackState: 0
           m_WaitForCompletion: 0
@@ -481,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574256695883982305, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
-      value:
+      value: 
       objectReference: {fileID: 6493999780043467348}
     - target: {fileID: 6574256695883982305, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Navigation.m_WrapAround
@@ -489,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574256695883982305, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
-      value:
+      value: 
       objectReference: {fileID: 8518005194060401603}
     - target: {fileID: 6574256695883982306, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Pivot.x
@@ -599,8 +599,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6020361621883946176 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6189110013056699528, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
@@ -648,7 +648,7 @@ MonoBehaviour:
           m_TableReference:
             m_TableCollectionName: GUID:b290e49b81a464c3dac81c3936fc860c
           m_TableEntryReference:
-            m_KeyId: 13795832351416320
+            m_KeyId: 18029022411055118
             m_Key: 
           m_FallbackState: 0
           m_WaitForCompletion: 0
@@ -785,8 +785,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8714001243426750287 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6189110013056699528, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
@@ -834,7 +834,7 @@ MonoBehaviour:
           m_TableReference:
             m_TableCollectionName: GUID:b290e49b81a464c3dac81c3936fc860c
           m_TableEntryReference:
-            m_KeyId: 182308560897
+            m_KeyId: 18029022411055106
             m_Key: 
           m_FallbackState: 0
           m_WaitForCompletion: 0
@@ -857,7 +857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574256695883982305, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
-      value:
+      value: 
       objectReference: {fileID: 6725228423291252137}
     - target: {fileID: 6574256695883982305, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Navigation.m_WrapAround
@@ -865,7 +865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574256695883982305, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
-      value:
+      value: 
       objectReference: {fileID: 8518005193049658918}
     - target: {fileID: 6574256695883982306, guid: e8047d3628dec0f4aa9cc7f851d2ef9c, type: 3}
       propertyPath: m_Pivot.x
@@ -1020,7 +1020,7 @@ MonoBehaviour:
           m_TableReference:
             m_TableCollectionName: GUID:b290e49b81a464c3dac81c3936fc860c
           m_TableEntryReference:
-            m_KeyId: 182295977984
+            m_KeyId: 18029022411055104
             m_Key: 
           m_FallbackState: 0
           m_WaitForCompletion: 0

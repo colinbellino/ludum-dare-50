@@ -117,14 +117,14 @@ namespace Game.Core.StateMachines.Game
 
 		private async void StartGame()
 		{
-			await GameManager.Game.UI.HideTitle();
 			await GameManager.Game.UI.FadeIn(Color.black);
+			await GameManager.Game.UI.HideTitle(0);
+			await GameManager.Game.OptionsUI.Hide(0);
 
 			if (GameManager.Game.State.PlayerSaveData.ClearedLevels.Count == 0)
 			{
 				GameManager.Game.State.CurrentLevelIndex = 0;
-				GameManager.Game.State.TitleMusic.stop(STOP_MODE.ALLOWFADEOUT);
-				FSM.Fire(GameFSM.Triggers.LevelSelected);
+				FSM.Fire(GameFSM.Triggers.StartGame);
 
 				return;
 			}

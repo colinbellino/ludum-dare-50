@@ -27,7 +27,7 @@ namespace Game.Core
 		public EventReference SoundMenuConfirm;
 		public EventReference MusicTitle;
 		public EventReference MusicMain;
-		public EventReference Footsteps;
+		public EventReference PlayerFootsteps;
 		public EventReference HeartBeat;
 		public EventReference PlayerDash;
 		public EventReference PlayerDeath;
@@ -39,6 +39,7 @@ namespace Game.Core
 		public EventReference VillagerEnemyMovement;
 		public EventReference PriestEnemyAttack;
 		public EventReference StageClear;
+		public EventReference PlayerHeal;
 
 		public static Vector3 ROOM_SIZE = new Vector2(15, 9);
 	}

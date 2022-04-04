@@ -79,6 +79,7 @@ public class PlayerHealth : Game.Core.Health
 	{
 		_ = Utils.Shake(0.1f, 100);
 		GameObject.Instantiate(healEffect, transform.position, Quaternion.identity, transform);
+		AudioHelpers.PlayOneShot(GameManager.Game.Config.PlayerHeal);
 		if (currentHP + healAmount > maxHP) {
 			setCurrentHP(maxHP);
 		} else {

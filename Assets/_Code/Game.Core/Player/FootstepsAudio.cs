@@ -35,6 +35,6 @@ public class FootstepsAudio : MonoBehaviour
     private void CallFootsteps ()
     {
         if (isMoving && !playerController.getIsDashing())
-            AudioHelpers.PlayOneShot(GameManager.Game.Config.Footsteps, transform.position);
+            AudioHelpers.PlayOneShot(GameManager.Game.Config.PlayerFootsteps, transform.position);
     }
 }

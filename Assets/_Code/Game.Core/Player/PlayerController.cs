@@ -21,6 +21,7 @@ namespace Game.Core
 		[SerializeField] private float yDashSpeed;
 		[SerializeField] private float dashCooldown;
 		[SerializeField] private float dashDuration;
+		[SerializeField] private GameObject _dustParticle;
 
 		private float dashCounter;
 		private bool isDashing;
@@ -34,6 +35,7 @@ namespace Game.Core
 		private string animWalk = "vampire_animations_Walk";
 		private string animDeath = "vampire_animations_Death";
 		private bool _deathAnimDone;
+		private float _dustTimestamp;
 
 		public float DashProgress => 1 - (dashCounter / dashCooldown);
 		public bool IsFullyDead => _deathAnimDone;
@@ -78,6 +80,12 @@ namespace Game.Core
 			{
 				entitiesCollider.enabled = true;
 				rawMovementInput = GameManager.Game.Controls.Gameplay.Move.ReadValue<Vector2>();
+			}
+
+			if (rawMovementInput.magnitude > 0 && Time.time >= _dustTimestamp)
+			{
+				GameObject.Instantiate(_dustParticle, transform.position + new Vector3(0, -0.55f), Quaternion.identity);
+				_dustTimestamp = Time.time + 0.2f;
 			}
 
 			if (dashCounter > 0)

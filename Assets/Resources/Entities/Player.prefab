@@ -468,6 +468,7 @@ MonoBehaviour:
   yDashSpeed: 8
   dashCooldown: 1.5
   dashDuration: 0.3
+  _dustParticle: {fileID: 2731800061027498836, guid: fc4da6fd08dc0144ab7ddecf69772cab, type: 3}
 --- !u!114 &1105023908
 MonoBehaviour:
   m_ObjectHideFlags: 0

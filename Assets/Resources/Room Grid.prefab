@@ -517,6 +517,7 @@ GameObject:
   - component: {fileID: 7340389037892063329}
   - component: {fileID: 7340389037892063343}
   - component: {fileID: 7340389037892063342}
+  - component: {fileID: 1894248192916720957}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -2278,6 +2279,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &1894248192916720957
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7340389037892063328}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &7340389038306149094
 GameObject:
   m_ObjectHideFlags: 0

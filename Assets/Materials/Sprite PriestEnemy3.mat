@@ -65,7 +65,7 @@ Material:
     - OriginalColor8: {r: 1, g: 1, b: 1, a: 0}
     - ReplacementColor1: {r: 0.843, g: 0.353, b: 0.353, a: 1}
     - ReplacementColor2: {r: 0.604, g: 0.192, b: 0.294, a: 1}
-    - ReplacementColor3: {r: 0.9333334, g: 0.7137255, b: 0.3254902, a: 1}
+    - ReplacementColor3: {r: 0.9529412, g: 0.8352941, b: 0.50980395, a: 1}
     - ReplacementColor4: {r: 0.937, g: 0.643, b: 0.259, a: 1}
     - ReplacementColor5: {r: 1, g: 1, b: 1, a: 0}
     - ReplacementColor6: {r: 1, g: 1, b: 1, a: 0}

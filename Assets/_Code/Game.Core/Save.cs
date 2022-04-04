@@ -23,6 +23,7 @@ namespace Game.Core
 				ResolutionHeight = Screen.currentResolution.height,
 				ResolutionRefreshRate = Screen.currentResolution.refreshRate,
 				LocaleCode = LocalizationSettings.SelectedLocale.Identifier.Code,
+				Screenshake = true,
 			};
 
 			if (Utils.IsWebGL())

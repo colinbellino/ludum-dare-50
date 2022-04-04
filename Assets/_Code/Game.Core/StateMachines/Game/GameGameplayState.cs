@@ -19,6 +19,8 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.State.Player = player;
 			GameManager.Game.State.Level.CurrentRoom.Explored = true;
 
+			GameManager.Game.CameraRig.transform.position = LevelHelpers.GetRoomCenter(GameManager.Game.State.Level.CurrentRoom);
+
 			GameManager.Game.GameplayUI.SetHealth(GameManager.Game.State.Player.Health.currentHP, GameManager.Game.State.Player.Health.getMaxHP());
 			GameManager.Game.GameplayUI.SetMiniMap(GameManager.Game.State.Level);
 			_ = GameManager.Game.GameplayUI.Show();
@@ -148,7 +150,7 @@ namespace Game.Core.StateMachines.Game
 					{
 						LevelHelpers.TransitionToRoom(level, nextRoom);
 						GameManager.Game.GameplayUI.SetMiniMap(level, allEnemiesAreDead);
-						var destination = LevelHelpers.GetRoomOrigin(level.CurrentRoom);
+						var destination = LevelHelpers.GetRoomCenter(level.CurrentRoom);
 						GameManager.Game.CameraRig.transform.DOMove(destination, 0.3f);
 					}
 				}

@@ -46,6 +46,8 @@ namespace Game.Core
 		public int ResolutionWidth;
 		public int ResolutionHeight;
 		public int ResolutionRefreshRate;
+
+		public bool Screenshake;
 	}
 
 	[Serializable]

@@ -8,9 +8,10 @@ namespace Game.Core
 		private Rigidbody2D playerRB;
 		private SpriteRenderer playerSR;
 		private Animator playerAnimator;
-		[SerializeField] private CapsuleCollider2D entitiesCollider;
-		public PlayerHealth Health;
+		private AfterImage afterImage;
+		[HideInInspector] public PlayerHealth Health;
 
+		[SerializeField] private CapsuleCollider2D entitiesCollider;
 		[SerializeField] private float xMoveSpeed;
 		[SerializeField] private float yMoveSpeed;
 		[SerializeField] private float diagonalXMoveSpeed;
@@ -38,6 +39,7 @@ namespace Game.Core
 			playerSR = GetComponentInChildren<SpriteRenderer>();
 			playerAnimator = GetComponentInChildren<Animator>();
 			Health = GetComponent<PlayerHealth>();
+			afterImage = playerSR.GetComponent<AfterImage>();
 			ChangeAnimationState(animIdle);
 		}
 
@@ -59,6 +61,7 @@ namespace Game.Core
 				if (dashCooldown - dashCounter > dashDuration)
 				{
 					isDashing = false;
+					afterImage.Activate(false);
 				}
 			}
 			else
@@ -126,6 +129,7 @@ namespace Game.Core
 				isDashing = true;
 				dashCounter = dashCooldown;
 				AudioHelpers.PlayOneShot(GameManager.Game.Config.PlayerDash, transform.position);
+				afterImage.Activate(true);
 			}
 		}
 

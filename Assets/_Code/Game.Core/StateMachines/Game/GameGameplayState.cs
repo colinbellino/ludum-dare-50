@@ -155,7 +155,9 @@ namespace Game.Core.StateMachines.Game
 					}
 				}
 
-				if (level.CurrentRoom == level.StartRoom && allEnemiesAreDead)
+				var bedBounds = new Bounds(LevelHelpers.GetRoomOrigin(level.StartRoom) + new Vector3(5, 5), new Vector3(3, 5, 1));
+				var isNearBed = bedBounds.Contains(player.transform.position);
+				if (level.CurrentRoom == level.StartRoom && allEnemiesAreDead && isNearBed)
 				{
 					NextLevel();
 					return;

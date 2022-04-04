@@ -12,6 +12,7 @@ public class EnemyHealth : Game.Core.Health
 			entityAnimator.SetBool("isDead", true);
 		} else {
 			entityAnimator.SetBool("isDead", false);
+			currentHP = maxHP;
 		}
 	}
 

@@ -137,30 +137,30 @@ namespace Game.Core.StateMachines.Game
 						}
 					}
 				}
-
-				var roomCenter = LevelHelpers.GetRoomCenter(level.CurrentRoom);
-				var roomBounds = new Bounds(roomCenter, GameConfig.ROOM_SIZE);
-				if (roomBounds.Contains(player.transform.position) == false)
-				{
-					var direction = Utils.SnapTo(player.transform.position - roomCenter, 90f);
-					direction.y = -direction.y; // Reverse the Y axis because unity's is bottom > top and ours is top > bottom
-
-					var nextRoom = LevelHelpers.GetRoomInDirection(direction, level);
-					if (nextRoom != null)
-					{
-						LevelHelpers.TransitionToRoom(level, nextRoom);
-						GameManager.Game.GameplayUI.SetMiniMap(level, allEnemiesAreDead);
-						var destination = LevelHelpers.GetRoomCenter(level.CurrentRoom);
-						GameManager.Game.CameraRig.transform.DOMove(destination, 0.3f);
-					}
-				}
-
-				var bedBounds = new Bounds(LevelHelpers.GetRoomOrigin(level.StartRoom) + new Vector3(5, 5), new Vector3(3, 5, 1));
-				var isNearBed = bedBounds.Contains(player.transform.position);
-				if (level.CurrentRoom == level.StartRoom && allEnemiesAreDead && isNearBed)
+				if (allEnemiesAreDead)
 				{
 					NextLevel();
 					return;
+				}
+
+				// Room transitions
+				{
+					var roomCenter = LevelHelpers.GetRoomCenter(level.CurrentRoom);
+					var roomBounds = new Bounds(roomCenter, GameConfig.ROOM_SIZE);
+					if (roomBounds.Contains(player.transform.position) == false)
+					{
+						var direction = Utils.SnapTo(player.transform.position - roomCenter, 90f);
+						direction.y = -direction.y; // Reverse the Y axis because unity's is bottom > top and ours is top > bottom
+
+						var nextRoom = LevelHelpers.GetRoomInDirection(direction, level);
+						if (nextRoom != null)
+						{
+							LevelHelpers.TransitionToRoom(level, nextRoom);
+							GameManager.Game.GameplayUI.SetMiniMap(level, allEnemiesAreDead);
+							var destination = LevelHelpers.GetRoomCenter(level.CurrentRoom);
+							GameManager.Game.CameraRig.transform.DOMove(destination, 0.3f);
+						}
+					}
 				}
 
 				GameManager.Game.GameplayUI.SetDash(player.DashProgress);
@@ -218,14 +218,16 @@ namespace Game.Core.StateMachines.Game
 			FSM.Fire(GameFSM.Triggers.Won);
 		}
 
-		private void NextLevel()
+		private async void NextLevel()
 		{
+			GameManager.Game.State.Running = false;
 			GameManager.Game.State.PlayerSaveData.ClearedLevels.Add(GameManager.Game.State.CurrentLevelIndex);
 			Save.SavePlayerSaveData(GameManager.Game.State.PlayerSaveData);
-
 			GameManager.Game.State.CurrentLevelIndex += 1;
 
 			AudioHelpers.PlayOneShot(GameManager.Game.Config.StageClear);
+
+			await UniTask.Delay(1000);
 
 			if (GameManager.Game.State.CurrentLevelIndex >= GameManager.Game.Config.Levels.Length)
 			{

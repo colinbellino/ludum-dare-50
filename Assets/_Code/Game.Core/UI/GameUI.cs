@@ -163,7 +163,7 @@ namespace Game.Core
 			if (_fadeTweener != null)
 			{
 				_fadeToBlackImage.color = _fadeTweener.endValue;
-				_fadeTweener.Kill(false);
+				_fadeTweener.Kill(true);
 			}
 			_fadeTweener = _fadeToBlackImage.DOColor(color, duration / GameManager.Game.State.TimeScaleCurrent);
 			await _fadeTweener;

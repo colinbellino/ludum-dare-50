@@ -7,9 +7,11 @@ namespace Game.Core.StateMachines.Game
 	public class GameSelectLevelState : IState
 	{
 		public GameFSM FSM;
+		private bool _loading;
 
 		public async UniTask Enter()
 		{
+			_loading = false;
 			await GameManager.Game.UI.ShowLevelSelection(0);
 			for (int i = 0; i < GameManager.Game.UI.LevelButtons.Length; i++)
 			{
@@ -47,6 +49,10 @@ namespace Game.Core.StateMachines.Game
 
 		private async void LoadLevel(int levelIndex)
 		{
+			if (_loading)
+				return;
+
+			_loading = true;
 			Debug.Log($"Loading level {levelIndex}.");
 			GameManager.Game.State.CurrentLevelIndex = levelIndex;
 			GameManager.Game.State.TitleMusic.stop(STOP_MODE.ALLOWFADEOUT);

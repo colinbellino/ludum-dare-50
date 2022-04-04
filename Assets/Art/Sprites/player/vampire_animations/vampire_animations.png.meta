@@ -41,6 +41,30 @@ TextureImporter:
   - first:
       213: -7450269986129610490
     second: vampire_animations12
+  - first:
+      213: -8588575709684587412
+    second: vampire_animations13
+  - first:
+      213: -7716781470963786242
+    second: vampire_animations14
+  - first:
+      213: 8865512247900333281
+    second: vampire_animations15
+  - first:
+      213: 8447616602368070831
+    second: vampire_animations16
+  - first:
+      213: -5531669660929682155
+    second: vampire_animations17
+  - first:
+      213: 1408503710726806347
+    second: vampire_animations18
+  - first:
+      213: -3632660372928695455
+    second: vampire_animations19
+  - first:
+      213: -5186084509482252018
+    second: vampire_animations20
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,7 +146,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 199
+        y: 265
         width: 64
         height: 64
       alignment: 0
@@ -143,7 +167,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 67
-        y: 199
+        y: 265
         width: 64
         height: 64
       alignment: 0
@@ -164,7 +188,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 133
-        y: 199
+        y: 265
         width: 64
         height: 64
       alignment: 0
@@ -185,7 +209,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 199
-        y: 199
+        y: 265
         width: 64
         height: 64
       alignment: 0
@@ -205,8 +229,8 @@ TextureImporter:
       name: vampire_animations04
       rect:
         serializedVersion: 2
-        x: 1
-        y: 133
+        x: 265
+        y: 265
         width: 64
         height: 64
       alignment: 0
@@ -226,8 +250,8 @@ TextureImporter:
       name: vampire_animations05
       rect:
         serializedVersion: 2
-        x: 67
-        y: 133
+        x: 1
+        y: 199
         width: 64
         height: 64
       alignment: 0
@@ -247,8 +271,8 @@ TextureImporter:
       name: vampire_animations06
       rect:
         serializedVersion: 2
-        x: 133
-        y: 133
+        x: 67
+        y: 199
         width: 64
         height: 64
       alignment: 0
@@ -268,8 +292,8 @@ TextureImporter:
       name: vampire_animations07
       rect:
         serializedVersion: 2
-        x: 199
-        y: 133
+        x: 133
+        y: 199
         width: 64
         height: 64
       alignment: 0
@@ -289,8 +313,8 @@ TextureImporter:
       name: vampire_animations08
       rect:
         serializedVersion: 2
-        x: 1
-        y: 67
+        x: 199
+        y: 199
         width: 64
         height: 64
       alignment: 0
@@ -310,8 +334,8 @@ TextureImporter:
       name: vampire_animations09
       rect:
         serializedVersion: 2
-        x: 67
-        y: 67
+        x: 265
+        y: 199
         width: 64
         height: 64
       alignment: 0
@@ -331,8 +355,8 @@ TextureImporter:
       name: vampire_animations10
       rect:
         serializedVersion: 2
-        x: 133
-        y: 67
+        x: 1
+        y: 133
         width: 64
         height: 64
       alignment: 0
@@ -352,8 +376,8 @@ TextureImporter:
       name: vampire_animations11
       rect:
         serializedVersion: 2
-        x: 199
-        y: 67
+        x: 67
+        y: 133
         width: 64
         height: 64
       alignment: 0
@@ -373,8 +397,8 @@ TextureImporter:
       name: vampire_animations12
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
+        x: 133
+        y: 133
         width: 64
         height: 64
       alignment: 0
@@ -386,6 +410,174 @@ TextureImporter:
       bones: []
       spriteID: 6097dfbbbe25b9890800000000000000
       internalID: -7450269986129610490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_animations13
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 133
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c64a3b175ef3fc880800000000000000
+      internalID: -8588575709684587412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_animations14
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 133
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd13ed232c78e490800000000000000
+      internalID: -7716781470963786242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_animations15
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 67
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e469fffa60a80b70800000000000000
+      internalID: 8865512247900333281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_animations16
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 67
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa457deda86fb3570800000000000000
+      internalID: 8447616602368070831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_animations17
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 67
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5151b7d50cf8b33b0800000000000000
+      internalID: -5531669660929682155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_animations18
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 67
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4bd0be89a20c8310800000000000000
+      internalID: 1408503710726806347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_animations19
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 67
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16372f133a2369dc0800000000000000
+      internalID: -3632660372928695455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_animations20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e09872d9d935708b0800000000000000
+      internalID: -5186084509482252018
       vertices: []
       indices: 
       edges: []

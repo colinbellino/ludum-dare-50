@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 4542784427072963798}
   - component: {fileID: 1105023908}
   - component: {fileID: 3949033744907378487}
+  - component: {fileID: 683398430722616831}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -458,8 +459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bc246b852a36b44be2fbfcfe8ac18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entitiesCollider: {fileID: 8212916750469526113}
   Health: {fileID: 0}
+  entitiesCollider: {fileID: 8212916750469526113}
   xMoveSpeed: 3
   yMoveSpeed: 3
   diagonalXMoveSpeed: 3.5
@@ -501,3 +502,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footStepSpeed: 0.4
+--- !u!114 &683398430722616831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110341559196710137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caa34a526c050243b29f21524fc2ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 8279774261553751465}
+  SpriteRenderer: {fileID: 5379409492510644434}
+  SpawnPosition: {x: 0, y: 0, z: 0}
+  Ready: 0

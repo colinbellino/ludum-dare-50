@@ -1,3 +1,5 @@
+using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,8 +32,11 @@ namespace Game.Core
 		private string animIdle = "vampire_animations_Idle";
 		private string animDash = "vampire_animations_Dash";
 		private string animWalk = "vampire_animations_Walk";
+		private string animDeath = "vampire_animations_Death";
+		private bool _deathAnimDone;
 
 		public bool CanDash => dashCounter <= 0;
+		public bool IsFullyDead => _deathAnimDone;
 
 		void Awake()
 		{
@@ -46,15 +51,20 @@ namespace Game.Core
 		void OnEnable()
 		{
 			GameManager.Game.Controls.Gameplay.Dash.performed += GetDashInput;
+			Health.CurrentHPChanged += OnCurrentHPChanged;
 		}
 
 		void OnDisable()
 		{
 			GameManager.Game.Controls.Gameplay.Dash.performed -= GetDashInput;
+			Health.CurrentHPChanged -= OnCurrentHPChanged;
 		}
 
 		void Update()
 		{
+			if (Health.getDead())
+				return;
+
 			if (isDashing)
 			{
 				entitiesCollider.enabled = false;
@@ -80,6 +90,9 @@ namespace Game.Core
 
 		void FixedUpdate()
 		{
+			if (Health.getDead())
+				return;
+
 			if (isDashing)
 			{
 				ChangeAnimationState(animDash);
@@ -172,10 +185,12 @@ namespace Game.Core
 			}
 		}
 
-		void OnTriggerStay2D(Collider2D col) {
+		void OnTriggerStay2D(Collider2D col)
+		{
 			GameObject collidedWith = col.gameObject;
 
-			if (collidedWith.tag == "enemy" || collidedWith.tag == "enemyWeapon") {
+			if (collidedWith.tag == "enemy" || collidedWith.tag == "enemyWeapon")
+			{
 				EnemyHealth enemyHealth;
 				if (collidedWith.tag == "enemy")
 				{
@@ -186,13 +201,27 @@ namespace Game.Core
 					enemyHealth = collidedWith.GetComponentInParent<EnemyHealth>();
 				}
 
-				if (!isDashing && !enemyHealth.getDead()) {
+				if (!isDashing && !enemyHealth.getDead())
+				{
 					Health.DealDamage(enemyHealth.GetDamageToPlayer(), collidedWith.transform.position);
 				}
 			}
 		}
 
-		public bool getIsDashing() {
+		private async void OnCurrentHPChanged(int current, int max)
+		{
+			if (current <= 0)
+			{
+				GetComponentInChildren<PlayerProjectile>().gameObject.SetActive(false);
+				playerRB.bodyType = RigidbodyType2D.Static;
+				ChangeAnimationState(animDeath);
+				await UniTask.Delay(1500);
+				_deathAnimDone = true;
+			}
+		}
+
+		public bool getIsDashing()
+		{
 			return isDashing;
 		}
 	}

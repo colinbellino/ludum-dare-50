@@ -163,7 +163,7 @@ namespace Game.Core.StateMachines.Game
 
 				GameManager.Game.GameplayUI.SetDash(player.CanDash);
 
-				if (player.Health.currentHP <= 0)
+				if (player.IsFullyDead)
 				{
 					UnityEngine.Debug.Log("The player died, restarting the level.");
 					FSM.Fire(GameFSM.Triggers.Retry);

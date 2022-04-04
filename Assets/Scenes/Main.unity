@@ -1241,14 +1241,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1386148406, guid: 672c12d358b57c4429616e0894e29182, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1386148409, guid: 672c12d358b57c4429616e0894e29182, type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 4.21875
-      objectReference: {fileID: 0}
     - target: {fileID: 1895369876408187346, guid: 672c12d358b57c4429616e0894e29182, type: 3}
       propertyPath: m_Name
       value: Camera Rig
@@ -1296,38 +1288,6 @@ PrefabInstance:
     - target: {fileID: 1895369876408187347, guid: 672c12d358b57c4429616e0894e29182, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895369877259124256, guid: 672c12d358b57c4429616e0894e29182, type: 3}
-      propertyPath: orthographic size
-      value: 4.21875
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895369877259124256, guid: 672c12d358b57c4429616e0894e29182, type: 3}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895369877259124256, guid: 672c12d358b57c4429616e0894e29182, type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895369877259124256, guid: 672c12d358b57c4429616e0894e29182, type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895369877259124256, guid: 672c12d358b57c4429616e0894e29182, type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895369877259124257, guid: 672c12d358b57c4429616e0894e29182, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895369877259124257, guid: 672c12d358b57c4429616e0894e29182, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895369877259124257, guid: 672c12d358b57c4429616e0894e29182, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -110
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 672c12d358b57c4429616e0894e29182, type: 3}

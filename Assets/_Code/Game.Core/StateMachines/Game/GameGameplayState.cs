@@ -161,7 +161,7 @@ namespace Game.Core.StateMachines.Game
 					return;
 				}
 
-				GameManager.Game.GameplayUI.SetDash(player.CanDash);
+				GameManager.Game.GameplayUI.SetDash(player.DashProgress);
 
 				if (player.IsFullyDead)
 				{

@@ -14,7 +14,7 @@ namespace Game.Core
 		[SerializeField] private TMPro.TMP_Text _healthText;
 		[SerializeField] private RectTransform _healthCurrentFill;
 		[SerializeField] private RectTransform _healthTempFill;
-		[SerializeField] private RectTransform _dashIcon;
+		[SerializeField] private RectTransform _dashCurrentFill;
 		[SerializeField] private RectTransform[] _mapRooms;
 		[SerializeField] private GridLayoutGroup _mapGridLayoutGroup;
 		[SerializeField] private Color _mapColorDefault = Color.white;
@@ -26,6 +26,7 @@ namespace Game.Core
 		private float _tempHealthDefaultWidth;
 		private float _previousCurrentHealth;
 		private float _tempHealth;
+		private float _currentDashDefaultWidth;
 		private TweenerCore<float, float, FloatOptions> _tempHealthTween;
 
 		public bool IsOpened => _root.activeSelf;
@@ -34,6 +35,7 @@ namespace Game.Core
 		{
 			_currentHealthDefaultWidth = _healthCurrentFill.sizeDelta.x;
 			_tempHealthDefaultWidth = _healthTempFill.sizeDelta.x;
+			_currentDashDefaultWidth = _dashCurrentFill.sizeDelta.x;
 			await Hide();
 		}
 
@@ -81,9 +83,11 @@ namespace Game.Core
 			_previousCurrentHealth = current;
 		}
 
-		public void SetDash(bool value)
+		public void SetDash(float value)
 		{
-			_dashIcon.gameObject.SetActive(value);
+			UnityEngine.Debug.Log("dash progress: " + value);
+			// _dashIcon.gameObject.SetActive(value);
+			_dashCurrentFill.sizeDelta = new Vector2(value * _currentDashDefaultWidth, _dashCurrentFill.sizeDelta.y);
 		}
 
 		public void SetMiniMap(Level level, bool mustReturnToStart = false)

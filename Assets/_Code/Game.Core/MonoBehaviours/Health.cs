@@ -28,11 +28,6 @@ namespace Game.Core
 
 		protected virtual void Update()
 		{
-			if (currentHP <= 0 && !dead)
-			{
-				Death();
-			}
-
 			if (knockbackCounter > 0) {
 				knockbackCounter -= Time.deltaTime;
 			}
@@ -54,6 +49,11 @@ namespace Game.Core
 		{
 			this.currentHP = value;
 			CurrentHPChanged?.Invoke(currentHP, maxHP);
+
+			if (currentHP <= 0 && !dead)
+			{
+				Death();
+			}
 		}
 
 		public float getKnockbackCounter() {

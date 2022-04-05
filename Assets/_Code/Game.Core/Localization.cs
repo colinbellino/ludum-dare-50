@@ -1,9 +1,11 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 using UnityEngine.Localization.PropertyVariants;
 using UnityEngine.Localization.PropertyVariants.TrackedObjects;
 using UnityEngine.Localization.PropertyVariants.TrackedProperties;
+using UnityEngine.UI;
 
 namespace Game.Core
 {

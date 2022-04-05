@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BatProjectile: MonoBehaviour {
 	[SerializeField] private float projectileSpeed;
+	[SerializeField] private int damage = 1;
 	private SpriteRenderer batSR;
 
 	void Awake() {
@@ -20,7 +21,7 @@ public class BatProjectile: MonoBehaviour {
 			case "enemy": {
 				EnemyHealth enemyHealth = collidedWith.GetComponent<EnemyHealth>();
 				if (!enemyHealth.getDead()) {
-					enemyHealth.DealDamage(1, transform.position);
+					enemyHealth.DealDamage(damage, transform.position);
 					Destroy(gameObject);
 				}
 				break;

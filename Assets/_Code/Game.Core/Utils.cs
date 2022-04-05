@@ -63,12 +63,12 @@ namespace Game.Core
 
 			var perlin = GameManager.Game.CameraRig.VirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 			perlin.m_AmplitudeGain = gain;
-			Gamepad.current?.SetMotorSpeeds(gain / 8f, gain / 4f);
+			// Gamepad.current?.SetMotorSpeeds(gain / 8f, gain / 4f);
 
 			await UniTask.Delay(duration);
 
 			perlin.m_AmplitudeGain = 0f;
-			Gamepad.current?.SetMotorSpeeds(0f, 0f);
+			// Gamepad.current?.SetMotorSpeeds(0f, 0f);
 		}
 	}
 }

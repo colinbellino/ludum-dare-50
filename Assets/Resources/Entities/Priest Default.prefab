@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 576502166389199057}
   - component: {fileID: 5448244702554264242}
   m_Layer: 7
-  m_Name: PriestEnemy
+  m_Name: Priest Default
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c410b879ab8cf645b0154afb8acaf30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   crossTransform: {fileID: 4544131490231852004}
   enemyBodySR: {fileID: 5464361165581572769}
   enemyProjectile: {fileID: 5940033198356247276, guid: 14009f51237d5b34ebc6148ca8ea8ea3, type: 3}
@@ -78,13 +78,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d38d8b7a3768994db31fd5081d2bcfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 3
+  m_Name:
+  m_EditorClassIdentifier:
+  maxHP: 4
   entitySR: {fileID: 5464361165581572769}
   knockbackForce: 0
   knockBackDuration: 0.08
-  drainHealthToPlayerAmt: 100
+  drainHealthToPlayerAmt: 120
   damageToPlayer: 100
   weaponSprite: {fileID: 6638068646888742924}
   onHitFlashMaterial: {fileID: 2100000, guid: 12073adac0496834ba50b9be9a08ed95, type: 2}
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6caa34a526c050243b29f21524fc2ec1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   Animator: {fileID: 1658806139272636812}
   SpriteRenderer: {fileID: 5464361165581572769}
   SpawnPosition: {x: 0, y: 0, z: 0}
@@ -203,7 +203,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0

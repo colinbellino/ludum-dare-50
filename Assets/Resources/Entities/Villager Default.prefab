@@ -98,7 +98,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 6996708168366771096}
   - component: {fileID: 2328713440049116463}
   m_Layer: 7
-  m_Name: VillagerEnemy
+  m_Name: Villager Default
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,13 +332,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d38d8b7a3768994db31fd5081d2bcfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 3
+  m_Name:
+  m_EditorClassIdentifier:
+  maxHP: 5
   entitySR: {fileID: 4589615320990034340}
   knockbackForce: 0.2
   knockBackDuration: 0.08
-  drainHealthToPlayerAmt: 100
+  drainHealthToPlayerAmt: 120
   damageToPlayer: 100
   weaponSprite: {fileID: 2608157427705317634}
   onHitFlashMaterial: {fileID: 2100000, guid: 12073adac0496834ba50b9be9a08ed95, type: 2}
@@ -353,8 +353,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98ddec31fb908d140a06e45ce12f90ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   enemyBodySR: {fileID: 4589615320990034340}
   pitchforkTransform: {fileID: 2460687971267832254}
   pitchforkSpriteRenderer: {fileID: 2608157427705317634}
@@ -369,8 +369,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6caa34a526c050243b29f21524fc2ec1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   Animator: {fileID: 2966598590157825588}
   SpriteRenderer: {fileID: 4589615320990034340}
   SpawnPosition: {x: 0, y: 0, z: 0}
@@ -401,8 +401,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41841a87bf13b7a428997a7803fc8164, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   footStepSpeed: 0.3
 --- !u!1 &5993354966422508966
 GameObject:

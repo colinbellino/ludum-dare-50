@@ -19,8 +19,8 @@ MonoBehaviour:
   Levels:
   - Level0
   - Level1
-  - Level1_old
-  - Level2_old
+  - Level2
+  - Level3
   - Level3_old
   TileToEntity:
     m_keys: []

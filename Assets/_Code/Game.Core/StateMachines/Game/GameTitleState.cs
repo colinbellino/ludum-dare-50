@@ -23,10 +23,11 @@ namespace Game.Core.StateMachines.Game
 
 			_ = GameManager.Game.UI.FadeIn(Color.clear);
 
-			if (GameManager.Game.State.PlayerSaveData.ClearedLevels.Count > 0)
-				Localization.SetTMPTextKey(GameManager.Game.UI.StartButton.gameObject, "UI/Continue");
-			else
-				Localization.SetTMPTextKey(GameManager.Game.UI.StartButton.gameObject, "UI/Start");
+			// UnityEngine.Debug.Log("FIXME:");
+			// if (GameManager.Game.State.PlayerSaveData.ClearedLevels.Count > 0)
+			// 	Localization.SetImageKey(GameManager.Game.UI.StartButton.gameObject, "UI/Continue");
+			// else
+			// 	Localization.SetImageKey(GameManager.Game.UI.StartButton.gameObject, "UI/Start");
 
 			await GameManager.Game.UI.ShowTitle();
 

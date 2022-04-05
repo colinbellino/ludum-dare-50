@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
+using System;
 
 namespace Game.Core
 {
@@ -24,6 +25,8 @@ namespace Game.Core
 		private List<Resolution> _resolutions;
 
 		public bool IsOpened => _optionsRoot.activeSelf;
+
+		public Action BackClicked;
 
 		public async UniTask Init()
 		{
@@ -63,7 +66,7 @@ namespace Game.Core
 				_languagesDropdown.template.gameObject.SetActive(false);
 				_languagesDropdown.onValueChanged.AddListener(OnLanguageChanged);
 			}
-			_backButton.onClick.AddListener(BackToTitle);
+			_backButton.onClick.AddListener(Back);
 			await Hide(0);
 		}
 
@@ -103,7 +106,7 @@ namespace Game.Core
 			// Quick hack so we trigger the cancel input again if we go back to the title in the same frame.
 			await UniTask.NextFrame();
 
-			BackToTitle();
+			Back();
 		}
 
 		private void SetGameVolume(float value)
@@ -152,10 +155,10 @@ namespace Game.Core
 			Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 		}
 
-		private async void BackToTitle()
+		private async void Back()
 		{
 			await Hide();
-			GameManager.Game.UI.SelectTitleOptionsGameObject();
+			BackClicked?.Invoke();
 		}
 	}
 }

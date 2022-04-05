@@ -40,6 +40,7 @@ namespace Game.Core
 		public EventReference PriestEnemyAttack;
 		public EventReference StageClear;
 		public EventReference PlayerHeal;
+		public EventReference BatProjectileExplode;
 
 		public static Vector3 ROOM_SIZE = new Vector2(15, 9);
 	}

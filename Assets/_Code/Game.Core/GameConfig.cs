@@ -27,6 +27,7 @@ namespace Game.Core
 		public EventReference SoundMenuConfirm;
 		public EventReference MusicTitle;
 		public EventReference MusicMain;
+		public EventReference MusicEnd;
 		public EventReference PlayerFootsteps;
 		public EventReference HeartBeat;
 		public EventReference PlayerDash;

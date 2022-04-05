@@ -28,7 +28,7 @@ namespace Game.Core.StateMachines.Game
 
 		public async UniTask Exit()
 		{
-			GameManager.Game.State.LevelMusic.stop(STOP_MODE.ALLOWFADEOUT);
+			GameManager.Game.State.EndMusic.stop(STOP_MODE.ALLOWFADEOUT);
 			await GameManager.Game.UI.FadeIn(Color.black);
 			await GameManager.Game.UI.HideCredits();
 		}

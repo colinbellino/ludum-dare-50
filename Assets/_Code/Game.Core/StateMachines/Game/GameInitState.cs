@@ -21,6 +21,7 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.State.Commit = await ReadStreamingAsset("/commit.txt");
 			GameManager.Game.State.TitleMusic = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.MusicTitle);
 			GameManager.Game.State.LevelMusic = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.MusicMain);
+			GameManager.Game.State.EndMusic = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.MusicEnd);
 			GameManager.Game.State.PauseSnapshot = FMODUnity.RuntimeManager.CreateInstance(GameManager.Game.Config.SnapshotPause);
 			GameManager.Game.State.TimeScaleCurrent = GameManager.Game.State.TimeScaleDefault = 1f;
 			GameManager.Game.State.Random = new Unity.Mathematics.Random();

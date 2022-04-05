@@ -62,6 +62,13 @@ MonoBehaviour:
       Data3: -1193336646
       Data4: 1375667818
     Path: event:/Music/Main Theme
+  MusicEnd:
+    Guid:
+      Data1: 85096655
+      Data2: 1107127056
+      Data3: -911619418
+      Data4: 1008509636
+    Path: event:/Music/End Screen Theme
   PlayerFootsteps:
     Guid:
       Data1: 1421367390

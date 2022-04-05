@@ -7,9 +7,12 @@ namespace Game.Core.StateMachines.Game
 	public class GameCreditsState : IState
 	{
 		public GameFSM FSM;
+		private float _readyTimestamp;
 
 		public async UniTask Enter()
 		{
+			_readyTimestamp = Time.time + 1f;
+
 			GameManager.Game.UI.SetDebugText("");
 
 			await GameManager.Game.UI.ShowCredits();
@@ -18,7 +21,7 @@ namespace Game.Core.StateMachines.Game
 
 		public void Tick()
 		{
-			if (GameManager.Game.Controls.Global.Cancel.WasPerformedThisFrame() || GameManager.Game.Controls.Global.Confirm.WasPerformedThisFrame())
+			if (Time.time >= _readyTimestamp && GameManager.Game.Controls.Global.Cancel.WasPerformedThisFrame() || GameManager.Game.Controls.Global.Confirm.WasPerformedThisFrame())
 			{
 				FSM.Fire(GameFSM.Triggers.Done);
 			}

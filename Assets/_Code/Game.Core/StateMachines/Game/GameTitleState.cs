@@ -17,6 +17,8 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.UI.CreditsButton.onClick.AddListener(StartCredits);
 			GameManager.Game.UI.QuitButton.onClick.AddListener(QuitGame);
 
+			_ = GameManager.Game.UI.HideCredits(0);
+
 			GameManager.Game.State.TitleMusic.getPlaybackState(out var state);
 			if (state != PLAYBACK_STATE.PLAYING)
 				GameManager.Game.State.TitleMusic.start();

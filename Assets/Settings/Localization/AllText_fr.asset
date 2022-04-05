@@ -59,9 +59,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18029022411055121
-    m_Localized: Congratulations you reached the end of the game!\n\nUnfortunately
-      we didn't have enough time to replace this text with the final one so all you
-      are getting is this rubbish ending...
+    m_Localized: "\u201CC'\xE9tait le dernier du tas!\u201D Larry ricane tout seul
+      en se remettant au lit.\\n\\n\u201CMaintenant, c'est l'heure de la sieste.
+      R\xE9veillez moi quand ces path\xE9tiques mortels auront le niveau bon sang.
+      Et merci beau-cou d'\xEAtre venu!"
     m_Metadata:
       m_Items: []
   - m_Id: 18029022411055120

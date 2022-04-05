@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using FMOD.Studio;
 
 namespace Game.Core.StateMachines.Game
 {
@@ -11,6 +12,10 @@ namespace Game.Core.StateMachines.Game
 		{
 			await GameManager.Game.UI.ShowEnding(0);
 			await GameManager.Game.UI.FadeIn(Color.clear);
+
+			GameManager.Game.State.EndMusic.getPlaybackState(out var state);
+			if (state != PLAYBACK_STATE.PLAYING)
+				GameManager.Game.State.EndMusic.start();
 		}
 
 		public void Tick()

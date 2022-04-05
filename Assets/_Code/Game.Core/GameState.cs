@@ -19,6 +19,7 @@ namespace Game.Core
 
 		public EventInstance TitleMusic;
 		public EventInstance LevelMusic;
+		public EventInstance EndMusic;
 		public EventInstance PauseSnapshot;
 
 		public int CurrentLevelIndex;

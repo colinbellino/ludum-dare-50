@@ -24,6 +24,7 @@ namespace Game.Core
 			_optionsButton.onClick.AddListener(OpenOptions);
 			_backButton.onClick.AddListener(BackToGame);
 			_quitButton.onClick.AddListener(QuitGame);
+			GameManager.Game.OptionsUI.BackClicked += OnOptionsBackClicked;
 
 			await Hide();
 		}
@@ -61,6 +62,11 @@ namespace Game.Core
 		private void BackToGame()
 		{
 			BackClicked?.Invoke();
+		}
+
+		private void OnOptionsBackClicked()
+		{
+			EventSystem.current.SetSelectedGameObject(_optionsButton.gameObject);
 		}
 	}
 }

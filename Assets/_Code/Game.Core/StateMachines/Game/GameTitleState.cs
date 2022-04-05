@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using FMOD.Studio;
@@ -16,6 +17,7 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.UI.OptionsButton.onClick.AddListener(ToggleOptions);
 			GameManager.Game.UI.CreditsButton.onClick.AddListener(StartCredits);
 			GameManager.Game.UI.QuitButton.onClick.AddListener(QuitGame);
+			GameManager.Game.OptionsUI.BackClicked += OnOptionsBackClicked;
 
 			_ = GameManager.Game.UI.HideCredits(0);
 
@@ -103,6 +105,7 @@ namespace Game.Core.StateMachines.Game
 			GameManager.Game.UI.OptionsButton.onClick.RemoveListener(ToggleOptions);
 			GameManager.Game.UI.CreditsButton.onClick.RemoveListener(StartCredits);
 			GameManager.Game.UI.QuitButton.onClick.RemoveListener(QuitGame);
+			GameManager.Game.OptionsUI.BackClicked -= OnOptionsBackClicked;
 
 			return default;
 		}
@@ -151,6 +154,11 @@ namespace Game.Core.StateMachines.Game
 		private void QuitGame()
 		{
 			FSM.Fire(GameFSM.Triggers.Quit);
+		}
+
+		private void OnOptionsBackClicked()
+		{
+			GameManager.Game.UI.SelectTitleOptionsGameObject();
 		}
 	}
 }

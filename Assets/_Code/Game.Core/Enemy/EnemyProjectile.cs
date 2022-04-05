@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.Core;
 
 public class EnemyProjectile: MonoBehaviour {
 	[SerializeField] private float projectileSpeed;
@@ -20,8 +21,10 @@ public class EnemyProjectile: MonoBehaviour {
 
 		switch (collidedWith.tag) {
 			case "Player": {
-				collidedWith.GetComponent<PlayerHealth>().DealDamage(projectileDamage, transform.position);
-				Destroy(gameObject);
+				if (!collidedWith.GetComponent<PlayerController>().getIsDashing()) {
+					collidedWith.GetComponent<PlayerHealth>().DealDamage(projectileDamage, transform.position);
+					Destroy(gameObject);
+				}
 				break;
 			}
 			case "wall": {

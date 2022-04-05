@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.Core;
 
 public class BatProjectile: MonoBehaviour {
 	[SerializeField] private float projectileSpeed;
@@ -22,15 +23,18 @@ public class BatProjectile: MonoBehaviour {
 				EnemyHealth enemyHealth = collidedWith.GetComponent<EnemyHealth>();
 				if (!enemyHealth.getDead()) {
 					enemyHealth.DealDamage(damage, transform.position);
+
 					Destroy(gameObject);
 				}
 				break;
 			}
 			case "wall": {
+				AudioHelpers.PlayOneShot(GameManager.Game.Config.BatProjectileExplode, transform.position);
 				Destroy(gameObject);
 				break;
 			}
 			case "props": {
+				AudioHelpers.PlayOneShot(GameManager.Game.Config.BatProjectileExplode, transform.position);
 				Destroy(gameObject);
 				break;
 			}

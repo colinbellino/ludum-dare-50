@@ -153,3 +153,10 @@ MonoBehaviour:
       Data3: 2116642460
       Data4: 1582691520
     Path: event:/SFX/Player/Player Health Gain
+  BatProjectileExplode:
+    Guid:
+      Data1: -882502492
+      Data2: 1245571458
+      Data3: -2108123225
+      Data4: -1985118984
+    Path: event:/SFX/Enemy/Enemy Projectile Explosion

@@ -18,6 +18,7 @@ namespace Game.Core
 		[SerializeField] private Slider _soundVolumeSlider;
 		[SerializeField] private Slider _musicVolumeSlider;
 		[SerializeField] private Toggle _fullscreenToggle;
+		[SerializeField] private Toggle _assistToggle;
 		[SerializeField] private TMP_Dropdown _resolutionsDropdown;
 		[SerializeField] private TMP_Dropdown _languagesDropdown;
 		[SerializeField] private Button _backButton;
@@ -51,6 +52,7 @@ namespace Game.Core
 			_soundVolumeSlider.onValueChanged.AddListener(SetSoundVolume);
 			_musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
 			_fullscreenToggle.onValueChanged.AddListener(ToggleFullscreen);
+			_assistToggle.onValueChanged.AddListener(ToggleAssistMode);
 			{
 				var options = new List<TMP_Dropdown.OptionData>();
 				int selected = 0;
@@ -80,6 +82,7 @@ namespace Game.Core
 			_soundVolumeSlider.value = GameManager.Game.State.PlayerSettings.SoundVolume;
 			_musicVolumeSlider.value = GameManager.Game.State.PlayerSettings.MusicVolume;
 			_fullscreenToggle.isOn = GameManager.Game.State.PlayerSettings.FullScreen;
+			_assistToggle.isOn = GameManager.Game.State.PlayerSettings.AssistMode;
 
 			// We have a button in the browser to do this in WebGL.
 			if (Utils.IsWebGL())
@@ -134,6 +137,12 @@ namespace Game.Core
 		{
 			GameManager.Game.State.PlayerSettings.FullScreen = value;
 			Screen.fullScreen = value;
+			Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
+		}
+
+		private void ToggleAssistMode(bool value)
+		{
+			GameManager.Game.State.PlayerSettings.AssistMode = value;
 			Save.SavePlayerSettings(GameManager.Game.State.PlayerSettings);
 		}
 

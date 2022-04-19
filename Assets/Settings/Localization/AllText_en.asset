@@ -138,5 +138,9 @@ MonoBehaviour:
     m_Localized: Quit
     m_Metadata:
       m_Items: []
+  - m_Id: 23477248098394112
+    m_Localized: Assist Mode
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -46,7 +46,7 @@ namespace Game.Core
 			}
 		}
 
-		public abstract void DealDamage(int damageDone, Vector3 damageSourceDirection);
+		public abstract void DealDamage(int damageDone, Vector3 damageSourceDirection, bool screenshake = true);
 
 		public int getMaxHP()
 		{

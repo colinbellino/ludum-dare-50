@@ -38,7 +38,7 @@ public class PlayerHealth : Game.Core.Health
 			if (timer >= healthLossCooldown)
 			{
 				timer = 0f;
-				setCurrentHP(currentHP - healthLossPerSecond);
+				DealDamage(healthLossPerSecond, Vector3.zero, false);
 			}
 		}
 
@@ -51,7 +51,12 @@ public class PlayerHealth : Game.Core.Health
 		}
 	}
 
-	public override void DealDamage(int damageDone, Vector3 damageSourceDirection) {
+	public override void DealDamage(int damageDone, Vector3 damageSourceDirection, bool screenshake = true) {
+		// Player can't take damage in assist mode
+		if (GameManager.Game.State.PlayerSettings.AssistMode) {
+			return;
+		}
+
 		if (invincibilityCounter <= 0) {
 			if (currentHP - damageDone < 0) {
 				setCurrentHP(0);
@@ -61,7 +66,8 @@ public class PlayerHealth : Game.Core.Health
 
 			if (currentHP > 0) {
 				AudioHelpers.PlayOneShot(GameManager.Game.Config.PlayerDamage);
-				_ = Utils.Shake(0.3f, 100);
+				if (screenshake)
+					_ = Utils.Shake(0.3f, 100);
 
 				if (damageSourceDirection.magnitude > 0) {
 					knockbackDirection = (transform.position - damageSourceDirection).normalized;

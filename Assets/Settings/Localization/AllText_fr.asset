@@ -141,5 +141,9 @@ MonoBehaviour:
     m_Localized: Quitter
     m_Metadata:
       m_Items: []
+  - m_Id: 23477248098394112
+    m_Localized: "Mode assist\xE9"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

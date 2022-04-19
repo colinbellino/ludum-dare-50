@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18029022411055111
-    m_Key: UI/Fullscreen
+    m_Key: UI/Cheat
     m_Metadata:
       m_Items: []
   - m_Id: 18029022411055112
@@ -125,6 +125,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 18029022411055131
     m_Key: UI/Inputs/Keyboard/ArrowDown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23477248098394112
+    m_Key: UI/AssistMode
     m_Metadata:
       m_Items: []
   m_Metadata:

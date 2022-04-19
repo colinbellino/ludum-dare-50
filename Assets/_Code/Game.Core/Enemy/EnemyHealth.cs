@@ -34,7 +34,7 @@ public class EnemyHealth : Game.Core.Health
 		enterStunState();
    }
 
-	public override void DealDamage(int damageDone, Vector3 damageSourceDirection) {
+	public override void DealDamage(int damageDone, Vector3 damageSourceDirection, bool screenshake = true) {
 		setCurrentHP(currentHP - damageDone);
 		AudioHelpers.PlayOneShot(GameManager.Game.Config.EnemyDamage);
 

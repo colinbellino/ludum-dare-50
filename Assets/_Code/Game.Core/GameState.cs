@@ -49,6 +49,7 @@ namespace Game.Core
 		public int ResolutionRefreshRate;
 
 		public bool Screenshake;
+		public bool AssistMode;
 	}
 
 	[Serializable]

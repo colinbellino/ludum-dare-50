@@ -1,5 +1,7 @@
 # Ludum Dare 50
 
+![screenshot](https://img.itch.zone/aW1hZ2UvMTQ1MzExMS84NTkwNjEzLnBuZw==/original/kHsuzD.png)
+
 Note: this game was made in 72 hours by a team of 3 people for Ludum Dare 49.
 
 We are proud to present you Feast & Famine after just 72 hours of blood, sweat and pixels.
@@ -24,7 +26,3 @@ Search the rooms of your manor and deal with any enemies you come across. Defeat
 | Shoot   | Left click         | Right trigger/button |
 | Dash    | Right click        | Left trigger/button  |
 | Pause   | Escape             | Start button         |
-
-## Screenshots:
-
-TODO
